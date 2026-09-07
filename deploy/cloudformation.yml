@@ -239,10 +239,13 @@ Resources:
             - { SourceVolume: pgdata, ContainerPath: /var/lib/postgresql/data }
           HealthCheck:
             Command: ["CMD-SHELL", "pg_isready -U app -d market"]
-            Interval: 10
+            # ECS caps retries at 10. First boot has to run initdb against EFS,
+            # which is slower than local disk, so the grace period carries that
+            # rather than the retry count.
+            Interval: 15
             Timeout: 5
-            Retries: 12
-            StartPeriod: 60
+            Retries: 10
+            StartPeriod: 120
           LogConfiguration:
             LogDriver: awslogs
             Options:
