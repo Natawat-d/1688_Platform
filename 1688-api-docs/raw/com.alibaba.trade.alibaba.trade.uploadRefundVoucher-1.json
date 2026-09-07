@@ -1,0 +1,148 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.uploadRefundVoucher",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.uploadRefundVoucher-1",
+ "displayName": "上传退款退货凭证",
+ "billType": null,
+ "description": "上传退款退货凭证，用于退款退货申请，文件流转byte数组推荐使用org.apache.commons.io.IOUtils#toByteArray(java.io.InputStream)",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "imageData",
+   "type": "byte[]",
+   "required": true,
+   "description": "凭证图片数据。小于1M，jpg格式。",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OrderRefundUploadVoucherResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OrderRefundUploadVoucherResult",
+   "fields": [
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.OrderRefundUploadVoucherResult",
+     "required": true,
+     "description": "成功结果",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.OrderRefundUploadVoucherResult",
+     "fields": [
+      {
+       "name": "imageDomain",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "图片域名",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "imageRelativeUrl",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "图片相对路径",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "4000",
+   "desc": "",
+   "howToFix": "调用者错误：未正确传入imageData参数；\n服务方错误：网络延迟、内部服务异常"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "通过表单提交示例",
+   "sample": " &lt;!--参数：appkeyValue, signatureValue,tokenValue--&gt;\n &lt;!--imageData部分不参与签名--&gt;\n\n&lt;form name=&quot;test&quot; action=&quot;https://gw.open.1688.com/openapi/param2/1/com.alibaba.trade/alibaba.trade.uploadRefundVoucher/appkeyValue?access_token=tokenValue&amp;_aop_signature=signatureValue&quot;  method=&quot;post&quot; enctype =&quot;multipart/form-data&quot;&gt;\n    &lt;input type=&quot;file&quot; name=&quot;imageData&quot;&gt;\n    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;\n&lt;/form&gt;",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

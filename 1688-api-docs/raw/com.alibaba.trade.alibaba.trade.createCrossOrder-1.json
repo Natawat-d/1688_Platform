@@ -1,0 +1,1095 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.createCrossOrder",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.createCrossOrder-1",
+ "displayName": "跨境订单创建",
+ "billType": 0,
+ "description": "跨境专用订单创建。创建订单最多允许50个SKU，且必须为同一个供应商的商品。多个供应商或多于50个SKU的情况，请自行拆单后提交。一些特殊情况会一次创建多个订单并返回多个订单号。\n支持大市场及分销两个场景。根据当前授权用户,区分主子账号下单",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "flow",
+   "type": "String",
+   "required": true,
+   "description": "general（创建批发订单），fenxiao（创建分销订单）,saleproxy流程将校验分销关系,paired(天天特卖),repurchase(复购合约下单),boutiquefenxiao(精选货源分销价下单，采购量1个使用包邮)， boutiquepifa(精选货源批发价下单，采购量大于2使用).不同的下单flow渠道，可能导致价格和买保服务差异。",
+   "exampleValue": "general",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": false,
+   "description": "买家留言",
+   "exampleValue": "留言",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "isvBizType",
+   "type": "String",
+   "required": false,
+   "description": "开放平台业务码,默认为cross，代表对接的1688业务方。cross(跨境业务),cross_daigou（跨境代购业务）cross_distribution（海外分销业务）；可以联系你的业务小二确定，本字段不影响下单",
+   "exampleValue": "cross",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "addressParam",
+   "type": "message:alibaba.trade.fast.address",
+   "required": true,
+   "description": "收货地址信息",
+   "exampleValue": "{&quot;address&quot;:&quot;网商路699号&quot;,&quot;phone&quot;: &quot;0517-88990077&quot;,&quot;mobile&quot;: &quot;15251667788&quot;,&quot;fullName&quot;: &quot;张三&quot;,&quot;postCode&quot;: &quot;000000&quot;,&quot;areaText&quot;: &quot;滨江区&quot;,&quot;townText&quot;: &quot;&quot;,&quot;cityText&quot;: &quot;杭州市&quot;,&quot;provinceText&quot;: &quot;浙江省&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.fast.address",
+   "fields": [
+    {
+     "name": "addressId",
+     "type": "Long",
+     "required": true,
+     "description": "收货地址id",
+     "exampleValue": "1234",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fullName",
+     "type": "String",
+     "required": true,
+     "description": "收货人姓名",
+     "exampleValue": "张三",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobile",
+     "type": "String",
+     "required": true,
+     "description": "手机",
+     "exampleValue": "15251667788",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "phone",
+     "type": "String",
+     "required": true,
+     "description": "电话",
+     "exampleValue": "0517-88990077  注意: 只能填电话号码,不能加其他中文",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "postCode",
+     "type": "String",
+     "required": true,
+     "description": "邮编",
+     "exampleValue": "000000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cityText",
+     "type": "String",
+     "required": true,
+     "description": "市文本",
+     "exampleValue": "杭州市",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "provinceText",
+     "type": "String",
+     "required": true,
+     "description": "省份文本",
+     "exampleValue": "浙江省",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "areaText",
+     "type": "String",
+     "required": true,
+     "description": "区文本",
+     "exampleValue": "滨江区",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "townText",
+     "type": "String",
+     "required": true,
+     "description": "镇文本",
+     "exampleValue": "长河镇",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "address",
+     "type": "String",
+     "required": true,
+     "description": "街道地址",
+     "exampleValue": "网商路699号",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "districtCode",
+     "type": "String",
+     "required": true,
+     "description": "地址编码",
+     "exampleValue": "310107",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "addressCode",
+     "type": "String",
+     "required": true,
+     "description": "地址编码",
+     "exampleValue": "地址码",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "cargoParamList",
+   "type": "message:alibaba.trade.fast.cargo[]",
+   "required": true,
+   "description": "商品信息",
+   "exampleValue": "[{&quot;specId&quot;: &quot;b266e0726506185beaf205cbae88530d&quot;,&quot;quantity&quot;: 5,&quot;offerId&quot;: 554456348334},{&quot;specId&quot;: &quot;2ba3d63866a71fbae83909d9b4814f01&quot;,&quot;quantity&quot;: 6,&quot;offerId&quot;: 554456348334}]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.fast.cargo[]",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "Long",
+     "required": true,
+     "description": "商品对应的offer id",
+     "exampleValue": "554456348334",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "specId",
+     "type": "String",
+     "required": true,
+     "description": "商品规格id",
+     "exampleValue": "b266e0726506185beaf205cbae88530d",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "quantity",
+     "type": "Double",
+     "required": true,
+     "description": "商品数量(计算金额用)",
+     "exampleValue": "5",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "openOfferId",
+     "type": "String",
+     "required": false,
+     "description": "加密offerId，当搜索返回只有openOfferId时，需采用openOfferId替代offerId下单",
+     "exampleValue": "Wcv2w970KoL1BCpJGQp3vwKvcBThOPlpHnUtkK3T0n4=",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "String",
+     "required": false,
+     "description": "外部下游会员ID",
+     "exampleValue": "98928912-23",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "invoiceParam",
+   "type": "message:alibaba.trade.fast.invoice",
+   "required": false,
+   "description": "发票信息",
+   "exampleValue": "{&quot;invoiceType&quot;:0,&quot;cityText&quot;: &quot;杭州市&quot;,&quot;provinceText&quot;: &quot;浙江省&quot;,&quot;address&quot;: &quot;网商路699号&quot;,&quot;phone&quot;: &quot;0517-88990077&quot;,&quot;mobile&quot;: &quot;15251667788&quot;,&quot;fullName&quot;: &quot;张五&quot;,&quot;postCode&quot;: &quot;000000&quot;,&quot;areaText&quot;: &quot;滨江区&quot;,&quot;companyName&quot;: &quot;测试公司&quot;,&quot;taxpayerIdentifier&quot;: &quot;123455&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.fast.invoice",
+   "fields": [
+    {
+     "name": "invoiceType",
+     "type": "Integer",
+     "required": true,
+     "description": "发票类型\n0：普通发票，1:增值税发票",
+     "exampleValue": "0",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "provinceText",
+     "type": "String",
+     "required": true,
+     "description": "省份文本",
+     "exampleValue": "浙江省",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cityText",
+     "type": "String",
+     "required": true,
+     "description": "城市文本",
+     "exampleValue": "杭州市",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "areaText",
+     "type": "String",
+     "required": true,
+     "description": "地区文本",
+     "exampleValue": "滨江区",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "townText",
+     "type": "String",
+     "required": true,
+     "description": "镇文本",
+     "exampleValue": "长河镇",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "postCode",
+     "type": "String",
+     "required": true,
+     "description": "邮编",
+     "exampleValue": "333333",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "address",
+     "type": "String",
+     "required": true,
+     "description": "街道",
+     "exampleValue": "网商路699号",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fullName",
+     "type": "String",
+     "required": true,
+     "description": "收票人姓名",
+     "exampleValue": "张三",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "phone",
+     "type": "String",
+     "required": true,
+     "description": "电话",
+     "exampleValue": "0517-88990077",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobile",
+     "type": "String",
+     "required": true,
+     "description": "手机",
+     "exampleValue": "15251667788",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyName",
+     "type": "String",
+     "required": true,
+     "description": "购货公司名（发票抬头）",
+     "exampleValue": "测试公司",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "taxpayerIdentifier",
+     "type": "String",
+     "required": true,
+     "description": "纳税识别码",
+     "exampleValue": "12345",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bankAndAccount",
+     "type": "String",
+     "required": true,
+     "description": "开户行及帐号",
+     "exampleValue": "网商银行",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "localInvoiceId",
+     "type": "String",
+     "required": true,
+     "description": "增值税本地发票号",
+     "exampleValue": "123123123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "tradeType",
+   "type": "String",
+   "required": false,
+   "description": "由于不同的商品支持的交易方式不同，没有一种交易方式是全局通用的，所以当前下单可使用的交易方式必须通过下单预览接口的tradeModeNameList获取。交易方式类型说明：assureTrade（交易4.0通用担保交易），alipay（大市场通用的支付宝担保交易（目前在做切流，后续会下掉）），period（普通账期交易）, assure（大买家企业采购询报价下单时需要使用的担保交易流程）, creditBuy（诚E赊），bank（银行转账），631staged（631分阶段付款），37staged（37分阶段）；此字段不传则系统默认会选取一个可用的交易方式下单，如果开通了诚E赊默认是creditBuy（诚E赊），未开通诚E赊默认使用的方式是支付宝担宝交易。\t",
+   "exampleValue": "assureTrade",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "shopPromotionId",
+   "type": "String",
+   "required": false,
+   "description": "店铺优惠ID，通过“创建订单前预览数据接口”获得。为空默认使用默认优惠",
+   "exampleValue": "itemCoupon-5600812521_31032085284-398517001570",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "anonymousBuyer",
+   "type": "Boolean",
+   "required": false,
+   "description": "是否匿名下单",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "fenxiaoChannel",
+   "type": "String",
+   "required": false,
+   "description": "回流订单下游平台 淘宝-thyny，天猫-tm，淘特-taote，阿里巴巴C2M-c2m，京东-jingdong，拼多多-pinduoduo，微信-weixin，跨境-kuajing，快手-kuaishou，有赞-youzan，抖音-douyin，寺库-siku，美团团好货-meituan，小红书-xiaohongshu，当当-dangdang，苏宁-suning，大V店-davdian，行云-xingyun，蜜芽-miya，菠萝派商城-boluo，快团团-kuaituantuan，其他-other",
+   "exampleValue": "douyin",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "inventoryMode",
+   "type": "String",
+   "required": false,
+   "description": "库存模式，JIT（jit模式）或 NORMAL（仓发模式）,目前只提供给AE使用",
+   "exampleValue": "JIT",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "outOrderId",
+   "type": "String",
+   "required": false,
+   "description": "外部订单号",
+   "exampleValue": "988129883123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pickupService",
+   "type": "String",
+   "required": false,
+   "description": "上门揽收,目前AE供货可用，其他场景暂不开通.y或n,默认为n",
+   "exampleValue": "n",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "warehouseCode",
+   "type": "String",
+   "required": false,
+   "description": "上门揽仓库code",
+   "exampleValue": "any",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "preSelectPayChannel",
+   "type": "String",
+   "required": false,
+   "description": "预选的支付渠道，用作财务订单分流。订单信息查询接口返回：result.exAttributes.preSelectPayChannel ，该值是创建订单接口时传入的预选的支付渠道标记。",
+   "exampleValue": "alipay",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "smallProcurement",
+   "type": "String",
+   "required": false,
+   "description": "是否小额采购，目前AE供货可用，取值y/n，默认为n",
+   "exampleValue": "y",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "useRedEnvelope",
+   "type": "String",
+   "required": false,
+   "description": "使用红包：y使用，n不使用。默认使用红包",
+   "exampleValue": "n",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "dropshipping",
+   "type": "String",
+   "required": false,
+   "description": "是否转运订单，取值y/n，默认为n",
+   "exampleValue": "y",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "addedService",
+   "type": "String",
+   "required": false,
+   "description": "增值服务 toB、toC",
+   "exampleValue": "toB",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "crossBorderLogisticsSolutionId",
+   "type": "String",
+   "required": false,
+   "description": "用户选择的官方物流跨境解决方案sourceId",
+   "exampleValue": "GLOBAL_CAINIAO_VN_TRANSIT_LAND",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "useCrossBorderLogisticsSolution",
+   "type": "Boolean",
+   "required": false,
+   "description": "是否使用跨境物流解决方案预览，默认为false，当海外地址时，参数不生效。当为港澳台地址时，参数生效\t",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extendParam",
+   "type": "message:com.alibaba.ocean.openplatform.biz.trade.param.ExtendParam",
+   "required": false,
+   "description": "下单扩展信息",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.ocean.openplatform.biz.trade.param.ExtendParam",
+   "fields": [
+    {
+     "name": "crossBorderLogisticsSelfPickupAddress",
+     "type": "message:com.alibaba.ocean.openplatform.biz.trade.param.CrossBorderLogisticsSelfPickupAddress",
+     "required": true,
+     "description": "跨境集运仓自提点地址和联系人",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.trade.param.CrossBorderLogisticsSelfPickupAddress",
+     "fields": [
+      {
+       "name": "addressText",
+       "type": "String",
+       "required": true,
+       "description": "集运仓自提地址，不用填写省市区，省市区跟默认解决方案集运仓一致",
+       "exampleValue": "网商路699号",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobile",
+       "type": "String",
+       "required": true,
+       "description": "集运仓自提手机号",
+       "exampleValue": "18792983782",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "contractName",
+       "type": "String",
+       "required": true,
+       "description": "集运仓自提联系人",
+       "exampleValue": "无名",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "extPairList",
+     "type": "message:com.alibaba.ocean.openplatform.biz.trade.common.model.ExtrPair[]",
+     "required": false,
+     "description": "扩展对象列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.trade.common.model.ExtrPair[]",
+     "fields": [
+      {
+       "name": "key",
+       "type": "String",
+       "required": true,
+       "description": "键",
+       "exampleValue": "doorPickup",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "值",
+       "exampleValue": "{       &quot;serviceCode&quot;: &quot;mkd&quot;,       &quot;price&quot;: 1200, // 人民币，分     }",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "desc",
+       "type": "String",
+       "required": true,
+       "description": "描述",
+       "exampleValue": "是否使用上门揽",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "offerIsvCargoFromList",
+     "type": "message:alibaba.ocean.openplatform.common.KeyValuePair[]",
+     "required": false,
+     "description": "轻应用闭环下单，offer来源信息列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.common.KeyValuePair[]",
+     "fields": [
+      {
+       "name": "key",
+       "type": "java.lang.String",
+       "required": true,
+       "description": " offerId",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "offer来源信息",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "selectedTradeServiceList",
+     "type": "message:com.alibaba.ocean.openplatform.biz.trade.param.TradeService[]",
+     "required": false,
+     "description": "交易服务参数 ",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.trade.param.TradeService[]",
+     "fields": [
+      {
+       "name": "code",
+       "type": "String",
+       "required": true,
+       "description": "交易服务code",
+       "exampleValue": "vas",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sourceId",
+       "type": "String",
+       "required": true,
+       "description": "交易服务sourceId",
+       "exampleValue": "3C",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "useOfficialSolution",
+   "type": "Boolean",
+   "required": false,
+   "description": "配送方式使用官方物流提货",
+   "exampleValue": "false",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "useOfficialSolutionModelList",
+   "type": "message:com.alibaba.ocean.openplatform.biz.trade.common.model.UseOfficialSolutionModel[]",
+   "required": false,
+   "description": "官方物流提货物流解决方案（useOfficialSolution为true时必填）",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.ocean.openplatform.biz.trade.common.model.UseOfficialSolutionModel[]",
+   "fields": [
+    {
+     "name": "orderGroup",
+     "type": "String",
+     "required": true,
+     "description": "订单分组",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "useOfficialSolutionCode",
+     "type": "String",
+     "required": true,
+     "description": "官方物流提货物流解决方案编码",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "fromAgent",
+   "type": "String",
+   "required": false,
+   "description": "外部agent",
+   "exampleValue": "qoderwork",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.trade.cross.result",
+   "required": true,
+   "description": "创建订单结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.cross.result",
+   "fields": [
+    {
+     "name": "totalSuccessAmount",
+     "type": "Long",
+     "required": true,
+     "description": "订单总金额（单位分），一次创建多个订单时，该字段为空",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "String",
+     "required": true,
+     "description": "订单ID，一次创建多个订单时，该字段为空",
+     "exampleValue": "111111111",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "accountPeriod",
+     "type": "message:alibaba.trade.cross.period",
+     "required": true,
+     "description": "账期信息，非账期支付订单返回空",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.trade.cross.period",
+     "fields": [
+      {
+       "name": "tapType",
+       "type": "Integer",
+       "required": true,
+       "description": "账期的类型,1：一个月指定日期结算一次，3：两个月指定日期结算一次，6：三个月指定日期结算一次，5：按收货时间和账期日期结算",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tapDate",
+       "type": "Integer",
+       "required": true,
+       "description": "根据账期类型不同而不同，按月结算类型此值代表具体某日，按收货时间结算时此值代表结算时间周期",
+       "exampleValue": "12",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tapOverdue",
+       "type": "Integer",
+       "required": true,
+       "description": "逾期次数",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "failedOfferList",
+     "type": "message:alibaba.trade.fast.offer[]",
+     "required": true,
+     "description": "失败商品信息",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.trade.fast.offer[]",
+     "fields": [
+      {
+       "name": "offerId",
+       "type": "String",
+       "required": true,
+       "description": "下单失败的商品",
+       "exampleValue": "554456348334",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "specId",
+       "type": "String",
+       "required": true,
+       "description": "下单失败商品的规格ID",
+       "exampleValue": "b266e0726506185beaf205cbae88530d",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "errorCode",
+       "type": "String",
+       "required": true,
+       "description": "下单失败的错误编码",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "errorMessage",
+       "type": "String",
+       "required": true,
+       "description": "下单失败的错误描述",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "postFee",
+     "type": "Long",
+     "required": true,
+     "description": "运费，单位：分，一次创建多个订单时，该字段为空",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderList",
+     "type": "message:alibaba.tradeResult.BizSimpleOrder[]",
+     "required": true,
+     "description": "一次创建多个订单",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.tradeResult.BizSimpleOrder[]",
+     "fields": [
+      {
+       "name": "postFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "运费",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderAmmount",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "订单实付款金额，单位为分",
+       "exampleValue": "100",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "message",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "描述信息",
+       "exampleValue": "null",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "resultCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "返回码",
+       "exampleValue": "200",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "success",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否成功",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "订单号",
+       "exampleValue": "123124124",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payChannel",
+       "type": "String",
+       "required": true,
+       "description": "支付渠道",
+       "exampleValue": "shegou",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "code",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "400",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "错误\b信息",
+   "exampleValue": "AddressId invalid:AddressId invalid",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "not support tradeType:【XXXX】",
+   "desc": "不支持的交易类型",
+   "howToFix": "当前交易可支持的交易类型，需要通过预览接口的tradeModeNameList字段获取"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "支付宝方式下单返回示例",
+   "sample": "{&quot;totalSuccessAmount&quot;:156800,&quot;orderId&quot;:&quot;87407346014789305&quot;,&quot;success&quot;:false}",
+   "type": null
+  },
+  {
+   "name": "账期支付下单返回示例",
+   "sample": "{&quot;totalSuccessAmount&quot;:156800,&quot;orderId&quot;:&quot;87407346015789305&quot;,&quot;success&quot;:false,&quot;accountPeriod&quot;:{&quot;tapType&quot;:5,&quot;tapDate&quot;:360,&quot;tapOverdue&quot;:1}}",
+   "type": null
+  },
+  {
+   "name": "收货地址说明",
+   "sample": "1、使用保存的收货地址传参示例：{&quot;addressId&quot;:593861699}，其中addressId是调用“买家获取保存的收货地址信息列表”接口获取；\n2、使用地址编码传参示例：{&quot;address&quot;:&quot;桃浦镇 金达路888号贸易8楼&quot;,&quot;phone&quot;: &quot;0517-88990077&quot;,&quot;mobile&quot;: &quot;15251667788&quot;,&quot;fullName&quot;: &quot;张三&quot;,&quot;postCode&quot;: &quot;000000&quot;,&quot;districtCode&quot;: &quot;310107&quot;}，其中districtCode需要调用“根据地址解析地区码”接口获取；\n3、直接使用文本地址示例：{&quot;address&quot;:&quot;网商路699号&quot;,&quot;phone&quot;: &quot;0517-88990077&quot;,&quot;mobile&quot;: &quot;15251667788&quot;,&quot;fullName&quot;: &quot;张三&quot;,&quot;postCode&quot;: &quot;000000&quot;,&quot;areaText&quot;: &quot;滨江区&quot;,&quot;townText&quot;: &quot;&quot;,&quot;cityText&quot;: &quot;杭州市&quot;,&quot;provinceText&quot;: &quot;浙江省&quot;}，省市区要传文本；\n4、优先级说明，如果同时传入以上参数，系统按从1至3的优先级获取地址，满足1的条件下不会使用上示2中的参数，满足2的条件下不会使用上示3中的参数；",
+   "type": null
+  },
+  {
+   "name": "同时创建多个订单的返回值",
+   "sample": "{\n    &quot;result&quot;:{\n        &quot;success&quot;:true,\n        &quot;orderList&quot;:[\n            {\n                &quot;postFee&quot;:48000,\n                &quot;orderAmmount&quot;:4848000,\n                &quot;discount&quot;:0,\n                &quot;sumPaymentNoCarriageFromClient&quot;:4800000,\n                &quot;mergePay&quot;:false,\n                &quot;orderId&quot;:&quot;105581756010628640&quot;,\n                &quot;chooseFreeFreight&quot;:false\n            },\n            {\n                &quot;postFee&quot;:50000,\n                &quot;orderAmmount&quot;:5050000,\n                &quot;discount&quot;:0,\n                &quot;sumPaymentNoCarriageFromClient&quot;:5000000,\n                &quot;mergePay&quot;:false,\n                &quot;orderId&quot;:&quot;105637283010628640&quot;,\n                &quot;chooseFreeFreight&quot;:false\n            }\n        ]\n    },\n    &quot;success&quot;:true\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

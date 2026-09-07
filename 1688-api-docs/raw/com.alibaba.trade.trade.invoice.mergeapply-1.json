@@ -1,0 +1,321 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.invoice.mergeapply",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.invoice.mergeapply-1",
+ "displayName": "提交合并开票",
+ "billType": null,
+ "description": "先调用合并开票咨询trade.invoice.consult，获取分组结果后，调用合并开票",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "reqDTO",
+   "type": "message:alibaba.china.app.invoice.common.model.req.MergeInvoiceApplyOpenReqDTO",
+   "required": true,
+   "description": "入参",
+   "exampleValue": "入参对象",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.app.invoice.common.model.req.MergeInvoiceApplyOpenReqDTO",
+   "fields": [
+    {
+     "name": "invoiceType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "发票类型",
+     "exampleValue": "1:普票，2：专票",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderIdGroupsJsonList",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合并开票分组列表（每个分组对应一张票),每个分组逗号分隔的字符串",
+     "exampleValue": "[&quot;123,456,789&quot;,&quot;101,202&quot;]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "purchaserInvoiceTitle",
+     "type": "message:alibaba.china.app.invoice.common.model.invoiceTitle.InvoiceTitleModel",
+     "required": true,
+     "description": "购方抬头对象",
+     "exampleValue": "对象",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.app.invoice.common.model.invoiceTitle.InvoiceTitleModel",
+     "fields": [
+      {
+       "name": "bankAccountId",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "银行账户",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "bankName",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "开户银行名称",
+       "exampleValue": "xx银行",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "email",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "邮箱",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isDefault",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "是否默认抬头",
+       "exampleValue": "Y：是/N：否",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "企业联系人",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "receiverPhone",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "收件人电话",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "registerAddress",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "企业注册地址",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "registerPhone",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "企业电话",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "taxpayerIdentify",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "税号",
+       "exampleValue": "专票必填",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "title",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "抬头",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "titleType",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "发票类型",
+       "exampleValue": "0：个人和社会组织，1：企业",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.app.invoice.common.model.SingleResultDTO",
+   "required": true,
+   "description": "出参",
+   "exampleValue": "出参对象",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.app.invoice.common.model.SingleResultDTO",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "英文字母下划线分割",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorDesc",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "中文描述",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isIdempotent",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "幂等",
+     "exampleValue": "false/true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isRetry",
+     "type": "boolean",
+     "required": true,
+     "description": "是否支持重试",
+     "exampleValue": "false/true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.china.app.invoice.common.model.res.MergeInvoiceApplyOpenResDTO",
+     "required": true,
+     "description": "对象",
+     "exampleValue": "对象",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.app.invoice.common.model.res.MergeInvoiceApplyOpenResDTO",
+     "fields": [
+      {
+       "name": "failReason",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "业务失败原因",
+       "exampleValue": "中文描述",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "idempotent",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否幂等",
+       "exampleValue": "false/true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "result",
+       "type": "boolean",
+       "required": true,
+       "description": "业务调用是否成功",
+       "exampleValue": "false/true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "服务是否成功",
+     "exampleValue": "false/true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;reqDTO&quot;: {\n    &quot;invoiceType&quot;: &quot;1:普票，2：专票&quot;,\n    &quot;loginUserId&quot;: 123,\n    &quot;orderIdGroupsJsonList&quot;: &quot;[\\&quot;123,456,789\\&quot;,\\&quot;101,202\\&quot;]&quot;,\n    &quot;purchaserInvoiceTitle&quot;: {\n      &quot;bankAccountId&quot;: &quot;xxx&quot;,\n      &quot;bankName&quot;: &quot;xx银行&quot;,\n      &quot;email&quot;: &quot;xxx&quot;,\n      &quot;isDefault&quot;: &quot;Y：是/N：否&quot;,\n      &quot;name&quot;: &quot;xxx&quot;,\n      &quot;receiverPhone&quot;: &quot;xx&quot;,\n      &quot;registerAddress&quot;: &quot;xxx&quot;,\n      &quot;registerPhone&quot;: &quot;xxx&quot;,\n      &quot;taxpayerIdentify&quot;: &quot;xx&quot;,\n      &quot;title&quot;: &quot;xxx&quot;,\n      &quot;titleType&quot;: 123\n    }\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;errorCode&quot;: &quot;英文字母下划线分割&quot;,\n    &quot;errorDesc&quot;: &quot;中文描述&quot;,\n    &quot;isIdempotent&quot;: true,\n    &quot;isRetry&quot;: true,\n    &quot;result&quot;: {\n      &quot;failReason&quot;: &quot;中文描述&quot;,\n      &quot;idempotent&quot;: true,\n      &quot;result&quot;: true\n    },\n    &quot;success&quot;: true\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "发票"
+}

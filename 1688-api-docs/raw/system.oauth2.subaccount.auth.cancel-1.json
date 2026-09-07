@@ -1,0 +1,120 @@
+{
+ "namespace": "system.oauth2",
+ "name": "subaccount.auth.cancel",
+ "version": 1,
+ "oceanApiId": "system.oauth2:subaccount.auth.cancel-1",
+ "displayName": "批量取消子账号授权",
+ "billType": null,
+ "description": "对子账号的授权批量取消",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "subUserIdentityList",
+   "type": "java.lang.String[]",
+   "required": true,
+   "description": "子账号id列表",
+   "exampleValue": "a:b,a:c",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.auth.dto.AuthResultModelBoolean",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "xx",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.auth.dto.AuthResultModelBoolean",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "param_error",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMessage",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "invalid param",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "returnValue",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求示例",
+   "sample": "https://gw.open.1688.com/openapi/param2/1/system.oauth2/subaccount.auth.cancel/YOUR_APPKEY?access_token=xx&subUserIdentityList=a,b",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

@@ -1,0 +1,176 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.contract.refund",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.contract.refund-1",
+ "displayName": "88生意通合同退款申请",
+ "billType": null,
+ "description": "88生意通合同退款申请",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractRefundApplyApiRequest",
+   "required": true,
+   "description": "退款申请参数",
+   "exampleValue": "{   &quot;draftNo&quot;: &quot;DRAFT20251230001&quot;,   &quot;buyerId&quot;: &quot;buyer123456&quot;,   &quot;amount&quot;: 100000,   &quot;requestNo&quot;: &quot;REQ20251230001&quot;,   &quot;payOrderNo&quot;: &quot;PAY20251230001&quot;,   &quot;refundReason&quot;: &quot;商品质量问题，申请退款&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractRefundApplyApiRequest",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合同号",
+     "exampleValue": "88SYT20251201169011",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "amount",
+     "type": "BigDecimal",
+     "required": true,
+     "description": "退款金额，单位元，币种人民币 CNY",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "requestNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "退款请求幂等号，标识唯一一次请求",
+     "exampleValue": "requestNo123abc",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payOrderNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "支付单号，来自支付接口",
+     "exampleValue": "8899x",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundReason",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "退款申请原因",
+     "exampleValue": "已经线下沟通退款10元",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractRefundApplyApiResponse",
+   "required": true,
+   "description": "响应",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;code&quot;: &quot;200&quot;,   &quot;message&quot;: &quot;退款申请成功&quot;,   &quot;refundOrderNo&quot;: &quot;REFUND20251230001&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractRefundApplyApiResponse",
+   "fields": [
+    {
+     "name": "refundOrderNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "退款单号",
+     "exampleValue": "889900",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "调用是否成功，true 成功，false 失败",
+     "exampleValue": " true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "String",
+     "required": true,
+     "description": " 调用描述",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "String",
+     "required": true,
+     "description": "调用错误码",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "调用链路 ID，排查问题",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

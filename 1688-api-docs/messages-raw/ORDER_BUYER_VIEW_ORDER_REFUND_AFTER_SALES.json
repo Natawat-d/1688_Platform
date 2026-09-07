@@ -1,0 +1,94 @@
+{
+ "topicId": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+ "topicName": "BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+ "topicDisplayName": "1688订单售后退款（买家视角）",
+ "topicGroupName": "ORDER",
+ "topicGroupDisplayName": "订单消息",
+ "desc": "1688订单售后退款，交易已完成，仅买家能收到退款消息",
+ "messageDocs": [
+  {
+   "name": "orderId",
+   "desc": "订单ID",
+   "type": "Number",
+   "sample": "161292821695900310",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "currentStatus",
+   "desc": "当前订单状态",
+   "type": "String",
+   "sample": "waitbuyersend",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2018-05-30 19:37:28",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerMemberId",
+   "desc": "买家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-346900403",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "refundAction",
+   "desc": "退款操作，具体状态为：BUYER_APPLY_REFUND(买家申请退款)、BUYER_RECEIVE_CLOSE(买家确认收货关闭)、SELLER_SEND_GOODS_CLOSE(卖家发货关闭)、BUYER_CANCEL_REFUND_CLOSE(买家撤销退款申请关闭)、BUYER_UPLOAD_BILL(买家上传凭证)、SELLER_UPLOAD_BILL(卖家上传凭证)、SELLER_REJECT_REFUND(卖家拒绝退款)、SELLER_AGREE_REFUND(卖家同意退款)、SELLER_RECEIVE_GOODS(卖家确认收货)、BUYER_SEND_GOODS(买家声明发货)、BUYER_MODIFY_REFUND_PROTOCOL(买家修改退款协议)、BUYER_APPLY_SUPPORT(买家申请客服介入)、SELLER_APPLY_SUPPORT(卖家申请客服介入)、SYSTEM_AGREE_REFUND_PROTOCOL(系统超时同意退款协议)、SYSTEM_AGREE_REFUND(系统超时同意退款，即退款成功)、SYSTEM_SEND_GOODS(系统超时退货，主交易流程的退货)、SYSTEM_MODIFY_REFUND_PROTOCOL(系统超时修改协议)、SYSTEM_NOTIFY_APPLY_SUPPORT(系统通知申请客服介入)、SELLER_AGREE_REFUND_PROCOTOL(卖家同意退款协议)、 SELLER_REJECT_REFUND_PROCOTOL(卖家拒绝退款协议)、 CRM_APPLY_TIMEOUT_CLOSE(申请客服介入、超时关闭、目前仅售后业务在用)、CRM_APPLY_SUPPORT(CRM申请介入)、 CRM_INTERVENE_TASK(CRM介入处理)、 CRM_DISMISS_TASK(CRM撤销工单)、 CRM_FINISH_TASK(CRM完结工单)、BUYER_STEP_PAY_ORDER_CLOSE(买家支付，退款关闭，分阶段订单情况)、BUYER_STEP_CONFIRM_CLOSE(买家确认，退款关闭，分阶段订单情况)、BUYER_CLOSE_TRADE_CLOSE(买家终止交易，退款关闭，分阶段订单情况)、SELLER_CONFIRM_ORDER_CLOSE(卖家确认，退款关闭，分阶段订单情况)、SELLER_STEP_PUSH_CLOSE(卖家推进，退款关闭，分阶段订单情况)",
+   "type": "String",
+   "sample": "SELLER_AGREE_REFUND_PROCOTOL",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "operator",
+   "desc": "操作的发起人，buyer(买家)，seller(卖家)，system(系统)",
+   "type": "String",
+   "sample": "seller",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sellerMemberId",
+   "desc": "卖家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-9161839253fcc5",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "refundId",
+   "desc": "退款单ID",
+   "type": "String",
+   "sample": "1234567",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1582252107000,
+ "sample": "{&quot;orderId&quot;:161292821695900310,&quot;currentStatus&quot;:&quot;waitbuyersend&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:37:28&quot;,&quot;buyerMemberId&quot;:&quot;b2b-346900403&quot;,&quot;refundAction&quot;:&quot;SELLER_AGREE_REFUND_PROCOTOL&quot;,&quot;operator&quot;:&quot;seller&quot;,&quot;sellerMemberId&quot;:&quot;b2b-9161839253fcc5&quot;,&quot;refundId&quot;:&quot;1234567&quot;}",
+ "subscribed": false,
+ "_group": "交易消息"
+}

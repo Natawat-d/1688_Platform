@@ -1,0 +1,452 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.freight.estimate",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.freight.estimate-1",
+ "displayName": "商品中国国内运费预估",
+ "billType": null,
+ "description": "根据商品ID、中国国内收货地址的省市区编码，预估商品的运费。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "productFreightQueryParamsNew",
+   "type": "message:product.freight.estimate.ProductFreightQueryParamsNew",
+   "required": true,
+   "description": "入参",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.freight.estimate.ProductFreightQueryParamsNew",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "Long",
+     "required": true,
+     "description": "商品ID",
+     "exampleValue": "111111111",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "toProvinceCode",
+     "type": "String",
+     "required": true,
+     "description": "中国省份编码",
+     "exampleValue": "如浙江省330000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "toCityCode",
+     "type": "String",
+     "required": true,
+     "description": "中国城市编码",
+     "exampleValue": "如杭州市330100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "toCountryCode",
+     "type": "String",
+     "required": true,
+     "description": "中国地区编码",
+     "exampleValue": "如滨江区330108",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "totalNum",
+     "type": "Long",
+     "required": true,
+     "description": "购买件数",
+     "exampleValue": "3",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "logisticsSkuNumModels",
+     "type": "message:product.freight.estimate.LogisticsSkuNumModel[]",
+     "required": true,
+     "description": "sku件数",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.freight.estimate.LogisticsSkuNumModel[]",
+     "fields": [
+      {
+       "name": "skuId",
+       "type": "String",
+       "required": true,
+       "description": "skuId",
+       "exampleValue": "12345",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "number",
+       "type": "Long",
+       "required": true,
+       "description": "数量",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.freight.estimate.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.freight.estimate.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.freight.estimate.ProductFreightModel",
+     "required": true,
+     "description": "内部结果",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.freight.estimate.ProductFreightModel",
+     "fields": [
+      {
+       "name": "offerId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商品ID",
+       "exampleValue": "111111111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "freight",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "预估总运费",
+       "exampleValue": "12.3",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "templateId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商家运费模板ID",
+       "exampleValue": "2324342",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "singleProductWeight",
+       "type": "java.lang.Double",
+       "required": true,
+       "description": "单商品重量，单位千克",
+       "exampleValue": "0.15",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "singleProductWidth",
+       "type": "java.lang.Double",
+       "required": true,
+       "description": "单商品宽度，单位厘米",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "singleProductHeight",
+       "type": "java.lang.Double",
+       "required": true,
+       "description": "单商品高度，单位厘米",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "singleProductLength",
+       "type": "java.lang.Double",
+       "required": true,
+       "description": "单商品长度，单位厘米",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "templateType",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "商家运费模板类型，1卖家承担运费，2用户自定义模板，3用户自定义官方模版",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "templateName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "商家运费模板名称",
+       "exampleValue": "测试",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subTemplateType",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "商家运费子模板类型，0快递，1货运，2货到付款，3官方",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subTemplateName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "商家运费子模板名称",
+       "exampleValue": "测试",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "firstFee",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "首重/件费用，单位元",
+       "exampleValue": "2.9",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "firstUnit",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "首重/件单位，",
+       "exampleValue": "如1代表【1件或者首重1千克是firstFee元】",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "nextFee",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "续重/件费用，单位元",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "nextUnit",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "续重/件单位",
+       "exampleValue": "如1代表【之后的1件或者续重1千克是nextFee元】",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "discount",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "运费折扣",
+       "exampleValue": "空或者1，代表无折扣",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "chargeType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "计费类型，0重量，1件数，2体积",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "freePostage",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否包邮，true-包邮 false-不包邮，不包邮freight读取",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "productFreightSkuInfoModels",
+       "type": "message:product.freight.estimate.ProductFreightSkuInfoModel[]",
+       "required": true,
+       "description": "sku包装信息",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.freight.estimate.ProductFreightSkuInfoModel[]",
+       "fields": [
+        {
+         "name": "skuId",
+         "type": "String",
+         "required": true,
+         "description": "skuId",
+         "exampleValue": "12345678",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "singleSkuWeight",
+         "type": "Double",
+         "required": true,
+         "description": "重量",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "singleSkuWidth",
+         "type": "Double",
+         "required": true,
+         "description": "宽",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "singleSkuHeight",
+         "type": "Double",
+         "required": true,
+         "description": "高",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "singleSkuLength",
+         "type": "Double",
+         "required": true,
+         "description": "长",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sizeValueType",
+       "type": "Integer",
+       "required": true,
+       "description": "件重尺取值类型，1-为外层取值，2-为从productFreightSkuInfoModels中取值",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "物流"
+}

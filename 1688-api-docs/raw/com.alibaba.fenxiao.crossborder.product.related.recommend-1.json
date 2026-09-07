@@ -1,0 +1,280 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.related.recommend",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.related.recommend-1",
+ "displayName": "相关性商品推荐",
+ "billType": null,
+ "description": "相关性商品推荐",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "relatedQueryParams",
+   "type": "message:product.related.recommend.RelatedQueryParams",
+   "required": true,
+   "description": "入参",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.related.recommend.RelatedQueryParams",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "商品ID",
+     "exampleValue": "689337673960",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageNo",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "页号",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "每页数量，最大10",
+     "exampleValue": "10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "语言",
+     "exampleValue": "en",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.related.recommend.ResultModel",
+   "required": true,
+   "description": "结果",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.related.recommend.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.related.recommend.ProductInfoModel[]",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.related.recommend.ProductInfoModel[]",
+     "fields": [
+      {
+       "name": "imageUrl",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "图片链接",
+       "exampleValue": "https://cbu01.alicdn.com/img/ibank/O1CN01IEn8mi1i9xzXcd2GU_!!2212446184371-0-cib.jpg",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subject",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "中文标题",
+       "exampleValue": "跨境自制果蔬全自动面膜机diy英文版带语音智能美容仪面膜机批发",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subjectTrans",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "译文标题",
+       "exampleValue": "Cross-border homemade fruit and vegetable automatic mask machine diy English version with voice intelligent beauty instrument mask machine wholesale",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceInfo",
+       "type": "message:product.related.recommend.PriceInfo",
+       "required": true,
+       "description": "价格对象",
+       "exampleValue": "如下",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.related.recommend.PriceInfo",
+       "fields": [
+        {
+         "name": "price",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "商品批发价格最低价",
+         "exampleValue": "178.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "offerId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商品ID",
+       "exampleValue": "688766724221",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "monthSold",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "最近90天销售件数",
+       "exampleValue": "98374",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerIdentities",
+       "type": "java.lang.String[]",
+       "required": true,
+       "description": "商家标",
+       "exampleValue": "super_factory",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerIdentities",
+       "type": "java.lang.String[]",
+       "required": true,
+       "description": "商品标",
+       "exampleValue": "yx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "topCategoryId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "一级类目ID",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "secondCategoryId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "二级类目ID",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "thirdCategoryId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "三级类目ID",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

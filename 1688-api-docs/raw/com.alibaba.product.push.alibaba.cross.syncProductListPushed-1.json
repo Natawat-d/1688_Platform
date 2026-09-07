@@ -1,0 +1,126 @@
+{
+ "namespace": "com.alibaba.product.push",
+ "name": "alibaba.cross.syncProductListPushed",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product.push:alibaba.cross.syncProductListPushed-1",
+ "displayName": "跨境场景下将商品加入铺货列表",
+ "billType": 0,
+ "description": "跨境场景专用，将商品加入铺货列表（即：新增铺货关系），单次操作上限20条。加入后才可以通过商品详情查询接口查询商品详情。调用前需要联系跨境小二手动配置权限。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "productIdList",
+   "type": "Long[]",
+   "required": true,
+   "description": "1688的商品ID列表,列表长度不能超过20个",
+   "exampleValue": "[123456]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.panama.commonResult",
+   "required": true,
+   "description": "同步结果",
+   "exampleValue": "{ &quot;success&quot;: false}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.panama.commonResult",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "OFFERIDS_IS_NULL",
+   "desc": "商品ID列表参数为空",
+   "howToFix": "检查入参商品是否存在"
+  },
+  {
+   "code": "APPKEY_ISV_CONFIG_IS_NOT_EXIST",
+   "desc": "平台appkey配置不存在",
+   "howToFix": "联系运营在平台添加配置"
+  },
+  {
+   "code": "ISVUSERS_IS_NULL",
+   "desc": "ISV端用户帐号列表为空",
+   "howToFix": "同步Isv账户信息"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "[526415838394]",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

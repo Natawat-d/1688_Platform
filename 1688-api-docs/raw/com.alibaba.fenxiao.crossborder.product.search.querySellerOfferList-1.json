@@ -1,0 +1,513 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.search.querySellerOfferList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.search.querySellerOfferList-1",
+ "displayName": "多语言商品店搜",
+ "billType": null,
+ "description": "多语言商品店搜",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "offerQueryParam",
+   "type": "message:product.search.querySellerOfferList.param.OfferQueryParam",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.querySellerOfferList.param.OfferQueryParam",
+   "fields": [
+    {
+     "name": "keyword",
+     "type": "String",
+     "required": false,
+     "description": "关键词",
+     "exampleValue": "饼干",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "beginPage",
+     "type": "Integer",
+     "required": true,
+     "description": "分页",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "Integer",
+     "required": true,
+     "description": "分页",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "filter",
+     "type": "String",
+     "required": false,
+     "description": "筛选参数，多个通过英文逗号分隔，枚举参见解决方案介绍",
+     "exampleValue": "shipInToday,ksCiphertext",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sort",
+     "type": "String",
+     "required": false,
+     "description": "排序参数，枚举参见解决方案介绍",
+     "exampleValue": "{&quot;price&quot;:&quot;asc&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "String",
+     "required": false,
+     "description": "外部用户id",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "priceStart",
+     "type": "String",
+     "required": false,
+     "description": "批发价开始",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "priceEnd",
+     "type": "String",
+     "required": false,
+     "description": "批发价结束",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryId",
+     "type": "Long",
+     "required": false,
+     "description": "类目id",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "country",
+     "type": "String",
+     "required": true,
+     "description": "城市",
+     "exampleValue": "japan",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sellerOpenId",
+     "type": "String",
+     "required": true,
+     "description": "商家店铺id脱敏",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.search.querySellerOfferList.result.ResultModelV3",
+   "required": true,
+   "description": "返回信息",
+   "exampleValue": "返回信息",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.querySellerOfferList.result.ResultModelV3",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "正否正常",
+     "exampleValue": "正否正常",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "状态码",
+     "exampleValue": "状态码",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "提示",
+     "exampleValue": "提示",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.search.querySellerOfferList.model.PageInfoV3",
+     "required": true,
+     "description": "内容",
+     "exampleValue": "内容",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.search.querySellerOfferList.model.PageInfoV3",
+     "fields": [
+      {
+       "name": "totalRecords",
+       "type": "Integer",
+       "required": true,
+       "description": "总条数",
+       "exampleValue": "分页",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "totalPage",
+       "type": "Integer",
+       "required": true,
+       "description": "总页码",
+       "exampleValue": "分页",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pageSize",
+       "type": "Integer",
+       "required": true,
+       "description": "分页",
+       "exampleValue": "分页",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "currentPage",
+       "type": "Integer",
+       "required": true,
+       "description": "分页",
+       "exampleValue": "分页",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "data",
+       "type": "message:product.search.querySellerOfferList.model.ProductInfoModelV2[]",
+       "required": true,
+       "description": "数据",
+       "exampleValue": "数据",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.search.querySellerOfferList.model.ProductInfoModelV2[]",
+       "fields": [
+        {
+         "name": "imageUrl",
+         "type": "String",
+         "required": true,
+         "description": "图片地址",
+         "exampleValue": "图片地址",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "aigcImageUrl",
+         "type": "String",
+         "required": true,
+         "description": "图片地址-aigc处理翻译后",
+         "exampleValue": "https://",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subject",
+         "type": "String",
+         "required": true,
+         "description": "中文标题",
+         "exampleValue": "中文标题",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subjectTrans",
+         "type": "String",
+         "required": true,
+         "description": "外文标题",
+         "exampleValue": "外文标题",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "offerId",
+         "type": "Long",
+         "required": true,
+         "description": "商品id",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isJxhy",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否精选货源",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "repurchaseRate",
+         "type": "String",
+         "required": true,
+         "description": "复购率",
+         "exampleValue": "10%",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "monthSold",
+         "type": "Integer",
+         "required": true,
+         "description": "30天销量",
+         "exampleValue": "1213",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "traceInfo",
+         "type": "String",
+         "required": true,
+         "description": "向1688上报打点数据",
+         "exampleValue": "object_id@620201390233^object_type@offer",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isOnePsale",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否一件代发",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "priceInfo",
+         "type": "message:product.search.querySellerOfferList.model.PriceInfoV2",
+         "required": true,
+         "description": "价格",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.querySellerOfferList.model.PriceInfoV2",
+         "fields": [
+          {
+           "name": "price",
+           "type": "String",
+           "required": true,
+           "description": "批发价",
+           "exampleValue": "10",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "jxhyPrice",
+           "type": "String",
+           "required": true,
+           "description": "代发精选货源价",
+           "exampleValue": "10",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "pfJxhyPrice",
+           "type": "String",
+           "required": true,
+           "description": "批发精选货源价",
+           "exampleValue": "10",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "consignPrice",
+           "type": "String",
+           "required": true,
+           "description": "一件代发价",
+           "exampleValue": "10",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "createDate",
+         "type": "String",
+         "required": true,
+         "description": "商品创建时间",
+         "exampleValue": "2021-04-08 08:00:00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "modifyDate",
+         "type": "String",
+         "required": true,
+         "description": "商品修改时间",
+         "exampleValue": "2021-04-08 08:00:00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isPatentProduct",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否为专利商品",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "offerIdentities",
+         "type": "String[]",
+         "required": true,
+         "description": "商品标",
+         "exampleValue": "select-跨境select",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSelect",
+         "type": "String",
+         "required": true,
+         "description": "跨境select货盘",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "token",
+         "type": "String",
+         "required": true,
+         "description": "插件返佣token",
+         "exampleValue": "abc",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "promotionURL",
+         "type": "String",
+         "required": true,
+         "description": "具有【AI跨境运营助手】模块的1688商品详情页链接",
+         "exampleValue": "商品详情页链接",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;offerQueryParam&quot;: {\n    &quot;keyword&quot;: &quot;饼干&quot;,\n    &quot;beginPage&quot;: 1,\n    &quot;pageSize&quot;: 1,\n    &quot;filter&quot;: &quot;shipInToday,ksCiphertext&quot;,\n    &quot;sort&quot;: &quot;{\\&quot;price\\&quot;:\\&quot;asc\\&quot;}&quot;,\n    &quot;outMemberId&quot;: &quot;123&quot;,\n    &quot;priceStart&quot;: &quot;1&quot;,\n    &quot;priceEnd&quot;: &quot;1&quot;,\n    &quot;categoryId&quot;: 1,\n    &quot;country&quot;: &quot;japan&quot;,\n    &quot;sellerOpenId&quot;: &quot;123&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;状态码&quot;,\n    &quot;message&quot;: &quot;提示&quot;,\n    &quot;result&quot;: {\n      &quot;totalRecords&quot;: 123,\n      &quot;totalPage&quot;: 123,\n      &quot;pageSize&quot;: 123,\n      &quot;currentPage&quot;: 123,\n      &quot;data&quot;: [\n        {\n          &quot;imageUrl&quot;: &quot;图片地址&quot;,\n          &quot;aigcImageUrl&quot;: &quot;https://&quot;,\n          &quot;subject&quot;: &quot;中文标题&quot;,\n          &quot;subjectTrans&quot;: &quot;外文标题&quot;,\n          &quot;offerId&quot;: 2,\n          &quot;isJxhy&quot;: true,\n          &quot;repurchaseRate&quot;: &quot;10%&quot;,\n          &quot;monthSold&quot;: 1213,\n          &quot;traceInfo&quot;: &quot;object_id@620201390233^object_type@offer&quot;,\n          &quot;isOnePsale&quot;: true,\n          &quot;priceInfo&quot;: {\n            &quot;price&quot;: &quot;10&quot;,\n            &quot;jxhyPrice&quot;: &quot;10&quot;,\n            &quot;pfJxhyPrice&quot;: &quot;10&quot;,\n            &quot;consignPrice&quot;: &quot;10&quot;\n          },\n          &quot;createDate&quot;: &quot;2021-04-08 08:00:00&quot;,\n          &quot;modifyDate&quot;: &quot;2021-04-08 08:00:00&quot;,\n          &quot;isPatentProduct&quot;: true,\n          &quot;offerIdentities&quot;: [\n            &quot;select-跨境select&quot;\n          ],\n          &quot;isSelect&quot;: &quot;true&quot;,\n          &quot;token&quot;: &quot;abc&quot;,\n          &quot;promotionURL&quot;: &quot;商品详情页链接&quot;\n        }\n      ]\n    }\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商品"
+}

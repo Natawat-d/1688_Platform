@@ -1,0 +1,167 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.pay.protocolPay.isopen",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen-1",
+ "displayName": "查询是否开通免密支付",
+ "billType": null,
+ "description": "查询是否开通代扣协议",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeWithholdStatusResultModel",
+   "required": true,
+   "description": "签约情况返回值，支付宝和诚E赊的自动代扣情况.payChannel=SHEGOU且signedStatus=true表示诚E赊自动代扣已经签约，payChannel=ALIPAY且signedStatus=true表示支付宝代扣已签约。任何一个signedStatus=true都可以调用代扣接口，完成代扣。",
+   "exampleValue": "{   &quot;result&quot;: {     &quot;result&quot;: {       &quot;paymentAgreements&quot;: [         {           &quot;bindingStatus&quot;: &quot;false&quot;,           &quot;payChannel&quot;: &quot;SHEGOU&quot;,           &quot;signedStatus&quot;: &quot;false&quot;         },         {           &quot;bindingStatus&quot;: &quot;true&quot;,           &quot;payChannel&quot;: &quot;ALIPAY&quot;,           &quot;signUrl&quot;: &quot;https://mapi.alipay.com/gateway.do?sales_product_code=TAOBAO_TRAVEL_HOTEL&notify_url=http%3A%2F%2Fpre-center.finnet.alibaba.com%2Fcallback%2Fv1%2Ffm-PG.MID.CBU.NewRetail-alipay.tbapi.escrow-sign%2Fip_33_7_69_219-0%2F589540333&product_code=PERSONAL_TRAVEL_HOTEL&scene=INDUSTRY%7CCBU_AOTUPAY&partner=2088006300088887&service=alipay.dut.customer.agreement.page.sign&external_sign_no=119901210704561230970333&sign_type=DSA&sign=jm4udyi_d_a7_d46_yxsb_m_w3_xdb3_w_j9_wx_sg_u_w_g3d_d_rv_epkws_h_hid_e_h6i_cg%253D%253D&quot;,           &quot;signedStatus&quot;: &quot;false&quot;         }       ]     },     &quot;success&quot;: true   } }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeWithholdStatusResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "错误消息",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeWithholdStatusResult",
+     "required": true,
+     "description": "签约状态",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeWithholdStatusResult",
+     "fields": [
+      {
+       "name": "paymentAgreements",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradePaymentAgreement[]",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradePaymentAgreement[]",
+       "fields": [
+        {
+         "name": "payChannel",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "支付成功的渠道，支付不成功渠道为null",
+         "exampleValue": "ALIPAY",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bindingStatus",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "支付宝或者诚E赊是否已设置绑定，signedStatus和bindingStatus均为true才能发起代扣",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "signedStatus",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "支付宝或者诚E赊是否已签约代扣，signedStatus和bindingStatus均为true才能发起代扣",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "signUrl",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "签约URl",
+         "exampleValue": "http://",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "agreementNo",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "签约单号",
+         "exampleValue": "55622148344",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "支付"
+}

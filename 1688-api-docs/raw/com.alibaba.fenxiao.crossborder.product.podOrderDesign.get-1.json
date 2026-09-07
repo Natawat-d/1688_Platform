@@ -1,0 +1,201 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.podOrderDesign.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.podOrderDesign.get-1",
+ "displayName": "获取加工定制订单稿件信息",
+ "billType": null,
+ "description": "获取加工定制订单稿件信息",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderDesignParam",
+   "type": "message:com.alibaba.cbu.pod.design.param.OrderDesignOpenApiParam",
+   "required": true,
+   "description": "订单设计查询参数",
+   "exampleValue": "{&quot;orderId&quot;:123}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.cbu.pod.design.param.OrderDesignOpenApiParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "1688订单id",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.openapi.shared.common.ResultModel",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.openapi.shared.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "响应码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:com.alibaba.cbu.pod.design.model.OrderDesignOpenResultModel",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.cbu.pod.design.model.OrderDesignOpenResultModel",
+     "fields": [
+      {
+       "name": "orderId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "订单id",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "designId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "设计稿id",
+       "exampleValue": "designId1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "regionInfo",
+       "type": "message:com.alibaba.cbu.pod.design.model.DesignImageModel[]",
+       "required": true,
+       "description": "设计稿图片信息",
+       "exampleValue": "[{&quot;region&quot;:&quot;正面&quot;,&quot;maskImageUrl&quot;:&quot;https://&quot;}]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.cbu.pod.design.model.DesignImageModel[]",
+       "fields": [
+        {
+         "name": "regionName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "设计稿图片区域名字(中文)",
+         "exampleValue": "正面",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "maskImageUrl",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "设计稿图片-maskImageUrl和previewImageUrl同时不为空，则进行了该区域的定制",
+         "exampleValue": "https:/xxx",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "previewImageUrl",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "预览图-maskImageUrl和previewImageUrl同时不为空，则进行了该区域的定制",
+         "exampleValue": "https:/xxx",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;orderDesignParam&quot;: {\n    &quot;orderId&quot;: 123\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;S0000&quot;,\n    &quot;message&quot;: &quot;成功&quot;,\n    &quot;result&quot;: {\n      &quot;orderId&quot;: 123,\n      &quot;designId&quot;: &quot;designId1&quot;,\n      &quot;regionInfo&quot;: [\n        {\n          &quot;code&quot;: &quot;front&quot;,\n          &quot;regionName&quot;: &quot;正面&quot;,\n          &quot;maskImageUrl&quot;: &quot;https:/xxx&quot;,\n          &quot;previewImageUrl&quot;: &quot;https:/xxx&quot;\n        }\n      ]\n    }\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "轻定制"
+}

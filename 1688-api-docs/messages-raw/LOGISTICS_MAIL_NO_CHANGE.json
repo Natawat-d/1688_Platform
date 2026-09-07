@@ -1,0 +1,116 @@
+{
+ "topicId": "LOGISTICS_MAIL_NO_CHANGE",
+ "topicName": "MAIL_NO_CHANGE",
+ "topicDisplayName": "物流单号修改消息",
+ "topicGroupName": "LOGISTICS",
+ "topicGroupDisplayName": "物流消息",
+ "desc": "针对1688物流单号修改的情况，及时通知上下游",
+ "messageDocs": [
+  {
+   "name": "MailNoChangeModel",
+   "desc": " ",
+   "type": "Object",
+   "sample": " ",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "logisticsId",
+     "desc": "物流单号",
+     "type": "String",
+     "sample": "123456",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "oldCpCode",
+     "desc": "更改前的cp code",
+     "type": "String",
+     "sample": "1234",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "newCpCode",
+     "desc": "更改后的cp code",
+     "type": "String",
+     "sample": "12345",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "oldMailNo",
+     "desc": "更改前的运单号",
+     "type": "String",
+     "sample": "123",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "newMailNo",
+     "desc": "更改后的运单号",
+     "type": "String",
+     "sample": "1234",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "eventTime",
+     "desc": "发生时间",
+     "type": "Date",
+     "sample": " ",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "orderLogsItems",
+     "desc": "该物流单关联的订单信息",
+     "type": "Object[]",
+     "sample": " ",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": [
+      {
+       "name": "orderId",
+       "desc": "交易主单id",
+       "type": "Number",
+       "sample": "2958424554509662976",
+       "required": false,
+       "privacyLevel": null,
+       "sensitiveLabel": null,
+       "children": null
+      },
+      {
+       "name": "orderEntryId",
+       "desc": "交易子单id",
+       "type": "Number",
+       "sample": "2958424554509662976",
+       "required": false,
+       "privacyLevel": null,
+       "sensitiveLabel": null,
+       "children": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gmtModify": 1761808522000,
+ "sample": "{&quot;MailNoChangeModel&quot;:{&quot;logisticsId&quot;:&quot;123456&quot;,&quot;oldCpCode&quot;:&quot;1234&quot;,&quot;newCpCode&quot;:&quot;12345&quot;,&quot;oldMailNo&quot;:&quot;123&quot;,&quot;newMailNo&quot;:&quot;1234&quot;,&quot;eventTime&quot;:&quot; &quot;,&quot;orderLogsItems&quot;:[{&quot;orderId&quot;:2958424554509662976,&quot;orderEntryId&quot;:2958424554509662976}]}}",
+ "subscribed": false,
+ "_group": "物流消息"
+}

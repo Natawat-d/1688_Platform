@@ -1,0 +1,124 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.grouppay.url.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.grouppay.url.get-1",
+ "displayName": "组合收银台url获取",
+ "billType": null,
+ "description": "组合收银台url获取",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderIds",
+   "type": "Long[]",
+   "required": true,
+   "description": "订单列表",
+   "exampleValue": "[123123413,1223234]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "payPlatformType",
+   "type": "String",
+   "required": false,
+   "description": "PC或WIRELESS",
+   "exampleValue": "PC",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "results",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeCreateGroupPayUrlResult",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeCreateGroupPayUrlResult",
+   "fields": [
+    {
+     "name": "payUrl",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "返回payurl",
+     "exampleValue": "https://payment2.m.1688.com/page/cashier.html?orderId=154612245",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorInfo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "支付"
+}

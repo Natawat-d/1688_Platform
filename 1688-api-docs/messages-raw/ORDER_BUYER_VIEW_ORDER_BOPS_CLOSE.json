@@ -1,0 +1,64 @@
+{
+ "topicId": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE",
+ "topicName": "BUYER_VIEW_ORDER_BOPS_CLOSE",
+ "topicDisplayName": "1688运营后台关闭订单（买家视角）",
+ "topicGroupName": "ORDER",
+ "topicGroupDisplayName": "订单消息",
+ "desc": "1688运营后台关闭订单，付款超时关闭，包括买家拍下未付款，系统自动关闭订单情况",
+ "messageDocs": [
+  {
+   "name": "orderId",
+   "desc": "订单ID",
+   "type": "Number",
+   "sample": "167539019420540000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "currentStatus",
+   "desc": "当前订单状态",
+   "type": "String",
+   "sample": "cancel",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2018-05-30 19:34:27",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerMemberId",
+   "desc": "买家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-665170100",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sellerMemberId",
+   "desc": "卖家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-1676547900b7bb3",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1534770507000,
+ "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;cancel&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+ "subscribed": false,
+ "_group": "交易消息"
+}

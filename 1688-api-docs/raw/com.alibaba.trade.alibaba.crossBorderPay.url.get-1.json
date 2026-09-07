@@ -1,0 +1,124 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.crossBorderPay.url.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.crossBorderPay.url.get-1",
+ "displayName": "获取使用跨境宝支付的支付链接",
+ "billType": null,
+ "description": "获取使用跨境宝支付的支付链接",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderIdList",
+   "type": "Long[]",
+   "required": true,
+   "description": "订单Id列表,最多批量30个订单，订单过多会导致超时，建议一次10个订单",
+   "exampleValue": "[111111,22222333]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "String",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "400_1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "payUrl",
+   "type": "String",
+   "required": true,
+   "description": "收银台支付链接",
+   "exampleValue": "https://trade.1688.com/order/cashier.htm?orderId=15405143260",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "cantPayOrderList",
+   "type": "Long[]",
+   "required": true,
+   "description": "由于额度及风控原因不能批量支付的订单列表",
+   "exampleValue": "[123123,23123123]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "400_4",
+   "desc": "无可使用支付渠道[跨境宝]付款的订单",
+   "howToFix": "订单列表里面没有可以使用跨境宝支付的订单"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回示例",
+   "sample": "{\n  &quot;payUrl&quot;: &quot;https://trade.1688.com/order/cashier.htm?orderId=151923545498520&quot;,\n  &quot;cantPayOrderList&quot;:[12123123,12312222222]\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "支付"
+}

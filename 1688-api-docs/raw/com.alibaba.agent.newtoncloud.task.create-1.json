@@ -1,0 +1,202 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.create",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.create-1",
+ "displayName": "牛顿云-创建长程任务",
+ "billType": null,
+ "description": "创建一个牛顿云长程任务，异步执行，返回 taskId/sessionId/status\n",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "开启任务时，用户发起的问题",
+   "exampleValue": "你有哪些skill供我调用？",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sessionId",
+   "type": "String",
+   "required": false,
+   "description": "1688、用户生成的对话维度id，一个sessionId可挂接多个taskId",
+   "exampleValue": "internal_a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": false,
+   "description": "1688、用户生成的任务维度id，一个taskId一定归属于一个对话消息",
+   "exampleValue": "fdd93e89-2f43-4d58-b5b4-356da6cda5e4",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "auto",
+   "type": "Boolean",
+   "required": false,
+   "description": "是否自动模式",
+   "exampleValue": "true/false",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "fileUrls",
+   "type": "String[]",
+   "required": false,
+   "description": "用户上传文件的URL列表",
+   "exampleValue": "https://selleragent.1688.com/api/seller/knowledge/file/download/xxx",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "fileNames",
+   "type": "String[]",
+   "required": false,
+   "description": "文件名称列表，与fileUrls一一对应",
+   "exampleValue": "11111.jpg",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "model",
+   "type": "String",
+   "required": false,
+   "description": "可选择的模型",
+   "exampleValue": "flagship",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "workflowName",
+   "type": "String",
+   "required": false,
+   "description": "指定要直接执行的 Workflow 名称。传入后将跳过主 Agent 的意图识别和规划过程，直接执行对应 Workflow。名称不存在时任务执行失败。",
+   "exampleValue": "1688-supplychain-procurement-search",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "请求是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "1688、用户生成的任务维度id，一个taskId一定归属于一个对话消息",
+   "exampleValue": "fdd93e89-2f43-4d58-b5b4-356da6cda5e4",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sessionId",
+   "type": "String",
+   "required": true,
+   "description": "1688、用户生成的对话维度id，一个sessionId可挂接多个taskId",
+   "exampleValue": "internal_a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "status",
+   "type": "String",
+   "required": true,
+   "description": "任务状态。任务共有 6 种状态：INIT（已创建，任务进入队列等待执行）、RUNNING（正在执行中，Agent 正进行推理和工具调用）、WAIT_SKILL（Agent 调用了异步技能，任务暂停等待技能执行结果回调）、WAIT_USER（任务需要用户确认或补充输入，暂停等待用户通过 resume 接口恢复）、END（任务正常执行完成，已产出最终结果）、KILL（任务被终止，可能是用户主动取消、执行超时或系统异常导致的强制终止）。其中 END 和 KILL 为终态，一旦进入则不可再变更。",
+   "exampleValue": "INIT",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "任务失败描述",
+   "exampleValue": "当前有 N 个任务正在执行，已达上限 Y，请等待任务完成后再提交",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eagleTraceId",
+   "type": "String",
+   "required": true,
+   "description": "请求唯一ID ，eagleTraceId用于链路排查",
+   "exampleValue": "2146a21517799488479778174e1539",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "失败错误码，仅当 success=false 时返回。取值：RATE_LIMIT_CONCURRENT（并发已满）、RATE_LIMIT_PENDING_TOTAL（排队总量超限）、RATE_LIMIT_QUEUE_FULL（队列已满）、RATE_LIMIT_HOURLY（小时配额用尽）、RATE_LIMIT_DAILY（日配额用尽）\t",
+   "exampleValue": "RATE_LIMIT_QUEUE_FULL",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

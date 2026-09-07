@@ -1,0 +1,149 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.cancel",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.cancel-1",
+ "displayName": "取消交易",
+ "billType": 0,
+ "description": "买家或者卖家取消交易，注意只有特定状态的交易才能取消，1688可用于取消未付款的订单。\n当订单从创建到关闭时间小于10s的时候，会报“CLOSE_ORDER_TOO_FAST”错误。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "webSite",
+   "type": "String",
+   "required": true,
+   "description": "站点信息，指定调用的API是属于国际站（alibaba）还是1688网站（1688）",
+   "exampleValue": "1688",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "tradeID",
+   "type": "Long",
+   "required": true,
+   "description": "交易id，订单号",
+   "exampleValue": "123456",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "cancelReason",
+   "type": "String",
+   "required": true,
+   "description": "原因描述；buyerCancel:买家取消订单;sellerGoodsLack:卖家库存不足;other:其它",
+   "exampleValue": "other",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "remark",
+   "type": "String",
+   "required": false,
+   "description": "备注",
+   "exampleValue": "备注",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否处理成功：true为成功，false为失败，失败原因见error",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "ORDER_STATUS_ERROR",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": "订单状态错误",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "ORDER_STATUS_ERROR",
+   "desc": "订单状态错误",
+   "howToFix": "只能取消待支付的订单，需要先确认订单状态"
+  },
+  {
+   "code": "400_3",
+   "desc": "没有权限取消该订单",
+   "howToFix": "只有订单的买卖双方才能取消订单，确认授权用户是否该订单的买卖双方"
+  },
+  {
+   "code": "ORDER_NOT_EXIST",
+   "desc": "订单不存在",
+   "howToFix": "确认订单号是否正确"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求参数示例",
+   "sample": "{&quot;webSite&quot;:&quot;1688&quot;,&quot;tradeID&quot;:&quot;202711458975969812&quot;,&quot;cancelReason&quot;:&quot;other&quot;,&quot;remark&quot;:&quot;取消订单&quot;}",
+   "type": "JSON"
+  },
+  {
+   "name": "返回参数示例",
+   "sample": "{&quot;success&quot;:true}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

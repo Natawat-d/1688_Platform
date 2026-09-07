@@ -1,0 +1,272 @@
+{
+ "namespace": "system.oauth2",
+ "name": "subaccount.auth.list",
+ "version": 1,
+ "oceanApiId": "system.oauth2:subaccount.auth.list-1",
+ "displayName": "批量查询子账号授权",
+ "billType": null,
+ "description": "批量查询主账号下面子账号的授权情况",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "subUserIdentityList",
+   "type": "java.lang.String[]",
+   "required": true,
+   "description": "子账号id列表",
+   "exampleValue": "&quot;a:b&quot;,&quot;a:c&quot;",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.auth.dto.AuthResultModelRelation",
+   "required": true,
+   "description": "查询结果",
+   "exampleValue": "xx",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.auth.dto.AuthResultModelRelation",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "param_error",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMessage",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "lack of param",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "returnValue",
+     "type": "message:alibaba.ocean.auth.dto.AuthRelationDTO[]",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "结构体",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.auth.dto.AuthRelationDTO[]",
+     "fields": [
+      {
+       "name": "accessToken",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "授权凭证",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "adminOwnerId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "主账号loginId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "adminUserId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "主账号userId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "clientId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "appKey",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "clientName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "appName",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtExpired",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "授权过期时间",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "memberId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "授权用户memberId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "ownerId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "授权用户loginId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "resourceScopes",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "资源域",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "site",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "授权站点",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "status",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "授权状态",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subAuth",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否子账号授权",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subOwnerId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "子账号loginId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subUserId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "子账号userId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "userId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "授权用户userId",
+       "exampleValue": "xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求示例",
+   "sample": "https://gw.open.1688.com/openapi/param2/1/system.oauth2/subaccount.auth.list/YOUR_APPKEY?access_token=xx&subUserIdentityList=a,b",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

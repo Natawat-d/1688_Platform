@@ -1,0 +1,95 @@
+{
+ "topicId": "SYT_ADD_CONTRACT_CONTENT",
+ "topicName": "ADD_CONTRACT_CONTENT",
+ "topicDisplayName": "新增交易存证通知消息",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "可用于：对手方在采购单/合同详情页面，新增物流凭证、发货凭证、付款凭证等信息时会做消息通知",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号/采购单号",
+   "type": "String",
+   "sample": "88SYT20240113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "content",
+   "desc": "增加的具体内容，文本内容",
+   "type": "String",
+   "sample": "无",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_CONTENT_ADD_SUCCESS",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "submitterRole",
+   "desc": "交易存证提交人角色",
+   "type": "String",
+   "sample": "PART_A:买家;PART_B:商家",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "addTime",
+   "desc": "添加时间事件毫秒戳",
+   "type": "Number",
+   "sample": "1768288592321",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "attachments",
+   "desc": "文件附件",
+   "type": "Object[]",
+   "sample": "无",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "fileName",
+     "desc": "附件名称",
+     "type": "String",
+     "sample": "a.png",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "filePath",
+     "desc": "附件文件地址",
+     "type": "String",
+     "sample": "https://www.xxx.xxx/xxx.pdf",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    }
+   ]
+  }
+ ],
+ "gmtModify": 1778638378000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20240113169004&quot;,&quot;content&quot;:&quot;无&quot;,&quot;eventType&quot;:&quot;CONTRACT_CONTENT_ADD_SUCCESS&quot;,&quot;submitterRole&quot;:&quot;PART_A:买家;PART_B:商家&quot;,&quot;addTime&quot;:1768288592321,&quot;attachments&quot;:[{&quot;fileName&quot;:&quot;a.png&quot;,&quot;filePath&quot;:&quot;https://www.xxx.xxx/xxx.pdf&quot;}]}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

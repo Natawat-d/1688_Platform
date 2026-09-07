@@ -1,0 +1,215 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.addresscode.parse",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.addresscode.parse-1",
+ "displayName": "根据地址解析地区码",
+ "billType": null,
+ "description": "根据地址信息，解析地区码",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "addressInfo",
+   "type": "String",
+   "required": true,
+   "description": "地址信息",
+   "exampleValue": "浙江省 杭州市 滨江区网商路699号",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.trade.ReceiveAddress",
+   "required": true,
+   "description": "解析后的收获地址",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.ReceiveAddress",
+   "fields": [
+    {
+     "name": "address",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "街道地址，不包括省市编码",
+     "exampleValue": "网商路699号",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "addressCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "地址区域编码",
+     "exampleValue": "330108",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "addressCodeText",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "地址区域编码对应的文本（包括国家，省，城市）",
+     "exampleValue": "浙江省 杭州市 滨江区",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "addressId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "addressId",
+     "exampleValue": "322683081",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bizType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "记录收货地址的业务类型",
+     "exampleValue": "无须关注",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isDefault",
+     "type": "boolean",
+     "required": true,
+     "description": "是否为默认",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fullName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "收货人姓名",
+     "exampleValue": "张三",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "latest",
+     "type": "boolean",
+     "required": true,
+     "description": "是否是最后选择的收货地址",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobile",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "手机号",
+     "exampleValue": "18012345678",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "phone",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "电话",
+     "exampleValue": "0517-8888888",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "postCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "邮编",
+     "exampleValue": "310051",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求参数示例",
+   "sample": "{&quot;addressInfo&quot;:&quot;浙江省 杭州市 滨江区网商路699号&quot;}",
+   "type": "JSON"
+  },
+  {
+   "name": "返回参数示例",
+   "sample": "{&quot;result&quot;: {&quot;address&quot;: &quot;网商路699号&quot;,&quot;addressCode&quot;: &quot;330108&quot;,&quot;isDefault&quot;: false,&quot;latest&quot;: false,&quot;postCode&quot;: &quot;310051&quot;}}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

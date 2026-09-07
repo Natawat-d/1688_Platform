@@ -1,0 +1,1077 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.search.imageQuery",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.search.imageQuery-1",
+ "displayName": "多语言图搜",
+ "billType": null,
+ "description": "多语言图搜",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "offerQueryParam",
+   "type": "message:product.search.imageQuery.param.OfferQueryParam",
+   "required": true,
+   "description": "{&quot;beginPage&quot;:1,&quot;country&quot;:&quot;en&quot;,&quot;imageAddress&quot;:&quot;https://cbu01.alicdn.com/img/ibank/O1CN01q5lIoD1ZPh3gN3www_!!2928623187-0-cib.jpg&quot;,&quot;pageSize&quot;:1,&quot;userId&quot;:0}",
+   "exampleValue": "{&quot;beginPage&quot;:1,&quot;country&quot;:&quot;en&quot;,&quot;imageAddress&quot;:&quot;https://cbu01.alicdn.com/img/ibank/O1CN01q5lIoD1ZPh3gN3www_!!2928623187-0-cib.jpg&quot;,&quot;pageSize&quot;:1,&quot;userId&quot;:0}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.imageQuery.param.OfferQueryParam",
+   "fields": [
+    {
+     "name": "imageId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "图片id，必传",
+     "exampleValue": "图片id",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "beginPage",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "分页",
+     "exampleValue": "分页",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "分页，最大不超过50，建议20效果最佳",
+     "exampleValue": "分页",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "region",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "主体选择",
+     "exampleValue": "266,799,48,581",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "filter",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "筛选参数，多个通过英文逗号分隔，枚举参见解决方案介绍",
+     "exampleValue": "shipInToday,ksCiphertext",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sort",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "排序参数，枚举参见解决方案介绍",
+     "exampleValue": "{&quot;price&quot;:&quot;asc&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "外部用户uid",
+     "exampleValue": "外部用户uid",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "priceStart",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "批发价开始",
+     "exampleValue": "10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "priceEnd",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "批发价结束",
+     "exampleValue": "20",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryId",
+     "type": "java.lang.Long",
+     "required": false,
+     "description": "类目id",
+     "exampleValue": "类目id",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "imageAddress",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "图片地址，仅使用1688图片链接查询场景，其他不保证有数据返回",
+     "exampleValue": "图片地址",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "语言",
+     "exampleValue": "如en-英语，详细枚举请参考开发人员参考菜单",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "keyword",
+     "type": "String",
+     "required": false,
+     "description": "在结果中搜索",
+     "exampleValue": "书本",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "auxiliaryText",
+     "type": "String",
+     "required": false,
+     "description": "多模态图搜文案",
+     "exampleValue": "热卖的",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productCollectionId",
+     "type": "String",
+     "required": false,
+     "description": "寻源通工作台货盘ID",
+     "exampleValue": "21432232",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "keywordTranslate",
+     "type": "Boolean",
+     "required": false,
+     "description": "搜索词是否已经翻译，true的话直接搜索，不翻译关键词",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "itemTitle",
+     "type": "String",
+     "required": false,
+     "description": "商品标题",
+     "exampleValue": "商品标题",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.search.imageQuery.result.ResultModelV5",
+   "required": true,
+   "description": "返回值",
+   "exampleValue": "返回值",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.imageQuery.result.ResultModelV5",
+   "fields": [
+    {
+     "name": "success",
+     "type": "String",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "是否成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "code",
+     "exampleValue": "code",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "message",
+     "exampleValue": "message",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.search.imageQuery.model.PageInfoV4",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "结果",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.search.imageQuery.model.PageInfoV4",
+     "fields": [
+      {
+       "name": "totalRecords",
+       "type": "Integer",
+       "required": true,
+       "description": "总数量",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "totalPage",
+       "type": "Integer",
+       "required": true,
+       "description": "总页数",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pageSize",
+       "type": "Integer",
+       "required": true,
+       "description": "分页",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "currentPage",
+       "type": "Integer",
+       "required": true,
+       "description": "分页",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "data",
+       "type": "message:product.search.imageQuery.model.ProductInfoModelV3[]",
+       "required": true,
+       "description": "数据",
+       "exampleValue": "数据",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.search.imageQuery.model.ProductInfoModelV3[]",
+       "fields": [
+        {
+         "name": "imageUrl",
+         "type": "String",
+         "required": true,
+         "description": "图片url",
+         "exampleValue": "图片url",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subject",
+         "type": "String",
+         "required": true,
+         "description": "标题",
+         "exampleValue": "标题",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subjectTrans",
+         "type": "String",
+         "required": true,
+         "description": "多语言标题",
+         "exampleValue": "多语言标题",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "priceInfo",
+         "type": "message:product.search.imageQuery.model.PriceInfoV3",
+         "required": true,
+         "description": "价格",
+         "exampleValue": "价格",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.imageQuery.model.PriceInfoV3",
+         "fields": [
+          {
+           "name": "price",
+           "type": "String",
+           "required": true,
+           "description": "批发价",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "jxhyPrice",
+           "type": "String",
+           "required": true,
+           "description": "代发精选货源价",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "pfJxhyPrice",
+           "type": "String",
+           "required": true,
+           "description": "批发精选货源价",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "consignPrice",
+           "type": "String",
+           "required": true,
+           "description": "一件代发价，当isOnePsale=true表示是一件发代发",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "promotionPrice",
+           "type": "String",
+           "required": true,
+           "description": "营销价",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "offerId",
+         "type": "Long",
+         "required": true,
+         "description": "商品id",
+         "exampleValue": "商品id",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isJxhy",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否精选货源",
+         "exampleValue": "是否精选货源",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "repurchaseRate",
+         "type": "String",
+         "required": true,
+         "description": "复购率",
+         "exampleValue": "13%",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "monthSold",
+         "type": "Integer",
+         "required": true,
+         "description": "30天销量",
+         "exampleValue": "1234",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "traceInfo",
+         "type": "String",
+         "required": true,
+         "description": "向1688上报打点数据",
+         "exampleValue": "object_id@620201390233^object_type@offer",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isOnePsale",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否一件代发",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "sellerIdentities",
+         "type": "String[]",
+         "required": true,
+         "description": "商家身份",
+         "exampleValue": "super_factory-超级工厂 powerful_merchants-实力商家 tp_member-诚信通会员",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "offerIdentities",
+         "type": "String[]",
+         "required": true,
+         "description": "商品标",
+         "exampleValue": "yx-严选",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "tradeScore",
+         "type": "String",
+         "required": true,
+         "description": "商品交易评分",
+         "exampleValue": "5.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "promotionModel",
+         "type": "message:product.search.imageQuery.model.PromotionModelV2",
+         "required": true,
+         "description": "营销信息",
+         "exampleValue": "营销信息",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.imageQuery.model.PromotionModelV2",
+         "fields": [
+          {
+           "name": "hasPromotion",
+           "type": "Boolean",
+           "required": true,
+           "description": "是否有营销",
+           "exampleValue": "true",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "promotionType",
+           "type": "String",
+           "required": true,
+           "description": "营销类型",
+           "exampleValue": "plus",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "topCategoryId",
+         "type": "Long",
+         "required": true,
+         "description": "一级类目",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "secondCategoryId",
+         "type": "Long",
+         "required": true,
+         "description": "二级类目",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "thirdCategoryId",
+         "type": "Long",
+         "required": true,
+         "description": "三级类目",
+         "exampleValue": "3",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isPatentProduct",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否为专利商品",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "createDate",
+         "type": "String",
+         "required": true,
+         "description": "商品创建时间",
+         "exampleValue": "2024-04-20 08:00:00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "modifyDate",
+         "type": "String",
+         "required": true,
+         "description": "商品修改时间",
+         "exampleValue": "2024-04-20 08:00:00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSelect",
+         "type": "Boolean",
+         "required": true,
+         "description": "跨境select货盘",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "sellerDataInfo",
+         "type": "message:product.search.imageQuery.model.SellerDataInfoV1",
+         "required": true,
+         "description": "商品数据",
+         "exampleValue": "11",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.imageQuery.model.SellerDataInfoV1",
+         "fields": [
+          {
+           "name": "tradeMedalLevel",
+           "type": "String",
+           "required": true,
+           "description": "卖家交易勋章等级",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "compositeServiceScore",
+           "type": "String",
+           "required": true,
+           "description": "综合服务体验分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "logisticsExperienceScore",
+           "type": "String",
+           "required": true,
+           "description": "物流体验分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "disputeComplaintScore",
+           "type": "String",
+           "required": true,
+           "description": "纠纷投诉处理分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "offerExperienceScore",
+           "type": "String",
+           "required": true,
+           "description": "商品体验分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "afterSalesExperienceScore",
+           "type": "String",
+           "required": true,
+           "description": "售后体验分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "consultingExperienceScore",
+           "type": "String",
+           "required": true,
+           "description": "咨询体验分",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "repeatPurchasePercent",
+           "type": "String",
+           "required": true,
+           "description": "重复购买率",
+           "exampleValue": "11",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "tpYear",
+           "type": "Integer",
+           "required": true,
+           "description": "诚信通年限",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "productSimpleShippingInfo",
+         "type": "message:product.search.imageQuery.model.ProductSimpleShippingInfo",
+         "required": true,
+         "description": "简略发货信息",
+         "exampleValue": "11",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.imageQuery.model.ProductSimpleShippingInfo",
+         "fields": [
+          {
+           "name": "shippingTimeGuarantee",
+           "type": "String",
+           "required": true,
+           "description": "shipIn24Hours-24小时发货 shipIn48Hours-48小时发货",
+           "exampleValue": "shipIn24Hours",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "perfectFulfillmentRate30d",
+           "type": "String",
+           "required": true,
+           "description": "近30天完美履约率",
+           "exampleValue": "99.12%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "pickupWithin24hRate30d",
+           "type": "String",
+           "required": true,
+           "description": "近30天24h揽收率",
+           "exampleValue": "100%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "qualityReturnRate30d",
+           "type": "String",
+           "required": true,
+           "description": "近30天品质退货率",
+           "exampleValue": "1.23%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "perfectFulfillmentRate7d",
+           "type": "String",
+           "required": true,
+           "description": "近7天完美履约率",
+           "exampleValue": "99.12%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "pickupWithin24hRate7d",
+           "type": "String",
+           "required": true,
+           "description": "近7天24h揽收率",
+           "exampleValue": "99.12%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "delayedShippingRate7d",
+           "type": "String",
+           "required": true,
+           "description": "近7天延迟发货率",
+           "exampleValue": "12.34%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "minOrderQuantity",
+         "type": "Integer",
+         "required": true,
+         "description": "最小起批量",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "token",
+         "type": "String",
+         "required": true,
+         "description": "插件同店返佣标识",
+         "exampleValue": "5L9Z3683O2iVIvwFxNdqnUlMVbKYHWGWcjs",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "promotionURL",
+         "type": "String",
+         "required": true,
+         "description": "商品推广链接（商品详情页）",
+         "exampleValue": "https://detail.1688.com/offer/710891050473.html?fromkv=refer:HVKTIRCHJVJFKR2RGRLDMTS2KJDUCNCEKNGUUUKHKVMUISKOLJKEYNKRLBATESZXI5CTGVCHJVJFESCBLFCE2T2KKFDTIM2UKE6T",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "companyName",
+         "type": "String",
+         "required": true,
+         "description": "店铺名称",
+         "exampleValue": "浙江省一路发发商贸公司",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "companyAddress",
+         "type": "String",
+         "required": true,
+         "description": "店铺所在地区",
+         "exampleValue": "浙江省杭州市",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "offerDataInfo",
+         "type": "message:com.alibaba.cbu.offer.model.OfferDataInfoV1",
+         "required": true,
+         "description": "商品维度相关信息",
+         "exampleValue": "xx",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "com.alibaba.cbu.offer.model.OfferDataInfoV1",
+         "fields": [
+          {
+           "name": "offerApplauseRate",
+           "type": "String",
+           "required": true,
+           "description": "商品好评率",
+           "exampleValue": "100.0%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "kjFeaturedServices",
+           "type": "String",
+           "required": true,
+           "description": "跨境特色服务，如果存在多个服务的时候，将会由英文分号分隔",
+           "exampleValue": "C",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "qualityRfdRate30d",
+           "type": "String",
+           "required": true,
+           "description": "近30天品质退款率",
+           "exampleValue": "0%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "repurchaseRate30d",
+           "type": "String",
+           "required": true,
+           "description": "30天复购率",
+           "exampleValue": "33.9%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "pickupRate24h30d",
+           "type": "String",
+           "required": true,
+           "description": "24小时揽收率",
+           "exampleValue": "98%",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "sales7d",
+         "type": "String",
+         "required": true,
+         "description": "最近7天销量",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "productTradeInfo",
+         "type": "message:com.alibaba.cbu.offer.model.ProductTradeInfo",
+         "required": true,
+         "description": "商品销量数据",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "com.alibaba.cbu.offer.model.ProductTradeInfo",
+         "fields": [
+          {
+           "name": "addCartCount7d",
+           "type": "String",
+           "required": true,
+           "description": "最近7天加入购物车次数",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "payBuyerCount7d",
+           "type": "String",
+           "required": true,
+           "description": "最近7天支付买家数",
+           "exampleValue": "2",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "addCartCount30d",
+           "type": "String",
+           "required": true,
+           "description": "最近30天加入购物车次数",
+           "exampleValue": "3",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "payBuyerCount30d",
+           "type": "String",
+           "required": true,
+           "description": "最近30天支付买家数",
+           "exampleValue": "4",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "invoiceInfo",
+         "type": "message:product.search.queryProductDetail.model.InvoiceInfo",
+         "required": true,
+         "description": "发票信息",
+         "exampleValue": "{         &quot;supportOnlineInvoice&quot;: false,         &quot;supportFastInvoice&quot;: false,         &quot;invoiceTypes&quot;: [           &quot;普票&quot;         ],         &quot;taxpayerType&quot;: &quot;一般纳税人&quot;       }",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "product.search.queryProductDetail.model.InvoiceInfo",
+         "fields": [
+          {
+           "name": "supportOnlineInvoice",
+           "type": "Boolean",
+           "required": true,
+           "description": "是否支持在线开票",
+           "exampleValue": "true",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "supportFastInvoice",
+           "type": "Boolean",
+           "required": true,
+           "description": "是否支持极速开票",
+           "exampleValue": "false",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "invoiceTypes",
+           "type": "String[]",
+           "required": true,
+           "description": "支持的开票类型列表",
+           "exampleValue": "[&quot;普票&quot;,&quot;专票&quot;]",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "taxpayerType",
+           "type": "String",
+           "required": true,
+           "description": "纳税人类型",
+           "exampleValue": "一般纳税人 |  小规模纳税人",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "name": "picRegionInfo",
+       "type": "message:com.alibaba.cbu.offer.model.PicRegionInfo",
+       "required": true,
+       "description": "主体信息",
+       "exampleValue": "{&quot;currentRegion&quot;:&quot;265,597,326,764&quot;,&quot;yoloCropRegion&quot;:&quot;265,597,326,764;443,783,154,595&quot;}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.cbu.offer.model.PicRegionInfo",
+       "fields": [
+        {
+         "name": "currentRegion",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "yoloCropRegion",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;offerQueryParam&quot;: {\n    &quot;imageId&quot;: &quot;图片id&quot;,\n    &quot;beginPage&quot;: 123,\n    &quot;pageSize&quot;: 123,\n    &quot;region&quot;: &quot;266,799,48,581&quot;,\n    &quot;filter&quot;: &quot;shipInToday,ksCiphertext&quot;,\n    &quot;sort&quot;: &quot;{\\&quot;price\\&quot;:\\&quot;asc\\&quot;}&quot;,\n    &quot;outMemberId&quot;: &quot;外部用户uid&quot;,\n    &quot;priceStart&quot;: &quot;10&quot;,\n    &quot;priceEnd&quot;: &quot;20&quot;,\n    &quot;categoryId&quot;: 123,\n    &quot;imageAddress&quot;: &quot;图片地址&quot;,\n    &quot;country&quot;: &quot;如en-英语，详细枚举请参考开发人员参考菜单&quot;,\n    &quot;keyword&quot;: &quot;书本&quot;,\n    &quot;auxiliaryText&quot;: &quot;热卖的&quot;,\n    &quot;productCollectionId&quot;: &quot;21432232&quot;,\n    &quot;keywordTranslate&quot;: false,\n    &quot;itemTitle&quot;: &quot;可选传递商品标题，提升图搜效果&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: &quot;是否成功&quot;,\n    &quot;code&quot;: &quot;code&quot;,\n    &quot;message&quot;: &quot;message&quot;,\n    &quot;result&quot;: {\n      &quot;totalRecords&quot;: 1,\n      &quot;totalPage&quot;: 1,\n      &quot;pageSize&quot;: 1,\n      &quot;currentPage&quot;: 1,\n      &quot;data&quot;: [\n        {\n          &quot;imageUrl&quot;: &quot;图片url&quot;,\n          &quot;subject&quot;: &quot;标题&quot;,\n          &quot;subjectTrans&quot;: &quot;多语言标题&quot;,\n          &quot;priceInfo&quot;: {\n            &quot;price&quot;: &quot;1&quot;,\n            &quot;jxhyPrice&quot;: &quot;1&quot;,\n            &quot;pfJxhyPrice&quot;: &quot;1&quot;,\n            &quot;consignPrice&quot;: &quot;1&quot;,\n            &quot;promotionPrice&quot;: &quot;1&quot;\n          },\n          &quot;offerId&quot;: 123,\n          &quot;isJxhy&quot;: true,\n          &quot;repurchaseRate&quot;: &quot;13%&quot;,\n          &quot;monthSold&quot;: 1234,\n          &quot;traceInfo&quot;: &quot;object_id@620201390233^object_type@offer&quot;,\n          &quot;isOnePsale&quot;: true,\n          &quot;sellerIdentities&quot;: [\n            &quot;super_factory-超级工厂 powerful_merchants-实力商家 tp_member-诚信通会员&quot;\n          ],\n          &quot;offerIdentities&quot;: [\n            &quot;yx-严选&quot;\n          ],\n          &quot;tradeScore&quot;: &quot;5.0&quot;,\n          &quot;promotionModel&quot;: {\n            &quot;hasPromotion&quot;: true,\n            &quot;promotionType&quot;: &quot;plus&quot;\n          },\n          &quot;topCategoryId&quot;: 1,\n          &quot;secondCategoryId&quot;: 2,\n          &quot;thirdCategoryId&quot;: 3,\n          &quot;isPatentProduct&quot;: true,\n          &quot;createDate&quot;: &quot;2024-04-20 08:00:00&quot;,\n          &quot;modifyDate&quot;: &quot;2024-04-20 08:00:00&quot;,\n          &quot;isSelect&quot;: true,\n          &quot;sellerDataInfo&quot;: {\n            &quot;tradeMedalLevel&quot;: &quot;1&quot;,\n            &quot;compositeServiceScore&quot;: &quot;1&quot;,\n            &quot;logisticsExperienceScore&quot;: &quot;1&quot;,\n            &quot;disputeComplaintScore&quot;: &quot;1&quot;,\n            &quot;offerExperienceScore&quot;: &quot;1&quot;,\n            &quot;afterSalesExperienceScore&quot;: &quot;1&quot;,\n            &quot;consultingExperienceScore&quot;: &quot;1&quot;,\n            &quot;repeatPurchasePercent&quot;: &quot;11&quot;,\n            &quot;tpYear&quot;: 1\n          },\n          &quot;productSimpleShippingInfo&quot;: {\n            &quot;shippingTimeGuarantee&quot;: &quot;shipIn24Hours&quot;,\n            &quot;perfectFulfillmentRate30d&quot;: &quot;99.12%&quot;,\n            &quot;pickupWithin24hRate30d&quot;: &quot;100%&quot;,\n            &quot;qualityReturnRate30d&quot;: &quot;1.23%&quot;,\n            &quot;perfectFulfillmentRate7d&quot;: &quot;99.12%&quot;,\n            &quot;pickupWithin24hRate7d&quot;: &quot;99.12%&quot;,\n            &quot;delayedShippingRate7d&quot;: &quot;12.34%&quot;\n          },\n          &quot;minOrderQuantity&quot;: 1,\n          &quot;token&quot;: &quot;5L9Z3683O2iVIvwFxNdqnUlMVbKYHWGWcjs&quot;,\n          &quot;promotionURL&quot;: &quot;https://detail.1688.com/offer/710891050473.html?fromkv=refer:HVKTIRCHJVJFKR2RGRLDMTS2KJDUCNCEKNGUUUKHKVMUISKOLJKEYNKRLBATESZXI5CTGVCHJVJFESCBLFCE2T2KKFDTIM2UKE6T&quot;,\n          &quot;companyName&quot;: &quot;浙江省一路发发商贸公司&quot;,\n          &quot;companyAddress&quot;: &quot;浙江省杭州市&quot;,\n          &quot;offerDataInfo&quot;: {\n            &quot;offerApplauseRate&quot;: &quot;100.0%&quot;,\n            &quot;kjFeaturedServices&quot;: &quot;C&quot;,\n            &quot;qualityRfdRate30d&quot;: &quot;0%&quot;,\n            &quot;repurchaseRate30d&quot;: &quot;33.9%&quot;,\n            &quot;pickupRate24h30d&quot;: &quot;98%&quot;\n          },\n          &quot;sales7d&quot;: &quot;1&quot;,\n          &quot;productTradeInfo&quot;: {\n            &quot;addCartCount7d&quot;: &quot;1&quot;,\n            &quot;payBuyerCount7d&quot;: &quot;2&quot;,\n            &quot;addCartCount30d&quot;: &quot;3&quot;,\n            &quot;payBuyerCount30d&quot;: &quot;4&quot;\n          },\n          &quot;invoiceInfo&quot;: {\n            &quot;supportOnlineInvoice&quot;: true,\n            &quot;supportFastInvoice&quot;: false,\n            &quot;invoiceTypes&quot;: [\n              &quot;[\\&quot;普票\\&quot;,\\&quot;专票\\&quot;]&quot;\n            ],\n            &quot;taxpayerType&quot;: &quot;一般纳税人 |  小规模纳税人&quot;\n          }\n        }\n      ],\n      &quot;picRegionInfo&quot;: {\n        &quot;currentRegion&quot;: &quot;&quot;,\n        &quot;yoloCropRegion&quot;: &quot;&quot;\n      }\n    }\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商品"
+}

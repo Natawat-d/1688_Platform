@@ -1,0 +1,64 @@
+{
+ "topicId": "SYT_CONTRACT_REJECT",
+ "topicName": "CONTRACT_REJECT",
+ "topicDisplayName": "采购单/合同拒绝消息通知",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "生意通采购单/合同拒绝消息通知",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号或采购单号",
+   "type": "String",
+   "sample": "88SYT20230113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "contractCurrentStatus",
+   "desc": "合同当前状态",
+   "type": "String",
+   "sample": "SIGN_REJECT",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_SIGN_REJECT_EVENT",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "signRejectReason",
+   "desc": "拒绝原因",
+   "type": "String",
+   "sample": "无",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "signRejectTime",
+   "desc": "拒绝事件毫秒戳",
+   "type": "String",
+   "sample": "1778505510000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1778638312000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGN_REJECT&quot;,&quot;eventType&quot;:&quot;CONTRACT_SIGN_REJECT_EVENT&quot;,&quot;signRejectReason&quot;:&quot;无&quot;,&quot;signRejectTime&quot;:&quot;1778505510000&quot;}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

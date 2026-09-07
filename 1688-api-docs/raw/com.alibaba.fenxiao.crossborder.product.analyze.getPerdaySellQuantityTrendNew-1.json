@@ -1,0 +1,179 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.analyze.getPerdaySellQuantityTrendNew",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.analyze.getPerdaySellQuantityTrendNew-1",
+ "displayName": "获取商品每日销售数量趋势（新）",
+ "billType": null,
+ "description": "获取商品90天每日销售数量趋势（最多查询90天数据），新接口",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "tendQueryParam",
+   "type": "message:com.alibaba.cbu.offer.param.OfferSellTrendQueryParam",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.cbu.offer.param.OfferSellTrendQueryParam",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "商品id",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "startDate",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "查询起始时间",
+     "exampleValue": "20240701(起始时间和截止时间不要超过1个月）",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "endDate",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "查询截止时间",
+     "exampleValue": "20240704",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.cbu.common.result.CommonResult",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.cbu.common.result.CommonResult",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "retCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "retMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "返回信息",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:com.alibaba.cbu.offer.model.OfferSellTrendDataModel[]",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "[     {       &quot;date&quot;: &quot;20240701&quot;,       &quot;value&quot;: &quot;20&quot;     },     {       &quot;date&quot;: &quot;20240702&quot;,       &quot;value&quot;: &quot;20&quot;     },     {       &quot;date&quot;: &quot;20240703&quot;,       &quot;value&quot;: &quot;20&quot;     },     {       &quot;date&quot;: &quot;20240704&quot;,       &quot;value&quot;: &quot;20&quot;     },     {       &quot;date&quot;: &quot;20240705&quot;,       &quot;value&quot;: &quot;&quot;     }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.cbu.offer.model.OfferSellTrendDataModel[]",
+     "fields": [
+      {
+       "name": "date",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "数据指标对应的日期",
+       "exampleValue": "20240620",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "指标数据",
+       "exampleValue": "100",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;tendQueryParam&quot;: {\n    &quot;offerId&quot;: 123,\n    &quot;startDate&quot;: &quot;20240701(起始时间和截止时间不要超过1个月）&quot;,\n    &quot;endDate&quot;: &quot;20240704&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;retCode&quot;: &quot;S000&quot;,\n    &quot;retMsg&quot;: &quot;成功&quot;,\n    &quot;result&quot;: [\n      {\n        &quot;date&quot;: &quot;20240620&quot;,\n        &quot;value&quot;: &quot;100&quot;\n      }\n    ]\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商机"
+}

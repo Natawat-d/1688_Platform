@@ -1,0 +1,124 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "label.url.receive",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:label.url.receive-1",
+ "displayName": "接收外部打印UDF链接",
+ "billType": null,
+ "description": "接收外部打印UDF链接",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "订单ID",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "outOrderId",
+   "type": "java.lang.String",
+   "required": false,
+   "description": "外部订单ID",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "printUrls",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "面单打印链接",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:label.url.receive.hsf.Result",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "label.url.receive.hsf.Result",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "msg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "物流"
+}

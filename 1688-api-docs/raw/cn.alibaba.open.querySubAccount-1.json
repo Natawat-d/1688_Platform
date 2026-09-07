@@ -1,0 +1,212 @@
+{
+ "namespace": "cn.alibaba.open",
+ "name": "querySubAccount",
+ "version": 1,
+ "oceanApiId": "cn.alibaba.open:querySubAccount-1",
+ "displayName": "查询子账号信息",
+ "billType": null,
+ "description": "查询子账号信息",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "loginId",
+   "type": "String",
+   "required": true,
+   "description": "loginid",
+   "exampleValue": "bonlientest:zhagnshan",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:ResultModel",
+   "required": true,
+   "description": "返回模型",
+   "exampleValue": "{&quot;isSuccess&quot;:true,&quot;data&quot;:{&quot;userId&quot;:&quot;3453&quot;,&quot;name&quot;:&quot;张三&quot;}}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "ResultModel",
+   "fields": [
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "错误信息",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "resultCode",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "结果码",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSuccess",
+     "type": "boolean",
+     "required": true,
+     "description": "成功标识",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "message:CoopSubAccountModel",
+     "required": true,
+     "description": "数据",
+     "exampleValue": "{&quot;departmentId&quot;:&quot;352&quot;,&quot;userId&quot;:&quot;3454234&quot;,&quot;name&quot;:&quot;zhangsan&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "CoopSubAccountModel",
+     "fields": [
+      {
+       "name": "userId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "userId",
+       "exampleValue": "345345",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "loginId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "登录ID",
+       "exampleValue": "bonlinetest:zhangsan",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "employeeId",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "employeeid",
+       "exampleValue": "23453465",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "姓名",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sex",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "性别",
+       "exampleValue": "男",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "personalPhone",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "电话",
+       "exampleValue": "13234567854",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mail",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "邮件",
+       "exampleValue": "234324343@qq.com",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "departmentId",
+       "type": "java.lang.Long",
+       "required": false,
+       "description": "部门ID",
+       "exampleValue": "36456",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "departmentName",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "不部门名称",
+       "exampleValue": "设计部",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "",
+   "sample": "入参\nloginID：bonlinetest:zhangsan\n\n返回\n{&quot;isSuccess&quot;:true,&quot;data&quot;:{&quot;userId&quot;:&quot;3453&quot;,&quot;loginId&quot;:&quot;bonlinetest:zhangsan&quot;,&quot;employeeId&quot;:&quot;3453456&quot;,&quot;name&quot;:&quot;张三&quot;}}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

@@ -1,0 +1,72 @@
+{
+ "namespace": "com.alibaba.account",
+ "name": "wangwangnick.openuid.decrypt",
+ "version": 1,
+ "oceanApiId": "com.alibaba.account:wangwangnick.openuid.decrypt-1",
+ "displayName": "Openuid转换解密为旺旺昵称接口（仅可使用于用户唤起旺旺）",
+ "billType": null,
+ "description": "Openuid转换解密为旺旺昵称接口。该接口进行风控，仅可使用于用户需要唤起旺旺，不允许自动化批量操作，不允许作为解密接口将明文展示给用户。旺旺支持加密后回收，请勿使用于其他场景。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": true,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": true,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "openUid",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "待解密的openUid",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "wangwangNick",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "用以唤起旺旺的旺旺昵称",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "工具"
+}

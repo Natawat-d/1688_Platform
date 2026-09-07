@@ -1,0 +1,64 @@
+{
+ "topicId": "SYT_REFUND_FINISH_NOTICE",
+ "topicName": "REFUND_FINISH_NOTICE",
+ "topicDisplayName": "合同或采购单退款结果消息",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "合同或采购单退款结果消息",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号/采购单号",
+   "type": "String",
+   "sample": "88SYT20240113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_REFUND_FINISH",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "refundOrderNo",
+   "desc": "退款单号",
+   "type": "String",
+   "sample": "8896010RO10005525121800000017003",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "refundStatus",
+   "desc": "退款单状态",
+   "type": "String",
+   "sample": "REFUND_SUCCESS/FAILED",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "rejectReason",
+   "desc": "退款拒绝原因",
+   "type": "String",
+   "sample": "无",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1778638341000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20240113169004&quot;,&quot;eventType&quot;:&quot;CONTRACT_REFUND_FINISH&quot;,&quot;refundOrderNo&quot;:&quot;8896010RO10005525121800000017003&quot;,&quot;refundStatus&quot;:&quot;REFUND_SUCCESS/FAILED&quot;,&quot;rejectReason&quot;:&quot;无&quot;}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

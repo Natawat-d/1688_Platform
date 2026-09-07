@@ -1,0 +1,314 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "repurchase.contract.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:repurchase.contract.get-1",
+ "displayName": "复购合约查询",
+ "billType": null,
+ "description": "查询商品是否支持复购合约，复购合约是买卖家签署的复购优惠合约，卖家会给与复购用户特殊的价格、保障。复购合约需要通过特定的交易flow进行下单。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.openplatform.biz.trade.param.TradeRepurchaseQueryParam",
+   "required": true,
+   "description": "查询参数",
+   "exampleValue": "{&quot;offerIds&quot;: [ 867442475017]}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openplatform.biz.trade.param.TradeRepurchaseQueryParam",
+   "fields": [
+    {
+     "name": "offerIds",
+     "type": "java.lang.Long[]",
+     "required": true,
+     "description": "商品id列表",
+     "exampleValue": "[867442475017]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.repurchase.contract.get.ResultModel",
+   "required": true,
+   "description": "返回值",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.repurchase.contract.get.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.openplatform.biz.trade.result.TradeRepurchaseQueryResult",
+     "required": true,
+     "description": "复购合约模型",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.openplatform.biz.trade.result.TradeRepurchaseQueryResult",
+     "fields": [
+      {
+       "name": "offerRepurchases",
+       "type": "message:alibaba.openplatform.biz.trade.model.RepurchaseOfferModel[]",
+       "required": true,
+       "description": "商品复购合约",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.biz.trade.model.RepurchaseOfferModel[]",
+       "fields": [
+        {
+         "name": "offerId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "商品ID",
+         "exampleValue": "867442475017",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "contractId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "合约ID",
+         "exampleValue": "1379269006",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "freightFee",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "运费 分",
+         "exampleValue": "0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "freightDiscount",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "运费折扣",
+         "exampleValue": "null",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "freightStrategy",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "运费策略",
+         "exampleValue": "CALC_BY_OUT_SPECIFIED_FREIGHT",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "freeAddressCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "免运费地址码",
+         "exampleValue": "110101",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "includeTax",
+         "type": "boolean",
+         "required": true,
+         "description": "是否含税",
+         "exampleValue": "false",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "invoiceTaxRate",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "发票税率",
+         "exampleValue": "0.01",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "invoiceRequired",
+         "type": "boolean",
+         "required": true,
+         "description": "是否需要发票",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "deliveryDays",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "发货时效 天",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "deliveryDateIsDefault",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否默认发货时效",
+         "exampleValue": "false",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "skuRepurchases",
+         "type": "message:alibaba.openplatform.biz.trade.model.RepurchaseSkuModel[]",
+         "required": true,
+         "description": "支持复购合约的sku",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.biz.trade.model.RepurchaseSkuModel[]",
+         "fields": [
+          {
+           "name": "skuId",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "skuid",
+           "exampleValue": "5861839338331",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "priceRanges",
+           "type": "message:alibaba.openplatform.biz.trade.model.RepurchasePriceRangeModel[]",
+           "required": true,
+           "description": "阶梯价",
+           "exampleValue": "{                 &quot;price&quot;: 1,                 &quot;end&quot;: null,                 &quot;begin&quot;: 300               }",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.openplatform.biz.trade.model.RepurchasePriceRangeModel[]",
+           "fields": [
+            {
+             "name": "begin",
+             "type": "java.lang.Integer",
+             "required": true,
+             "description": "订购量起",
+             "exampleValue": "1",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "end",
+             "type": "java.lang.Integer",
+             "required": true,
+             "description": "订购量止",
+             "exampleValue": "200",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "price",
+             "type": "java.lang.Long",
+             "required": true,
+             "description": "订购价",
+             "exampleValue": "100",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "复购"
+}

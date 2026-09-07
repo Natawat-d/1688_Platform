@@ -1,0 +1,54 @@
+{
+ "topicId": "SYT_CONTRACT_SIGN_SUCCESS",
+ "topicName": "CONTRACT_SIGN_SUCCESS",
+ "topicDisplayName": "合同/采购单双方签署成功通知",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "合同/采购单双方签署成功后，会做消息通知",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号或采购单号",
+   "type": "String",
+   "sample": "88SYT20230113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "contractCurrentStatus",
+   "desc": "合同/采购单当前状态",
+   "type": "String",
+   "sample": "SIGN_SUCCESS",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_SIGN_SUCCESS_EVENT",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "signSuccessTime",
+   "desc": "签约成功时间毫秒戳",
+   "type": "String",
+   "sample": "1778505510000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1778638242000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGN_SUCCESS&quot;,&quot;eventType&quot;:&quot;CONTRACT_SIGN_SUCCESS_EVENT&quot;,&quot;signSuccessTime&quot;:&quot;1778505510000&quot;}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

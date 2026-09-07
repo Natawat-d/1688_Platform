@@ -1,0 +1,64 @@
+{
+ "topicId": "ORDER_BUYER_VIEW_BUYER_MAKE",
+ "topicName": "BUYER_VIEW_BUYER_MAKE",
+ "topicDisplayName": "1688创建订单（买家视角）/order created (buyer view)",
+ "topicGroupName": "ORDER",
+ "topicGroupDisplayName": "订单消息",
+ "desc": "1688创建订单（买家视角）/order created (buyer view)",
+ "messageDocs": [
+  {
+   "name": "orderId",
+   "desc": "订单ID",
+   "type": "Number",
+   "sample": "167539019420540000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "currentStatus",
+   "desc": "当前订单状态，状态值为waitbuyerpay",
+   "type": "String",
+   "sample": "waitbuyerpay",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间\t",
+   "type": "String",
+   "sample": "2018-05-30 19:24:18",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerMemberId",
+   "desc": "买家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-665170100",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sellerMemberId",
+   "desc": "卖家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-1676547900b7bb3",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1553846484000,
+ "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitbuyerpay&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:24:18&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+ "subscribed": false,
+ "_group": "交易消息"
+}

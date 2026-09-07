@@ -1,0 +1,221 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.receiveAddress.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.receiveAddress.get-1",
+ "displayName": "买家获取保存的收货地址信息列表",
+ "billType": 0,
+ "description": "买家获取保存的收货地址信息列表",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.trade.ReceiveAddressResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.ReceiveAddressResult",
+   "fields": [
+    {
+     "name": "receiveAddressItems",
+     "type": "message:alibaba.trade.ReceiveAddressItem[]",
+     "required": true,
+     "description": "收货地址列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.trade.ReceiveAddressItem[]",
+     "fields": [
+      {
+       "name": "id",
+       "type": "Long",
+       "required": true,
+       "description": "addressId",
+       "exampleValue": "322683081",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fullName",
+       "type": "String",
+       "required": true,
+       "description": "收货人姓名",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "address",
+       "type": "String",
+       "required": true,
+       "description": "街道地址，不包括省市编码",
+       "exampleValue": "网商路699",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "post",
+       "type": "String",
+       "required": true,
+       "description": "邮编",
+       "exampleValue": "340000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "phone",
+       "type": "String",
+       "required": true,
+       "description": "电话",
+       "exampleValue": "0517-8888888",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobilePhone",
+       "type": "String",
+       "required": true,
+       "description": "手机号",
+       "exampleValue": "18012345678",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "addressCode",
+       "type": "String",
+       "required": true,
+       "description": "地址区域编码",
+       "exampleValue": "330108",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "addressCodeText",
+       "type": "String",
+       "required": true,
+       "description": "地址区域编码对应的文本（包括国家，省，城市）",
+       "exampleValue": "浙江省 杭州市 滨江区",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isDefault",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否为默认",
+       "exampleValue": "false",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townCode",
+       "type": "String",
+       "required": true,
+       "description": "镇编码",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townName",
+       "type": "String",
+       "required": true,
+       "description": "镇地址",
+       "exampleValue": "长河镇",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功\t",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "code",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "400",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": "api need authorized",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回结果JSON示例",
+   "sample": "{&quot;result&quot;:{&quot;receiveAddressItems&quot;:[{&quot;id&quot;:560954849,&quot;fullName&quot;:&quot;b2b-测试账号006&quot;,&quot;address&quot;:&quot;AAAAb2b-测试账号00613071801119&quot;,&quot;post&quot;:&quot;810600&quot;,&quot;mobilePhone&quot;:&quot;13071801119&quot;,&quot;addressCode&quot;:&quot;632122&quot;,&quot;addressCodeText&quot;:&quot;青海省 海东市 民和回族土族自治县&quot;,&quot;townCode&quot;:&quot;630222100&quot;,&quot;townName&quot;:&quot;川口镇&quot;},{&quot;id&quot;:547009002,&quot;fullName&quot;:&quot;2323&quot;,&quot;address&quot;:&quot;所得税负担&quot;,&quot;post&quot;:&quot;000000&quot;,&quot;mobilePhone&quot;:&quot;15678906543&quot;,&quot;addressCode&quot;:&quot;420203&quot;,&quot;addressCodeText&quot;:&quot;湖北省 黄石市 西塞山区&quot;,&quot;townCode&quot;:&quot;420203402&quot;,&quot;townName&quot;:&quot;西塞山工业园区管委会&quot;},{&quot;id&quot;:586953001,&quot;fullName&quot;:&quot;放大法&quot;,&quot;address&quot;:&quot;发的发&quot;,&quot;post&quot;:&quot;210046&quot;,&quot;mobilePhone&quot;:&quot;18058423787&quot;,&quot;addressCode&quot;:&quot;320102&quot;,&quot;addressCodeText&quot;:&quot;江苏省 南京市 玄武区&quot;,&quot;townCode&quot;:&quot;320102003&quot;,&quot;townName&quot;:&quot;新街口街道&quot;},{&quot;id&quot;:561960001,&quot;fullName&quot;:&quot;eeee &quot;,&quot;address&quot;:&quot;ccccc &quot;,&quot;post&quot;:&quot;145896&quot;,&quot;phone&quot;:&quot;&quot;,&quot;mobilePhone&quot;:&quot;13514782569&quot;,&quot;addressCode&quot;:&quot;110102&quot;,&quot;addressCodeText&quot;:&quot;北京 北京市 西城区&quot;,&quot;townCode&quot;:&quot;110102009&quot;,&quot;townName&quot;:&quot;展览路街道&quot;},{&quot;id&quot;:548576123,&quot;fullName&quot;:&quot;sdfs&quot;,&quot;address&quot;:&quot;sdfsdf&quot;,&quot;post&quot;:&quot;122311&quot;,&quot;mobilePhone&quot;:&quot;15890986543&quot;,&quot;addressCode&quot;:&quot;540121&quot;,&quot;addressCodeText&quot;:&quot;西藏自治区 拉萨市 林周县&quot;,&quot;townCode&quot;:&quot;540121200&quot;,&quot;townName&quot;:&quot;春堆乡&quot;},{&quot;id&quot;:584414269,&quot;fullName&quot;:&quot;张三&quot;,&quot;address&quot;:&quot;办事处&quot;,&quot;post&quot;:&quot;000000&quot;,&quot;mobilePhone&quot;:&quot;15251556677&quot;,&quot;addressCode&quot;:&quot;441900&quot;,&quot;addressCodeText&quot;:&quot;广东省 东莞市&quot;,&quot;townCode&quot;:&quot;441901004&quot;,&quot;townName&quot;:&quot;南城街道&quot;}]},&quot;success&quot;:true}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

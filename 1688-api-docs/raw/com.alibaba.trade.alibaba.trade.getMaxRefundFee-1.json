@@ -1,0 +1,250 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.getMaxRefundFee",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.getMaxRefundFee-1",
+ "displayName": "申请退款时查询最大可退费用",
+ "billType": null,
+ "description": "申请退款时查询最大可退费用",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "input",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.OpMaxRefundFeeGetParam",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.OpMaxRefundFeeGetParam",
+   "fields": [
+    {
+     "name": "goodsStatus",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "货物状态\t",
+     "exampleValue": " 售中等待卖家发货:&quot;refundWaitSellerSend&quot;; 售中等待买家收货:&quot;refundWaitBuyerReceive&quot;; 售中已收货（未确认完成交易）:&quot;refundBuyerReceived&quot; 售后未收货:&quot;aftersaleBuyerNotReceived&quot;; 售后已收到货:&quot;aftersaleBuyerReceived&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "订单ID",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundId",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "退款单必须处于退款中，可不传",
+     "exampleValue": "TQ123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundGoodsCountList",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.common.model.OrderEntryCountModel[]",
+     "required": true,
+     "description": "退货数量",
+     "exampleValue": "[{1: 1}]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.common.model.OrderEntryCountModel[]",
+     "fields": [
+      {
+       "name": "id",
+       "type": "Long",
+       "required": true,
+       "description": "子订单id",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "count",
+       "type": "Integer",
+       "required": true,
+       "description": "子订单购买商品数量",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OpMaxRefundFeeResultModel",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OpMaxRefundFeeResultModel",
+   "fields": [
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.common.model.OpMaxRefundFeeModel",
+     "required": true,
+     "description": "  ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.common.model.OpMaxRefundFeeModel",
+     "fields": [
+      {
+       "name": "maxGoodsFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "最大可退款货品金额，单位：分",
+       "exampleValue": "7",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxPostFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "最大可退运费，单位：分",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxRefundFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "最大可退款金额，即运费+货品金额的上限值，单位：分",
+       "exampleValue": "9",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxSubstituteFetchFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "最大可退官方代提服务费，单位：分",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "retCodes",
+     "type": "java.lang.String[]",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subMessage",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

@@ -1,0 +1,118 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.order.memoAdd",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.order.memoAdd-1",
+ "displayName": "修改订单备忘",
+ "billType": 0,
+ "description": "授权用户为卖家修改卖家备忘，授权用户为买家修改买家备忘\n注意：该接口可重复调用，备注内容将覆盖前一次调用",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderId",
+   "type": "java.lang.Long",
+   "required": true,
+   "description": "订单ID",
+   "exampleValue": "1234567",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "memo",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "备忘信息",
+   "exampleValue": "订单备忘详情",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "remarkIcon",
+   "type": "String",
+   "required": true,
+   "description": "备忘图标，目前仅支持数字。1位红色图标，2为蓝色图标，3为绿色图标，4为黄色图标",
+   "exampleValue": "2",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "java.lang.Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "错误编码",
+   "exampleValue": "400_4",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": "修改失败",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "订单不存在出参示例",
+   "sample": "{\n  &quot;errorCode&quot;: &quot;400_4&quot;,\n  &quot;errorMsg&quot;: &quot;修改备注信息出错[ORDER_NOT_EXIST]，order[1198263322216969811]is not exsits&quot;,\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

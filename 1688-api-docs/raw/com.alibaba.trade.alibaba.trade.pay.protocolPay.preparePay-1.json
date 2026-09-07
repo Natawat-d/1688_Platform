@@ -1,0 +1,178 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.pay.protocolPay.preparePay",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay-1",
+ "displayName": "发起免密支付",
+ "billType": null,
+ "description": "发起免密支付，会自动判断是否开通了支付宝或者诚E赊的免密支付，并发起扣款。优先发起诚E赊自动扣款，如果失败，则尝试支付宝自动扣款。该接口目前返回错误码不详，在发起扣款失败后，建议重试3次，不要无限制重试。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "tradeWithholdPreparePayParam",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.TradeWithholdPreparePayParam",
+   "required": true,
+   "description": "发起免密支付",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.TradeWithholdPreparePayParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "订单ID",
+     "exampleValue": "1938489823",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payChannel",
+     "type": "String",
+     "required": false,
+     "description": "先采后付支付传入shegou，支付宝支付传入alipay。不传值默认使用API描述优先级进行代扣",
+     "exampleValue": "alipay",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payAmount",
+     "type": "Long",
+     "required": false,
+     "description": "付款总金额,单位分",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "opRequestId",
+     "type": "String",
+     "required": false,
+     "description": "requestid",
+     "exampleValue": "134134134",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.ocean.openplatform.biz.trade.result.TradeWithholdPreparePayResult.rresult",
+   "required": true,
+   "description": "免密支付结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.ocean.openplatform.biz.trade.result.TradeWithholdPreparePayResult.rresult",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "错误消息",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:com.alibaba.ocean.openplatform.biz.trade.result.TradeWithholdPreparePayResult.mresult",
+     "required": true,
+     "description": "扣款返回值",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.trade.result.TradeWithholdPreparePayResult.mresult",
+     "fields": [
+      {
+       "name": "payChannel",
+       "type": "String",
+       "required": true,
+       "description": "支付成功渠道",
+       "exampleValue": "Alipay",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "paySuccess",
+       "type": "Boolean",
+       "required": true,
+       "description": "支付是否成功,在超时的情况下，可能返回false但实际扣款成功的情况，需要查询订单实际支付状态",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "支付"
+}

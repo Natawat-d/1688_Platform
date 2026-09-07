@@ -1,0 +1,502 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.invoiceTitle.getPageList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.invoiceTitle.getPageList-1",
+ "displayName": "分页查询买家抬头列表",
+ "billType": null,
+ "description": "分页查询买家抬头列表",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "input",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.OpInvoiceTitleQueryParam",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.OpInvoiceTitleQueryParam",
+   "fields": [
+    {
+     "name": "page",
+     "type": "int",
+     "required": false,
+     "description": "当前页，不能小于1",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "int",
+     "required": false,
+     "description": "分页大小，不能小于1，不能大于100",
+     "exampleValue": "50",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "titleType",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "发票抬头类型，个人和社会组织都是PERSONAL：PERSONAL(0,&quot;个人&quot;),COMPANY(1,&quot;企业&quot;),SOCIAL_ORGANIZATION(3,&quot;社会组织（机关事业单位等）&quot;),PARENT_VIRTUAL(-1,&quot;父票虚拟类型&quot;);",
+     "exampleValue": "PERSONAL",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OpInvoiceTitlePageSingleResult",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OpInvoiceTitlePageSingleResult",
+   "fields": [
+    {
+     "name": "currentPage",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "当前页码",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误编码",
+     "exampleValue": "404",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorInfo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "错误信息",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "分页大小",
+     "exampleValue": "10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleQueryResult",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleQueryResult",
+     "fields": [
+      {
+       "name": "companyInvoiceTitles",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel[]",
+       "required": true,
+       "description": "企业抬头",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel[]",
+       "fields": [
+        {
+         "name": "bankAccountId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "银行账号",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "开户行",
+         "exampleValue": "开户行",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "email",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "邮箱",
+         "exampleValue": "邮箱",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtCreate",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "创建时间",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtModified",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "修改时间",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "invoiceTitleId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "抬头主键 id",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isDefault",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "是否默认",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业联系人",
+         "exampleValue": "企业联系人",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "receiverPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "收件人电话",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerAddress",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业注册地址",
+         "exampleValue": "企业注册地址",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业电话",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "taxpayerIdentify",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "纳税人识别号",
+         "exampleValue": "纳税人识别号",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "title",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头",
+         "exampleValue": "抬头",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "titleType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "发票抬头类型，个人和社会组织都是PERSONAL：PERSONAL(0,&quot;个人&quot;),COMPANY(1,&quot;企业&quot;),SOCIAL_ORGANIZATION(3,&quot;社会组织（机关事业单位等）&quot;),PARENT_VIRTUAL(-1,&quot;父票虚拟类型&quot;);",
+         "exampleValue": "PERSONAL",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "openUid",
+         "type": "String",
+         "required": true,
+         "description": "openUid",
+         "exampleValue": "OU",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "personalInvoiceTitles",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel[]",
+       "required": true,
+       "description": "个人抬头",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel[]",
+       "fields": [
+        {
+         "name": "bankAccountId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "银行账号",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "开户行",
+         "exampleValue": "开户行",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "email",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "邮箱",
+         "exampleValue": "邮箱",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtCreate",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "创建时间",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtModified",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "修改时间",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "invoiceTitleId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "抬头主键 id",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isDefault",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "是否默认",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业联系人",
+         "exampleValue": "企业联系人",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "receiverPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "收件人电话",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerAddress",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业注册地址",
+         "exampleValue": "企业注册地址",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业电话",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "taxpayerIdentify",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "纳税人识别号",
+         "exampleValue": "纳税人识别号",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "title",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头",
+         "exampleValue": "抬头",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "titleType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "发票抬头类型，个人和社会组织都是PERSONAL：PERSONAL(0,&quot;个人&quot;),COMPANY(1,&quot;企业&quot;),SOCIAL_ORGANIZATION(3,&quot;社会组织（机关事业单位等）&quot;),PARENT_VIRTUAL(-1,&quot;父票虚拟类型&quot;);",
+         "exampleValue": "PERSONAL",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "openUid",
+         "type": "String",
+         "required": true,
+         "description": "openUid",
+         "exampleValue": "OU",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "totalNum",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "总记录数",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "发票"
+}

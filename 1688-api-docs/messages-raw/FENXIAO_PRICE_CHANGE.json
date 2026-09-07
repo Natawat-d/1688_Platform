@@ -1,0 +1,44 @@
+{
+ "topicId": "FENXIAO_PRICE_CHANGE",
+ "topicName": "PRICE_CHANGE",
+ "topicDisplayName": "分销价格变更",
+ "topicGroupName": "FENXIAO",
+ "topicGroupDisplayName": "分销",
+ "desc": "分销价格变更（关系视角），需要关注商品",
+ "messageDocs": [
+  {
+   "name": "productId",
+   "desc": "1688商品id",
+   "type": "String",
+   "sample": "738629661216",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "memberId",
+   "desc": "1688会员id",
+   "type": "String",
+   "sample": "b2b-2248564064",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2024-05-09 00:00:00",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1715758305000,
+ "sample": "{&quot;productId&quot;:&quot;738629661216&quot;,&quot;memberId&quot;:&quot;b2b-2248564064&quot;,&quot;msgSendTime&quot;:&quot;2024-05-09 00:00:00&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

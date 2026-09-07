@@ -1,0 +1,220 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "publish.result.callback",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:publish.result.callback-1",
+ "displayName": "发布结果回调",
+ "billType": null,
+ "description": "WB-1688 集成 Method 3 发布结果回调接口",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.global1688.silicon.user.api.param.WbPublishCallbackRequestDTO",
+   "required": true,
+   "description": "回调请求参数",
+   "exampleValue": "{&quot;offerId&quot;:123456789,&quot;imtId&quot;:&quot;imt123&quot;,&quot;status&quot;:&quot;SUCCESS&quot;,&quot;requestId&quot;:&quot;req123&quot;,&quot;cards&quot;:[]}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global1688.silicon.user.api.param.WbPublishCallbackRequestDTO",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "1688商品ID",
+     "exampleValue": "123456789",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "imtId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "WB商品IMT ID",
+     "exampleValue": "imt123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "发布状态",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "requestId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "请求ID",
+     "exampleValue": "req123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cards",
+     "type": "message:alibaba.global1688.silicon.user.api.param.WbPublishCallbackRequestDTO.WbCardResult[]",
+     "required": true,
+     "description": "卡片结果列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.global1688.silicon.user.api.param.WbPublishCallbackRequestDTO.WbCardResult[]",
+     "fields": []
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:ResultGT52f0rf",
+   "required": true,
+   "description": "回调结果",
+   "exampleValue": "{&quot;success&quot;:true,&quot;duplicate&quot;:false,&quot;requestId&quot;:&quot;req123&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "ResultGT52f0rf",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.global1688.silicon.user.api.result.WbPublishCallbackResponseDTO",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.global1688.silicon.user.api.result.WbPublishCallbackResponseDTO",
+     "fields": [
+      {
+       "name": "success",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否成功",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "duplicate",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否重复请求",
+       "exampleValue": "false",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "requestId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "请求ID",
+       "exampleValue": "req123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "错误码",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "permissionName",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "权限名称",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "错误信息",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{&quot;request&quot;:{&quot;offerId&quot;:123456789,&quot;imtId&quot;:&quot;imt123&quot;,&quot;status&quot;:&quot;SUCCESS&quot;,&quot;requestId&quot;:&quot;req123&quot;,&quot;cards&quot;:[]}}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{&quot;result&quot;:{&quot;success&quot;:true,&quot;duplicate&quot;:false,&quot;requestId&quot;:&quot;req123&quot;}}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "铺货"
+}

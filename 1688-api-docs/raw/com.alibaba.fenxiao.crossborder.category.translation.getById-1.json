@@ -1,0 +1,329 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "category.translation.getById",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:category.translation.getById-1",
+ "displayName": "根据类目ID查询多语言类目",
+ "billType": null,
+ "description": "多语言类目查询接口。根据当前语种和类目ID查询对应语种的类目详情，包含当前类目的下级类目列表数据。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "outMemberId",
+   "type": "String",
+   "required": false,
+   "description": "用户在机构的唯一ID。不超过64位，由数字和字母组成。",
+   "exampleValue": "23423532fwef",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "language",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "语种。见常见问题中的枚举。",
+   "exampleValue": "ja",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "categoryId",
+   "type": "java.lang.Long",
+   "required": true,
+   "description": "类目ID",
+   "exampleValue": "0",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "parentCateId",
+   "type": "Long",
+   "required": false,
+   "description": "父id",
+   "exampleValue": "0",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:category.translation.getById.ResultModel",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "category.translation.getById.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:category.translation.getById.Category",
+     "required": true,
+     "description": "实际结果",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "category.translation.getById.Category",
+     "fields": [
+      {
+       "name": "categoryId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "类目ID",
+       "exampleValue": "1031910",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "chineseName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目中文名称",
+       "exampleValue": "连衣裙",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "translatedName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目翻译名称",
+       "exampleValue": "ワンピース",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "language",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "语种",
+       "exampleValue": "ja",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "leaf",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "是否叶子类目",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "level",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目层级",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "parentCateId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "上层类目ID",
+       "exampleValue": "10166",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fromCache",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "数据是否来自缓存",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "children",
+       "type": "message:category.translation.getById.ChildCategory[]",
+       "required": true,
+       "description": "子类目数据",
+       "exampleValue": "如下",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "category.translation.getById.ChildCategory[]",
+       "fields": [
+        {
+         "name": "categoryId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "类目ID",
+         "exampleValue": "1031910",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "chineseName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "类目中文名称",
+         "exampleValue": "连衣裙",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "translatedName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "类目翻译名称",
+         "exampleValue": "ワンピース",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "language",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "语种",
+         "exampleValue": "ja",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "leaf",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否叶子类目",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "level",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "类目层级",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "parentCateId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "上层类目ID",
+         "exampleValue": "10166",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "fromCache",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "数据是否来自缓存",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  2212505444921,\n  &quot;1&quot;,\n  &quot;ja&quot;,\n  1031910\n}",
+   "type": "TEXT"
+  },
+  {
+   "name": "返回值示例",
+   "sample": "{\n    &quot;result&quot;:\n    {\n        &quot;fromCache&quot;: true,\n        &quot;children&quot;: null,\n        &quot;level&quot;: &quot;2&quot;,\n        &quot;chineseName&quot;: &quot;连衣裙&quot;,\n        &quot;language&quot;: &quot;ja&quot;,\n        &quot;leaf&quot;: false,\n        &quot;translatedName&quot;: &quot;ワンピース&quot;,\n        &quot;categoryId&quot;: 1031910,\n        &quot;parentCateId&quot;: 10166\n    },\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;S0000&quot;,\n    &quot;message&quot;: &quot;成功&quot;\n}",
+   "type": "CODE_JAVA"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "类目"
+}

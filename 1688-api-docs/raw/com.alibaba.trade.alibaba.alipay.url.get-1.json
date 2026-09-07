@@ -1,0 +1,134 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.alipay.url.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.alipay.url.get-1",
+ "displayName": "批量获取订单的支付链接",
+ "billType": 0,
+ "description": "通过ERP付款时，可以通过本API获取批量支付的收银台的链接。\n单个订单返回1688收银台地址，多个订单返回支付宝收银台地址。\nERP可以引导用户跳转到收银台链接完成支付动作，支付前会校验用户在1688的登陆状态。\n",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderIdList",
+   "type": "Long[]",
+   "required": true,
+   "description": "订单Id列表,最多批量100个订单，跨境宝批量最大只支持30笔。",
+   "exampleValue": "[74321349391498520]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "erroMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "payUrl",
+   "type": "String",
+   "required": true,
+   "description": "支付链接",
+   "exampleValue": "https://a.b.com",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功，可能部分成功，需要结合payFailureOrderList查看",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "payFailureOrderList",
+   "type": "Long[]",
+   "required": true,
+   "description": "部分失败订单id",
+   "exampleValue": "[1299871823,19798172783]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "Batch pay : not surport MANUAL-TRADE!",
+   "desc": "Batch pay : not surport MANUAL-TRADE!",
+   "howToFix": "未补充买家收件信息的邀约订单不能合并付款，是否邀约订单可以通过订单详情里面的baseInfo.sellerOrder字段判断"
+  },
+  {
+   "code": "操作库存失败:PRODUCT_TRADE_STAT_ERROR",
+   "desc": "inventoryErrorIds:[16397675**722128**]",
+   "howToFix": "存在付款减库存订单且扣减库存失败。"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参：多个订单的支付链接",
+   "sample": "{\n  &quot;payUrl&quot;: &quot;https://trade.1688.com/order/cashier.htm?orderId=154051432607498520;151923545459498520&quot;,\n  &quot;success&quot;: true\n}",
+   "type": null
+  },
+  {
+   "name": "出参：单个订单支付链接",
+   "sample": "{\n  &quot;payUrl&quot;: &quot;https://trade.1688.com/order/cashier.htm?orderId=151923545459498520&quot;,\n  &quot;success&quot;: true\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "支付"
+}

@@ -1,0 +1,104 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.kjdistribute.addRelation",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation-1",
+ "displayName": "增加跨境关注商品",
+ "billType": null,
+ "description": "增加跨境关注商品",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "offerId",
+   "type": "java.lang.Long",
+   "required": true,
+   "description": "商品id",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.national.common.result.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.national.common.result.ResultModel",
+   "fields": [
+    {
+     "name": "msg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

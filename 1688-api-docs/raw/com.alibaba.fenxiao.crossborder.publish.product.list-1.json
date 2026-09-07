@@ -1,0 +1,219 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "publish.product.list",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:publish.product.list-1",
+ "displayName": "铺货商品列表",
+ "billType": null,
+ "description": "查询可铺货的商品列表，支持按货盘 ID 分页查询商品 ID 集合。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:com.alibaba.global1688.silicon.user.api.param.WbPublishableOfferQueryParam",
+   "required": true,
+   "description": "查询可铺货商品的请求参数",
+   "exampleValue": "{&quot;palletId&quot;:&quot;example&quot;,&quot;pageNo&quot;:1,&quot;pageSize&quot;:10,&quot;subjects&quot;:[578,571]}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.global1688.silicon.user.api.param.WbPublishableOfferQueryParam",
+   "fields": [
+    {
+     "name": "pageNo",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "pageNo 字段",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "pageSize 字段",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "palletId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "palletId 字段",
+     "exampleValue": "example",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subjects",
+     "type": "Integer[]",
+     "required": false,
+     "description": "WB 类目 subjectID 列表，可选；传入时仅返回对应类目的商品",
+     "exampleValue": "[578,571]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.global1688.silicon.user.api.common.ResultGTuskmls",
+   "required": true,
+   "description": "查询结果",
+   "exampleValue": "{&quot;success&quot;:true,&quot;code&quot;:&quot;SUCCESS&quot;,&quot;result&quot;:{&quot;offerIds&quot;:[1,2],&quot;pageNo&quot;:1,&quot;pageSize&quot;:10,&quot;total&quot;:100}}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.global1688.silicon.user.api.common.ResultGTuskmls",
+   "fields": [
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "code 字段",
+     "exampleValue": "example",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "message 字段",
+     "exampleValue": "example",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "permissionName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "permissionName 字段",
+     "exampleValue": "example",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:com.alibaba.global1688.silicon.user.api.result.WbPublishableOfferPageDTO",
+     "required": true,
+     "description": "result 字段",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.global1688.silicon.user.api.result.WbPublishableOfferPageDTO",
+     "fields": [
+      {
+       "name": "offerIds",
+       "type": "java.lang.Long[]",
+       "required": true,
+       "description": "offerIds 字段",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pageNo",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "pageNo 字段",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pageSize",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "pageSize 字段",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "total",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": "total 字段",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "success 字段",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;param&quot;: {\n    &quot;pageNo&quot;: 1,\n    &quot;pageSize&quot;: 1,\n    &quot;palletId&quot;: &quot;example&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;code&quot;: &quot;example&quot;,\n    &quot;message&quot;: &quot;example&quot;,\n    &quot;permissionName&quot;: &quot;example&quot;,\n    &quot;result&quot;: {\n      &quot;offerIds&quot;: [\n        1\n      ],\n      &quot;pageNo&quot;: 1,\n      &quot;pageSize&quot;: 1,\n      &quot;total&quot;: 1\n    },\n    &quot;success&quot;: true\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "铺货"
+}

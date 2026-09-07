@@ -1,0 +1,136 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.customer.queryUserAuthStatus",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.customer.queryUserAuthStatus-1",
+ "displayName": "88生意通查询客户是否已认证",
+ "billType": null,
+ "description": "88生意通查询客户是否已认证",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.UserAuthStatusQueryApiRequest",
+   "required": true,
+   "description": "输入参数",
+   "exampleValue": "{   &quot;loginId&quot;: &quot;user1688&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.UserAuthStatusQueryApiRequest",
+   "fields": [
+    {
+     "name": "loginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "1688 loginId",
+     "exampleValue": "ces测试002",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.UserAuthStatusQueryApiResponse",
+   "required": true,
+   "description": "输出结果",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;errorCode&quot;: null,   &quot;errorMsg&quot;: null,   &quot;errorNumCode&quot;: null,   &quot;authenticated&quot;: true }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.UserAuthStatusQueryApiResponse",
+   "fields": [
+    {
+     "name": "authenticated",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否已实名认证",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误code，isSuccess=true 时关注",
+     "exampleValue": " SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息描述，isSuccess=true 时关注",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSuccess",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "调用是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "traceId",
+     "exampleValue": "12222",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

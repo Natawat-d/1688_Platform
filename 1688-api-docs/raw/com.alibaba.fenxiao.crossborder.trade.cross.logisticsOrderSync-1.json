@@ -1,0 +1,196 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "trade.cross.logisticsOrderSync",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:trade.cross.logisticsOrderSync-1",
+ "displayName": "国家站物流单回传",
+ "billType": null,
+ "description": "国家站物流单回传",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderLogisticsParam",
+   "type": "message:alibaba.cbu.order.out.param.OrderLogisticsParam",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.order.out.param.OrderLogisticsParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "国家站主单id",
+     "exampleValue": "1213",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "logisticsId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "下游物流单id",
+     "exampleValue": "1·21213",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "logisticsStatus",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "物流状态send-已发货 sign-签收 partSign-部分收货 refund-退货",
+     "exampleValue": "sign",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "createTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "创建时间",
+     "exampleValue": "2023-10-10 10:12:12",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "signTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "签收时间",
+     "exampleValue": "2023-10-10 10:12:12",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "province",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "省",
+     "exampleValue": "江西省",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "city",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "市",
+     "exampleValue": "南昌市",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "area",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "区",
+     "exampleValue": "白云区",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "address",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "详细地址",
+     "exampleValue": "江西省南昌市白云区xx号",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.openapi.shared.common.ResultModel",
+   "required": true,
+   "description": "返回信息",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.openapi.shared.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "code",
+     "exampleValue": "200",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "返回信息",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "回传数据"
+}

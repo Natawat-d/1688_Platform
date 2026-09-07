@@ -1,0 +1,205 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.list",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.list-1",
+ "displayName": "牛顿云-查询任务列表",
+ "billType": null,
+ "description": "查询当前用户的任务列表，返回每个任务的 taskId/sessionId/status/taskType/创建与完成时间\n",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "pageNo",
+   "type": "Integer",
+   "required": false,
+   "description": "分页页数，不传该参数时为全量查询",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageSize",
+   "type": "Integer",
+   "required": false,
+   "description": "分页每页数量",
+   "exampleValue": "20",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "接口是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "data",
+   "type": "message:taskItem[]",
+   "required": true,
+   "description": "任务列表，每一项为一个任务的详细信息。详情可参考 查询任务服务",
+   "exampleValue": "[         {             &quot;taskId&quot;: &quot;7fe59521-cf41-4df6-aae7-24e95c04dabc&quot;,             &quot;sessionId&quot;: &quot;87ea8842-3378-4081-905b-5ec06fe3aa56&quot;,             &quot;status&quot;: &quot;END&quot;,             &quot;taskType&quot;: &quot;LONG_RUNNING&quot;,             &quot;createdAt&quot;: &quot;2026-06-02T07:19:42.000Z&quot;,             &quot;finishedAt&quot;: &quot;2026-06-03T10:16:56.000Z&quot;         } \t]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "taskItem[]",
+   "fields": [
+    {
+     "name": "taskId",
+     "type": "String",
+     "required": true,
+     "description": "业务侧生成的任务维度id，一个任务id一定归属于一个对话id",
+     "exampleValue": "009e1847-d652-4fa1-be5e-346b9b09ac38",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sessionId",
+     "type": "String",
+     "required": true,
+     "description": "业务侧生成的对话维度id，一个对话id可挂接多个任务id",
+     "exampleValue": "2b6a7f8b-2c34-403c-9b9c-7e6121e50548",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "taskType",
+     "type": "String",
+     "required": true,
+     "description": "任务类型，LONG_RUNNING表示长程任务；NORMAL表示普通对话",
+     "exampleValue": "LONG_RUNNING",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "任务状态。任务共有 6 种状态：INIT（已创建，任务进入队列等待执行）、RUNNING（正在执行中，Agent 正进行推理和工具调用）、WAIT_SKILL（Agent 调用了异步技能，任务暂停等待技能执行结果回调）、WAIT_USER（任务需要用户确认或补充输入，暂停等待用户通过 resume 接口恢复）、END（任务正常执行完成，已产出最终结果）、KILL（任务被终止，可能是用户主动取消、执行超时或系统异常导致的强制终止）。其中 END 和 KILL 为终态，一旦进入则不可再变更。",
+     "exampleValue": "RUNNING",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "createdAt",
+     "type": "String",
+     "required": true,
+     "description": "任务创建时间",
+     "exampleValue": "2026-06-09 20:32:26",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "finishedAt",
+     "type": "String",
+     "required": true,
+     "description": "任务开始时间",
+     "exampleValue": "2026-06-09 20:43:57",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "extra",
+     "type": "String",
+     "required": true,
+     "description": "额外信息(json)",
+     "exampleValue": "{&quot;message&quot;:&quot;你好&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "任务失败描述",
+   "exampleValue": "系统内部异常",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eagleTraceId",
+   "type": "String",
+   "required": true,
+   "description": "请求唯一ID ，eagleTraceId用于链路排查",
+   "exampleValue": "2146a21517799488479778174e1539",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "total",
+   "type": "Integer",
+   "required": true,
+   "description": "任务总数",
+   "exampleValue": "100",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;pageNo&quot;: 1,\n  &quot;pageSize&quot;: 20\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;success&quot;: true,\n  &quot;data&quot;: [\n    {\n      &quot;taskId&quot;: &quot;009e1847-d652-4fa1-be5e-346b9b09ac38&quot;,\n      &quot;sessionId&quot;: &quot;2b6a7f8b-2c34-403c-9b9c-7e6121e50548&quot;,\n      &quot;taskType&quot;: &quot;LONG_RUNNING&quot;,\n      &quot;status&quot;: &quot;RUNNING&quot;,\n      &quot;createdAt&quot;: &quot;2026-06-09 20:32:26&quot;,\n      &quot;finishedAt&quot;: &quot;2026-06-09 20:43:57&quot;,\n      &quot;extra&quot;: &quot;{\\&quot;message\\&quot;:\\&quot;你好\\&quot;}&quot;\n    }\n  ],\n  &quot;error&quot;: &quot;系统内部异常&quot;,\n  &quot;eagleTraceId&quot;: &quot;2146a21517799488479778174e1539&quot;,\n  &quot;total&quot;: 100\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

@@ -1,0 +1,64 @@
+{
+ "topicId": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+ "topicName": "BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+ "topicDisplayName": "1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+ "topicGroupName": "ORDER",
+ "topicGroupDisplayName": "订单消息",
+ "desc": "1688订单确认收货（买家视角）。每次确认收货都会发送这个消息，部分确认收货也是这个消息。1688 order receipt confirmation (buyer view)",
+ "messageDocs": [
+  {
+   "name": "orderId",
+   "desc": "订单ID",
+   "type": "Number",
+   "sample": "167539019420540000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "currentStatus",
+   "desc": "当前订单状态，状态值为confirm_goods_and_has_subsidy\t",
+   "type": "String",
+   "sample": "confirm_goods_and_has_subsidy",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2018-05-30 19:34:27",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerMemberId",
+   "desc": "买家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-665170100",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sellerMemberId",
+   "desc": "卖家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-1676547900b7bb3",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1553845061000,
+ "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;confirm_goods_and_has_subsidy&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+ "subscribed": false,
+ "_group": "交易消息"
+}

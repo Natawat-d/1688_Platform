@@ -1,0 +1,562 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.invoice.getListBuyerView",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.invoice.getListBuyerView-1",
+ "displayName": "查询交易单下关联的所有开具的发票信息（买家视角）",
+ "billType": null,
+ "description": "查询交易单下关联的所有开具的发票信息（买家视角）",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "input",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.OpInvoiceByOrderIdQueryParam",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.OpInvoiceByOrderIdQueryParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "Long",
+     "required": true,
+     "description": "订单ID",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OpInvoiceModelListResultModel",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OpInvoiceModelListResultModel",
+   "fields": [
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.common.model.OpInvoiceModel[]",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.common.model.OpInvoiceModel[]",
+     "fields": [
+      {
+       "name": "amount",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "发票合计含税金额，单位分",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "bizStatus",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票状态：ISSUING(1,&quot;开票中&quot;),ISSUED(2,&quot;已开票&quot;),VERIFYING(5,&quot;验票中&quot;),VERIFY_FAILED(6,&quot;验票失败&quot;),RETURNING(10,&quot;退票中&quot;),RETURNED(11,&quot;已退票&quot;),INVALIDING(20,&quot;作废中&quot;),DEPRECATED(21,&quot;已作废&quot;),RED_ISSUING(30,&quot;冲红中&quot;),RED_PART_ISSUED(31,&quot;部分冲红&quot;),RED_ALL_ISSUED(32,&quot;全部冲红&quot;),FAILED(40,&quot;开票失败&quot;),CLOSED(50,&quot;关闭&quot;),;",
+       "exampleValue": "ISSUED",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtCreate",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "创建时间",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtModified",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "修改时间",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "id",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "主键",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceDate",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "发票实际开票时间；区别于提交时间；发票申请时间等",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceDeadline",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "开票截止时间，毫秒时间戳",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceDownloadUrl",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票下载链接",
+       "exampleValue": "发票下载链接",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceErrMsg",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "开票失败原因",
+       "exampleValue": "开票失败原因",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceFileType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票文件类型：PDF(&quot;PDF&quot;,&quot;PDF格式&quot;),OFD(&quot;OFD&quot;,&quot;OFD格式&quot;),GIF(&quot;GIF&quot;,&quot;GIF格式&quot;),TIF(&quot;TIF&quot;,&quot;TIF格式&quot;),BMP(&quot;BMP&quot;,&quot;BMP格式&quot;),JPG(&quot;JPG&quot;,&quot;JPG格式&quot;),XML(&quot;XML&quot;,&quot;XML格式&quot;),PNG(&quot;PNG&quot;,&quot;PNG格式&quot;);",
+       "exampleValue": "PDF",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceMaterial",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票材质：ELECTRON(1,&quot;电子&quot;);",
+       "exampleValue": "ELECTRON",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceNo",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票号",
+       "exampleValue": "发票号",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invoiceType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票类型（包含特殊发票类型）：VATAX_COMM(1,&quot;增值税普通发票&quot;),VATAX_SPEC(2,&quot;增值税专用发票&quot;);",
+       "exampleValue": "VATAX_COMM",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isRedInvoice",
+       "type": "boolean",
+       "required": true,
+       "description": "是否红票",
+       "exampleValue": "false",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "ossInvoiceFileName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "文件名称",
+       "exampleValue": "文件名称",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "outBizId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "业务单号：和上游交互使用，要保证唯一；因为交易单可能存在多张发票；创建发票的时候，一定要传入唯一的outBizId",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "purchaserOpenUid",
+       "type": "String",
+       "required": true,
+       "description": "购买方openUid",
+       "exampleValue": "POU",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "purchaserInvoiceTitleModel",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel",
+       "required": true,
+       "description": "购方信息",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel",
+       "fields": [
+        {
+         "name": "titleType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头类型，个人和社会组织都是PERSONAL：PERSONAL(0,&quot;个人和社会组织&quot;),COMPANY(1,&quot;企业&quot;);",
+         "exampleValue": "PERSONAL",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "title",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头",
+         "exampleValue": "抬头",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "taxpayerIdentify",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "纳税人识别号(企业开票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "开户行(企业开专票必填)",
+         "exampleValue": "开户行",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankAccountId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "银行账号(企业开专票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerAddress",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业注册地址(企业开专票必填)",
+         "exampleValue": "企业注册地址",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业电话(企业开专票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "OpenUid",
+         "type": "String",
+         "required": true,
+         "description": "openUid ",
+         "exampleValue": " OUD",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "requestNo",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "和下游交互的请求no，基于交易单申请的时候传入交易单",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerInputInvoiceTime",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商家录入发票时间",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerInvoiceTitleModel",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel",
+       "required": true,
+       "description": "销售方信息",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpInvoiceTitleModel",
+       "fields": [
+        {
+         "name": "titleType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头类型，个人和社会组织都是PERSONAL：PERSONAL(0,&quot;个人和社会组织&quot;),COMPANY(1,&quot;企业&quot;);",
+         "exampleValue": "PERSONAL",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "title",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "抬头",
+         "exampleValue": "抬头",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "taxpayerIdentify",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "纳税人识别号(企业开票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "开户行(企业开专票必填)",
+         "exampleValue": "开户行",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "bankAccountId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "银行账号(企业开专票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerAddress",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业注册地址(企业开专票必填)",
+         "exampleValue": "企业注册地址",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "registerPhone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "企业电话(企业开专票必填)",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "OpenUid",
+         "type": "String",
+         "required": true,
+         "description": "openUid ",
+         "exampleValue": " OUD",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sellerMemberId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "销售方会员id",
+       "exampleValue": "销售方会员id",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerOpenUid",
+       "type": "String",
+       "required": true,
+       "description": "销售方UID",
+       "exampleValue": "SOU",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "source",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票来源",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "retCodes",
+     "type": "String[]",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subCode",
+     "type": "String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subMessage",
+     "type": "String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "发票"
+}

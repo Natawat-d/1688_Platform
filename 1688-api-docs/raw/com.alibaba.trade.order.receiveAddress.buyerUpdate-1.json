@@ -1,0 +1,288 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "order.receiveAddress.buyerUpdate",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:order.receiveAddress.buyerUpdate-1",
+ "displayName": "买家申请修改收货地址",
+ "billType": null,
+ "description": "买家修改收货地址,当修改的地址为偏远地区或者需要重新计算运费时，需要卖家确认，卖家可拒绝修改地址。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.BuyerDeliveryAddressModifyParam",
+   "required": true,
+   "description": "修改地址信息对象",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.BuyerDeliveryAddressModifyParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "订单id",
+     "exampleValue": "1231231123123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "receiveAddress",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "required": true,
+     "description": "修改地址",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "fields": [
+      {
+       "name": "addressId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fullName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobile",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "phone",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "postCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "address",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "districtCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.order.receiveAddress.buyerUpdate.ResultModel",
+   "required": true,
+   "description": "返回值",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.order.receiveAddress.buyerUpdate.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "网关接口是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "Boolean",
+     "required": true,
+     "description": "申请修改地址是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "订单"
+}

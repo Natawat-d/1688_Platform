@@ -1,0 +1,226 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.refund.returnGoods",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.refund.returnGoods-1",
+ "displayName": "买家提交退款货信息",
+ "billType": null,
+ "description": "买家申请退货退款时，卖家同意后，买家提交退款货信息使用，需要先调用alibaba.logistics.OpQueryLogisticCompanyList.offline查询物流公司信息，使用接口返回的物流公司编码",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "refundId",
+   "type": "String",
+   "required": true,
+   "description": "退款单号，TQ开头",
+   "exampleValue": "TQ36706338027991577",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "logisticsCompanyNo",
+   "type": "String",
+   "required": true,
+   "description": "物流公司编码，调用alibaba.logistics.OpQueryLogisticCompanyList.offline接口查询",
+   "exampleValue": "ZTO",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "freightBill",
+   "type": "String",
+   "required": true,
+   "description": "物流公司运单号，请准确填写，否则卖家有权拒绝退款",
+   "exampleValue": "3110044550034338",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "description",
+   "type": "String",
+   "required": false,
+   "description": "发货说明，内容在2-200个字之间",
+   "exampleValue": "发货说明",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "vouchers",
+   "type": "String[]",
+   "required": false,
+   "description": "凭证图片URLs，必须使用API alibaba.trade.uploadRefundVoucher返回的“图片域名/相对路径”，最多可上传 10 张图片 ；单张大小不超过1M；支持jpg、gif、jpeg、png、和bmp格式。 请上传凭证，以便以后续赔所需（不上传将无法理赔）",
+   "exampleValue": "[https://cbu01.alicdn.com/img/ibank/2019/901/930/11848039109.jpg]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.result.RefundReturnGoodsResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{&quot;result&quot;:{&quot;errorCode&quot;:&quot;4004&quot;,&quot;errorInfo&quot;:&quot;物流公司编号和运单号校验不通过&quot;,&quot;success&quot;:false}}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.result.RefundReturnGoodsResult",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "4002",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorInfo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "物流公司编号和运单号必填",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否提交成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "4001",
+   "desc": "需要用户授权",
+   "howToFix": "检查token是否过期，重新刷新或获取"
+  },
+  {
+   "code": "4002",
+   "desc": "物流公司编号和运单号必填",
+   "howToFix": "物流公司编号和运单号必填"
+  },
+  {
+   "code": "4003",
+   "desc": "上传凭证数量过多",
+   "howToFix": "凭证不能超过10张"
+  },
+  {
+   "code": "4003",
+   "desc": "凭证URL校验不通过",
+   "howToFix": "凭证格式不符合要求"
+  },
+  {
+   "code": "4004",
+   "desc": "物流公司编号和运单号校验失败",
+   "howToFix": "物流公司编号和运单号校验失败，检查并填写正确的运单号"
+  },
+  {
+   "code": "4004",
+   "desc": "物流公司编号和运单号校验不通过",
+   "howToFix": "物流公司编号和运单号校验不通过，检查并填写正确的运单号"
+  },
+  {
+   "code": "4004",
+   "desc": "物流公司编号和运单号校验异常",
+   "howToFix": "物流公司编号和运单号校验异常，可稍后重试下"
+  },
+  {
+   "code": "4005",
+   "desc": "退款单信息不存在",
+   "howToFix": "退款单信息不存在"
+  },
+  {
+   "code": "4006",
+   "desc": "无当前退款单操作权限",
+   "howToFix": "无当前退款单操作权限，检查用户账号是否正确，退款单号是否正确"
+  },
+  {
+   "code": "4007",
+   "desc": "当前退款单状态不支持退货",
+   "howToFix": "当前退款单状态不支持退货，退款单状态不对"
+  },
+  {
+   "code": "4008",
+   "desc": "退款单号信息有误，请核对后重新提交",
+   "howToFix": "退款单号信息有误，请核对后重新提交"
+  },
+  {
+   "code": "5001",
+   "desc": "退款单信息查询异常",
+   "howToFix": "退款单信息查询异常"
+  },
+  {
+   "code": "5001",
+   "desc": "退款单信息查询异常",
+   "howToFix": "退款单信息查询异常"
+  },
+  {
+   "code": "5002",
+   "desc": "退款退货操作失败",
+   "howToFix": "退款退货操作失败"
+  },
+  {
+   "code": "5003",
+   "desc": "退款退货操作异常",
+   "howToFix": "退款退货操作异常"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "说明",
+   "sample": "本API在买家退货场景下使用，需要卖家先同意退货申请，提交时物流公司的编码需要调用https://open.1688.com/api/apidocdetail.htm?aopApiCategory=Logistics_NEW&id=com.alibaba.logistics%3Aalibaba.logistics.OpQueryLogisticCompanyList.offline-1 获取，使用companyNo作为公司编码，运单号要填写正确，凭证上传使用https://open.1688.com/api/apidocdetail.htm?aopApiCategory=Logistics_NEW&id=com.alibaba.trade%3Aalibaba.trade.uploadRefundVoucher-1",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

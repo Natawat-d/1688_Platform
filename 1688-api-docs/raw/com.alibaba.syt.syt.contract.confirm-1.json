@@ -1,0 +1,146 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.contract.confirm",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.contract.confirm-1",
+ "displayName": "88生意通确认交易完成",
+ "billType": null,
+ "description": "88生意通确认交易完成",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractConfirmApiRequest",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{&quot;draftNo&quot;:&quot;88SYT20251204069031&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractConfirmApiRequest",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合同号",
+     "exampleValue": "88SYT20251204069031",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractConfirmApiResponse",
+   "required": true,
+   "description": "返回响应",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;code&quot;: &quot;200&quot;,   &quot;message&quot;: &quot;合同确认成功&quot;,   &quot;draftNo&quot;: &quot;DRAFT20251230001&quot;,   &quot;contractCurrentStatus&quot;: &quot;CONFIRMED&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractConfirmApiResponse",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合同号",
+     "exampleValue": "88SYT20251204069031",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "contractCurrentStatus",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "当前最新合同状态",
+     "exampleValue": "CONFIRMED",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "调用结果",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "String",
+     "required": true,
+     "description": " 错误 code",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "String",
+     "required": true,
+     "description": "错误消息",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "调用 traceId",
+     "exampleValue": "123333",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

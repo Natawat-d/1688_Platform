@@ -1,0 +1,159 @@
+{
+ "namespace": "com.alibaba.account",
+ "name": "alibaba.subAccount.list",
+ "version": 1,
+ "oceanApiId": "com.alibaba.account:alibaba.subAccount.list-1",
+ "displayName": "获取子账号列表",
+ "billType": null,
+ "description": "获取用户的主账号及子账号信息。\n如果调用API时的授权为子账号，则只返回支持子账号对应的主账号；\n如果调用API时的授权为主账号，则只返回所有子账号列表；",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "mainUserId",
+   "type": "String",
+   "required": true,
+   "description": "主账号Userid",
+   "exampleValue": "12346",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "mainLoginId",
+   "type": "String",
+   "required": true,
+   "description": "主账号loginId",
+   "exampleValue": "alitestforisv01",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "mainMemberId",
+   "type": "String",
+   "required": true,
+   "description": "主账号MemberId",
+   "exampleValue": "b2b-123565",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "subAccountList",
+   "type": "message:alibaba.account.simpleAccountInfo[]",
+   "required": true,
+   "description": "子账号列表",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.account.simpleAccountInfo[]",
+   "fields": [
+    {
+     "name": "loginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "子账号登录名",
+     "exampleValue": "alitestforisv01:01",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "userId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "子账号用户ID",
+     "exampleValue": "12124134",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "子账号memberId",
+     "exampleValue": "b2b-12315435",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "子账号状态",
+     "exampleValue": "enabled",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": "获取帐号信息失败",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500_001",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;mainLoginId&quot;: &quot;b测试账号003&quot;,\n  &quot;mainMemberId&quot;: &quot;b2b-22**4086&quot;,\n  &quot;mainUserId&quot;: &quot;22**86&quot;,\n  &quot;subAccountList&quot;: [\n    {\n      &quot;loginId&quot;: &quot;b测试账号003:yms&quot;,\n      &quot;userId&quot;: 400137**76,\n      &quot;memberId&quot;: &quot;b2b-22**4086&quot;\n    },\n    {\n      &quot;loginId&quot;: &quot;b测试账号003:yansen&quot;,\n      &quot;userId&quot;: 4000**0833,\n      &quot;memberId&quot;: &quot;b2b-22**86&quot;\n    }\n  ]\n}\n",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

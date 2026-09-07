@@ -1,0 +1,72 @@
+{
+ "namespace": "com.alibaba.account",
+ "name": "loginid.openuid.encrypt",
+ "version": 1,
+ "oceanApiId": "com.alibaba.account:loginid.openuid.encrypt-1",
+ "displayName": "用户loginId加密转换为Openuid接口",
+ "billType": null,
+ "description": "用户loginId加密转换为Openuid接口。该接口进行风控，不允许批量操作，仅允许商家手动触发，比如：搜索用户订单、设置规则等功能",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": true,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": true,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "loginId",
+   "type": "String",
+   "required": true,
+   "description": "用户登陆名",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "openUid",
+   "type": "String",
+   "required": true,
+   "description": "openUid",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "工具"
+}

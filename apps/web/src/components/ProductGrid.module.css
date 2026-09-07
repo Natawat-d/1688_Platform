@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--s4);
+  transition: opacity 120ms ease;
+}
+
+/* Dim, but keep the old results in place, while the next page loads. */
+.grid[data-loading] {
+  opacity: 0.55;
+}
+
+.skeleton {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-lg);
+}
+
+.rail {
+  display: flex;
+  gap: var(--s4);
+  overflow-x: auto;
+  padding-bottom: var(--s3);
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.railItem {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+}
+
+.railSkeleton {
+  flex: 0 0 200px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-lg);
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--s3);
+  }
+}

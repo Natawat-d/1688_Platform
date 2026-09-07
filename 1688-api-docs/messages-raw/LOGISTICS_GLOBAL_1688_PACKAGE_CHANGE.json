@@ -1,0 +1,104 @@
+{
+ "topicId": "LOGISTICS_GLOBAL_1688_PACKAGE_CHANGE",
+ "topicName": "GLOBAL_1688_PACKAGE_CHANGE",
+ "topicDisplayName": "1688跨境物流包裹消息",
+ "topicGroupName": "LOGISTICS",
+ "topicGroupDisplayName": "物流消息",
+ "desc": "1688跨境物流包裹创建、变更",
+ "messageDocs": [
+  {
+   "name": "packageId",
+   "desc": "包裹唯一id",
+   "type": "Number",
+   "sample": "12345",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerUserId",
+   "desc": "买家id",
+   "type": "Number",
+   "sample": "123456",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "stageType",
+   "desc": "包裹所属阶段类型",
+   "type": "String",
+   "sample": "external",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "mailNo",
+   "desc": "运单号",
+   "type": "String",
+   "sample": "EMS12345",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "carrierPartnerCode",
+   "desc": "物流公司code",
+   "type": "String",
+   "sample": "EMS",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "transportStatus",
+   "desc": "包裹运输状态",
+   "type": "Number",
+   "sample": "900",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "warehouseStatus",
+   "desc": "包裹仓内状态",
+   "type": "Number",
+   "sample": "900100",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "actionTime",
+   "desc": "包裹变更发生时间，ms",
+   "type": "Number",
+   "sample": "1739951291000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "tradeOrderIds",
+   "desc": "包裹所属的订单id列表",
+   "type": "Number[]",
+   "sample": "[123, 456]",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1740381812000,
+ "sample": "{&quot;packageId&quot;:12345,&quot;buyerUserId&quot;:123456,&quot;stageType&quot;:&quot;external&quot;,&quot;mailNo&quot;:&quot;EMS12345&quot;,&quot;carrierPartnerCode&quot;:&quot;EMS&quot;,&quot;transportStatus&quot;:900,&quot;warehouseStatus&quot;:900100,&quot;actionTime&quot;:1739951291000,&quot;tradeOrderIds&quot;:[123, 456]}",
+ "subscribed": false,
+ "_group": "物流消息"
+}

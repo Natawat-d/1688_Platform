@@ -1,0 +1,75 @@
+{
+ "topicId": "PRODUCT_PFT_OFFER_PRICE_MODIFY",
+ "topicName": "PFT_OFFER_PRICE_MODIFY",
+ "topicDisplayName": "精选货源商品价格变动消息",
+ "topicGroupName": "PRODUCT",
+ "topicGroupDisplayName": "商品消息",
+ "desc": "精选货源商品价格变动消息",
+ "messageDocs": [
+  {
+   "name": "offerId",
+   "desc": "商品ID",
+   "type": "Number",
+   "sample": "679304426617",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "minPrice",
+   "desc": "价格变动",
+   "type": "Number",
+   "sample": "2100",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "activeTime",
+   "desc": "价格变动生效时间",
+   "type": "Number",
+   "sample": "1662426000000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "skuUpdateInfos",
+   "desc": "sku价格变动情况",
+   "type": "Object",
+   "sample": "",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "skuId",
+     "desc": "skuId",
+     "type": "Number",
+     "sample": "4851072600824",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "historyRetailPrice",
+     "desc": "变更价格，分",
+     "type": "Number",
+     "sample": "1550",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    }
+   ]
+  }
+ ],
+ "gmtModify": 1724407979000,
+ "sample": "{&quot;offerId&quot;:679304426617,&quot;minPrice&quot;:2100,&quot;activeTime&quot;:1662426000000,&quot;skuUpdateInfos&quot;:{&quot;skuId&quot;:4851072600824,&quot;historyRetailPrice&quot;:1550}}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

@@ -1,0 +1,222 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.accountPeriod.list.buyerView",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.accountPeriod.list.buyerView-1",
+ "displayName": "买家查看获得的所有账期授信",
+ "billType": null,
+ "description": "买家维度查看所有获得的账期授信。可翻页查询，每次返回不超过10条",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "pageIndex",
+   "type": "Long",
+   "required": false,
+   "description": "页码",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sellerLoginId",
+   "type": "String",
+   "required": false,
+   "description": "卖家ID，不填则查询全部",
+   "exampleValue": "alitestforisv01",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500_1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "resultList",
+   "type": "message:accountPeriod.list.buyerView.result",
+   "required": true,
+   "description": "返回数据结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "accountPeriod.list.buyerView.result",
+   "fields": [
+    {
+     "name": "totalCount",
+     "type": "String",
+     "required": true,
+     "description": "总数据条数",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "accountPeriodList",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.common.model.AccountPeriodInfo[]",
+     "required": true,
+     "description": "授信列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.common.model.AccountPeriodInfo[]",
+     "fields": [
+      {
+       "name": "sellerLoginId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家loginId",
+       "exampleValue": "alitestforisv02",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerCompanyName",
+       "type": "String",
+       "required": true,
+       "description": "卖家公司名",
+       "exampleValue": "公司名",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtQuota",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "授信日期",
+       "exampleValue": "20170913231727000+0800",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "quota",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "授信额度值,单位为分",
+       "exampleValue": "10000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "surplusQuota",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "可用授信额度值,单位为分",
+       "exampleValue": "10000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "statusStr",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "状态描述",
+       "exampleValue": "有效",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tapDateStr",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "账期日期描述",
+       "exampleValue": "两个月一结，20号",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tapOverdue",
+       "type": "java.lang.Integer",
+       "required": true,
+       "description": " 逾期次数",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;resultList&quot;: {\n    &quot;accountPeriodList&quot;: [\n      {\n        &quot;gmtQuota&quot;: &quot;20190110114140000+0800&quot;,\n        &quot;quota&quot;: 90000000,\n        &quot;sellerCompanyName&quot;: &quot;AOP对外测试账号01&quot;,\n        &quot;sellerLoginId&quot;: &quot;alitestforisv01&quot;,\n        &quot;statusStr&quot;: &quot;有效&quot;,\n        &quot;surplusQuota&quot;: 90000000,\n        &quot;tapDateStr&quot;: &quot;120天&quot;,\n        &quot;tapOverdue&quot;: 0,\n      }\n    ],\n    &quot;totalCount&quot;: &quot;1&quot;\n  },\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "支付"
+}

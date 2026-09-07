@@ -1,0 +1,105 @@
+{
+ "topicId": "CROSSBOARD_LP_DISTRIBUTION",
+ "topicName": "LP_DISTRIBUTION",
+ "topicDisplayName": "跨境采购助手一键铺货消息",
+ "topicGroupName": "CROSSBOARD",
+ "topicGroupDisplayName": "跨境消息",
+ "desc": "跨境采购助手页面将1688的商品一键铺货到接入的ERP系统中",
+ "messageDocs": [
+  {
+   "name": "customerId",
+   "desc": "接入选品页客户id",
+   "type": "String",
+   "sample": "testIsv1",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "userKey",
+   "desc": "isv系统内用户的加密id，不变",
+   "type": "String",
+   "sample": "qwerty",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "appkey",
+   "desc": "开放平台appkey",
+   "type": "String",
+   "sample": "123",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "userToken",
+   "desc": "isv系统内用户token信息（isv能够解析出自己的用户登陆态信息）",
+   "type": "String",
+   "sample": "asdfggjkl",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "offerList",
+   "desc": "铺货商品列表",
+   "type": "Object[]",
+   "sample": " &quot;offerList&quot;:[{  &quot;offerId&quot;:&quot;1244567&quot; ，   &quot;pic&quot;:&quot;商品图片&quot;}]",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "offerId",
+     "desc": "商品id",
+     "type": "String",
+     "sample": "1244567",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "pic",
+     "desc": "商品主图url",
+     "type": "String",
+     "sample": "https://cbu01.alicdn.com/xxx.jpg",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    }
+   ]
+  },
+  {
+   "name": "sign",
+   "desc": "签名信息",
+   "type": "String",
+   "sample": "ABCDEFG",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "timestamp",
+   "desc": "当前铺货操作的时间戳（毫秒）",
+   "type": "String",
+   "sample": "123454654645",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1734403915000,
+ "sample": "{&quot;customerId&quot;:&quot;testIsv1&quot;,&quot;userKey&quot;:&quot;qwerty&quot;,&quot;appkey&quot;:&quot;123&quot;,&quot;userToken&quot;:&quot;asdfggjkl&quot;,&quot;offerList&quot;:[{&quot;offerId&quot;:&quot;1244567&quot;,&quot;pic&quot;:&quot;https://cbu01.alicdn.com/xxx.jpg&quot;}],&quot;sign&quot;:&quot;ABCDEFG&quot;,&quot;timestamp&quot;:&quot;123454654645&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

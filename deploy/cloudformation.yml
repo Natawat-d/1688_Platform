@@ -1,0 +1,495 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Marketplace on a stubbed 1688 gateway. One Fargate task holds the backend, the
+  stub gateway and Postgres as siblings sharing localhost, behind an ALB and
+  CloudFront. Everything the app needs is in this one stack; delete it and
+  nothing is left behind but the ECR images.
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC to run in. The account default is fine.
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: >
+      Three public subnets in different availability zones. Public, so the task
+      can pull from ECR through the internet gateway rather than a NAT gateway
+      costing more than the rest of the stack combined.
+  ApiImage:
+    Type: String
+    Description: ECR image URI for the backend.
+  StubImage:
+    Type: String
+    Description: ECR image URI for the stub gateway.
+  SecretArn:
+    Type: String
+    Description: >
+      Secrets Manager secret holding DATABASE_URL, ADMIN_TOKEN, APP_SECRET,
+      ACCESS_TOKEN, CONTROL_TOKEN and POSTGRES_PASSWORD. Created outside this
+      template so generated credentials never live in CloudFormation state.
+  AdminIp:
+    Type: String
+    Description: >
+      The single public IP allowed to reach the admin console, the settings API
+      and the stub's cashier. Everything else stays open.
+  AdminCidr:
+    Type: String
+    Description: The same address in CIDR form, for direct access to the load balancer.
+  PublicOrigin:
+    Type: String
+    Default: ""
+    Description: >
+      The final public origin, e.g. https://d111.cloudfront.net. Empty on the
+      first pass because CloudFront does not exist yet. The stub stamps this into
+      every product image URL, and those URLs are written into the database at
+      import time, so it must be correct before the catalogue is imported.
+  StubProducts:
+    Type: Number
+    Default: 300
+    Description: How many products the stub generates.
+
+Conditions:
+  HasOrigin: !Not [!Equals [!Ref PublicOrigin, ""]]
+
+Resources:
+  # ----------------------------------------------------------------- logging --
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/ecs/${AWS::StackName}"
+      RetentionInDays: 14
+
+  # ---------------------------------------------------------------- security --
+  # Three groups, each admitting exactly one thing: CloudFront reaches the load
+  # balancer, the load balancer reaches the task, the task reaches the filesystem.
+  AlbSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${AWS::StackName} load balancer"
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: CloudFront edge locations only
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          SourcePrefixListId: pl-31a34658
+        - Description: The operator, so the origin can be checked before CloudFront propagates
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: !Ref AdminCidr
+
+  TaskSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${AWS::StackName} task"
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: Backend, from the load balancer
+          IpProtocol: tcp
+          FromPort: 8787
+          ToPort: 8787
+          SourceSecurityGroupId: !Ref AlbSg
+        - Description: Stub images and cashier, from the load balancer
+          IpProtocol: tcp
+          FromPort: 8788
+          ToPort: 8788
+          SourceSecurityGroupId: !Ref AlbSg
+
+  EfsSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${AWS::StackName} filesystem"
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: NFS from the task only
+          IpProtocol: tcp
+          FromPort: 2049
+          ToPort: 2049
+          SourceSecurityGroupId: !Ref TaskSg
+
+  # --------------------------------------------------------------- filesystem --
+  # Postgres on NFS is not what AWS recommends, and it is what keeps orders alive
+  # across a restart when the database lives in the task. At this size it is
+  # comfortable; if it ever is not, moving to RDS is one DATABASE_URL away.
+  FileSystem:
+    Type: AWS::EFS::FileSystem
+    Properties:
+      Encrypted: true
+      PerformanceMode: generalPurpose
+      ThroughputMode: elastic
+      FileSystemTags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}-data"
+
+  MountTarget1:
+    Type: AWS::EFS::MountTarget
+    Properties:
+      FileSystemId: !Ref FileSystem
+      SubnetId: !Select [0, !Ref SubnetIds]
+      SecurityGroups: [!Ref EfsSg]
+  MountTarget2:
+    Type: AWS::EFS::MountTarget
+    Properties:
+      FileSystemId: !Ref FileSystem
+      SubnetId: !Select [1, !Ref SubnetIds]
+      SecurityGroups: [!Ref EfsSg]
+  MountTarget3:
+    Type: AWS::EFS::MountTarget
+    Properties:
+      FileSystemId: !Ref FileSystem
+      SubnetId: !Select [2, !Ref SubnetIds]
+      SecurityGroups: [!Ref EfsSg]
+
+  # postgres:17-alpine runs as uid 70, not the 999 the Debian images use, and it
+  # refuses to start unless the data directory is mode 0700 owned by that user.
+  PgAccessPoint:
+    Type: AWS::EFS::AccessPoint
+    Properties:
+      FileSystemId: !Ref FileSystem
+      PosixUser: { Uid: "70", Gid: "70" }
+      RootDirectory:
+        Path: /pgdata
+        CreationInfo: { OwnerUid: "70", OwnerGid: "70", Permissions: "0700" }
+
+  StubAccessPoint:
+    Type: AWS::EFS::AccessPoint
+    Properties:
+      FileSystemId: !Ref FileSystem
+      PosixUser: { Uid: "10001", Gid: "10001" }
+      RootDirectory:
+        Path: /stubstate
+        CreationInfo: { OwnerUid: "10001", OwnerGid: "10001", Permissions: "0755" }
+
+  # -------------------------------------------------------------------- roles --
+  ExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ecs-tasks.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      Policies:
+        - PolicyName: read-the-one-secret
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource: !Ref SecretArn
+
+  # The application calls no AWS API at all, so its own role grants nothing.
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ecs-tasks.amazonaws.com }
+            Action: sts:AssumeRole
+
+  # ------------------------------------------------------------------- compute --
+  Cluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Ref AWS::StackName
+
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Ref AWS::StackName
+      RequiresCompatibilities: [FARGATE]
+      NetworkMode: awsvpc
+      Cpu: "512"
+      Memory: "2048"
+      RuntimePlatform:
+        CpuArchitecture: ARM64
+        OperatingSystemFamily: LINUX
+      ExecutionRoleArn: !GetAtt ExecutionRole.Arn
+      TaskRoleArn: !GetAtt TaskRole.Arn
+      Volumes:
+        - Name: pgdata
+          EFSVolumeConfiguration:
+            FilesystemId: !Ref FileSystem
+            TransitEncryption: ENABLED
+            AuthorizationConfig: { AccessPointId: !Ref PgAccessPoint }
+        - Name: stubstate
+          EFSVolumeConfiguration:
+            FilesystemId: !Ref FileSystem
+            TransitEncryption: ENABLED
+            AuthorizationConfig: { AccessPointId: !Ref StubAccessPoint }
+      ContainerDefinitions:
+        # In awsvpc mode every container shares one network namespace, so these
+        # three reach each other on localhost exactly as they do under Compose.
+        - Name: postgres
+          Image: public.ecr.aws/docker/library/postgres:17-alpine
+          Essential: true
+          Environment:
+            - { Name: POSTGRES_USER, Value: app }
+            - { Name: POSTGRES_DB, Value: market }
+          Secrets:
+            - Name: POSTGRES_PASSWORD
+              ValueFrom: !Sub "${SecretArn}:POSTGRES_PASSWORD::"
+          MountPoints:
+            - { SourceVolume: pgdata, ContainerPath: /var/lib/postgresql/data }
+          HealthCheck:
+            Command: ["CMD-SHELL", "pg_isready -U app -d market"]
+            Interval: 10
+            Timeout: 5
+            Retries: 12
+            StartPeriod: 60
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref LogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: postgres
+
+        - Name: stub
+          Image: !Ref StubImage
+          Essential: true
+          PortMappings:
+            - { ContainerPort: 8788, Protocol: tcp }
+          Environment:
+            - { Name: STUB_ADDR, Value: ":8788" }
+            # Stamped into every product image URL and the cashier link, and
+            # persisted into the database at import time.
+            - Name: STUB_BASE
+              Value: !If [HasOrigin, !Ref PublicOrigin, "http://localhost:8788"]
+            - { Name: STUB_PRODUCTS, Value: !Ref StubProducts }
+            - { Name: PUSH_URL, Value: "http://localhost:8787/api/hooks/1688" }
+            - { Name: STUB_SPEED, Value: "20" }
+            - { Name: STUB_AUTOPAY, Value: "0" }
+            - { Name: STUB_APP_KEY, Value: DEVKEY }
+          Secrets:
+            - { Name: STUB_ACCESS_TOKEN, ValueFrom: !Sub "${SecretArn}:ACCESS_TOKEN::" }
+            - { Name: STUB_APP_SECRET, ValueFrom: !Sub "${SecretArn}:APP_SECRET::" }
+            - { Name: STUB_CONTROL_TOKEN, ValueFrom: !Sub "${SecretArn}:CONTROL_TOKEN::" }
+          MountPoints:
+            - { SourceVolume: stubstate, ContainerPath: /state }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref LogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: stub
+
+        - Name: api
+          Image: !Ref ApiImage
+          Essential: true
+          PortMappings:
+            - { ContainerPort: 8787, Protocol: tcp }
+          DependsOn:
+            - { ContainerName: postgres, Condition: HEALTHY }
+            - { ContainerName: stub, Condition: START }
+          Environment:
+            # ENV=production makes the process refuse to start if any credential
+            # is still a development placeholder.
+            - { Name: ENV, Value: production }
+            - { Name: API_ADDR, Value: ":8787" }
+            - { Name: ALI_BASE_URL, Value: "http://localhost:8788" }
+            - { Name: STUB_BASE, Value: "http://localhost:8788" }
+            - { Name: ALI_APP_KEY, Value: DEVKEY }
+            - { Name: POLL_INTERVAL, Value: "30s" }
+          Secrets:
+            - { Name: DATABASE_URL, ValueFrom: !Sub "${SecretArn}:DATABASE_URL::" }
+            - { Name: ADMIN_TOKEN, ValueFrom: !Sub "${SecretArn}:ADMIN_TOKEN::" }
+            - { Name: ALI_APP_SECRET, ValueFrom: !Sub "${SecretArn}:APP_SECRET::" }
+            - { Name: ALI_ACCESS_TOKEN, ValueFrom: !Sub "${SecretArn}:ACCESS_TOKEN::" }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref LogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: api
+
+  Service:
+    Type: AWS::ECS::Service
+    DependsOn: [Listener, ImageRule, CashierRule, MountTarget1, MountTarget2, MountTarget3]
+    Properties:
+      ServiceName: !Ref AWS::StackName
+      Cluster: !Ref Cluster
+      TaskDefinition: !Ref TaskDefinition
+      LaunchType: FARGATE
+      DesiredCount: 1
+      # Exactly one task, ever. The stub keeps all order state in memory with no
+      # cross-process locking, and two Postgres processes cannot share one data
+      # directory, so a rolling deploy must stop the old task before starting the
+      # new one rather than briefly running both.
+      DeploymentConfiguration:
+        MaximumPercent: 100
+        MinimumHealthyPercent: 0
+      HealthCheckGracePeriodSeconds: 180
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          Subnets: !Ref SubnetIds
+          SecurityGroups: [!Ref TaskSg]
+      LoadBalancers:
+        - { ContainerName: api, ContainerPort: 8787, TargetGroupArn: !Ref ApiTargetGroup }
+        - { ContainerName: stub, ContainerPort: 8788, TargetGroupArn: !Ref StubTargetGroup }
+
+  # ------------------------------------------------------------ load balancer --
+  Alb:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Type: application
+      Scheme: internet-facing
+      Subnets: !Ref SubnetIds
+      SecurityGroups: [!Ref AlbSg]
+
+  ApiTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      VpcId: !Ref VpcId
+      Port: 8787
+      Protocol: HTTP
+      TargetType: ip
+      HealthCheckPath: /api/health
+      HealthCheckIntervalSeconds: 30
+      HealthyThresholdCount: 2
+      # /api/health reports the database, so it flaps with Postgres rather than
+      # with the process. A generous threshold keeps a slow query from cycling
+      # the task.
+      UnhealthyThresholdCount: 5
+      Matcher: { HttpCode: "200" }
+      TargetGroupAttributes:
+        - { Key: deregistration_delay.timeout_seconds, Value: "10" }
+
+  StubTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      VpcId: !Ref VpcId
+      Port: 8788
+      Protocol: HTTP
+      TargetType: ip
+      HealthCheckPath: /healthz
+      HealthCheckIntervalSeconds: 30
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 5
+      Matcher: { HttpCode: "200" }
+      TargetGroupAttributes:
+        - { Key: deregistration_delay.timeout_seconds, Value: "10" }
+
+  Listener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref Alb
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - { Type: forward, TargetGroupArn: !Ref ApiTargetGroup }
+
+  # The storefront renders product images served by the stub, so these two paths
+  # go to it. /_control is deliberately absent: it is never routed from the
+  # internet, and the stub also guards it with a token.
+  ImageRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref Listener
+      Priority: 10
+      Conditions:
+        - { Field: path-pattern, Values: ["/img/*"] }
+      Actions:
+        - { Type: forward, TargetGroupArn: !Ref StubTargetGroup }
+
+  CashierRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref Listener
+      Priority: 20
+      Conditions:
+        - { Field: path-pattern, Values: ["/cashier", "/cashier/*"] }
+      Actions:
+        - { Type: forward, TargetGroupArn: !Ref StubTargetGroup }
+
+  # ----------------------------------------------------------------- delivery --
+  # CloudFront gives HTTPS on its own certificate with no domain to buy, and its
+  # viewer-request function is where the admin surface is restricted: the load
+  # balancer cannot do it, because behind CloudFront every request arrives from a
+  # CloudFront address and the real client IP survives only in a header.
+  AdminGate:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub "${AWS::StackName}-admin-gate"
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Restrict the admin surface to one address
+        Runtime: cloudfront-js-2.0
+      FunctionCode: !Sub |
+        function handler(event) {
+          var request = event.request;
+          var uri = request.uri;
+          var restricted =
+            uri.startsWith('/api/admin') ||
+            uri.startsWith('/admin') ||
+            uri.startsWith('/cashier') ||
+            uri.startsWith('/_control');
+          if (!restricted) {
+            return request;
+          }
+          if (event.viewer.ip === '${AdminIp}') {
+            return request;
+          }
+          return {
+            statusCode: 403,
+            statusDescription: 'Forbidden',
+            headers: { 'content-type': { value: 'application/json' } },
+            body: '{"error":"forbidden","message":"This area is restricted to the operator."}'
+          };
+        }
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Ref AWS::StackName
+        HttpVersion: http2
+        PriceClass: PriceClass_200
+        Origins:
+          - Id: alb
+            DomainName: !GetAtt Alb.DNSName
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+              HTTPPort: 80
+              OriginReadTimeout: 60
+        DefaultCacheBehavior:
+          TargetOriginId: alb
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+          # The whole application is dynamic and cookie-driven, so nothing here
+          # is cached and everything except the Host header is forwarded.
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+          OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+          FunctionAssociations:
+            - { EventType: viewer-request, FunctionARN: !GetAtt AdminGate.FunctionMetadata.FunctionARN }
+        CacheBehaviors:
+          # Product images are deterministic and never change, so they are the
+          # one thing worth caching at the edge.
+          - PathPattern: /img/*
+            TargetOriginId: alb
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+
+Outputs:
+  PublicUrl:
+    Description: The storefront. Use this as PublicOrigin on the second pass.
+    Value: !Sub "https://${Distribution.DomainName}"
+  AlbUrl:
+    Description: The origin, reachable directly from the operator address only.
+    Value: !Sub "http://${Alb.DNSName}"
+  ClusterName:
+    Value: !Ref Cluster
+  ServiceName:
+    Value: !GetAtt Service.Name
+  LogGroupName:
+    Value: !Ref LogGroup

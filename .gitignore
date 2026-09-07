@@ -1,0 +1,18 @@
+# build output
+/bin/
+/apps/web/dist/*
+!/apps/web/dist/.gitkeep
+/apps/web/node_modules/
+
+# Compiled binaries left in the tree by `go build` without -o.
+/stubgw
+/api
+
+# local state
+.env
+.stub-state.json
+
+# editor / OS
+.DS_Store
+*.swp
+.claude/settings.local.json

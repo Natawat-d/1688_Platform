@@ -1,0 +1,481 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.buyer.draftPurchaseOrder",
+ "version": 2,
+ "oceanApiId": "com.alibaba.syt:syt.buyer.draftPurchaseOrder-2",
+ "displayName": "88生意通买家起草采购单",
+ "billType": null,
+ "description": "88生意通解决方案\n88生意通买家起草采购单",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractDraftAndSignApplyApiRequest",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{     &quot;origin&quot;: &quot;ERP&quot;,     &quot;requestNo&quot;: &quot;REQ2026051100001&quot;,     &quot;contractType&quot;: &quot;PURCHASE_ORDER&quot;,     &quot;draftNo&quot;: null,     &quot;payTerm&quot;: {         &quot;amount&quot;: 10000,         &quot;payMethod&quot;: &quot;SINGLE&quot;,         &quot;payTimeType&quot;: &quot;IMMEDIATELY&quot;,         &quot;payTimeContent&quot;: null     },     &quot;contentTerm&quot;: {         &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,         &quot;purchaseItems&quot;: [             {                 &quot;key&quot;: &quot;SKU001&quot;,                 &quot;productName&quot;: &quot;商品A&quot;,                 &quot;productSpec&quot;: &quot;红色/L码&quot;,                 &quot;quantity&quot;: 10,                 &quot;unitPrice&quot;: 1000,                 &quot;subtotal&quot;: 10000,                 &quot;productImage&quot;: {                     &quot;fileName&quot;: &quot;product_a.jpg&quot;,                     &quot;fileUrl&quot;: &quot;https://example.com/images/product_a.jpg&quot;                 }             }         ],         &quot;attachments&quot;: [          ]     },     &quot;contractRoleInfoTerm&quot;: {         &quot;counterpartyOrigin&quot;: &quot;LOGIN_ID_1688_MATCH&quot;,         &quot;counterpartyLoginId&quot;: &quot;seller1688&quot;,         &quot;counterpartyName&quot;: null,         &quot;counterpartyLicenseNo&quot;: null,         &quot;counterpartyLicenseType&quot;: null     },     &quot;postFeeTerm&quot;: {         &quot;postFee&quot;: 0     },     &quot;confirmTerm&quot;: {         &quot;contractConfirmType&quot;: &quot;BUYER_MANUAL_CONFIRM&quot;,         &quot;autoConfirmCondition&quot;: null     },     &quot;drafterNeedSignConfirmAgain&quot;: false }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractDraftAndSignApplyApiRequest",
+   "fields": [
+    {
+     "name": "origin",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " 调用来源",
+     "exampleValue": "ERP，固定值",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "requestNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " 请求幂等号",
+     "exampleValue": "本次创建采购单唯一请求号",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "采购单编号-创建时不填",
+     "exampleValue": "空，不传值",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payTerm",
+     "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiContractPayTerm",
+     "required": true,
+     "description": "支付条款",
+     "exampleValue": "{     &quot;amount&quot;: 10000.00,     &quot;payMethod&quot;: &quot;SINGLE&quot;,     &quot;payTimeType&quot;: &quot;IMMEDIATELY&quot;,     &quot;payTimeContent&quot;: null   }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiContractPayTerm",
+     "fields": [
+      {
+       "name": "amount",
+       "type": "BigDecimal",
+       "required": true,
+       "description": "支付金额，单位元，币种人民币 CNY",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payMethod",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "支付方法-固定值",
+       "exampleValue": "SINGLE",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payTimeType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "支付时间类型-固定值",
+       "exampleValue": "IMMEDIATELY",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payTimeContent",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "支付时间内容",
+       "exampleValue": "不传",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "contentTerm",
+     "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiContractContentTerm",
+     "required": true,
+     "description": "内容条款",
+     "exampleValue": "{     &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,     &quot;purchaseItems&quot;: [       {         &quot;key&quot;: &quot;SKU001&quot;,         &quot;productName&quot;: &quot;商品A&quot;,         &quot;productSpec&quot;: &quot;红色/L码&quot;,         &quot;quantity&quot;: 10,         &quot;unitPrice&quot;: 1000.00,         &quot;subtotal&quot;: 10000.00,         &quot;productImage&quot;: {           &quot;fileName&quot;: &quot;product_a.jpg&quot;,           &quot;fileUrl&quot;: &quot;https://example.com/images/product_a.jpg&quot;         }       }     ],     &quot;attachments&quot;: []   }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiContractContentTerm",
+     "fields": [
+      {
+       "name": "contentType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "内容类型-固定值",
+       "exampleValue": "PURCHASE_ORDER",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "purchaseItems",
+       "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiPurchaseItem[]",
+       "required": true,
+       "description": "采购单详情",
+       "exampleValue": "[       {         &quot;key&quot;: &quot;SKU001&quot;,         &quot;productName&quot;: &quot;商品A&quot;,         &quot;productSpec&quot;: &quot;红色/L码&quot;,         &quot;quantity&quot;: 10,         &quot;unitPrice&quot;: 1000.00,         &quot;subtotal&quot;: 10000.00       } ]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiPurchaseItem[]",
+       "fields": [
+        {
+         "name": "key",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "采购单序号",
+         "exampleValue": "sku001",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "productName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "产品名称",
+         "exampleValue": "水杯",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "productSpec",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "产品 sku",
+         "exampleValue": "1L、白色、大肚款",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "quantity",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "购买数量",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "unitPrice",
+         "type": "BigDecimal",
+         "required": true,
+         "description": "单价，单位元",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subtotal",
+         "type": "BigDecimal",
+         "required": true,
+         "description": "总价，单位元",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "contractRoleInfoTerm",
+     "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiContractRoleInfoTerm",
+     "required": true,
+     "description": "对手方约定",
+     "exampleValue": "{     &quot;counterpartyOrigin&quot;: &quot;LOGIN_ID_1688_MATCH&quot;,     &quot;counterpartyLoginId&quot;: &quot;seller1688&quot;,     &quot;counterpartyName&quot;: null,     &quot;counterpartyLicenseNo&quot;: null,     &quot;counterpartyLicenseType&quot;: null   }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiContractRoleInfoTerm",
+     "fields": [
+      {
+       "name": "counterpartyOrigin",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "LOGIN_ID_1688_MATCH（通过1688loginId指定对手方）、DRAFTER_INPUT（通过对方主体信息指定）、COUNTERPARTY_INPUT（不指定交给对方自己认领）",
+       "exampleValue": "LOGIN_ID_1688_MATCH",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "counterpartyLoginId",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "1688loginId 当 counterpartyOrigin = LOGIN_ID_1688_MATCH 必填",
+       "exampleValue": "ces测试002",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "counterpartyName",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "对手方名称 当 counterpartyOrigin = DRAFTER_INPUT 必填",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "counterpartyLicenseNo",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "对手方身份证号或者营业执照号 当 counterpartyOrigin = DRAFTER_INPUT 必填",
+       "exampleValue": "330xx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "counterpartyLicenseType",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "证件类型 当 counterpartyOrigin = DRAFTER_INPUT 必填",
+       "exampleValue": "统一社会信用代码UNITY",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "drafterNeedSignConfirmAgain",
+     "type": "Boolean",
+     "required": true,
+     "description": "起草方是否需要二次确认 false不需要",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "postFeeTerm",
+     "type": "message:com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractPostFeeTerm",
+     "required": true,
+     "description": "邮费条款",
+     "exampleValue": "{   &quot;postFee&quot;: 1.00 }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractPostFeeTerm",
+     "fields": [
+      {
+       "name": "postFee",
+       "type": "BigDecimal",
+       "required": true,
+       "description": "postFee",
+       "exampleValue": "0.01",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "confirmTerm",
+     "type": "message:com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractConfirmTerm",
+     "required": true,
+     "description": "确认收货条款",
+     "exampleValue": "{   &quot;contractConfirmType&quot;: &quot;AUTO_CONFIRM&quot;,   &quot;autoConfirmCondition&quot;: {     &quot;conditionEnum&quot;: &quot;AFTER_DELIVERY&quot;,     &quot;xDay&quot;: 7   } }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractConfirmTerm",
+     "fields": [
+      {
+       "name": "contractConfirmType",
+       "type": "String",
+       "required": true,
+       "description": " 买家手动确认收货： BUYER_MANUAL_CONFIRM 自动确认收货 ：AUTO_CONFIRM ，传值为这个时：autoConfirmCondition 不可以为空；",
+       "exampleValue": "BUYER_MANUAL_CONFIRM",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "autoConfirmCondition",
+       "type": "message:com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractAutoConfirmCondition",
+       "required": true,
+       "description": "自动确认收货条件，当contractConfirmType 取值 AUTO_CONFIRM 不可以为空",
+       "exampleValue": "{   &quot;contractConfirmType&quot;: &quot;AUTO_CONFIRM&quot;,   &quot;autoConfirmCondition&quot;: {     &quot;conditionEnum&quot;: &quot;AFTER_DELIVERY&quot;,     &quot;xDay&quot;: 7   } }",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.china.share.creditpay.gateway.api.dto.ApiContractAutoConfirmCondition",
+       "fields": [
+        {
+         "name": "conditionEnum",
+         "type": "String",
+         "required": true,
+         "description": "条件枚举",
+         "exampleValue": "PAY_SUCCESS_TIME_PLUS_X_DAYS",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "xDay",
+         "type": "Integer",
+         "required": true,
+         "description": "天数",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractDraftAndSignApplyApiResponse",
+   "required": true,
+   "description": "影响参数",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;code&quot;: &quot;200&quot;,   &quot;message&quot;: &quot;合同起草并签署申请成功&quot;,   &quot;draftNo&quot;: &quot;DRAFT202601051853001&quot;,   &quot;contractStatus&quot;: &quot;DRAFTED&quot;,   &quot;signUrl&quot;: &quot;https://sign.example.com/contract/DRAFT202601051853001&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractDraftAndSignApplyApiResponse",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "采购单号",
+     "exampleValue": "88SYT1233333",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "contractCurrentStatus",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "当前状态",
+     "exampleValue": "PAYING",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " 错误信息",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "调用trace",
+     "exampleValue": "123322",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "counterpartyConfirmUrl",
+     "type": "String",
+     "required": true,
+     "description": "需要对手方认领时不为空，返回认领 URL",
+     "exampleValue": "https://syt.1688.com/page/SYT/seller-contract-simple?draftNo={draftNo}&tracelog=api&isInvite=true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;request&quot;: {\n    &quot;drafterUserId&quot;: &quot;xxx&quot;,\n    &quot;drafterRole&quot;: &quot;PART_A&quot;,\n    &quot;origin&quot;: &quot;ERP&quot;,\n    &quot;requestNo&quot;: &quot;xx&quot;,\n    &quot;contractType&quot;: &quot;PURCHASE_ORDER&quot;,\n    &quot;draftNo&quot;: &quot;88SYT2015121000013&quot;,\n    &quot;payTerm&quot;: {\n      &quot;amount&quot;: 1,\n      &quot;payMethod&quot;: &quot;SINGLE&quot;,\n      &quot;payTimeType&quot;: &quot;IMMEDIATELY&quot;,\n      &quot;payTimeContent&quot;: &quot;无&quot;\n    },\n    &quot;contentTerm&quot;: {\n      &quot;contentType&quot;: &quot;PURCHASE_ORDER_DETAIL&quot;,\n      &quot;purchaseItems&quot;: [\n        &quot;[{\\&quot;productName\\&quot;:\\&quot;产品名称\\&quot;,\\&quot;productSpec\\&quot;:\\&quot;1\\&quot;,\\&quot;quantity\\&quot;:1}]&quot;\n      ]\n    },\n    &quot;contractRoleInfoTerm&quot;: {\n      &quot;counterpartyOrigin&quot;: &quot;LOGIN_ID_1688_MATCH&quot;,\n      &quot;counterpartyLoginId&quot;: &quot;ces测试xx&quot;,\n      &quot;counterpartyName&quot;: &quot;张三&quot;,\n      &quot;counterpartyLicenseNo&quot;: &quot;310222201512109985&quot;,\n      &quot;counterpartyLicenseType&quot;: &quot;IDENTITY_CARD&quot;\n    }\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;draftNo&quot;: &quot;88SYT202512301454&quot;,\n    &quot;contractCurrentStatus&quot;: &quot;PAYING&quot;\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

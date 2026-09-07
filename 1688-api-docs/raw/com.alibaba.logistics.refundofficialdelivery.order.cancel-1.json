@@ -1,0 +1,146 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "refundofficialdelivery.order.cancel",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:refundofficialdelivery.order.cancel-1",
+ "displayName": "取消退货官方物流上门揽订单",
+ "billType": null,
+ "description": "取消退货官方物流上门揽订单",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.ocean.openplatform.biz.logistics.param.OfficialDeliveryOrderCancelParam",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.logistics.param.OfficialDeliveryOrderCancelParam",
+   "fields": [
+    {
+     "name": "cancelText",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "取消原因",
+     "exampleValue": "计划有变，暂时不需要寄了",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cancelType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "取消原因类型  INFORMATION_INCORRECT(&quot;信息填错了（需要修改是时间/地址等）&quot;),     WANT_TO_SEND_MYSELF(&quot;想去附近的服务点自寄&quot;),     PLAN_CHANGED(&quot;计划有变，暂时不需要寄了&quot;),     WANT_TO_CHANGE_PICKUP_TIME(&quot;我想换个上门取件时间&quot;),     PRICE_TOO_HIGH(&quot;我觉得价格有点贵&quot;), \tATE(&quot;快递员未准时上门取件&quot;),     COURIER_NOT_COMING(&quot;快递员不上门&quot;),     COURIER_BAD_ATTITUDE(&quot;快递员服务态度不好&quot;),     ITEM_CANNOT_BE_SHIPPED(&quot;物品类型无法邮寄&quot;),     COURIER_TOO_BUSY(&quot;快递员反馈因运力紧张暂无法揽收&quot;),     OTHER(&quot;其它&quot;),",
+     "exampleValue": "PLAN_CHANGED",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "officialDeliveryOrderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "上门揽订单id",
+     "exampleValue": "7210001",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.refundofficialdelivery.order.cancel.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.refundofficialdelivery.order.cancel.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "订单取消业务是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "官方退上门取件"
+}

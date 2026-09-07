@@ -1,0 +1,180 @@
+{
+ "namespace": "com.alibaba.account",
+ "name": "alibaba.account.agent.crossBasic",
+ "version": 1,
+ "oceanApiId": "com.alibaba.account:alibaba.account.agent.crossBasic-1",
+ "displayName": "跨境场景获取非授权用户的基本信息",
+ "billType": 0,
+ "description": "可以查看他人的用户信息，使用在跨境场景",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "loginId",
+   "type": "String",
+   "required": false,
+   "description": "用户的loginId，入参不可同时为空",
+   "exampleValue": "alitestforisv01",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "domain",
+   "type": "String",
+   "required": false,
+   "description": "旺铺域名，入参不可同时为空",
+   "exampleValue": "trgm66666.1688.com",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.account.simpleAccountInfo",
+   "required": true,
+   "description": "会员信息",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.account.simpleAccountInfo",
+   "fields": [
+    {
+     "name": "loginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "登录名",
+     "exampleValue": "alitestforis01",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "主营行业的类目名称",
+     "exampleValue": "连衣裙",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "公司名",
+     "exampleValue": "测试公司1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "shopUrl",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "旺铺首页地址",
+     "exampleValue": "https://alitest.1688.com\t",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "supplierName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "供应商名称",
+     "exampleValue": "alitestforis01",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "kuaJingBao",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否跨境宝",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误编码",
+   "exampleValue": "001",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "输出结果示例",
+   "sample": "{&quot;result&quot;:{&quot;loginId&quot;:&quot;alitestforisv01&quot;,&quot;categoryName&quot;:&quot;办公、文教&quot;,&quot;companyName&quot;:&quot;AOP对外测试账号01&quot;,&quot;shopUrl&quot;:&quot;https://trgm66666.1688.com&quot;}}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

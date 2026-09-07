@@ -1,0 +1,195 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.fetch",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.fetch-1",
+ "displayName": "牛顿云-查询任务表格服务",
+ "billType": null,
+ "description": "牛顿云-查询任务表格服务",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "原任务 ID",
+   "exampleValue": "80c230b3-0cd1-4094-a223-27cc257bc8e0",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "id",
+   "type": "String",
+   "required": true,
+   "description": "表格实例 ID",
+   "exampleValue": "69ec9bdcc878431c873f68e953c30e31_2631391132_20260714211145",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "scene",
+   "type": "String",
+   "required": true,
+   "description": "使用 complex_table.content 中的值，采购场景通常是 newton",
+   "exampleValue": "newton",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "stage",
+   "type": "String",
+   "required": false,
+   "description": "阶段，如 recall / inquiry",
+   "exampleValue": "recall",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "subScene",
+   "type": "String",
+   "required": true,
+   "description": "使用 complex_table.content 中的值，采购场景通常是 purchase",
+   "exampleValue": "purchase",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageNo",
+   "type": "Integer",
+   "required": false,
+   "description": "请求页数，默认第一页",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageSize",
+   "type": "Integer",
+   "required": false,
+   "description": "请求页大小，默认10",
+   "exampleValue": "10",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:result",
+   "required": true,
+   "description": "务端响应体，包含请求是否成功、表格数据、错误信息等",
+   "exampleValue": "{       &quot;success&quot;: true,       &quot;data&quot;: {         &quot;result&quot;: [           {             &quot;itemId&quot;: &quot;652731660850&quot;,             &quot;title&quot;: &quot;简约白色陶瓷马克杯可印LOGO简约家用水杯咖啡杯牛奶杯礼品杯子&quot;,             &quot;realtimeSinglePrice&quot;: 4,             &quot;realtimeDeliveryPrice&quot;: 5,             &quot;realtimeTotalPrice&quot;: 8.9,             &quot;realtimeQuantity&quot;: 1,             &quot;salesCount&quot;: 1828,             &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/...&quot;,             &quot;company&quot;: &quot;醴陵市鸿博瓷业有限公司&quot;,             &quot;customerStar&quot;: &quot;4.5分&quot;,             &quot;sourceFactoryInfo&quot;: &quot;产销资质：源头制造直供；员工规模：51~100人。&quot;           }         ],         &quot;total&quot;: 79,         &quot;fieldSpec&quot;: [           {&quot;key&quot;: &quot;itemId&quot;, &quot;type&quot;: &quot;string&quot;},           {&quot;key&quot;: &quot;title&quot;, &quot;type&quot;: &quot;string&quot;},           {&quot;key&quot;: &quot;realtimeSinglePrice&quot;, &quot;type&quot;: &quot;number&quot;},           {&quot;key&quot;: &quot;imageUrl&quot;, &quot;type&quot;: &quot;string&quot;},           {&quot;key&quot;: &quot;company&quot;, &quot;type&quot;: &quot;string&quot;}         ],         &quot;eagleTraceId&quot;: &quot;2146a21517799488479778174e1539&quot;       },       &quot;eagleTraceId&quot;: &quot;2146a21517799488479778174e1539&quot;     }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "result",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "请求是否成功，true 成功，false 失败",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "error",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "请求失败时的错误码。INVALID_REQUEST=参数缺失、TASK_NOT_FOUND=任务不存在或无权限、UNSUPPORTED_IN_OPENAPI=子场景暂不支持、CREDENTIAL_UNAVAILABLE=凭证获取失败、UPSTREAM_TIMEOUT=上游超时、UPSTREAM_ERROR=上游异常、INTERNAL_ERROR=内部错误请求失败时的错误详情描述",
+     "exampleValue": "TASK_NOT_FOUND",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "请求失败时的错误详情描述",
+     "exampleValue": " task xxx not found or not owned by userId xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "表格数据 JSON 字符串，需 JSON.parse 后使用。内含result（商品数组）、total（总条数）、fieldSpec（字段名与类型定义，可用于动态渲染表格列）",
+     "exampleValue": "{&quot;result&quot;:[{&quot;itemId&quot;:&quot;652731660850&quot;,&quot;title&quot;:&quot;简约白色陶瓷马克杯&quot;,&quot;realtimeSinglePrice&quot;:4,&quot;imageUrl&quot;:&quot;https://cbu01.alicdn.com/...&quot;,&quot;company&quot;:&quot;醴陵市鸿博瓷业有限公司&quot;,&quot;salesCount&quot;:1828}],&quot;total&quot;:79,&quot;fieldSpec&quot;:[{&quot;key&quot;:&quot;itemId&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;key&quot;:&quot;title&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;key&quot;:&quot;realtimeSinglePrice&quot;,&quot;type&quot;:&quot;number&quot;}]}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "eagleTraceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "请求唯一ID，用于链路排查",
+     "exampleValue": "2146a21517799488479778174e1539",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;request&quot;: {\n    &quot;taskId&quot;: &quot;60c1f539-fe88-49cf-9eb7-89e645896c25&quot;,\n    &quot;scene&quot;: &quot;newton&quot;,\n    &quot;subScenc&quot;: &quot;purchase&quot;,\n    &quot;id&quot;: &quot;eeb49347fee946699f78de41218ee9aa_2631391132_20260713152648&quot;,\n    &quot;stage&quot;: &quot;recall&quot;\n  },\n  &quot;userId&quot;: 2631391132\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;error&quot;: &quot;TASK_NOT_FOUND&quot;,\n    &quot;message&quot;: &quot; task xxx not found or not owned by userId xxx&quot;,\n    &quot;data&quot;: &quot;{\\&quot;result\\&quot;:[{\\&quot;itemId\\&quot;:\\&quot;652731660850\\&quot;,\\&quot;title\\&quot;:\\&quot;简约白色陶瓷马克杯\\&quot;,\\&quot;realtimeSinglePrice\\&quot;:4,\\&quot;imageUrl\\&quot;:\\&quot;https://cbu01.alicdn.com/...\\&quot;,\\&quot;company\\&quot;:\\&quot;醴陵市鸿博瓷业有限公司\\&quot;,\\&quot;salesCount\\&quot;:1828}],\\&quot;total\\&quot;:79,\\&quot;fieldSpec\\&quot;:[{\\&quot;key\\&quot;:\\&quot;itemId\\&quot;,\\&quot;type\\&quot;:\\&quot;string\\&quot;},{\\&quot;key\\&quot;:\\&quot;title\\&quot;,\\&quot;type\\&quot;:\\&quot;string\\&quot;},{\\&quot;key\\&quot;:\\&quot;realtimeSinglePrice\\&quot;,\\&quot;type\\&quot;:\\&quot;number\\&quot;}]}&quot;,\n    &quot;eagleTraceId&quot;: &quot;2146a21517799488479778174e1539&quot;\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

@@ -1,0 +1,81 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--s4);
+  align-items: start;
+}
+
+.title {
+  font-size: var(--fs-md);
+  font-weight: 650;
+}
+
+.path {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+.controls {
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.presets {
+  display: flex;
+  gap: 2px;
+}
+
+.rawRow {
+  display: flex;
+  gap: var(--s2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.rawRow > input {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.log li {
+  display: flex;
+  gap: var(--s2);
+  padding: 3px 6px;
+  border-radius: var(--r-sm);
+  overflow-wrap: anywhere;
+}
+
+.logOk {
+  background: var(--surface-2);
+}
+
+.logErr {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.logAt {
+  color: var(--text-faint);
+  flex: 0 0 auto;
+}
+
+.logLine {
+  flex: 1;
+  min-width: 0;
+}

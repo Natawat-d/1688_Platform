@@ -1,0 +1,32 @@
+# Without this file the build context is ~96 MB and, worse, `COPY apps/web/ ./`
+# copies the host's darwin/arm64 node_modules over the one npm just installed
+# inside the image. That happens to work while both are arm64 and produces a
+# broken web build the moment anything cross-compiles.
+
+.git
+.gitignore
+
+# Installed inside the web stage from package-lock.json; the host copy is both
+# redundant and the wrong platform.
+apps/web/node_modules
+apps/web/dist
+
+# Build output and local runtime state.
+bin/
+stubgw
+api
+.stub-state.json
+.env
+*.log
+
+# The stub needs exactly one file out of the documentation corpus. Keep it and
+# drop the other 7 MB: the rendered HTML, the Chinese originals, the raw API
+# dumps and the scraping tools are all reference material, not runtime input.
+1688-api-docs/*
+!1688-api-docs/ALL-APIS.json
+
+# Editor and OS noise.
+.DS_Store
+.vscode
+.idea
+.claude

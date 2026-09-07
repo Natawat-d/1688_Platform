@@ -1,0 +1,292 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.product.suggest.crossBorder",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.product.suggest.crossBorder-1",
+ "displayName": "跨境场景根据关键字推荐商品",
+ "billType": null,
+ "description": "跨境场景根据关键字及类目推荐商品，按销量排序。注意：该API有流量控制，仅适用于手动关联场景",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "keyWord",
+   "type": "String",
+   "required": true,
+   "description": "商品的搜索关键字，通常是商品的标题",
+   "exampleValue": "商品标题",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "loginId",
+   "type": "String",
+   "required": false,
+   "description": "卖家loginId",
+   "exampleValue": "alitestforisv01",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "resultList",
+   "type": "message:alibaba.search.ProductSearchResultInfo[]",
+   "required": true,
+   "description": "搜索的返回结果",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.search.ProductSearchResultInfo[]",
+   "fields": [
+    {
+     "name": "amountOnSale",
+     "type": "Integer",
+     "required": true,
+     "description": "可售数量",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "minPurchaseQuantity",
+     "type": "Double",
+     "required": true,
+     "description": "最小起批量",
+     "exampleValue": "3",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "picUrl",
+     "type": "String",
+     "required": true,
+     "description": "产品的图片地址",
+     "exampleValue": "img/ibank/2018/794/316/9422613497_991974782.jpg",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "price",
+     "type": "Double",
+     "required": true,
+     "description": "参考商品价格",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productID",
+     "type": "Long",
+     "required": true,
+     "description": "商品ID",
+     "exampleValue": "1123123331",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bookedCount",
+     "type": "Double",
+     "required": true,
+     "description": "商品售卖了多少笔(以订单为维度)",
+     "exampleValue": "2123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "saleQuantity",
+     "type": "Double",
+     "required": true,
+     "description": "该商品售卖了多少件(以商品单位为维度)",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "province",
+     "type": "String",
+     "required": true,
+     "description": "商品发货省份码",
+     "exampleValue": "浙江",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "city",
+     "type": "String",
+     "required": true,
+     "description": "商品发货城市",
+     "exampleValue": "杭州",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "retailPrice",
+     "type": "Double",
+     "required": true,
+     "description": "建议零售价",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subject",
+     "type": "String",
+     "required": true,
+     "description": "商品标题",
+     "exampleValue": "【原D现货】韩版新秋女裙 时尚方格&lt;font color=red&gt;小&lt;/font&gt;立领不规则下摆气质&lt;font color=red&gt;连衣裙&lt;/font&gt;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "unit",
+     "type": "String",
+     "required": true,
+     "description": "商品单位",
+     "exampleValue": "件",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "skuList",
+     "type": "message:alibaba.simple.sku[]",
+     "required": true,
+     "description": "sku信息",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.simple.sku[]",
+     "fields": [
+      {
+       "name": "description",
+       "type": "String",
+       "required": true,
+       "description": "规格描述",
+       "exampleValue": "颜色:红色;尺码:L",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "amountOnSale",
+       "type": "Integer",
+       "required": true,
+       "description": "可售数量",
+       "exampleValue": "100",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuId",
+       "type": "Long",
+       "required": true,
+       "description": "skuID，全局唯一标示",
+       "exampleValue": "3508426014362",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "specId",
+       "type": "String",
+       "required": true,
+       "description": "specID，商品内唯一，不同商品间可能重复",
+       "exampleValue": "8d28b045489c250b69870da3b7c71b1d",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "String",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回结果示例",
+   "sample": "{\n  &quot;resultList&quot;: [\n    {\n      &quot;amountOnSale&quot;: 241682,\n      &quot;city&quot;: &quot;义乌市&quot;,\n      &quot;minPurchaseQuantity&quot;: 100,\n      &quot;picUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/2015/112/013/2204310211_1220361846.jpg&quot;,\n      &quot;price&quot;: 0.06,\n      &quot;productID&quot;: 45636254415,\n      &quot;province&quot;: &quot;浙江&quot;,\n      &quot;retailPrice&quot;: 0.5,\n      &quot;saleQuantity&quot;: 159821,\n      &quot;subject&quot;: &quot;创意儿童戒指批发 糖果色塑料/树脂戒指混批时尚女童女孩戒指批发&quot;,\n      &quot;unit&quot;: &quot;PCS&quot;,\n      &quot;skuList&quot;: [\n        {\n          &quot;description&quot;: &quot;颜色:黄色&quot;,\n          &quot;amountOnSale&quot;: 36866,\n          &quot;skuId&quot;: 92418963545,\n          &quot;specId&quot;: &quot;36c58a69219820709b9475e70bd789d4&quot;\n        }\n      ]\n    }\n  ],\n  &quot;success&quot;: &quot;true&quot;\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商品"
+}

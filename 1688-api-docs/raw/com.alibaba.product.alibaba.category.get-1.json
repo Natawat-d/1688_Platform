@@ -1,0 +1,304 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.category.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.category.get-1",
+ "displayName": "根据类目Id查询类目",
+ "billType": 0,
+ "description": "类目查询。如果需要获取所有1688类目信息，需要从根类目开始遍历获取整个类目树。即：先传0获取所有一级类目ID，然后在通过获取到的一级类目ID遍历获取所二级类目，最后通过遍历二级类目ID获取三级类目。注意：1688类目仅三级，三级类目即发布商品所需的叶子类目。",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "categoryID",
+   "type": "Long",
+   "required": true,
+   "description": "类目id,必须大于等于0， 如果为0，则查询所有一级类目",
+   "exampleValue": "1031910",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "succes",
+   "type": "String",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "categoryInfo",
+   "type": "message:alibaba.category.CategoryInfo[]",
+   "required": true,
+   "description": "类目列表",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.category.CategoryInfo[]",
+   "fields": [
+    {
+     "name": "categoryID",
+     "type": "Long",
+     "required": true,
+     "description": "类目ID",
+     "exampleValue": "123456",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "name",
+     "type": "String",
+     "required": true,
+     "description": "类目名称",
+     "exampleValue": "连衣裙",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "level",
+     "type": "Integer",
+     "required": true,
+     "description": "类目层级，1688无此内容",
+     "exampleValue": "0",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isLeaf",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否叶子类目（只有叶子类目才能发布商品）",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "parentIDs",
+     "type": "Long[]",
+     "required": true,
+     "description": "父类目ID数组,1688只返回一个父id",
+     "exampleValue": "[23]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "childIDs",
+     "type": "Long[]",
+     "required": true,
+     "description": "子类目ID数组，1688无此内容",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "childCategorys",
+     "type": "message:alibaba.child.category.info[]",
+     "required": true,
+     "description": "子类目信息",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.child.category.info[]",
+     "fields": [
+      {
+       "name": "id",
+       "type": "Long",
+       "required": true,
+       "description": "子类目ID",
+       "exampleValue": "54",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "String",
+       "required": true,
+       "description": "子类目名称",
+       "exampleValue": "服饰配件、饰品",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isLeaf",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否叶子类目（只有叶子类目才能发布商品）",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "categoryType",
+       "type": "String",
+       "required": true,
+       "description": "类目的类型：1表示cbu类目，2表示gallop类目",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "minOrderQuantity",
+     "type": "Long",
+     "required": true,
+     "description": "最小起订量",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "featureInfos",
+     "type": "message:alibaba.category.categoryInfo.FeatureInfo[]",
+     "required": true,
+     "description": "类目特征信息",
+     "exampleValue": "[{}]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.category.categoryInfo.FeatureInfo[]",
+     "fields": [
+      {
+       "name": "key",
+       "type": "String",
+       "required": true,
+       "description": "名称",
+       "exampleValue": "name",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "值",
+       "exampleValue": "jiagong",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "status",
+       "type": "Integer",
+       "required": true,
+       "description": "状态",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "hierarchy",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否继承到子元素上",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "categoryType",
+     "type": "String",
+     "required": true,
+     "description": "类目的类型，1为1688大市场类目，2为1688工业品专业化类目，3为1688主流商品类目",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSupportProcessing",
+     "type": "Boolean",
+     "required": true,
+     "description": "类目是否支持加工定制",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500_1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回示例",
+   "sample": "{}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

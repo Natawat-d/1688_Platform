@@ -1,0 +1,215 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.getRefundReasonList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.getRefundReasonList-1",
+ "displayName": "查询退款退货原因（用于创建退款退货）",
+ "billType": null,
+ "description": "查询退款退货原因（用于创建退款退货）",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderId",
+   "type": "Long",
+   "required": true,
+   "description": "主订单id",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "orderEntryIds",
+   "type": "Long[]",
+   "required": true,
+   "description": "子订单id",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "goodsStatus",
+   "type": "String",
+   "required": true,
+   "description": "货物状态",
+   "exampleValue": "售中等待买家发货:”refundWaitSellerSend&quot;; 售中等待买家收货:&quot;refundWaitBuyerReceive&quot;; 售中已收货（未确认完成交易）:&quot;refundBuyerReceived&quot; 售后未收货:&quot;aftersaleBuyerNotReceived&quot;; 售后已收到货:&quot;aftersaleBuyerReceived&quot;",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OrderRefundReasonListResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OrderRefundReasonListResult",
+   "fields": [
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.OrderRefundReasonListResult",
+     "required": true,
+     "description": "结果",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.OrderRefundReasonListResult",
+     "fields": [
+      {
+       "name": "reasons",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.OrderRefundReasonModel[]",
+       "required": true,
+       "description": "原因列表",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.OrderRefundReasonModel[]",
+       "fields": [
+        {
+         "name": "id",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "原因id",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "原因",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "needVoucher",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "凭证是否必须上传",
+         "exampleValue": "&quot;true&quot;表示必须要上传凭证",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "noRefundCarriage",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否支持退运费",
+         "exampleValue": "“true&quot; 表示不支持退运费",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "tip",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "提示",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "5xxx",
+   "desc": "调用者错误",
+   "howToFix": "请确认输入参数是否合法。\n货物状态参数示例，子订单需要数组输入..."
+  },
+  {
+   "code": "4xxx",
+   "desc": "服务方内部错误",
+   "howToFix": ""
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "输入示例",
+   "sample": "orderId:586683458994743215\norderEntryIds:[586683458997743215]\ngoodsStatus:aftersaleBuyerNotReceived\n",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

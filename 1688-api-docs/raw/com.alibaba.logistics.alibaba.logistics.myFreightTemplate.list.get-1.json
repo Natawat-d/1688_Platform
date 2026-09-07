@@ -1,0 +1,800 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "alibaba.logistics.myFreightTemplate.list.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:alibaba.logistics.myFreightTemplate.list.get-1",
+ "displayName": "获取物流模板详情",
+ "billType": null,
+ "description": "根据物流模版ID获取卖家的物流模板。运费模板ID为0表示运费说明，为1表示卖家承担运费",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "templateId",
+   "type": "java.lang.Long",
+   "required": false,
+   "description": "模版id，用于单条查询的场景",
+   "exampleValue": "xxx",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "querySubTemplate",
+   "type": "java.lang.Boolean",
+   "required": false,
+   "description": "是否查询子模板",
+   "exampleValue": "false",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "queryRate",
+   "type": "java.lang.Boolean",
+   "required": false,
+   "description": "是否查询子模板费率",
+   "exampleValue": "false",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.logistics.FreightTemplate[]",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistics.FreightTemplate[]",
+   "fields": [
+    {
+     "name": "addressCodeText",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "地址信息",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fromAreaCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "发货地址地区码",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "id",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "地址ID",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "会员ID",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "name",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "名称",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "remark",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "备注",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "状态",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "expressSubTemplate",
+     "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "required": true,
+     "description": "快递子模版",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "fields": [
+      {
+       "name": "subTemplateDTO",
+       "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "required": true,
+       "description": "子模板",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "fields": [
+        {
+         "name": "chargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "计件类型。0:重量 1:件数 2:体积",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSysTemplate",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceChargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "运费承担类型 卖家承担：0；买家承担：1。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "服务类型。0:快递 1:货运 2:货到付款",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "type",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "子模板类型 0基准 1增值。默认0。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "rateList",
+       "type": "message:alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "required": true,
+       "description": "费率",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "fields": [
+        {
+         "name": "isSysRate",
+         "type": "boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "toAreaCodeText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "rateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliveryRateDTO",
+         "required": true,
+         "description": "普通子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliveryRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "sysRateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "required": true,
+         "description": "系统子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重（单位：克）或续件（单位：件）单位",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "logisticsSubTemplate",
+     "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "required": true,
+     "description": "货运子模版",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "fields": [
+      {
+       "name": "subTemplateDTO",
+       "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "required": true,
+       "description": "子模板",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "fields": [
+        {
+         "name": "chargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "计件类型。0:重量 1:件数 2:体积",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSysTemplate",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceChargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "运费承担类型 卖家承担：0；买家承担：1。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "服务类型。0:快递 1:货运 2:货到付款",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "type",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "子模板类型 0基准 1增值。默认0。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "rateList",
+       "type": "message:alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "required": true,
+       "description": "费率",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "fields": [
+        {
+         "name": "isSysRate",
+         "type": "boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "toAreaCodeText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "rateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliveryRateDTO",
+         "required": true,
+         "description": "普通子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliveryRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "sysRateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "required": true,
+         "description": "系统子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重（单位：克）或续件（单位：件）单位",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "codSubTemplate",
+     "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "required": true,
+     "description": "货到付款子模版",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDetailDTO",
+     "fields": [
+      {
+       "name": "subTemplateDTO",
+       "type": "message:alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "required": true,
+       "description": "子模板",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliverySubTemplateDTO",
+       "fields": [
+        {
+         "name": "chargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "计件类型。0:重量 1:件数 2:体积",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSysTemplate",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceChargeType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "运费承担类型 卖家承担：0；买家承担：1。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceType",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "服务类型。0:快递 1:货运 2:货到付款",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "type",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "子模板类型 0基准 1增值。默认0。",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "rateList",
+       "type": "message:alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "required": true,
+       "description": "费率",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.openplatform.logistics.DeliveryRateDetailDTO[]",
+       "fields": [
+        {
+         "name": "isSysRate",
+         "type": "boolean",
+         "required": true,
+         "description": "是否系统模板",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "toAreaCodeText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "rateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliveryRateDTO",
+         "required": true,
+         "description": "普通子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliveryRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "sysRateDTO",
+         "type": "message:alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "required": true,
+         "description": "系统子模板费率",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.openplatform.logistics.DeliverySysRateDTO",
+         "fields": [
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重（单位：克）或首件（单位：件）",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnitFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重或首件的价格",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "leastExpenses",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "最低一票",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重（单位：克）或续件（单位：件）单位",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "type",
+     "type": "String",
+     "required": true,
+     "description": "类型 3-官方物流模板，2或无值时-用户物流模板",
+     "exampleValue": "3",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "错误码",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": "错误描述",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "      \n{\n    &quot;result&quot;:[\n        {\n            &quot;addressCodeText&quot;:&quot;湖北省 荆门市 东宝区&quot;,\n            &quot;fromAreaCode&quot;:&quot;420802&quot;,\n            &quot;id&quot;:11864709,\n            &quot;memberId&quot;:&quot;b2b-1624961198&quot;,\n            &quot;name&quot;:&quot;test168&quot;,\n            &quot;remark&quot;:&quot;&quot;,\n            &quot;status&quot;:1\n        }\n    ]\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

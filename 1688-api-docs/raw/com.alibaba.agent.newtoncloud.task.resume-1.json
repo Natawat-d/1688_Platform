@@ -1,0 +1,343 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.resume",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.resume-1",
+ "displayName": "牛顿云-恢复任务",
+ "billType": null,
+ "description": "牛顿云-恢复任务",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "sessionId",
+   "type": "String",
+   "required": true,
+   "description": "sessionId",
+   "exampleValue": "chat_03575ef4",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "scene",
+   "type": "String",
+   "required": true,
+   "description": "scene",
+   "exampleValue": "open_api",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "taskId",
+   "exampleValue": "68c83ae1-334a-46e2-9d26-e2db37cd1ba4",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eventField",
+   "type": "message:resumeEventObject",
+   "required": false,
+   "description": "用户选择内容,与selectedData二选一，建议使用selectedData",
+   "exampleValue": "{&quot;type&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;,&quot;executionResults&quot;:[{&quot;type&quot;:&quot;tool_result&quot;,&quot;id&quot;:&quot;call_33420b70e2654b77aadb61cb&quot;,&quot;name&quot;:&quot;show_interaction&quot;,&quot;output&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;{\\&quot;data\\&quot;:[{\\&quot;question\\&quot;:\\&quot;请问您想找什么材质的袜子？\\&quot;,\\&quot;selected\\&quot;:\\&quot;纯棉\\&quot;}]}&quot;,&quot;id&quot;:&quot;ir_1784631153063&quot;}],&quot;state&quot;:&quot;completed&quot;}]}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "resumeEventObject",
+   "fields": [
+    {
+     "name": "type",
+     "type": "String",
+     "required": true,
+     "description": "type",
+     "exampleValue": "EXTERNAL_EXECUTION_RESULT",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "executionResults",
+     "type": "message:eventObject.executionResults[]",
+     "required": true,
+     "description": "用户选择内容",
+     "exampleValue": "[{&quot;type&quot;:&quot;tool_result&quot;,&quot;id&quot;:&quot;call_fab53346e8fe4103b726da70&quot;,&quot;name&quot;:&quot;show_interaction&quot;,&quot;output&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;{\\&quot;data\\&quot;:[{\\&quot;question\\&quot;:\\&quot;请问您需要采购多少双袜子？\\&quot;,\\&quot;selected\\&quot;:\\&quot;200双\\&quot;},{\\&quot;question\\&quot;:\\&quot;您的预算大概是多少？\\&quot;,\\&quot;selected\\&quot;:\\&quot;30-80元\\&quot;},{\\&quot;question\\&quot;:\\&quot;您有什么服务偏好吗？（可多选）\\&quot;,\\&quot;selected\\&quot;:\\&quot;无特别要求\\&quot;}]}&quot;,&quot;id&quot;:&quot;ir_1784531665377&quot;}],&quot;state&quot;:&quot;completed&quot;}]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "eventObject.executionResults[]",
+     "fields": [
+      {
+       "name": "type",
+       "type": "String",
+       "required": true,
+       "description": "tool_result",
+       "exampleValue": "tool_result",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "id",
+       "type": "String",
+       "required": true,
+       "description": "结果id",
+       "exampleValue": "call_9f0a309daaa045b2844ee563",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "String",
+       "required": true,
+       "description": "show_interaction",
+       "exampleValue": "show_interaction",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "state",
+       "type": "String",
+       "required": true,
+       "description": "状态",
+       "exampleValue": "interrupted",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "output",
+       "type": "message:output[]",
+       "required": true,
+       "description": "选择内容",
+       "exampleValue": "[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;{\\&quot;skipped\\&quot;:true}&quot;,&quot;id&quot;:&quot;ir_1784020010765&quot;}]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "output[]",
+       "fields": [
+        {
+         "name": "type",
+         "type": "String",
+         "required": true,
+         "description": "类型",
+         "exampleValue": "text",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "text",
+         "type": "String",
+         "required": true,
+         "description": "内容",
+         "exampleValue": "{\\&quot;skipped\\&quot;:true}",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "id",
+         "type": "String",
+         "required": true,
+         "description": "选项id",
+         "exampleValue": "ir_1784020010765",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "selectedData",
+   "type": "message:questionAndSelected[]",
+   "required": false,
+   "description": "用户选择内容",
+   "exampleValue": "[{&quot;question&quot;:&quot;请问您需要采购多少件西装？&quot;,&quot;selected&quot;:&quot;10件&quot;},{&quot;question&quot;:&quot;请问您的预算范围是多少？&quot;,&quot;selected&quot;:&quot;50-100元/件&quot;},{&quot;question&quot;:&quot;请问您对西装的材质/风格有什么要求？&quot;,&quot;selected&quot;:&quot;棉麻/休闲&quot;}]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "questionAndSelected[]",
+   "fields": [
+    {
+     "name": "question",
+     "type": "String",
+     "required": true,
+     "description": "问题",
+     "exampleValue": "请问您需要采购多少件西装？",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "selected",
+     "type": "String",
+     "required": true,
+     "description": "选择内容",
+     "exampleValue": "10件",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "skipped",
+   "type": "Boolean",
+   "required": false,
+   "description": "是否跳过，true为跳过",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "userInput",
+   "type": "String",
+   "required": false,
+   "description": "用户输入需求",
+   "exampleValue": "我想要便宜一些的",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:result",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "    {       &quot;success&quot;: true,       &quot;data&quot;: {         &quot;taskId&quot;: &quot;858271d2-0817-4fbc-b019-32c60753cb18&quot;,         &quot;status&quot;: &quot;RUNNING&quot;,         &quot;message&quot;: &quot;task resumed&quot;       },       &quot;eagleTraceId&quot;: &quot;2150980a17839485645261052e87dc&quot;     }  ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "result",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "taskId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "任务ID",
+     "exampleValue": "858271d2-0817-4fbc-b019-32c60753cb18",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "恢复后状态，正常为 RUNNING",
+     "exampleValue": "RUNNING",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "结果描述",
+     "exampleValue": "task resumed",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "error",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "失败时的错误描述",
+     "exampleValue": "task status is END, expected WAIT_SKILL or WAIT_USER",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "eagleTraceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "链路追踪ID",
+     "exampleValue": "2150980a17839485645261052e87dc",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "String",
+     "required": true,
+     "description": "失败错误码。任务仍在排队中（status=QUEUED）时调用本接口会返回 INVALID_REQUEST，此时应先轮询 task.get 等待任务进入 RUNNING 后再 resume\t",
+     "exampleValue": "INVALID_REQUEST",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;sessionId&quot;: &quot;chat_03575ef4&quot;,\n  &quot;scene&quot;: &quot;open_api&quot;,\n  &quot;taskId&quot;: &quot;68c83ae1-334a-46e2-9d26-e2db37cd1ba4&quot;,\n  &quot;eventField&quot;: {\n    &quot;type&quot;: &quot;EXTERNAL_EXECUTION_RESULT&quot;,\n    &quot;executionResults&quot;: [\n      {\n        &quot;type&quot;: &quot;tool_result&quot;,\n        &quot;id&quot;: &quot;call_9f0a309daaa045b2844ee563&quot;,\n        &quot;name&quot;: &quot;show_interaction&quot;,\n        &quot;state&quot;: &quot;interrupted&quot;,\n        &quot;output&quot;: [\n          {\n            &quot;type&quot;: &quot;text&quot;,\n            &quot;text&quot;: &quot;{\\\\\\&quot;skipped\\\\\\&quot;:true}&quot;,\n            &quot;id&quot;: &quot;ir_1784020010765&quot;\n          }\n        ]\n      }\n    ]\n  },\n  &quot;selectedData&quot;: [\n    {\n      &quot;question&quot;: &quot;请问您需要采购多少件西装？&quot;,\n      &quot;selected&quot;: &quot;10件&quot;\n    }\n  ],\n  &quot;skipped&quot;: true,\n  &quot;userInput&quot;: &quot;我想要便宜一些的&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;taskId&quot;: &quot;858271d2-0817-4fbc-b019-32c60753cb18&quot;,\n    &quot;status&quot;: &quot;RUNNING&quot;,\n    &quot;message&quot;: &quot;task resumed&quot;,\n    &quot;error&quot;: &quot;task status is END, expected WAIT_SKILL or WAIT_USER&quot;,\n    &quot;eagleTraceId&quot;: &quot;2150980a17839485645261052e87dc&quot;\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

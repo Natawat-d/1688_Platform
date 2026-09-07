@@ -1,0 +1,1532 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "refundofficialdelivery.solution.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:refundofficialdelivery.solution.get-1",
+ "displayName": "官方退货上门揽方案查询",
+ "billType": null,
+ "description": "官方退货上门揽方案查询",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.ocean.openplatform.biz.logistics.param.OfficialDeliverySolutionQueryParam",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.logistics.param.OfficialDeliverySolutionQueryParam",
+   "fields": [
+    {
+     "name": "receiverInfo",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "required": false,
+     "description": "收件人，即卖家收货地址信息",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "fields": [
+      {
+       "name": "address",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "addressId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "districtCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fullName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobile",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "phone",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "postCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "senderInfo",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "required": false,
+     "description": "发件人，即买家上门揽地址",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+     "fields": [
+      {
+       "name": "address",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "addressId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "areaText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "cityText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "districtCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fullName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobile",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "phone",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "postCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "  ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "receiverInfoStr",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "收件人，即卖家收货地址,文本",
+     "exampleValue": "{\\&quot;townName\\&quot;:\\&quot;东华门街道\\&quot;,\\&quot;townCode\\&quot;:\\&quot;110101001\\&quot;,\\&quot;cityCode\\&quot;:\\&quot;110100\\&quot;,\\&quot;contactorName\\&quot;:\\&quot;234234\\&quot;,\\&quot;provinceCode\\&quot;:\\&quot;110000\\&quot;,\\&quot;mobile\\&quot;:\\&quot;12342344324\\&quot;,\\&quot;addressId\\&quot;:111028,\\&quot;areaCode\\&quot;:\\&quot;110101\\&quot;,\\&quot;cityName\\&quot;:\\&quot;北京市\\&quot;,\\&quot;post\\&quot;:\\&quot;123123\\&quot;,\\&quot;areaName\\&quot;:\\&quot;东城区\\&quot;,\\&quot;detailAddress\\&quot;:\\&quot;接到\\&quot;,\\&quot;provinceName\\&quot;:\\&quot;北京\\&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "senderInfoStr",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "发件人，即买家上门揽地址，文本",
+     "exampleValue": "{\\&quot;townName\\&quot;:\\&quot;东华门街道\\&quot;,\\&quot;townCode\\&quot;:\\&quot;110101001\\&quot;,\\&quot;cityCode\\&quot;:\\&quot;110100\\&quot;,\\&quot;contactorName\\&quot;:\\&quot;234234\\&quot;,\\&quot;provinceCode\\&quot;:\\&quot;110000\\&quot;,\\&quot;mobile\\&quot;:\\&quot;12342344324\\&quot;,\\&quot;addressId\\&quot;:111028,\\&quot;areaCode\\&quot;:\\&quot;110101\\&quot;,\\&quot;cityName\\&quot;:\\&quot;北京市\\&quot;,\\&quot;post\\&quot;:\\&quot;123123\\&quot;,\\&quot;areaName\\&quot;:\\&quot;东城区\\&quot;,\\&quot;detailAddress\\&quot;:\\&quot;接到\\&quot;,\\&quot;provinceName\\&quot;:\\&quot;北京\\&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "退款单Id",
+     "exampleValue": "TQ284019625557092048",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "packageCount",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "包裹数",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "totalVolume",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "总体积cm^3",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "totalWeight",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "总重量g",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "couponId",
+     "type": "String",
+     "required": false,
+     "description": "优惠券id",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.refundofficialdelivery.solution.get.ResultModel",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.refundofficialdelivery.solution.get.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "&quot;&quot;",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionResult",
+     "required": true,
+     "description": "返回值",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionResult",
+     "fields": [
+      {
+       "name": "height",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "高度 cm",
+       "exampleValue": "3",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "length",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "长度 cm",
+       "exampleValue": "3",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerInfoDTOList",
+       "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliveryOfferInfo[]",
+       "required": true,
+       "description": "商品信息",
+       "exampleValue": "&quot;&quot;",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliveryOfferInfo[]",
+       "fields": [
+        {
+         "name": "offerId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "商品id",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "offerName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "商品名称",
+         "exampleValue": "&quot;xxx商品&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "orderEntryIdList",
+       "type": "java.lang.Long[]",
+       "required": true,
+       "description": "子订单",
+       "exampleValue": "87929773894",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "子订单",
+       "exampleValue": "87929773894",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "receiverInfoDTO",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+       "required": true,
+       "description": "收件人",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+       "fields": [
+        {
+         "name": "address",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "addressId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "areaCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "areaText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "cityCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "cityText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "districtCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "fullName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "mobile",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "phone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "postCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "provinceCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "provinceText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "townCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "townText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sceneCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "场景code",
+       "exampleValue": "&quot;&quot;",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "senderInfoDTO",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+       "required": true,
+       "description": "发件人",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.param.AddressParam",
+       "fields": [
+        {
+         "name": "address",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "addressId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "areaCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "areaText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "cityCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "cityText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "districtCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "fullName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "mobile",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "phone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "postCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "provinceCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "provinceText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "townCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "townText",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "signErrorMsg",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "错误信息",
+       "exampleValue": "&quot;&quot;",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "solutionDTOList",
+       "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolution[]",
+       "required": true,
+       "description": "方案列表",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolution[]",
+       "fields": [
+        {
+         "name": "appointmentTimeDTO",
+         "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialAppointmentTime",
+         "required": true,
+         "description": "预约配送时间",
+         "exampleValue": "&quot;&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialAppointmentTime",
+         "fields": [
+          {
+           "name": "timeSlotDTOList",
+           "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialAppointmentTimeSlot[]",
+           "required": true,
+           "description": "时间段列表",
+           "exampleValue": "xx",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialAppointmentTimeSlot[]",
+           "fields": [
+            {
+             "name": "dateStr",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "日期",
+             "exampleValue": "&quot;2025-06-18&quot;",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "gmtEnd",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "截止时间",
+             "exampleValue": "&quot;17:00&quot;",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "gmtStart",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "开始时间",
+             "exampleValue": "&quot;15:00&quot;",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "name": "chargeDetailDTO",
+         "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialChargeDetail",
+         "required": true,
+         "description": "计费详情",
+         "exampleValue": "&quot;&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialChargeDetail",
+         "fields": [
+          {
+           "name": "deliveryFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "配送费，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "deliveryTotalFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "包含配送费+超区费等费用的运输费，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重费，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstTotalCost",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重总费用，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "firstUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "首重单位，单位g",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重费，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextTotalCost",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重总费用，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "nextUnit",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "续重单位，单位g",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "originTotalCost",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "原总费用（非会员价），单位分",
+           "exampleValue": "1200",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "totalCost",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "总费用 = 运费 + 增值服务费 - 红包金额，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "vasDetailDTOList",
+           "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialChargeVasDetail[]",
+           "required": true,
+           "description": "增值服务费列表",
+           "exampleValue": "&quot;&quot;",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialChargeVasDetail[]",
+           "fields": [
+            {
+             "name": "cost",
+             "type": "java.lang.Long",
+             "required": true,
+             "description": "增值服务费用，单位分",
+             "exampleValue": "1000",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "dialogTextContent",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务弹窗内容",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "dialogTitle",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务弹窗标题",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "dialogUrl",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务弹窗链接",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "operateType",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "操作类型",
+             "exampleValue": "UN_SELECTABLE：不可操作",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "selectedValue",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务选中情况",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "vasCode",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务code",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "vasDesc",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务描述",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "vasName",
+             "type": "java.lang.String",
+             "required": true,
+             "description": "增值服务名称",
+             "exampleValue": "xx",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          },
+          {
+           "name": "vasTotalFee",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "增值服务费总费用，单位分",
+           "exampleValue": "1000",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "officialCouponDTO",
+           "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialCoupon",
+           "required": true,
+           "description": "优惠券",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialCoupon",
+           "fields": [
+            {
+             "name": "id",
+             "type": "String",
+             "required": true,
+             "description": "优惠券id",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "name",
+             "type": "String",
+             "required": true,
+             "description": "名称",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "description",
+             "type": "String",
+             "required": true,
+             "description": "描述",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "amount",
+             "type": "Long",
+             "required": true,
+             "description": "优惠券金额（分）",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "couponType",
+             "type": "String",
+             "required": true,
+             "description": "优惠券类型",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "status",
+             "type": "String",
+             "required": true,
+             "description": "优惠券状态",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "gmtEffect",
+             "type": "Date",
+             "required": true,
+             "description": "优惠券生效时间",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "gmtExpired",
+             "type": "Date",
+             "required": true,
+             "description": "优惠券过期时间",
+             "exampleValue": " ",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          },
+          {
+           "name": "fromOverAreaFee",
+           "type": "Long",
+           "required": true,
+           "description": "揽收超区费，单位分",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "toOverAreaFee",
+           "type": "Long",
+           "required": true,
+           "description": "签收超区费，单位分",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "overDistanceFee",
+           "type": "Long",
+           "required": true,
+           "description": "超长费，单位分",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "cpCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "物流服务商编码",
+         "exampleValue": "&quot;YTO&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "cpName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "物流服务商名称",
+         "exampleValue": "&quot;圆通速递&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "deliveryTimeDTO",
+         "type": "message:alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialDeliveryTime",
+         "required": true,
+         "description": "配送时间",
+         "exampleValue": "&quot;&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.ocean.openplatform.biz.logistics.result.OfficialDeliverySolutionDTO.OfficialDeliveryTime",
+         "fields": [
+          {
+           "name": "deliveryText",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "x",
+           "exampleValue": "x",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "deliveryTime",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "x",
+           "exampleValue": "x",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "remark",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "x",
+           "exampleValue": "x",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "priority",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "优先级，值越小优先级越高",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "remark",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "备注",
+         "exampleValue": "&quot;圆通快递价格优惠覆盖广&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "解决方案类型",
+         "exampleValue": "&quot;1&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceTypeDesc",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "解决方案类型描述",
+         "exampleValue": "&quot;圆通快递当日取&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceTypeName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "解决方案类型名称",
+         "exampleValue": "&quot;当日上门&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "solutionCode",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "物流解决方案编码",
+         "exampleValue": "&quot;422&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "solutionName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "物流解决方案名称",
+         "exampleValue": "&quot;圆通快递当日取&quot;",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "totalVolume",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "总体积 cm^3",
+       "exampleValue": "12",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "totalWeight",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "总重量 g",
+       "exampleValue": "12",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "userAlipaySignUrl",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "用户支付宝sign地址",
+       "exampleValue": "http://",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "userSettled",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否settled",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "vipUser",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否vip用户",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "width",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "宽度",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "官方退上门取件"
+}

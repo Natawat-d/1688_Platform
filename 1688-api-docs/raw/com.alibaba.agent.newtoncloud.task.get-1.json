@@ -1,0 +1,325 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.get-1",
+ "displayName": "牛顿云-查询任务服务",
+ "billType": null,
+ "description": "牛顿云-查询任务服务",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "业务侧生成的任务维度id，一个任务id一定归属于一个对话id",
+   "exampleValue": "009e1847-d652-4fa1-be5e-346b9b09ac38",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "fromIndex",
+   "type": "Long",
+   "required": false,
+   "description": "增量输出起始下标，首次传 0，后续传上次返回的 nextIndex",
+   "exampleValue": "0",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "includeBlocks",
+   "type": "Boolean",
+   "required": false,
+   "description": "是否返回富文本/块结构，获取 chunks 时建议传 true",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "接口请求是否成功，true成功，false失败",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "业务侧生成的任务维度id，一个任务id一定归属于一个对话id",
+   "exampleValue": "009e1847-d652-4fa1-be5e-346b9b09ac38",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sessionId",
+   "type": "String",
+   "required": true,
+   "description": "业务侧生成的对话维度id，一个对话id可挂接多个任务id",
+   "exampleValue": "2b6a7f8b-2c34-403c-9b9c-7e6121e50548",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskType",
+   "type": "String",
+   "required": true,
+   "description": "任务类型，LONG_RUNNING表示长程任务；NORMAL表示普通对话",
+   "exampleValue": "LONG_RUNNING",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "status",
+   "type": "String",
+   "required": true,
+   "description": "任务状态。任务共有 6 种状态：INIT（已创建，任务进入队列等待执行）、RUNNING（正在执行中，Agent 正进行推理和工具调用）、WAIT_SKILL（Agent 调用了异步技能，任务暂停等待技能执行结果回调）、WAIT_USER（任务需要用户确认或补充输入，暂停等待用户通过 resume 接口恢复）、END（任务正常执行完成，已产出最终结果）、KILL（任务被终止，可能是用户主动取消、执行超时或系统异常导致的强制终止）。其中 END 和 KILL 为终态，一旦进入则不可再变更。",
+   "exampleValue": "RUNNING",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "createdAt",
+   "type": "String",
+   "required": true,
+   "description": "任务创建时间",
+   "exampleValue": "2026-06-02T13:11:57.000Z",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "startedAt",
+   "type": "String",
+   "required": true,
+   "description": "任务开始时间",
+   "exampleValue": "2026-06-02T13:11:58.000Z",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "content",
+   "type": "String",
+   "required": true,
+   "description": "当前流式对话的输出，仅在任务非终态返回",
+   "exampleValue": "&lt;aside&gt;使用商家数据自由查询 Skill 获取昨日店铺经营数据&lt;/aside&gt;\\n\\n&quot;",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "messages",
+   "type": "message:message[]",
+   "required": true,
+   "description": "当前任务的所有ai返回消息列表，仅在任务终态返回",
+   "exampleValue": "[             {                 &quot;type&quot;: &quot;text&quot;,                 &quot;content&quot;: &quot;你好，我是牛顿（Newton），一个 helpful AI 助手。我可以帮你处理数据分析、文件操作、电商运营等多种任务。请问有什么我可以帮你的吗？&quot;             }         ]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "message[]",
+   "fields": [
+    {
+     "name": "type",
+     "type": "String",
+     "required": true,
+     "description": "消息类型",
+     "exampleValue": "text",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "content",
+     "type": "String",
+     "required": true,
+     "description": "消息内容",
+     "exampleValue": "你好，我是牛顿（Newton），一个 helpful AI 助手。我可以帮你处理数据分析、文件操作、电商运营等多种任务。请问有什么我可以帮你的吗？",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "任务失败描述",
+   "exampleValue": "超时终止：长程任务执行超过 600s",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "本次请求失败描述",
+   "exampleValue": "系统内部异常",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eagleTraceId",
+   "type": "String",
+   "required": true,
+   "description": "请求唯一ID ，eagleTraceId用于链路排查",
+   "exampleValue": "2146a21517799488479778174e1539",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "nextIndex",
+   "type": "Long",
+   "required": true,
+   "description": "下一次轮询应传入的 fromIndex，用于增量获取后续输出块，避免重复拉取。",
+   "exampleValue": "327",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "outputStatus",
+   "type": "String",
+   "required": true,
+   "description": "当前任务输出流状态。producing 表示仍在生成，done 表示输出完成，error 表示输出异常，wait_user 表示等待用户交互。",
+   "exampleValue": "wait_user",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "chunks",
+   "type": "String",
+   "required": true,
+   "description": "增量输出块列表，JSON 数组字符串。每个元素含    type（text/thinking/tool_call/tool_result/complex_table/done/error/wait_user）、content（内容文本，type=complex_table 时为 JSON 字符串，可解析出    scene、subScene、id、stage 等表格查询参数）、timestamp（毫秒时间戳）。首次轮询 fromIndex 传 0，后续传上次返回的 nextIndex 实现增量拉取。",
+   "exampleValue": "[{&quot;type&quot;:&quot;complex_table&quot;,&quot;content&quot;:&quot;{\\&quot;requestId\\&quot;:\\&quot;60eed89b-5cd9-4649-9f55-67f2733d59d7\\&quot;,\\&quot;scene\\&quot;:\\&quot;newton\\&quot;,\\&quot;subScene\\&quot;:\\&quot;purchase\\&quot;,\\&quot;id\\&quot;:\\     &quot;eeb49347fee946699f78de41218ee9aa_2631391132_20260713152648\\&quot;,\\&quot;stage\\&quot;:\\&quot;recall\\&quot;,\\&quot;__dataFilled\\&quot;:false}&quot;,&quot;timestamp&quot;:1783927640343}]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "queuePosition",
+   "type": "Long",
+   "required": true,
+   "description": "当前排队位次，从 1 开始。仅当 status=QUEUED 时返回；若任务已不在队列中则该字段不返回\t",
+   "exampleValue": "3",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "queueLength",
+   "type": "Long",
+   "required": true,
+   "description": "当前排队队列总长度（含本任务）。仅当 status=QUEUED 时返回\t",
+   "exampleValue": "5",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "queuedTotal",
+   "type": "Long",
+   "required": true,
+   "description": "当前账号处于排队中（QUEUED）的任务总数。仅当 status=QUEUED 时返回\t",
+   "exampleValue": "5",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "runningTotal",
+   "type": "Long",
+   "required": true,
+   "description": "当前账号正在执行中（INIT/RUNNING/WAIT_SKILL）的任务总数。仅当 status=QUEUED 时返回\t",
+   "exampleValue": "2",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "finishedTotal",
+   "type": "Long",
+   "required": true,
+   "description": "当前账号已结束（END/KILL/ERROR）的任务总数。仅当 status=QUEUED 时返回\t",
+   "exampleValue": "128",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "finishedAt",
+   "type": "String",
+   "required": true,
+   "description": " 描述「任务结束时间，格式 yyyy-MM-dd HH:mm:ss，未结束时为空字符串」",
+   "exampleValue": "2026-08-21 10:12:33",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;taskId&quot;: &quot;009e1847-d652-4fa1-be5e-346b9b09ac38&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;success&quot;: true,\n  &quot;taskId&quot;: &quot;009e1847-d652-4fa1-be5e-346b9b09ac38&quot;,\n  &quot;sessionId&quot;: &quot;2b6a7f8b-2c34-403c-9b9c-7e6121e50548&quot;,\n  &quot;taskType&quot;: &quot;LONG_RUNNING&quot;,\n  &quot;status&quot;: &quot;RUNNING&quot;,\n  &quot;createdAt&quot;: &quot;2026-06-02T13:11:57.000Z&quot;,\n  &quot;startedAt&quot;: &quot;2026-06-02T13:11:58.000Z&quot;,\n  &quot;content&quot;: &quot;&lt;aside&gt;使用商家数据自由查询 Skill 获取昨日店铺经营数据&lt;/aside&gt;\\\\n\\\\n\\&quot;&quot;,\n  &quot;messages&quot;: [\n    {\n      &quot;type&quot;: &quot;text&quot;,\n      &quot;content&quot;: &quot;你好，我是牛顿（Newton），一个 helpful AI 助手。我可以帮你处理数据分析、文件操作、电商运营等多种任务。请问有什么我可以帮你的吗？&quot;\n    }\n  ],\n  &quot;errorMessage&quot;: &quot;超时终止：长程任务执行超过 600s&quot;,\n  &quot;error&quot;: &quot;系统内部异常&quot;,\n  &quot;eagleTraceId&quot;: &quot;2146a21517799488479778174e1539&quot;\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

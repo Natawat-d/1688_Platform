@@ -1,0 +1,488 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.buyer.queryContractDetail",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.buyer.queryContractDetail-1",
+ "displayName": "88生意通买家查询采购单详情",
+ "billType": null,
+ "description": "88生意通买家查询采购单详情",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractQueryDetailApiRequest",
+   "required": true,
+   "description": "请求",
+   "exampleValue": "{     &quot;draftNo&quot;: &quot;CT2026051100001&quot;     }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractQueryDetailApiRequest",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "采购单编号",
+     "exampleValue": "CT2026051100001",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractQueryDetailApiResponse",
+   "required": true,
+   "description": "响应",
+   "exampleValue": "{   &quot;contractDTO&quot;: {     &quot;amount&quot;: 0.01,     &quot;contentTerm&quot;: {       &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,       &quot;purchaseItems&quot;: [         {           &quot;key&quot;: &quot;fd8ede4d-58bd-4a08-a4ae-cde6790330b5&quot;,           &quot;productName&quot;: &quot;杯子&quot;,           &quot;productSpec&quot;: &quot;黑色&quot;,           &quot;quantity&quot;: 1,           &quot;subtotal&quot;: 0.01,           &quot;unitPrice&quot;: 0.01         }       ]     },     &quot;draftNo&quot;: &quot;88SYT20260415598003&quot;,     &quot;partAName&quot;: &quot;杭州XXXX公司&quot;,     &quot;partBName&quot;: &quot;XXX&quot;,     &quot;status&quot;: &quot;SIGN_SUCCESS&quot;   },   &quot;errorCode&quot;: &quot;SUCCESS&quot;,   &quot;traceId&quot;: &quot;213e01f717791723747816123ea56f&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractQueryDetailApiResponse",
+   "fields": [
+    {
+     "name": "contractDTO",
+     "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ContractApiDTO",
+     "required": true,
+     "description": " 采购单详情",
+     "exampleValue": "{   &quot;amount&quot;: 0.01,   &quot;contentTerm&quot;: {     &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,     &quot;purchaseItems&quot;: [       {         &quot;key&quot;: &quot;fd8ede4d-58bd-4a08-a4ae-cde6790330b5&quot;,         &quot;productName&quot;: &quot;杯子&quot;,         &quot;productSpec&quot;: &quot;黑色&quot;,         &quot;quantity&quot;: 1,         &quot;subtotal&quot;: 0.01,         &quot;unitPrice&quot;: 0.01       }     ]   },   &quot;draftNo&quot;: &quot;88SYT20260415598003&quot;,   &quot;partAName&quot;: &quot;杭州XXX限公司&quot;,   &quot;partBName&quot;: &quot;XX&quot;,   &quot;status&quot;: &quot;SIGN_SUCCESS&quot; }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ContractApiDTO",
+     "fields": [
+      {
+       "name": "amount",
+       "type": "java.math.BigDecimal",
+       "required": true,
+       "description": "金额",
+       "exampleValue": "10000.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "contentTerm",
+       "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiContractContentTerm",
+       "required": true,
+       "description": "内容明细",
+       "exampleValue": "{   &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,   &quot;purchaseItems&quot;: [     {       &quot;key&quot;: &quot;SKU001&quot;,       &quot;productName&quot;: &quot;商品A&quot;,       &quot;quantity&quot;: 10,       &quot;unitPrice&quot;: 100.00,       &quot;subtotal&quot;: 1000.00     }   ],   &quot;attachments&quot;: [] }",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiContractContentTerm",
+       "fields": [
+        {
+         "name": "contentType",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "内容类型",
+         "exampleValue": "PURCHASE_ORDER",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "purchaseItems",
+         "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiPurchaseItem[]",
+         "required": true,
+         "description": "采购单明细",
+         "exampleValue": "{       &quot;contentType&quot;: &quot;PURCHASE_ORDER&quot;,       &quot;purchaseItems&quot;: [         {           &quot;key&quot;: &quot;SKU002&quot;,           &quot;productName&quot;: &quot;商品B&quot;,           &quot;productSpec&quot;: &quot;蓝色/M码&quot;,           &quot;quantity&quot;: 5,           &quot;unitPrice&quot;: 200.00,           &quot;subtotal&quot;: 1000.00,           &quot;productImage&quot;: null         }       ],       &quot;attachments&quot;: [         {           &quot;fileName&quot;: &quot;contract.pdf&quot;,           &quot;fileUrl&quot;: &quot;https://example.com/files/contract.pdf&quot;         }       ]     }",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiPurchaseItem[]",
+         "fields": [
+          {
+           "name": "key",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "编号",
+           "exampleValue": "SKU002",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "productName",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "产品名称",
+           "exampleValue": "商品B",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "productSpec",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "产品规则",
+           "exampleValue": "蓝色/M码",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "quantity",
+           "type": "java.lang.Integer",
+           "required": true,
+           "description": "数量",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "subtotal",
+           "type": "java.math.BigDecimal",
+           "required": true,
+           "description": "总价，单位人民币，元",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "unitPrice",
+           "type": "java.math.BigDecimal",
+           "required": true,
+           "description": "单价，单位人民币，元",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "name": "draftNo",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "采购单编号",
+       "exampleValue": "88SYT2026051100001",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "partAName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家名称",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "partBName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家名称",
+       "exampleValue": "李四公司",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "status",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "状态- DRAFT（草稿状态，可编辑）、DATA_SUPPLYING（补充资料中，也是草稿态一种）、SIGNING（签署中）、SIGN_REJECT（拒绝签署）、  SIGN_SUCCESS（签署完成，待付款）、PAYING（付款中）、PAID（支付完成）、CONFIRMED（买家已确认交易完成）、  REFUNDING（退款中）、FINISHED（交易完成）、CLOSED（采购单关闭-已退款）、INVALID（合同/采购单失效）、DELETED（采购单已删除）",
+       "exampleValue": "CONFIRMED",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplyVoucherList",
+       "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ContractSupplyVoucherApiDTO[]",
+       "required": true,
+       "description": "交易凭证列表",
+       "exampleValue": "[       {         &quot;voucherNo&quot;: &quot;VOUCHER001&quot;,         &quot;content&quot;: &quot;货物已收到&quot;,         &quot;createTime&quot;: &quot;2026-05-11 10:00:00&quot;       }     ]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ContractSupplyVoucherApiDTO[]",
+       "fields": [
+        {
+         "name": "submitterName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "提交人名字",
+         "exampleValue": "张三",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "submitterRole",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "补充角色，PART_A 代表买家，PART_B打标卖家",
+         "exampleValue": "PART_A",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "supplyTime",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "补充时间",
+         "exampleValue": "2026-05-11 10:00:00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "voucherContent",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "凭证内容",
+         "exampleValue": "货物已收到，质量符合要求",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "voucherFiles",
+         "type": "message:alibaba.china.share.creditpay.gateway.api.dto.ApiFileItem[]",
+         "required": true,
+         "description": "图片",
+         "exampleValue": "[           {             &quot;fileName&quot;: &quot;delivery_proof.jpg&quot;,             &quot;fileUrl&quot;: &quot;https://example.com/files/delivery_proof.jpg&quot;           }         ]       }",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.china.share.creditpay.gateway.api.dto.ApiFileItem[]",
+         "fields": [
+          {
+           "name": "fileData",
+           "type": "byte[]",
+           "required": true,
+           "description": "二进制数据，和 fileUrl 二选一",
+           "exampleValue": "12",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "fileName",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "文件名，上传带有后缀的文件名",
+           "exampleValue": "contract.pdf",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "fileUrl",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "文件 URL，和 fileData 二选一就可以",
+           "exampleValue": "https://example.com/files/contract.pdf",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "voucherNo",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "凭证记录唯一标识",
+         "exampleValue": "VOUCHER001",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "buyerContactName",
+       "type": "String",
+       "required": true,
+       "description": "买家联系人姓名",
+       "exampleValue": "买家联系人姓名",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerContactPhone",
+       "type": "String",
+       "required": true,
+       "description": "买家联系电话",
+       "exampleValue": "15611112222",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerContactName",
+       "type": "String",
+       "required": true,
+       "description": "卖家联系人姓名",
+       "exampleValue": "卖家联系人姓名",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerContactPhone",
+       "type": "String",
+       "required": true,
+       "description": "卖家联系电话",
+       "exampleValue": "15611112222",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "confirmReceiveRule",
+       "type": "String",
+       "required": true,
+       "description": "确认收货规则",
+       "exampleValue": "AUTO",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "autoConfirmTime",
+       "type": "Date",
+       "required": true,
+       "description": "自动确认收货时间，仅自动确认规则下有值",
+       "exampleValue": "123456789",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误 code",
+     "exampleValue": "错误 code",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "调用结果描述",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSuccess",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "调用 traceId",
+     "exampleValue": "traceId",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fundPayOrderList",
+     "type": "message:com.alibaba.china.share.creditpay.gateway.api.dto.FundPayOrderApiDTO[]",
+     "required": true,
+     "description": "支付单列表",
+     "exampleValue": "[     {       &quot;payNo&quot;: &quot;8896010FP09006126043000000618013&quot;,       &quot;payTime&quot;: 1777543672000,       &quot;payChannel&quot;: &quot;BANK_TRANSFER&quot;,       &quot;class&quot;: &quot;com.alibaba.china.share.creditpay.gateway.api.dto.FundPayOrderApiDTO&quot;     }   ]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.china.share.creditpay.gateway.api.dto.FundPayOrderApiDTO[]",
+     "fields": [
+      {
+       "name": "payNo",
+       "type": "String",
+       "required": true,
+       "description": "支付单号",
+       "exampleValue": "12345777777",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payTime",
+       "type": "Date",
+       "required": true,
+       "description": "支付时间",
+       "exampleValue": "12345777777",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payChannel",
+       "type": "String",
+       "required": true,
+       "description": "支付渠道",
+       "exampleValue": "BANK_TRANSFER",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

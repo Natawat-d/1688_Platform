@@ -1,0 +1,170 @@
+{
+ "namespace": "cn.alibaba.open",
+ "name": "push.cursor.messageList",
+ "version": 1,
+ "oceanApiId": "cn.alibaba.open:push.cursor.messageList-1",
+ "displayName": "游标式获取失败的消息列表",
+ "billType": 0,
+ "description": "游标式获取失败的消息列表，获取的消息会自动消费成功的确认。所以下次以相同条件调用获取的是剩下的数据，直至返回数据为空",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "createStartTime",
+   "type": "java.util.Date",
+   "required": false,
+   "description": "消息创建时间查找范围开始",
+   "exampleValue": "20130417000000000+0800",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "createEndTime",
+   "type": "java.util.Date",
+   "required": false,
+   "description": "消息创建时间查找范围结束",
+   "exampleValue": "20130417000000000+0800",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "quantity",
+   "type": "int",
+   "required": false,
+   "description": "每次取的数据量，范围20-200，默认20",
+   "exampleValue": "20",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "type",
+   "type": "String",
+   "required": false,
+   "description": "消息类型",
+   "exampleValue": "ORDER_BUYER_MAKER",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "userInfo",
+   "type": "String",
+   "required": false,
+   "description": "用户Id",
+   "exampleValue": "b2b-4137495171f2513",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "pushMessageList",
+   "type": "message:PushMessage[]",
+   "required": true,
+   "description": "推送消息列表",
+   "exampleValue": "[&quot;&quot;,&quot;&quot;]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "PushMessage[]",
+   "fields": [
+    {
+     "name": "msgId",
+     "type": "long",
+     "required": true,
+     "description": "消息唯一id",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "type",
+     "type": "String",
+     "required": true,
+     "description": "消息类型",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "userInfo",
+     "type": "String",
+     "required": true,
+     "description": "消息关联的用户memberId",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "java.util.Map",
+     "required": true,
+     "description": "消息内容",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "gmtBorn",
+     "type": "long",
+     "required": true,
+     "description": "消息创建的时间戳，单位毫秒",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "json返回结果",
+   "sample": "{\n    &quot;pushMessageList&quot;: [\n        {\n            &quot;gmtBorn&quot;: 1399182274000,\n            &quot;topicGroup&quot;: &quot;CAIGOU&quot;,\n            &quot;data&quot;: {\n                &quot;buyOfferId&quot;: 123,\n                &quot;subUserId&quot;: 123\n            },\n            &quot;msgId&quot;: 123456,\n            &quot;type&quot;: &quot;CAIGOU_MSG_BUYER_PUBLISH_BUYOFFER&quot;,\n            &quot;userInfo&quot;: &quot;memberId&quot;,\n            &quot;appKey&quot;: &quot;1688&quot;,\n            &quot;topicName&quot;: &quot;MSG_BUYER_PUBLISH_BUYOFFER&quot;\n        }        \n    ]\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "消息"
+}

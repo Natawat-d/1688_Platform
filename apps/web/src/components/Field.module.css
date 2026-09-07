@@ -1,0 +1,59 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--fs-sm);
+  font-weight: 550;
+  color: var(--text);
+  display: inline-flex;
+  gap: 3px;
+}
+
+.required {
+  color: var(--danger);
+}
+
+.hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.error {
+  font-size: var(--fs-xs);
+  color: var(--danger);
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s3);
+}
+
+.readout {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s4);
+  padding: 5px 0;
+  font-size: var(--fs-sm);
+  border-bottom: 1px solid var(--border);
+}
+.readout:last-child {
+  border-bottom: 0;
+}
+
+.readoutLabel {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.readoutValue {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

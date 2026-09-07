@@ -1,0 +1,218 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "shipping.insurance.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:shipping.insurance.get-1",
+ "displayName": "运费险信息查询",
+ "billType": null,
+ "description": "运费险信息查询",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderId",
+   "type": "Long",
+   "required": true,
+   "description": "订单号",
+   "exampleValue": "订单号",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "type",
+   "type": "String",
+   "required": true,
+   "description": "运费险类型",
+   "exampleValue": "givenByPlatform平台赠送，givenByMerchant商家赠送",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "是否成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "响应码",
+     "exampleValue": "响应码",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "响应信息",
+     "exampleValue": "响应信息",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeFreightPolicyResult",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "返回结果",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeFreightPolicyResult",
+     "fields": [
+      {
+       "name": "insuranceId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "保单id",
+       "exampleValue": "保单id",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "订单id",
+       "exampleValue": "订单id",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tradeClaimList",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeClaimResult[]",
+       "required": true,
+       "description": "理赔单信息",
+       "exampleValue": "理赔单信息",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeClaimResult[]",
+       "fields": [
+        {
+         "name": "applicationTime",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "申请时间\t",
+         "exampleValue": "申请时间\t",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "claimAmount",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "理赔金额",
+         "exampleValue": "理赔金额",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "claimId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "理赔单id",
+         "exampleValue": "理赔单id",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "payTime",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "打款时间",
+         "exampleValue": "打款时间",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "status",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "理赔状态",
+         "exampleValue": "理赔状态",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "tradeNO",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "支付宝交易流水号",
+         "exampleValue": "支付宝交易流水号",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "物流"
+}

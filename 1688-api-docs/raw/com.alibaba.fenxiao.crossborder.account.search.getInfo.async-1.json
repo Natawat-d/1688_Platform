@@ -1,0 +1,229 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "account.search.getInfo.async",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:account.search.getInfo.async-1",
+ "displayName": "异步执行AI找商任务",
+ "billType": null,
+ "description": "异步执行AI找商任务",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:com.alibaba.global1688.common.request.SpApiExecuteRequest",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.global1688.common.request.SpApiExecuteRequest",
+   "fields": [
+    {
+     "name": "query",
+     "type": "String",
+     "required": true,
+     "description": "查询语句",
+     "exampleValue": "毛巾",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "spFilterCondition",
+     "type": "message:com.alibaba.global1688.common.request.SpFilterCondition",
+     "required": false,
+     "description": "过滤条件",
+     "exampleValue": "过滤条件",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.global1688.common.request.SpFilterCondition",
+     "fields": [
+      {
+       "name": "businessModel",
+       "type": "String",
+       "required": false,
+       "description": "业务模式, 仅支持传入 factory (标识源头工厂)",
+       "exampleValue": "factory",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "establishedYearsMin",
+       "type": "Integer",
+       "required": false,
+       "description": "最低成立年限 (筛选成立时间 ≥ 此年限的商家)",
+       "exampleValue": "3",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "repeatPurchaseRateMin",
+       "type": "Integer",
+       "required": false,
+       "description": "30 天回头率最低值, 范围 [0, 100]",
+       "exampleValue": "50",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supportCustomization",
+       "type": "Boolean",
+       "required": false,
+       "description": "是否支持加工定制, 仅支持传入 true",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "afterSalesScoreMin",
+       "type": "Double",
+       "required": false,
+       "description": "最低售后体验分, 范围 [0, 5]",
+       "exampleValue": "4.0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "productQualityScoreMin",
+       "type": "Double",
+       "required": false,
+       "description": "最低商品体验分, 范围 [0, 5]",
+       "exampleValue": "4.0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "consultationResponseScoreMin",
+       "type": "Double",
+       "required": false,
+       "description": "最低咨询体验分, 范围 [0, 5]",
+       "exampleValue": "4.0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "logisticsTimelinessScoreMin",
+       "type": "Double",
+       "required": false,
+       "description": "最低物流体验分, 范围 [0, 5]",
+       "exampleValue": "4.0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.global1688.common.response.ApiResultExecute",
+   "required": true,
+   "description": "返回信息",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.global1688.common.response.ApiResultExecute",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "AI找商任务是否发起成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "String",
+     "required": true,
+     "description": "任务唯一标识，查询任务状态时需要该值",
+     "exampleValue": "xxxxxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "状态码",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "异常信息",
+     "exampleValue": "error_msg_xxxxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n    &quot;spFilterCondition&quot;: {\n        &quot;repeatPurchaseRateMin&quot;: 70,\n        &quot;consultationResponseScoreMin&quot;: 3.5,\n        &quot;establishedYearsMin&quot;: 6,\n        &quot;productQualityScoreMin&quot;: 3.5,\n        &quot;businessModel&quot;: &quot;factory&quot;,\n        &quot;afterSalesScoreMin&quot;: 3.5,\n        &quot;logisticsTimelinessScoreMin&quot;: 3.5\n    },\n    &quot;query&quot;: &quot;连衣裙&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: &quot;taskIdxxxxxxxxxx&quot;,\n  &quot;code&quot;: &quot;SUCCESS&quot;,\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商家"
+}

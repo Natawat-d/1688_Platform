@@ -1,0 +1,290 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.topList.query",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.topList.query-1",
+ "displayName": "查询榜单列表",
+ "billType": null,
+ "description": "查询榜单列表",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "rankQueryParams",
+   "type": "message:product.topList.query.RankQueryParams",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.topList.query.RankQueryParams",
+   "fields": [
+    {
+     "name": "rankId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "榜单ID，可传入类目ID，目前支持类目榜单",
+     "exampleValue": "1111",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "rankType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "榜单类型，complex综合榜，hot热卖榜，goodPrice好价榜",
+     "exampleValue": "complex",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "limit",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "榜单商品个数，最多20",
+     "exampleValue": "10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "榜单商品语言",
+     "exampleValue": "en",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.topList.query.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.topList.query.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.topList.query.RankModel",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "结果",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.topList.query.RankModel",
+     "fields": [
+      {
+       "name": "rankId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "榜单ID",
+       "exampleValue": "111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rankName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "榜单名称",
+       "exampleValue": "Comprehensive List",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rankType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "榜单类型",
+       "exampleValue": "complex",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rankProductModels",
+       "type": "message:product.topList.query.RankProductModel[]",
+       "required": true,
+       "description": "榜单结果",
+       "exampleValue": "如下",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.topList.query.RankProductModel[]",
+       "fields": [
+        {
+         "name": "itemId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "商品ID",
+         "exampleValue": "699490252651",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "title",
+         "type": "String",
+         "required": true,
+         "description": "商品中文标题",
+         "exampleValue": "2023厚底女士凉鞋软底拖鞋夏季现货踩屎感注塑鞋出口家居防滑凉鞋",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "translateTitle",
+         "type": "String",
+         "required": true,
+         "description": "商品译文标题",
+         "exampleValue": "2023 thick-soled ladies sandals soft-soled slippers summer spot poop injection shoes export home non-slip sandals",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "imgUrl",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "商品图片",
+         "exampleValue": "http://img.china.alibaba.com/img/ibank/O1CN01p4SIPo1D6Wx4c0xs8_!!2201053890167-0-cib.search.jpg",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "sort",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "商品排行",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceList",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "商品包含的服务，24小时发货sendGoods24H，48小时发货sendGoods48H",
+         "exampleValue": "[&quot;sendGoods48H&quot;]",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "buyerNum",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "最近30天买家数",
+         "exampleValue": "1334",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "soldOut",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "最近30天商品售卖件数",
+         "exampleValue": "433454",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "goodsScore",
+         "type": "String",
+         "required": true,
+         "description": "商品交易评分",
+         "exampleValue": "5",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商机"
+}

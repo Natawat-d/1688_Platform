@@ -1,0 +1,120 @@
+{
+ "namespace": "system.oauth2",
+ "name": "subaccount.auth.add",
+ "version": 1,
+ "oceanApiId": "system.oauth2:subaccount.auth.add-1",
+ "displayName": "批量添加子账号授权",
+ "billType": null,
+ "description": "批量对某个主账号下面的子账号添加授权，前提是主账号已经授权",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "subUserIdentityList",
+   "type": "java.lang.String[]",
+   "required": true,
+   "description": "子账号id列表",
+   "exampleValue": "abb:test1,abb:test2",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.auth.dto.AuthResultModelMap",
+   "required": true,
+   "description": "返回结果对象",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.auth.dto.AuthResultModelMap",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "param_error",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMessage",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "invalid param",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "returnValue",
+     "type": "java.util.Map",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "map",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求示例",
+   "sample": "https://gw.open.1688.com/openapi/param2/1/system.oauth2/subaccount.auth.add/YOUR_APPKEY?access_token=xx&subUserIdentityList=a,b",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

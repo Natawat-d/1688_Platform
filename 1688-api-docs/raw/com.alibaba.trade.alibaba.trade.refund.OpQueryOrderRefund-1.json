@@ -1,0 +1,1192 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.refund.OpQueryOrderRefund",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund-1",
+ "displayName": "查询退款单详情-根据退款单ID（买家视角）",
+ "billType": null,
+ "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryOrderRefund.sellerView，查询退款单详情，同时可以查询到退款操作列表。 该API需要向阿里巴巴申请权限才能访问。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "refundId",
+   "type": "String",
+   "required": true,
+   "description": "退款单业务主键 TQ+ID",
+   "exampleValue": "TQ11173622***991577",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "needTimeOutInfo",
+   "type": "boolean",
+   "required": false,
+   "description": "需要退款单的超时信息",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "needOrderRefundOperation",
+   "type": "boolean",
+   "required": false,
+   "description": "需要退款单伴随的所有退款操作信息",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.trade.refund.result.OpQueryOrderRefund",
+   "required": true,
+   "description": "查询结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.trade.refund.result.OpQueryOrderRefund",
+   "fields": [
+    {
+     "name": "opOrderRefundModelDetail",
+     "type": "message:alibaba.trade.refund.OpOrderRefundModel",
+     "required": true,
+     "description": "返回值",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.trade.refund.OpOrderRefundModel",
+     "fields": [
+      {
+       "name": "aftersaleAgreeTimeout",
+       "type": "Boolean",
+       "required": true,
+       "description": "售后超时标记",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "aftersaleAutoDisburse",
+       "type": "Boolean",
+       "required": true,
+       "description": "售后自动打款",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "alipayPaymentId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "支付宝交易号",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applyCarriage",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "运费的申请退款金额，单位：分",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applyExpect",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "买家原始输入的退款金额(可以为空)",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applyPayment",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "买家申请退款金额，单位：分",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applyReason",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "申请原因",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applyReasonId",
+       "type": "int",
+       "required": true,
+       "description": "申请原因ID",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applySubReason",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "二级退款原因",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "applySubReasonId",
+       "type": "int",
+       "required": true,
+       "description": "二级退款原因Id",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "asynErrCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": " ",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "asynSubErrCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": " ",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerAlipayId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家支付宝ID",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerLogisticsName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家退货物流公司名",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerMemberId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家会员ID",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerSendGoods",
+       "type": "Boolean",
+       "required": true,
+       "description": "买家是否已经发货（如果有退货的流程）",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyerUserId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "买家阿里帐号ID(包括淘宝帐号Id)",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "canRefundPayment",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "最大能够退款金额，单位：分",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "crmModifyRefund",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否小二修改过退款单",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "disburseChannel",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "极速到账打款渠道",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "disputeRequest",
+       "type": "int",
+       "required": true,
+       "description": "售后退款要求",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "disputeType",
+       "type": "int",
+       "required": true,
+       "description": "纠纷类型：售中退款 售后退款，默认为售中退款",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "extInfo",
+       "type": "java.util.Map",
+       "required": true,
+       "description": "扩展信息",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "freightBill",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "运单号",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "frozenFund",
+       "type": "long",
+       "required": true,
+       "description": "实际冻结账户金额,单位：分",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtApply",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "申请退款时间",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtCompleted",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "完成时间",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtCreate",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "创建时间",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtFreezed",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "该退款单超时冻结开始时间",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtModified",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "修改时间",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtTimeOut",
+       "type": "java.util.Date",
+       "required": true,
+       "description": "该退款单超时完成的时间期限",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "goodsReceived",
+       "type": "Boolean",
+       "required": true,
+       "description": "买家是否已收到货",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "goodsStatus",
+       "type": "int",
+       "required": true,
+       "description": "1：买家未收到货\n2：买家已收到货\n3：买家已退货",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "id",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "退款单编号",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "instantRefundType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "极速到账退款类型",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "insufficientAccount",
+       "type": "Boolean",
+       "required": true,
+       "description": "交易4.0退款余额不足",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "insufficientBail",
+       "type": "Boolean",
+       "required": true,
+       "description": "极速到账退款保证金不足",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "newRefundReturn",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否新流程创建的退款退货",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "onlyRefund",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否仅退款",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderEntryCountMap",
+       "type": "java.util.Map",
+       "required": true,
+       "description": "子订单退货数量",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderEntryIdList",
+       "type": "java.util.List",
+       "required": true,
+       "description": "退款单包含的订单明细，时间逆序排列",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "退款单对应的订单编号",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "prepaidBalance",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "极速退款垫资金额,该值不为空时,只代表该退款单可以走垫资流程,但不代表一定垫资成功",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "productName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "产品名称(退款单关联订单明细的货品名称)",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundCarriage",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "运费的实际退款金额，单位：分",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundGoods",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否要求退货",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "退款单逻辑主键",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundPayment",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "实际退款金额，单位：分",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rejectReason",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家拒绝原因",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rejectReasonId",
+       "type": "int",
+       "required": true,
+       "description": "卖家拒绝原因Id",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "rejectTimes",
+       "type": "int",
+       "required": true,
+       "description": "退款单被拒绝的次数",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerAlipayId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家支付宝ID",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerDelayDisburse",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否卖家延迟打款，即安全退款",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerMemberId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家会员ID",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerMobile",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收货人手机",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerRealName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收货人姓名",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerReceiveAddress",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家退货时卖家收货地址",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerTel",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收货人电话",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerUserId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "卖家阿里帐号ID(包括淘宝帐号Id)",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "status",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "退款状态",
+       "exampleValue": "   ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supportNewSteppay",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否支持交易4.0",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "taskStatus",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "工单子状态，没有流到CRM创建工单时为空",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "timeOutFreeze",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否超时系统冻结，true代表冻结，false代表不冻结",
+       "exampleValue": "  ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "timeOutOperateType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "超时后执行的动作",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tradeTypeStr",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "交易类型，用来替换枚举类型的tradeType",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundOperationList",
+       "type": "message:alibaba.trade.refund.OpOrderRefundOperationModel[]",
+       "required": true,
+       "description": "操作记录列表",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.trade.refund.OpOrderRefundOperationModel[]",
+       "fields": [
+        {
+         "name": "afterOperateStatus",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "操作后的退款状态",
+         "exampleValue": "waitsellerreceive",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "beforeOperateStatus",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "操作前的退款状态",
+         "exampleValue": "waitsellerreceive",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "closeRefundStepId",
+         "type": "long",
+         "required": true,
+         "description": "分阶段订单正向操作关闭退款时的阶段ID",
+         "exampleValue": "0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "crmModifyRefund",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否小二修改过退款单",
+         "exampleValue": "false",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "discription",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "描述、说明",
+         "exampleValue": " 退款",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "email",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "联系人EMAIL",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "freightBill",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "运单号",
+         "exampleValue": "7060***4101371",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtCreate",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "创建时间",
+         "exampleValue": "20180521141339000+0800",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "gmtModified",
+         "type": "java.util.Date",
+         "required": true,
+         "description": "修改时间",
+         "exampleValue": "20180521141339000+0800",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "id",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "主键，退款操作记录流水号",
+         "exampleValue": "27266762834",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "messageStatus",
+         "type": "int",
+         "required": true,
+         "description": "凭证状态，1:正常 2:后台小二屏蔽",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "mobile",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "联系人手机",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "msgType",
+         "type": "int",
+         "required": true,
+         "description": "留言类型 3:小二留言给买家和卖家 4:给买家的留言 5:给卖家的留言 7:cbu的普通留言等同于淘宝的1",
+         "exampleValue": "7",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operateRemark",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "操作备注",
+         "exampleValue": " 卖家拒绝协议，等待买家修改",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operateTypeInt",
+         "type": "int",
+         "required": true,
+         "description": "操作类型 取代operateType",
+         "exampleValue": "15",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operatorId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "操作者-memberID",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operatorLoginId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "操作者-loginID",
+         "exampleValue": "alitestforisv02",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operatorRoleId",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "操作者角色名称 买家 卖家 系统",
+         "exampleValue": "4",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "operatorUserId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "操作者-userID",
+         "exampleValue": "1623***085",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "phone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "联系人电话",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "refundAddress",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "退货地址",
+         "exampleValue": "网商路66号",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "refundId",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "退款记录ID",
+         "exampleValue": "TQ83489**0492085",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "rejectReason",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "卖家拒绝退款原因",
+         "exampleValue": "无方案",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "vouchers",
+         "type": "java.util.List",
+         "required": true,
+         "description": "凭证图片地址",
+         "exampleValue": "null",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "logisticsCompany",
+         "type": "message:alibaba.trade.refund.OpLogisticsCompanyModel",
+         "required": true,
+         "description": "物流公司详情",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.trade.refund.OpLogisticsCompanyModel",
+         "fields": [
+          {
+           "name": "companyName",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "快递公司名",
+           "exampleValue": "百世快递",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "companyNo",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "物流公司编号",
+           "exampleValue": "HTKY",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "companyPhone",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "物流公司服务电话",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "gmtCreate",
+           "type": "java.util.Date",
+           "required": true,
+           "description": "创建时间",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "gmtModified",
+           "type": "java.util.Date",
+           "required": true,
+           "description": "修改时间",
+           "exampleValue": "20160926142611000+0800",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "id",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "ID",
+           "exampleValue": "352",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "spelling",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "全拼",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "supportPrint",
+           "type": "Boolean",
+           "required": true,
+           "description": "是否支持打印",
+           "exampleValue": " ",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "name": "buyerLoginId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "买家LoginId",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerLoginId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "卖家LoginId",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundOfficialSolutionCost",
+       "type": "Long",
+       "required": true,
+       "description": "退官方物流提货订单费用（分）",
+       "exampleValue": "770",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误描述信息",
+   "exampleValue": "退款单错误",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extErrorMessage",
+   "type": "String",
+   "required": true,
+   "description": "补充错误描述信息",
+   "exampleValue": "退款单错误",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "500",
+   "desc": "{\\&quot;errorCode\\&quot;:\\&quot;003\\&quot;,\\&quot;errorMessage\\&quot;:\\&quot;SERVICE:查询数据失败，请检查输入参数后重试。\\&quot;,\\&quot;cause\\&quot;:\\&quot;\\&quot;}",
+   "howToFix": "非授权用户的退款单"
+  },
+  {
+   "code": "500",
+   "desc": "{\\&quot;errorCode\\&quot;:\\&quot;003002\\&quot;,\\&quot;errorMessage\\&quot;:\\&quot;SERVICE:INVOKE_FAIL:退款数据错误，请检查退款单号，退款单号的格式一般为TD+id\\&quot;,\\&quot;cause\\&quot;:\\&quot;errorCode:REFUND_DATA_ERROR,errorMsg:refundId : 11043002311780591,cause:null\\&quot;}",
+   "howToFix": "退款单不正确"
+  },
+  {
+   "code": "500",
+   "desc": "{\\&quot;errorCode\\&quot;:\\&quot;003002\\&quot;,\\&quot;errorMessage\\&quot;:\\&quot;SERVICE:INVOKE_FAIL:OrderRefundService#queryOrderRefundOperationList\\&quot;,\\&quot;cause\\&quot;:\\&quot;errorCode:INVALID_PARAM,errorMsg:null,cause:null\\&quot;}",
+   "howToFix": "退款单不正确"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "extInfo参数说明",
+   "sample": "payMode     资金分流（alipay:支付宝，fundFreeze:资金平台账户冻结） \n 7d          7天无理由订单标记（1表示7天无理由订单） ",
+   "type": "TEXT"
+  },
+  {
+   "name": "请求参数示例",
+   "sample": "{&quot;refundId&quot;:&quot;TQ865149372**61198&quot;,\n&quot;needTimeOutInfo&quot;:true,\n&quot;needOrderRefundOperation&quot;:true}",
+   "type": "JSON"
+  },
+  {
+   "name": "返回参数示例",
+   "sample": "{&quot;result&quot;:{&quot;opOrderRefundModelDetail&quot;:{&quot;alipayPaymentId&quot;:&quot;2018042321001008760555342267&quot;,&quot;applyCarriage&quot;:0,&quot;applyPayment&quot;:1,&quot;applyReason&quot;:&quot;颜色/图案/款式不符&quot;,&quot;applyReasonId&quot;:20021,&quot;applySubReasonId&quot;:0,&quot;buyerLogisticsName&quot;:&quot;其他&quot;,&quot;buyerMemberId&quot;:&quot;b2b-1624961198&quot;,&quot;buyerSendGoods&quot;:true,&quot;buyerUserId&quot;:1624961198,&quot;canRefundPayment&quot;:1,&quot;crmModifyRefund&quot;:false,&quot;disputeRequest&quot;:3,&quot;disputeType&quot;:1,&quot;extInfo&quot;:{&quot;EXmrf&quot;:&quot;1&quot;,&quot;ttid&quot;:&quot;2&quot;,&quot;prepaidFailure&quot;:&quot;QUERY_BUYER_CREDIT_LEVEL_FAIL&quot;,&quot;pay_lock&quot;:&quot;seller&quot;,&quot;reason&quot;:&quot;20021&quot;,&quot;apply_text_id&quot;:&quot;null&quot;,&quot;newRefund&quot;:&quot;rp2&quot;,&quot;bizCode&quot;:&quot;cbu.general.refund&quot;,&quot;disputeTradeStatus&quot;:&quot;4&quot;,&quot;lastOrder&quot;:&quot;0&quot;,&quot;seller_agreed_refund_fee&quot;:&quot;1&quot;,&quot;old_reason_id&quot;:&quot;20021&quot;,&quot;sync&quot;:&quot;0&quot;,&quot;b2b_seller_mId&quot;:&quot;b2b-1623492085&quot;,&quot;seller_batch&quot;:&quot;true&quot;,&quot;itemBuyAmount&quot;:&quot;0&quot;,&quot;b2b_buyer_mId&quot;:&quot;b2b-1624961198&quot;,&quot;ability&quot;:&quot;1&quot;,&quot;refundPostFee&quot;:&quot;0&quot;,&quot;seller_audit&quot;:&quot;0&quot;,&quot;ee_trace_id&quot;:&quot;0b802ca915244768332374685efa19&quot;,&quot;ol_tf&quot;:&quot;1&quot;,&quot;opRole&quot;:&quot;user&quot;,&quot;apply_init_refund_fee&quot;:&quot;1&quot;,&quot;isVirtual&quot;:&quot;0&quot;,&quot;logisticsCompanyId&quot;:&quot;-1&quot;,&quot;itemPrice&quot;:&quot;0&quot;,&quot;interceptStatus&quot;:&quot;0&quot;,&quot;refundFrom&quot;:&quot;2&quot;,&quot;restartForXiaoer&quot;:&quot;1&quot;,&quot;appName&quot;:&quot;tosp-aftersales&quot;,&quot;abnormal_dispute_status&quot;:&quot;0&quot;,&quot;payMode&quot;:&quot;alipay&quot;,&quot;workflowName&quot;:&quot;cbu_return_and_refund&quot;,&quot;sgr&quot;:&quot;1&quot;,&quot;enfunddetail&quot;:&quot;1&quot;,&quot;sellerDoRefundNick&quot;:&quot;alitestforisv01&quot;,&quot;bgmtc&quot;:&quot;2018-04-23 09:48:12&quot;},&quot;freightBill&quot;:&quot;12345134135435234&quot;,&quot;frozenFund&quot;:-1,&quot;gmtApply&quot;:&quot;20180423171116000+0800&quot;,&quot;gmtCompleted&quot;:&quot;20180423174713000+0800&quot;,&quot;gmtCreate&quot;:&quot;20180423171116000+0800&quot;,&quot;gmtModified&quot;:&quot;20180423174714000+0800&quot;,&quot;goodsReceived&quot;:true,&quot;goodsStatus&quot;:3,&quot;id&quot;:8651493722961198,&quot;newRefundReturn&quot;:true,&quot;onlyRefund&quot;:false,&quot;orderEntryCountMap&quot;:{&quot;151267031009969811&quot;:2},&quot;orderEntryIdList&quot;:[151267031009969811],&quot;orderId&quot;:151267031008969811,&quot;productName&quot;:&quot;欧洲站2018新款宽松显瘦烫金印花字母老鹰短袖T恤打底裤套装女潮&quot;,&quot;refundCarriage&quot;:0,&quot;refundGoods&quot;:true,&quot;refundId&quot;:&quot;TQ8651493722961198&quot;,&quot;refundPayment&quot;:1,&quot;rejectReasonId&quot;:0,&quot;rejectTimes&quot;:0,&quot;sellerDelayDisburse&quot;:false,&quot;sellerMemberId&quot;:&quot;b2b-1623492085&quot;,&quot;sellerMobile&quot;:&quot;19926555555&quot;,&quot;sellerRealName&quot;:&quot;琳琳&quot;,&quot;sellerReceiveAddress&quot;:&quot;山东 聊城 解决了交流交流链接连接&quot;,&quot;sellerUserId&quot;:1623492085,&quot;status&quot;:&quot;refundsuccess&quot;,&quot;supportNewSteppay&quot;:true,&quot;timeOutFreeze&quot;:false,&quot;tradeTypeStr&quot;:&quot;50060&quot;,&quot;refundOperationList&quot;:[{&quot;afterOperateStatus&quot;:&quot;waitsellerreceive&quot;,&quot;beforeOperateStatus&quot;:&quot;waitsellerreceive&quot;,&quot;closeRefundStepId&quot;:0,&quot;crmModifyRefund&quot;:false,&quot;discription&quot;:&quot;卖家同意退货退款协议，退货退款成功&quot;,&quot;gmtCreate&quot;:&quot;20180423174714000+0800&quot;,&quot;gmtModified&quot;:&quot;20180423174714000+0800&quot;,&quot;id&quot;:50027795018,&quot;messageStatus&quot;:3,&quot;msgType&quot;:7,&quot;operateRemark&quot;:&quot;退款成功&quot;,&quot;operateTypeInt&quot;:8,&quot;operatorLoginId&quot;:&quot;alitestforisv01&quot;,&quot;operatorRoleId&quot;:2,&quot;operatorUserId&quot;:1623492085,&quot;refundId&quot;:&quot;TQ8651493722961198&quot;},{&quot;afterOperateStatus&quot;:&quot;waitbuyersend&quot;,&quot;beforeOperateStatus&quot;:&quot;waitbuyersend&quot;,&quot;closeRefundStepId&quot;:0,&quot;crmModifyRefund&quot;:false,&quot;discription&quot;:&quot;买家声明退货，等待卖家确认。|物流公司：其他|物流单号：12345134135435234|说明：asdada|&quot;,&quot;gmtCreate&quot;:&quot;20180423174651000+0800&quot;,&quot;gmtModified&quot;:&quot;20180423174651000+0800&quot;,&quot;id&quot;:50027571423,&quot;messageStatus&quot;:3,&quot;msgType&quot;:7,&quot;operateRemark&quot;:&quot;买家退货&quot;,&quot;operateTypeInt&quot;:10,&quot;operatorLoginId&quot;:&quot;alitestforisv02&quot;,&quot;operatorRoleId&quot;:1,&quot;operatorUserId&quot;:1624961198,&quot;refundId&quot;:&quot;TQ8651493722961198&quot;},{&quot;afterOperateStatus&quot;:&quot;waitselleragree&quot;,&quot;beforeOperateStatus&quot;:&quot;waitselleragree&quot;,&quot;closeRefundStepId&quot;:0,&quot;crmModifyRefund&quot;:false,&quot;discription&quot;:&quot;卖家确认收货地址：琳琳,19926555555,山东 聊城 解决了交流交流链接连接&quot;,&quot;gmtCreate&quot;:&quot;20180423174544000+0800&quot;,&quot;gmtModified&quot;:&quot;20180423174544000+0800&quot;,&quot;id&quot;:49967844797,&quot;messageStatus&quot;:3,&quot;msgType&quot;:7,&quot;operateRemark&quot;:&quot;确认收货地址&quot;,&quot;operateTypeInt&quot;:19,&quot;operatorLoginId&quot;:&quot;alitestforisv01&quot;,&quot;operatorRoleId&quot;:2,&quot;operatorUserId&quot;:1623492085,&quot;refundId&quot;:&quot;TQ8651493722961198&quot;},{&quot;closeRefundStepId&quot;:0,&quot;crmModifyRefund&quot;:false,&quot;discription&quot;:&quot;退款诉求：退货退款|申请原因：颜色/图案/款式不符|货品情况：已收到货|退款货品金额：0.01|退款运费金额：0.00|退款说明：asdad&quot;,&quot;gmtCreate&quot;:&quot;20180423171116000+0800&quot;,&quot;gmtModified&quot;:&quot;20180423171116000+0800&quot;,&quot;id&quot;:49962356896,&quot;messageStatus&quot;:3,&quot;msgType&quot;:7,&quot;operateRemark&quot;:&quot;买家申请退款协议，等待卖家确认&quot;,&quot;operateTypeInt&quot;:1,&quot;operatorLoginId&quot;:&quot;alitestforisv02&quot;,&quot;operatorRoleId&quot;:1,&quot;operatorUserId&quot;:1624961198,&quot;refundId&quot;:&quot;TQ8651493722961198&quot;}],&quot;buyerLoginId&quot;:&quot;alitestforisv02&quot;,&quot;sellerLoginId&quot;:&quot;alitestforisv01&quot;}}}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

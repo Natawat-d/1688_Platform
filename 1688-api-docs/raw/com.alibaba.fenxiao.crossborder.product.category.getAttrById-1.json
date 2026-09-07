@@ -1,0 +1,278 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.category.getAttrById",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.category.getAttrById-1",
+ "displayName": "叶子类目属性属性值映射查询",
+ "billType": null,
+ "description": "类目映射查询",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "categoryId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "msg",
+   "type": "String",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "data",
+   "type": "message:alibaba.cbu.mapping.dto.PVMappingVO",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.mapping.dto.PVMappingVO",
+   "fields": [
+    {
+     "name": "categoryId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "类目ID",
+     "exampleValue": "1032097",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "类目名称",
+     "exampleValue": "车用吸尘器",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "externalCategoryId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "外部类目ID",
+     "exampleValue": "2012",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "externalCategoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "外部类目名称",
+     "exampleValue": "吸尘器车用",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attributes",
+     "type": "message:alibaba.cbu.mapping.dto.PVMappingAttribute[]",
+     "required": true,
+     "description": "属性",
+     "exampleValue": "略",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.cbu.mapping.dto.PVMappingAttribute[]",
+     "fields": [
+      {
+       "name": "attributeId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "属性ID",
+       "exampleValue": "1945076",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "attributeName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "属性名称",
+       "exampleValue": "电源线尺寸",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "valueId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "值ID",
+       "exampleValue": "8528111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "valueName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "值名称",
+       "exampleValue": "280cm",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "externalAttributeId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "外部属性ID",
+       "exampleValue": "85079",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "externalValueId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "外部值ID",
+       "exampleValue": "12345",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "externalAttributeName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "外部属性名称",
+       "exampleValue": "电线尺寸",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "externalValueName",
+       "type": "String",
+       "required": true,
+       "description": "外部值名称",
+       "exampleValue": "外部值名称",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "productShippingInfo",
+     "type": "message:com.alibaba.cbu.mapping.dto.ProductShippingInfo",
+     "required": true,
+     "description": "发货信息",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.cbu.mapping.dto.ProductShippingInfo",
+     "fields": [
+      {
+       "name": "weight",
+       "type": "String",
+       "required": true,
+       "description": "重，单位kg",
+       "exampleValue": "0.05",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "width",
+       "type": "String",
+       "required": true,
+       "description": "宽，单位cm",
+       "exampleValue": "5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "height",
+       "type": "String",
+       "required": true,
+       "description": "高，单位cm",
+       "exampleValue": "5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "length",
+       "type": "String",
+       "required": true,
+       "description": "长，单位cm",
+       "exampleValue": "5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

@@ -1,0 +1,106 @@
+{
+ "topicId": "LOGISTICS_BUYER_VIEW_TRACE",
+ "topicName": "BUYER_VIEW_TRACE",
+ "topicDisplayName": "物流单状态变更（买家视角）",
+ "topicGroupName": "LOGISTICS",
+ "topicGroupDisplayName": "物流消息",
+ "desc": "1688物流单状态变更消息，包括发货、揽收、运输、派送、签收五个节点首次触发时的消息，仅买家或买家授权的用户能接收到",
+ "messageDocs": [
+  {
+   "name": "OrderLogisticsTracingModel",
+   "desc": " ",
+   "type": "Object",
+   "sample": " ",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "logisticsId",
+     "desc": "物流编号",
+     "type": "String",
+     "sample": "12345",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "cpCode",
+     "desc": "cp code",
+     "type": "String",
+     "sample": "123",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "mailNo",
+     "desc": "运单号",
+     "type": "String",
+     "sample": "123456",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "statusChanged",
+     "desc": "物流单发生变化的状态，包括发货（CONSIGN）、揽收（ACCEPT）、运输（TRANSPORT）、派送（DELIVERING）、待取件（AGENT_SIGN）、签收（SIGN）、异常（FAILED）",
+     "type": "String",
+     "sample": "CONSIGN",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "changeTime",
+     "desc": "发生变化的时间",
+     "type": "Date",
+     "sample": " ",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "orderLogsItems",
+     "desc": "该物流单关联的订单信息",
+     "type": "Object[]",
+     "sample": " ",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": [
+      {
+       "name": "orderId",
+       "desc": "交易主单id",
+       "type": "Number",
+       "sample": "2938624554509662976",
+       "required": false,
+       "privacyLevel": null,
+       "sensitiveLabel": null,
+       "children": null
+      },
+      {
+       "name": "orderEntryId",
+       "desc": "交易子单id",
+       "type": "Number",
+       "sample": "2958624554509662976",
+       "required": false,
+       "privacyLevel": null,
+       "sensitiveLabel": null,
+       "children": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gmtModify": 1775790380000,
+ "sample": "{&quot;OrderLogisticsTracingModel&quot;:{&quot;logisticsId&quot;:&quot;12345&quot;,&quot;cpCode&quot;:&quot;123&quot;,&quot;mailNo&quot;:&quot;123456&quot;,&quot;statusChanged&quot;:&quot;CONSIGN&quot;,&quot;changeTime&quot;:&quot; &quot;,&quot;orderLogsItems&quot;:[{&quot;orderId&quot;:2938624554509662976,&quot;orderEntryId&quot;:2958624554509662976}]}}",
+ "subscribed": false,
+ "_group": "物流消息"
+}

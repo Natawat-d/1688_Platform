@@ -1,0 +1,217 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "category.translation.getByKeyword",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:category.translation.getByKeyword-1",
+ "displayName": "根据类目名称查询多语言类目",
+ "billType": null,
+ "description": "多语言类目查询接口。根据当前语种和类目名称查询命中的语种的类目详情列表，不包含下级类目数据。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "outMemberId",
+   "type": "java.lang.String",
+   "required": false,
+   "description": "用户在机构的唯一ID。不超过64位，由数字和字母组成。",
+   "exampleValue": "2423523f13tr12412f",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "language",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "语种。见常见问题中的枚举。",
+   "exampleValue": "ja",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "cateName",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "类目名。可模糊搜索。",
+   "exampleValue": "裙子",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:category.translation.getByKeyword.ResultModel",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "category.translation.getByKeyword.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:category.translation.getByKeyword.Category[]",
+     "required": true,
+     "description": "实际结果",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "category.translation.getByKeyword.Category[]",
+     "fields": [
+      {
+       "name": "categoryId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "类目ID",
+       "exampleValue": "1031910",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "chineseName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目中文名称",
+       "exampleValue": "连衣裙",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "translatedName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目翻译名称",
+       "exampleValue": "ワンピース",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "language",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "语种",
+       "exampleValue": "ja",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "leaf",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否叶子类目",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "level",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "类目层级",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "parentCateId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "上层类目ID",
+       "exampleValue": "10166",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  1111111111111,\n  &quot;1&quot;,\n  &quot;ja&quot;,\n  &quot;靴&quot;\n}",
+   "type": "TEXT"
+  },
+  {
+   "name": "返回值示例",
+   "sample": "{\n    &quot;result&quot;:\n    {\n        &quot;success&quot;: true,\n        &quot;code&quot;: &quot;S0000&quot;,\n        &quot;message&quot;: &quot;成功&quot;,\n        &quot;result&quot;:\n        [\n            {\n                &quot;categoryId&quot;: 10170,\n                &quot;chineseName&quot;: &quot;女式棉鞋&quot;,\n                &quot;translatedName&quot;: &quot;婦人綿靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 10179,\n                &quot;chineseName&quot;: &quot;制鞋机械&quot;,\n                &quot;translatedName&quot;: &quot;靴作り機械&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 65\n            },\n            {\n                &quot;categoryId&quot;: 1033463,\n                &quot;chineseName&quot;: &quot;滑雪靴&quot;,\n                &quot;translatedName&quot;: &quot;スキー靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 2013\n            },\n            {\n                &quot;categoryId&quot;: 1034057,\n                &quot;chineseName&quot;: &quot;鞋定制加工&quot;,\n                &quot;translatedName&quot;: &quot;靴カスタム加工&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201301601\n            },\n            {\n                &quot;categoryId&quot;: 1034077,\n                &quot;chineseName&quot;: &quot;二手制鞋设备&quot;,\n                &quot;translatedName&quot;: &quot;中古の靴製造設備&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 2829\n            },\n            {\n                &quot;categoryId&quot;: 1034373,\n                &quot;chineseName&quot;: &quot;成品鞋、鞋件代理加盟&quot;,\n                &quot;translatedName&quot;: &quot;完成品の靴、靴の部品は代理で加盟します。&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125748005\n            },\n            {\n                &quot;categoryId&quot;: 1034392,\n                &quot;chineseName&quot;: &quot;鞋材、鞋件加工&quot;,\n                &quot;translatedName&quot;: &quot;靴材、靴部品加工&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 2805\n            },\n            {\n                &quot;categoryId&quot;: 1034394,\n                &quot;chineseName&quot;: &quot;修鞋设备&quot;,\n                &quot;translatedName&quot;: &quot;靴修理設備&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1034395,\n                &quot;chineseName&quot;: &quot;鞋机配件&quot;,\n                &quot;translatedName&quot;: &quot;靴機械の部品&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1034477,\n                &quot;chineseName&quot;: &quot;其他制鞋机械&quot;,\n                &quot;translatedName&quot;: &quot;その他の靴製造機械&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1034486,\n                &quot;chineseName&quot;: &quot;鞋成型机&quot;,\n                &quot;translatedName&quot;: &quot;靴成形機&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1036051,\n                &quot;chineseName&quot;: &quot;缝鞋机&quot;,\n                &quot;translatedName&quot;: &quot;靴縫い機&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1036832,\n                &quot;chineseName&quot;: &quot;鞋修饰机&quot;,\n                &quot;translatedName&quot;: &quot;靴トリムマシン&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 10179\n            },\n            {\n                &quot;categoryId&quot;: 1038548,\n                &quot;chineseName&quot;: &quot;男式商务皮鞋&quot;,\n                &quot;translatedName&quot;: &quot;メンズビジネス革靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126506004\n            },\n            {\n                &quot;categoryId&quot;: 1041748,\n                &quot;chineseName&quot;: &quot;烘鞋器、干鞋器&quot;,\n                &quot;translatedName&quot;: &quot;靴ドライヤー、靴ドライヤー&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1047981\n            },\n            {\n                &quot;categoryId&quot;: 1043192,\n                &quot;chineseName&quot;: &quot;家居棉鞋&quot;,\n                &quot;translatedName&quot;: &quot;家庭用綿靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125312003\n            },\n            {\n                &quot;categoryId&quot;: 1043193,\n                &quot;chineseName&quot;: &quot;女式板鞋&quot;,\n                &quot;translatedName&quot;: &quot;レディーススケート靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 1043349,\n                &quot;chineseName&quot;: &quot;袜子&quot;,\n                &quot;translatedName&quot;: &quot;靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 312\n            },\n            {\n                &quot;categoryId&quot;: 1043351,\n                &quot;chineseName&quot;: &quot;儿童袜&quot;,\n                &quot;translatedName&quot;: &quot;キッズ靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 311\n            },\n            {\n                &quot;categoryId&quot;: 1043956,\n                &quot;chineseName&quot;: &quot;鞋套、鞋刷、鞋用品&quot;,\n                &quot;translatedName&quot;: &quot;靴カバー、靴ブラシ、靴用品&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1556\n            },\n            {\n                &quot;categoryId&quot;: 121878002,\n                &quot;chineseName&quot;: &quot;营地鞋&quot;,\n                &quot;translatedName&quot;: &quot;キャンプ靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121900002\n            },\n            {\n                &quot;categoryId&quot;: 121884002,\n                &quot;chineseName&quot;: &quot;棒球鞋&quot;,\n                &quot;translatedName&quot;: &quot;野球靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121876002\n            },\n            {\n                &quot;categoryId&quot;: 121886003,\n                &quot;chineseName&quot;: &quot;高海拔登山靴、攀冰鞋&quot;,\n                &quot;translatedName&quot;: &quot;標高の高い登山靴、スケート靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121900002\n            },\n            {\n                &quot;categoryId&quot;: 121896003,\n                &quot;chineseName&quot;: &quot;登山鞋&quot;,\n                &quot;translatedName&quot;: &quot;登山靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121900002\n            },\n            {\n                &quot;categoryId&quot;: 122208002,\n                &quot;chineseName&quot;: &quot;钓鱼鞋&quot;,\n                &quot;translatedName&quot;: &quot;釣り靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1044658\n            },\n            {\n                &quot;categoryId&quot;: 122246002,\n                &quot;chineseName&quot;: &quot;军靴、战术靴&quot;,\n                &quot;translatedName&quot;: &quot;軍靴、戦術靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121900002\n            },\n            {\n                &quot;categoryId&quot;: 122406006,\n                &quot;chineseName&quot;: &quot;鞋靴罩、袋&quot;,\n                &quot;translatedName&quot;: &quot;靴カバー、バッグ&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1548\n            },\n            {\n                &quot;categoryId&quot;: 122430003,\n                &quot;chineseName&quot;: &quot;其他袜子&quot;,\n                &quot;translatedName&quot;: &quot;その他の靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1043349\n            },\n            {\n                &quot;categoryId&quot;: 122586001,\n                &quot;chineseName&quot;: &quot;宠物鞋靴&quot;,\n                &quot;translatedName&quot;: &quot;ペット靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201305503\n            },\n            {\n                &quot;categoryId&quot;: 122988007,\n                &quot;chineseName&quot;: &quot;鱼嘴袜、露趾袜&quot;,\n                &quot;translatedName&quot;: &quot;魚の口の靴下、足の指の靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1043349\n            },\n            {\n                &quot;categoryId&quot;: 123616001,\n                &quot;chineseName&quot;: &quot;中老年妈妈鞋&quot;,\n                &quot;translatedName&quot;: &quot;中高年ママ靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 123648008,\n                &quot;chineseName&quot;: &quot;女式布鞋&quot;,\n                &quot;translatedName&quot;: &quot;レディース布靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 124158004,\n                &quot;chineseName&quot;: &quot;绝缘鞋&quot;,\n                &quot;translatedName&quot;: &quot;絶縁靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 124166001\n            },\n            {\n                &quot;categoryId&quot;: 124158005,\n                &quot;chineseName&quot;: &quot;防化鞋&quot;,\n                &quot;translatedName&quot;: &quot;防化靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 124166001\n            },\n            {\n                &quot;categoryId&quot;: 124158006,\n                &quot;chineseName&quot;: &quot;防砸防刺穿鞋&quot;,\n                &quot;translatedName&quot;: &quot;靴を刺すのを防ぐ&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 124166001\n            },\n            {\n                &quot;categoryId&quot;: 124272013,\n                &quot;chineseName&quot;: &quot;DIY鞋架、鞋柜&quot;,\n                &quot;translatedName&quot;: &quot;DIY靴棚、下駄箱&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 122512002\n            },\n            {\n                &quot;categoryId&quot;: 125070006,\n                &quot;chineseName&quot;: &quot;一次性鞋用品&quot;,\n                &quot;translatedName&quot;: &quot;使い捨て靴用品&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1556\n            },\n            {\n                &quot;categoryId&quot;: 125296002,\n                &quot;chineseName&quot;: &quot;童/青少年鞋&quot;,\n                &quot;translatedName&quot;: &quot;子供/青少年靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121876002\n            },\n            {\n                &quot;categoryId&quot;: 125378002,\n                &quot;chineseName&quot;: &quot;童特色鞋&quot;,\n                &quot;translatedName&quot;: &quot;子供特有の靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 125386001,\n                &quot;chineseName&quot;: &quot;童鞋、婴儿鞋&quot;,\n                &quot;translatedName&quot;: &quot;子供靴、ベビーシューズ&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 1038378\n            },\n            {\n                &quot;categoryId&quot;: 125470004,\n                &quot;chineseName&quot;: &quot;军迷作训鞋&quot;,\n                &quot;translatedName&quot;: &quot;軍事訓練靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 121876002\n            },\n            {\n                &quot;categoryId&quot;: 125730003,\n                &quot;chineseName&quot;: &quot;鞋配件&quot;,\n                &quot;translatedName&quot;: &quot;靴の部品&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 1038378\n            },\n            {\n                &quot;categoryId&quot;: 126390002,\n                &quot;chineseName&quot;: &quot;鞋服包装&quot;,\n                &quot;translatedName&quot;: &quot;靴服パッケージ&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 68\n            },\n            {\n                &quot;categoryId&quot;: 126442003,\n                &quot;chineseName&quot;: &quot;男式板鞋&quot;,\n                &quot;translatedName&quot;: &quot;男性用板靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126506004\n            },\n            {\n                &quot;categoryId&quot;: 126476001,\n                &quot;chineseName&quot;: &quot;鞋靴包装&quot;,\n                &quot;translatedName&quot;: &quot;靴のパッケージ&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126390002\n            },\n            {\n                &quot;categoryId&quot;: 126478001,\n                &quot;chineseName&quot;: &quot;袜子包装&quot;,\n                &quot;translatedName&quot;: &quot;靴下の包装&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126390002\n            },\n            {\n                &quot;categoryId&quot;: 126480003,\n                &quot;chineseName&quot;: &quot;男式布鞋&quot;,\n                &quot;translatedName&quot;: &quot;メンズ布靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126506004\n            },\n            {\n                &quot;categoryId&quot;: 126506005,\n                &quot;chineseName&quot;: &quot;女式时装单鞋&quot;,\n                &quot;translatedName&quot;: &quot;レディースファッション靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 127362009,\n                &quot;chineseName&quot;: &quot;童皮鞋&quot;,\n                &quot;translatedName&quot;: &quot;子供用革靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 127450007,\n                &quot;chineseName&quot;: &quot;鞋撑/鞋楦&quot;,\n                &quot;translatedName&quot;: &quot;靴サポート/靴型&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125730003\n            },\n            {\n                &quot;categoryId&quot;: 127450008,\n                &quot;chineseName&quot;: &quot;鞋带&quot;,\n                &quot;translatedName&quot;: &quot;靴ひも&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125730003\n            },\n            {\n                &quot;categoryId&quot;: 127462008,\n                &quot;chineseName&quot;: &quot;鞋拔&quot;,\n                &quot;translatedName&quot;: &quot;靴抜き&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125730003\n            },\n            {\n                &quot;categoryId&quot;: 201273557,\n                &quot;chineseName&quot;: &quot;洗鞋机&quot;,\n                &quot;translatedName&quot;: &quot;靴洗い機&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 652\n            },\n            {\n                &quot;categoryId&quot;: 201301601,\n                &quot;chineseName&quot;: &quot;鞋材&quot;,\n                &quot;translatedName&quot;: &quot;靴材&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: false,\n                &quot;level&quot;: &quot;2&quot;,\n                &quot;parentCateId&quot;: 1038378\n            },\n            {\n                &quot;categoryId&quot;: 201301618,\n                &quot;chineseName&quot;: &quot;防雨鞋套&quot;,\n                &quot;translatedName&quot;: &quot;雨よけ靴カバー&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125730003\n            },\n            {\n                &quot;categoryId&quot;: 201301811,\n                &quot;chineseName&quot;: &quot;鞋袜干爽剂&quot;,\n                &quot;translatedName&quot;: &quot;靴下乾燥剤&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1556\n            },\n            {\n                &quot;categoryId&quot;: 201304725,\n                &quot;chineseName&quot;: &quot;鞋袜除臭剂&quot;,\n                &quot;translatedName&quot;: &quot;靴ソックス消臭剤&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 122196011\n            },\n            {\n                &quot;categoryId&quot;: 201304806,\n                &quot;chineseName&quot;: &quot;宠物袜子&quot;,\n                &quot;translatedName&quot;: &quot;ペット用靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201305503\n            },\n            {\n                &quot;categoryId&quot;: 201306309,\n                &quot;chineseName&quot;: &quot;亲子鞋&quot;,\n                &quot;translatedName&quot;: &quot;親子靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 201308711,\n                &quot;chineseName&quot;: &quot;鞋子收纳架/盒&quot;,\n                &quot;translatedName&quot;: &quot;靴収納ラック/ボックス&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1548\n            },\n            {\n                &quot;categoryId&quot;: 201330420,\n                &quot;chineseName&quot;: &quot;道鞋&quot;,\n                &quot;translatedName&quot;: &quot;道の靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201330711\n            },\n            {\n                &quot;categoryId&quot;: 201334120,\n                &quot;chineseName&quot;: &quot;道袜&quot;,\n                &quot;translatedName&quot;: &quot;道の靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201330711\n            },\n            {\n                &quot;categoryId&quot;: 201340517,\n                &quot;chineseName&quot;: &quot;僧鞋&quot;,\n                &quot;translatedName&quot;: &quot;僧靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 201330711\n            },\n            {\n                &quot;categoryId&quot;: 201359513,\n                &quot;chineseName&quot;: &quot;寿衣/鞋/帽&quot;,\n                &quot;translatedName&quot;: &quot;寿衣/靴/帽子&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1044217\n            },\n            {\n                &quot;categoryId&quot;: 201536601,\n                &quot;chineseName&quot;: &quot;女式制服皮鞋&quot;,\n                &quot;translatedName&quot;: &quot;レディース制服革靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 201548101,\n                &quot;chineseName&quot;: &quot;鞋油&quot;,\n                &quot;translatedName&quot;: &quot;靴油&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 122262003\n            },\n            {\n                &quot;categoryId&quot;: 201585403,\n                &quot;chineseName&quot;: &quot;足球袜&quot;,\n                &quot;translatedName&quot;: &quot;サッカー靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 122226003\n            },\n            {\n                &quot;categoryId&quot;: 201649401,\n                &quot;chineseName&quot;: &quot;家用鞋套机&quot;,\n                &quot;translatedName&quot;: &quot;家庭用靴カバー機&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1556\n            },\n            {\n                &quot;categoryId&quot;: 201682809,\n                &quot;chineseName&quot;: &quot;童鞋量脚器&quot;,\n                &quot;translatedName&quot;: &quot;子供靴の足測定器&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 201809301,\n                &quot;chineseName&quot;: &quot;洛丽塔袜&quot;,\n                &quot;translatedName&quot;: &quot;ロリータ靴下&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 1043349\n            },\n            {\n                &quot;categoryId&quot;: 201827725,\n                &quot;chineseName&quot;: &quot;家居婚鞋&quot;,\n                &quot;translatedName&quot;: &quot;ホーム結婚靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125312003\n            },\n            {\n                &quot;categoryId&quot;: 201834503,\n                &quot;chineseName&quot;: &quot;学生皮鞋&quot;,\n                &quot;translatedName&quot;: &quot;学生用革靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 201834603,\n                &quot;chineseName&quot;: &quot;水晶/水钻鞋&quot;,\n                &quot;translatedName&quot;: &quot;クリスタル/ウォータードリルの靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 201837318,\n                &quot;chineseName&quot;: &quot;男式休闲皮鞋&quot;,\n                &quot;translatedName&quot;: &quot;メンズカジュアル革靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126506004\n            },\n            {\n                &quot;categoryId&quot;: 201837319,\n                &quot;chineseName&quot;: &quot;乐福鞋/豆豆鞋&quot;,\n                &quot;translatedName&quot;: &quot;楽福靴/豆靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 126506004\n            },\n            {\n                &quot;categoryId&quot;: 201843201,\n                &quot;chineseName&quot;: &quot;女士洞洞鞋&quot;,\n                &quot;translatedName&quot;: &quot;女性の穴の靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 201843202,\n                &quot;chineseName&quot;: &quot;盆底鞋&quot;,\n                &quot;translatedName&quot;: &quot;盆底の靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125312003\n            },\n            {\n                &quot;categoryId&quot;: 201868102,\n                &quot;chineseName&quot;: &quot;鞋塞&quot;,\n                &quot;translatedName&quot;: &quot;靴の栓&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125730003\n            },\n            {\n                &quot;categoryId&quot;: 201898903,\n                &quot;chineseName&quot;: &quot;乐福鞋&quot;,\n                &quot;translatedName&quot;: &quot;ローファー靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125372002\n            },\n            {\n                &quot;categoryId&quot;: 201903001,\n                &quot;chineseName&quot;: &quot;童鞋礼盒装&quot;,\n                &quot;translatedName&quot;: &quot;子供靴ギフトボックス&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            },\n            {\n                &quot;categoryId&quot;: 201907604,\n                &quot;chineseName&quot;: &quot;童洞洞鞋&quot;,\n                &quot;translatedName&quot;: &quot;子供の穴の靴&quot;,\n                &quot;language&quot;: &quot;ja&quot;,\n                &quot;leaf&quot;: true,\n                &quot;level&quot;: &quot;3&quot;,\n                &quot;parentCateId&quot;: 125386001\n            }\n        ]\n    }\n}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "类目"
+}

@@ -1,0 +1,280 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.search.offerRecommend",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.search.offerRecommend-1",
+ "displayName": "商品推荐",
+ "billType": null,
+ "description": "商品千人千面推荐",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "recommendOfferParam",
+   "type": "message:alibaba.cbu.offer.param.RecommendOfferParam",
+   "required": true,
+   "description": "推荐参数",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.offer.param.RecommendOfferParam",
+   "fields": [
+    {
+     "name": "beginPage",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "开始页码",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "页面大小",
+     "exampleValue": "20",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "语言",
+     "exampleValue": "en-英语，ja-日语，具体请参考开放参考菜单",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "外部机构用户id，此id为服务商平台id",
+     "exampleValue": "dferg0001",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.openapi.shared.common.recommend.ResultModel",
+   "required": true,
+   "description": "返回信息",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.openapi.shared.common.recommend.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "消息码",
+     "exampleValue": "200",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "String",
+     "required": true,
+     "description": "消息内容",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:com.alibaba.cbu.offer.recommend.model.ProductInfoModel[]",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "{   &quot;result&quot;: [     {       &quot;subjectTrans&quot;: &quot;Stainless steel corn Shaver peeling corn artifact household kitchen thresher corn kernel separator stripper tool&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;1.70&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 4861,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40666353603800%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;不锈钢玉米刨 剥玉米神器家用厨房脱粒器玉米粒分离器剥离器工具&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01mMCr3s1LkqgqluWHA_!!2209441141338-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 666353603800,       &quot;repurchaseRate&quot;: &quot;22%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Lamen Noodle Bowl Japanese Bowl Tableware Noodle Bowl Ceramic Bowl Commercial Rice Bowl Bucket Bowl Large Bowl Malatang Vegetable Soup Noodle Bowl&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;8.30&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 1839,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40606760936648%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;拉面碗日式碗餐具面碗陶瓷碗商用饭碗斗笠碗大碗麻辣烫冒菜汤面碗&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/2020/102/168/14732861201_1132645567.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 606760936648,       &quot;repurchaseRate&quot;: &quot;19%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Factory direct supply men&#39;s bag shoulder bag men&#39;s business PU messenger bag men&#39;s trendy fashion shoulder bag men&#39;s bag&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;26.00&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 640,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40543978204894%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;厂家直供男包单肩包男商务PU斜挎包男士潮流时尚单肩包包男士包&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/2017/575/089/3773980575_1153808554.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 543978204894,       &quot;repurchaseRate&quot;: &quot;32%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Storage Box Wardrobe Clothes Clothes Quilt Storage Box Household Transparent Plastic Folding Box Snack Toy Storage Box&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;25.48&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 410,       &quot;sellerIdentities&quot;: [         &quot;powerful_merchants&quot;       ],       &quot;traceInfo&quot;: &quot;object_id%40694615731159%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;收纳箱衣柜衣服衣物被子储物盒家用透明塑料折叠箱零食玩具整理箱&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01kZMq9n2CzCtIrrmFy_!!3926048544-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 694615731159,       &quot;repurchaseRate&quot;: &quot;33%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Fake Flower Five-headed Phalaenopsis Bonsai Set Artificial Flower Factory Direct Supply Artificial Green Plant Creative Ornaments Simulation Potted Plant&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;7.03&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 909,       &quot;sellerIdentities&quot;: [         &quot;powerful_merchants&quot;       ],       &quot;traceInfo&quot;: &quot;object_id%40632873906275%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;假花五头蝴蝶兰盆景套装仿真花厂家直供人造绿植创意摆件仿真盆栽&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01QJJsIK238ETQpyuaK_!!2200735397210-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 632873906275,       &quot;repurchaseRate&quot;: &quot;21%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Children&#39;s Underwear Set 2023 Autumn and Winter New Cotton Autumn Clothes for Boys and Girls Autumn Trousers Baby Baby Home Clothes&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;12.50&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 941,       &quot;sellerIdentities&quot;: [         &quot;powerful_merchants&quot;       ],       &quot;traceInfo&quot;: &quot;object_id%40652741980374%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;儿童内衣套装2024秋冬新款纯棉男女童秋衣秋裤婴儿宝宝家居服代发&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN016oCOTk2Aib9yDnDGX_!!2200712158237-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 652741980374,       &quot;repurchaseRate&quot;: &quot;25%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Fish tank filter cotton 8D glue-free cotton washable thickened high density water purification bacteria honeycomb Water Cube cotton biochemical Cotton&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;0.88&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 2064,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40648876908463%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;鱼缸过滤棉8D无胶棉洗不烂加厚高密度净水培菌蜂巢水立方棉生化棉&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01LxRhSB1mpsgxGRjrK_!!2209727665004-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 648876908463,       &quot;repurchaseRate&quot;: &quot;17%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Whole wood wholesale solid wood Black sandalwood cutting board whole wood cutting board cutting board wooden home cutting board&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;9.00&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 471,       &quot;sellerIdentities&quot;: [         &quot;super_factory&quot;,         &quot;powerful_merchants&quot;       ],       &quot;traceInfo&quot;: &quot;object_id%40616242004615%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;整木批发实木乌檀木菜板整木砧板切菜板木质家用砧板案板&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01Gme4g61W3lNUjoKUk_!!940802733-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 616242004615,       &quot;repurchaseRate&quot;: &quot;4%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Magic Fish December birthday stone ring Europe and the United States new December women&#39;s titanium steel ring wholesale&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;2.98&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 3814,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40687991610482%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;Magic Fish 12月生辰石素圈指环 欧美新品十二月女士钛钢戒指批发&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01azXz581ZkIs08ANtx_!!2214820053232-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 687991610482,       &quot;repurchaseRate&quot;: &quot;47%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     },     {       &quot;subjectTrans&quot;: &quot;Universal washing machine base bracket mobile universal wheel storage bracket drum refrigerator pad high pulsator rack tripod&quot;,       &quot;priceInfo&quot;: {         &quot;price&quot;: &quot;19.00&quot;,         &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.PriceInfo&quot;       },       &quot;monthSold&quot;: 770,       &quot;sellerIdentities&quot;: [],       &quot;traceInfo&quot;: &quot;object_id%40638759712782%5Eobject_type%40offer%5Etrace%40212cd8dd17097866355711562e4915%5EoutMemberId%40nghiapalmyran&quot;,       &quot;subject&quot;: &quot;通用洗衣机底座托架移动万向轮置物支架滚筒冰箱垫高波轮架子脚架&quot;,       &quot;imageUrl&quot;: &quot;https://cbu01.alicdn.com/img/ibank/O1CN01zvN7592C84nne33tB_!!2210419958428-0-cib.jpg&quot;,       &quot;onePsale&quot;: false,       &quot;offerId&quot;: 638759712782,       &quot;repurchaseRate&quot;: &quot;19%&quot;,       &quot;class&quot;: &quot;com.alibaba.cbu.offer.model.ProductInfoModel&quot;     }   ],   &quot;code&quot;: &quot;200&quot;,   &quot;success&quot;: true,   &quot;class&quot;: &quot;com.alibaba.openapi.shared.common.ResultModel&quot; }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.cbu.offer.recommend.model.ProductInfoModel[]",
+     "fields": [
+      {
+       "name": "imageUrl",
+       "type": "String",
+       "required": true,
+       "description": "图片地址",
+       "exampleValue": "https://global-img-cdn.1688.com/img/ibank/O1CN01nwtZUD1iKV0m6pNWP_!!3329334394-0-cib.jpg",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subject",
+       "type": "String",
+       "required": true,
+       "description": "中文标题",
+       "exampleValue": "包邮火龙果色阔腿裤女春秋季2022年新款高腰垂感显瘦提花加长直筒",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subjectTrans",
+       "type": "String",
+       "required": true,
+       "description": "译文标题",
+       "exampleValue": "Postage Dragon Fruit Color Wide Leg Pants Women&#39;s Spring and Autumn 2022 New High Waist Draping Slim Jacquard Lengthened Straight",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceInfo",
+       "type": "message:com.alibaba.cbu.offer.model.PriceInfo",
+       "required": true,
+       "description": "价格",
+       "exampleValue": "{&quot;price&quot;:&quot;200&quot;,&quot;consignPrice&quot;:&quot;1002&quot;}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.cbu.offer.model.PriceInfo",
+       "fields": [
+        {
+         "name": "price",
+         "type": "String",
+         "required": true,
+         "description": "批发价",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "consignPrice",
+         "type": "String",
+         "required": true,
+         "description": "代发价",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "offerId",
+       "type": "Long",
+       "required": true,
+       "description": "商品id",
+       "exampleValue": "691124939009",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "monthSold",
+       "type": "Integer",
+       "required": true,
+       "description": "月销量",
+       "exampleValue": "200",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "repurchaseRate",
+       "type": "String",
+       "required": true,
+       "description": "复购率",
+       "exampleValue": "20%",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "traceInfo",
+       "type": "String",
+       "required": true,
+       "description": "打点信息",
+       "exampleValue": "12eqweqweqwe1212",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isSelect",
+       "type": "Boolean",
+       "required": true,
+       "description": "跨境select货盘",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "promotionURL",
+       "type": "String",
+       "required": true,
+       "description": "具有【AI跨境运营助手】模块的1688商品详情页链接",
+       "exampleValue": "商品详情页链接",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

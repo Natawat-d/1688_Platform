@@ -1,0 +1,207 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "account.user.register",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:account.user.register-1",
+ "displayName": "1688会员注册",
+ "billType": null,
+ "description": "注册1688会员",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "countryAccount",
+   "type": "message:account.user.register.param.CountryAccount",
+   "required": true,
+   "description": "账号注册入参",
+   "exampleValue": "{     &quot;country&quot;: &quot;japan&quot;,     &quot;site&quot;: &quot;sniff&quot;,     &quot;outLoginId&quot;: &quot;18899993333&quot;,     &quot;outMemberId&quot;: &quot;c5b9e8a658554771852063f3a44d4e3d&quot;,     &quot;mobile&quot;: &quot;18899993333&quot;,     &quot;mobileArea&quot;: &quot;JP&quot;,     &quot;ip&quot;: &quot;11.11.11.11&quot;,     &quot;email&quot;: &quot;123@163.com&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "account.user.register.param.CountryAccount",
+   "fields": [
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "国家，支持的参数见country枚举。",
+     "exampleValue": "japan",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "site",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "站点，请按照公司名或电商产品名来传入。要求无空格并小写。不超过16字符。",
+     "exampleValue": "sniff",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outLoginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "用户在机构的登陆名，不超过60位字符。",
+     "exampleValue": "1234test",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "用户在机构的唯一标识，不超过60位。",
+     "exampleValue": "1232fdsf",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "email",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "邮箱，会校验格式，不超过60位。",
+     "exampleValue": "123@163.com",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobile",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "手机号，会校验格式，不超过30位。",
+     "exampleValue": "1234567890",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobileArea",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "手机号所属地区，支持的参数见mobileArea枚举。",
+     "exampleValue": "JP",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "ip",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "IP地址，会校验格式。",
+     "exampleValue": "11.11.11.11",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:account.user.register.result.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "account.user.register.result.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否调用成功，true成功，false失败。",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码，如S0000代表成功。",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息，如成功。",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "返回结果。",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n    &quot;country&quot;: &quot;japan&quot;,\n    &quot;outLoginId&quot;: &quot;1234test&quot;,\n    &quot;outUserId&quot;: &quot;3333333333&quot;,\n    &quot;site&quot;: &quot;test&quot;,\n    &quot;mobileArea&quot;: &quot;JP&quot;,\n    &quot;ip&quot;: &quot;11.11.11.11&quot;,\n    &quot;email&quot;: &quot;122323@234.com&quot;,\n    &quot;mobile&quot;: &quot;1234&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;S0000&quot;,\n    &quot;message&quot;: &quot;success&quot;,\n    &quot;result&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

@@ -1,0 +1,387 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.cross.productList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.cross.productList-1",
+ "displayName": "跨境场景获取商品列表",
+ "billType": 0,
+ "description": "该接口需要校验跨境的铺货关系，跨境业务专用。商品模型V2",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "productIdList",
+   "type": "Long[]",
+   "required": true,
+   "description": "商品Id列表",
+   "exampleValue": "[574325651942,570027659932]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "productList",
+   "type": "message:alibaba.product.ProductInfo[]",
+   "required": true,
+   "description": "商品列表",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.ProductInfo[]",
+   "fields": [
+    {
+     "name": "productID",
+     "type": "Long",
+     "required": true,
+     "description": "商品ID",
+     "exampleValue": "574325651942",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productType",
+     "type": "String",
+     "required": true,
+     "description": "商品类型，在线批发商品(wholesale)或者询盘商品(sourcing)，1688网站缺省为wholesale",
+     "exampleValue": "wholesale",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attributes",
+     "type": "message:alibaba.product.ProductAttribute[]",
+     "required": true,
+     "description": "商品属性和属性值",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductAttribute[]",
+     "fields": [
+      {
+       "name": "attributeID",
+       "type": "Long",
+       "required": true,
+       "description": "属性ID",
+       "exampleValue": "123456",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "attributeName",
+       "type": "String",
+       "required": true,
+       "description": "属性名称",
+       "exampleValue": "color",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "valueID",
+       "type": "Long",
+       "required": true,
+       "description": "属性值ID",
+       "exampleValue": "123456",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "属性值",
+       "exampleValue": "grey",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isCustom",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否为自定义属性，国际站无需关注",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "groupID",
+     "type": "Long[]",
+     "required": true,
+     "description": "分组ID，确定商品所属分组。1688可传入多个分组ID，国际站同一个商品只能属于一个分组，因此默认只取第一个",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "商品状态。published:上网状态;member expired:会员撤销;auto expired:自然过期;expired:过期(包含手动过期与自动过期);member deleted:会员删除;modified:修改;new:新发;deleted:删除;TBD:to be delete;approved:审批通过;auditing:审核中;untread:审核不通过;",
+     "exampleValue": "published",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subject",
+     "type": "String",
+     "required": true,
+     "description": "商品标题，最多128个字符",
+     "exampleValue": "吉米兔小时候 宝宝成长纪念册相册配套 使用空白记录彩色加页1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "description",
+     "type": "String",
+     "required": true,
+     "description": "商品详情描述，可包含图片中心的图片URL",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "String",
+     "required": true,
+     "description": "语种，参见FAQ 语种枚举值，1688网站默认传入CHINESE",
+     "exampleValue": "CHINESE",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "periodOfValidity",
+     "type": "Integer",
+     "required": true,
+     "description": "信息有效期，按天计算，国际站无此信息",
+     "exampleValue": "3650",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bizType",
+     "type": "Integer",
+     "required": true,
+     "description": "业务类型。1：商品，2：加工，3：代理，4：合作，5：商务服务。国际站按默认商品。",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "image",
+     "type": "message:alibaba.product.ProductImageInfo",
+     "required": true,
+     "description": "商品主图",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductImageInfo",
+     "fields": [
+      {
+       "name": "images",
+       "type": "String[]",
+       "required": true,
+       "description": "主图列表，需先使用图片上传接口上传图片",
+       "exampleValue": "[&quot;img/ibank/2018/502/115/9153511205_1606139362.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isWatermark",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否打水印，是(true)或否(false)，1688无需关注此字段，1688的水印信息在上传图片时处理",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isWatermarkFrame",
+       "type": "Boolean",
+       "required": true,
+       "description": "水印是否有边框，有边框(true)或者无边框(false)，1688无需关注此字段，1688的水印信息在上传图片时处理",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "watermarkPosition",
+       "type": "String",
+       "required": true,
+       "description": "水印位置，在中间(center)或者在底部(bottom)，1688无需关注此字段，1688的水印信息在上传图片时处理",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "extendInfos",
+     "type": "message:alibaba.product.ProductExtendInfo[]",
+     "required": true,
+     "description": "商品扩展信息",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductExtendInfo[]",
+     "fields": [
+      {
+       "name": "key",
+       "type": "String",
+       "required": true,
+       "description": "扩展结构的key",
+       "exampleValue": "代销价格,consignPrice;\n买家保障,buyerProtection;",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "扩展结构的value",
+       "exampleValue": "代销价格,key为skuId，value为用户设置的代销价，\n示例：31151771910:2088.0;31151771909:2088.0;31151771908:2088.0;31152339121:2088.0;\n买家保障,string数组，value为买保全拼，\n示例：[&quot;psbj&quot;,&quot;swtwlybt&quot;,&quot;swtbh&quot;,&quot;ssbxsfh&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "supplierLoginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "供应商loginId",
+     "exampleValue": "alitestforisv02",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryID",
+     "type": "Long",
+     "required": true,
+     "description": "类目ID，标识商品所属类目",
+     "exampleValue": "1048182",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "类目名",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productCargoNumber",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "商品货号，产品属性中的货号",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "返回信息",
+   "exampleValue": "57002765XXX:商品不存在",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "商品不存在",
+   "desc": "574325651XXX:商品不存在,57002765XXX:商品不存在",
+   "howToFix": "检查铺货列表中是否存在该商品"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;productIdList&quot;:[574325651942,570027659932]\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n    &quot;productList&quot;:[\n        {\n            &quot;productID&quot;:574325651942,\n            &quot;productType&quot;:&quot;wholesale&quot;,\n            &quot;status&quot;:&quot;published&quot;,\n            &quot;subject&quot;:&quot;吉米兔小时候 宝宝成长纪念册相册配套 使用空白记录彩色加页1&quot;,\n            &quot;language&quot;:&quot;CHINESE&quot;,\n            &quot;periodOfValidity&quot;:3650,\n            &quot;bizType&quot;:1,\n            &quot;image&quot;:{\n                &quot;images&quot;:[\n                    &quot;img/ibank/2018/502/115/9153511205_1606139362.jpg&quot;,\n                    &quot;img/ibank/2018/625/691/9172196526_1606139362.jpg&quot;,\n                    &quot;img/ibank/2018/731/022/9172220137_1606139362.jpg&quot;,\n                    &quot;img/ibank/2018/525/691/9172196525_1606139362.jpg&quot;\n                ]\n            },\n            &quot;supplierLoginId&quot;:&quot;alitestforisv02&quot;\n        },\n        {\n            &quot;productID&quot;:570027659932,\n            &quot;productType&quot;:&quot;wholesale&quot;,\n            &quot;status&quot;:&quot;published&quot;,\n            &quot;subject&quot;:&quot;雨发给ad特价在特卖特卖特价狂欢价新款波点（送腰带）v&quot;,\n            &quot;language&quot;:&quot;CHINESE&quot;,\n            &quot;periodOfValidity&quot;:3650,\n            &quot;bizType&quot;:1,\n            &quot;image&quot;:{\n                &quot;images&quot;:[\n                    &quot;img/ibank/2018/178/658/8855856871_1630100306.jpg&quot;,\n                    &quot;img/ibank/2018/854/635/8892536458_1630100306.jpg&quot;,\n                    &quot;img/ibank/2018/638/958/8855859836_1630100306.jpg&quot;,\n                    &quot;img/ibank/2018/170/298/8855892071_1630100306.jpg&quot;,\n                    &quot;img/ibank/2018/139/448/8855844931_1630100306.jpg&quot;\n                ]\n            },\n            &quot;supplierLoginId&quot;:&quot;alitestforisv02&quot;\n        }\n    ],\n    &quot;success&quot;:true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

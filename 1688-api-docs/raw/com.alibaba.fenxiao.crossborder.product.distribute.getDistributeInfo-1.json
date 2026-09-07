@@ -1,0 +1,314 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.distribute.getDistributeInfo",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.distribute.getDistributeInfo-1",
+ "displayName": "获取商品铺货卖点",
+ "billType": null,
+ "description": "用于铺货场景下，获取铺货需要的卖点信息",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "offerId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "offerId",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.distribute.getDistributeInfo.Result",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.distribute.getDistributeInfo.Result",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "请求是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "msg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "系统异常",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "message:product.distribute.getDistributeInfo.ItemAIGCVO",
+     "required": true,
+     "description": "具体业务数据",
+     "exampleValue": "{&quot;keywords&quot;:{&quot;ru&quot;:[],&quot;en&quot;:[&quot;Distinctive&quot;,&quot;Comfortable&quot;,&quot;Trendy&quot;,&quot;Quality&quot;,&quot;Versatile&quot;,&quot;Unique&quot;],&quot;zh&quot;:null},&quot;detailText&quot;:[],&quot;manufacturerInfoVO&quot;:null,&quot;detailSellerPointVO&quot;:{&quot;ru&quot;:[],&quot;en&quot;:[&quot;Distinctive Feature:The rings distinctive feature of droplet glaze adds a unique touch to your style, making you stand out.&quot;,&quot;Comfortable Fit:Designed to fit comfortably on the index finger, this ring provides a pleasant wearing experience.&quot;,&quot;Trendy Accessory:As a trendy accessory, this ring adds a touch of coolness to your look, making it ideal for vacations or special occasions.&quot;,&quot;High-Quality Material:Crafted with high-quality enamel, this ring is not only stylish but also durable and long-lasting.&quot;,&quot;Versatile Style:With its fresh and retro blue glaze finish, this ring can be paired with a variety of outfits, perfect for both casual and formal occasions.&quot;,&quot;Unique Design:This ring features a unique design inspired by coconut trees, making it a standout piece in any jewelry collection.&quot;],&quot;zh&quot;:null},&quot;shortTitle&quot;:{&quot;ru&quot;:null,&quot;en&quot;:[&quot;Fashion Cool Vacation Style Index Ring&quot;,&quot;Retro Blue Enamel Palm Tree Ring&quot;],&quot;zh&quot;:null}}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.distribute.getDistributeInfo.ItemAIGCVO",
+     "fields": [
+      {
+       "name": "detailText",
+       "type": "java.lang.String[]",
+       "required": true,
+       "description": "商品详情页文本",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "detailSellerPointVO",
+       "type": "message:product.distribute.getDistributeInfo.SellerPointVO",
+       "required": true,
+       "description": "商品详情页卖点",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.distribute.getDistributeInfo.SellerPointVO",
+       "fields": [
+        {
+         "name": "zh",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "中文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "en",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "英文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "ru",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "俄语",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "keywords",
+       "type": "message:product.distribute.getDistributeInfo.SellerPointVO",
+       "required": true,
+       "description": "商品详情页卖点",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.distribute.getDistributeInfo.SellerPointVO",
+       "fields": [
+        {
+         "name": "zh",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "中文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "en",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "英文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "ru",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "俄语",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "shortTitle",
+       "type": "message:product.distribute.getDistributeInfo.SellerPointVO",
+       "required": true,
+       "description": "短标题",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.distribute.getDistributeInfo.SellerPointVO",
+       "fields": [
+        {
+         "name": "zh",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "中文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "en",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "英文",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "ru",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "俄语",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "manufacturerInfoVO",
+       "type": "message:alibaba.cbu.aigc.dto.ManufacturerInfoVO",
+       "required": true,
+       "description": "制造商信息",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.cbu.aigc.dto.ManufacturerInfoVO",
+       "fields": [
+        {
+         "name": "manufacturerNameCn",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "制造商名称（中文）",
+         "exampleValue": "制造商1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "manufacturerNameEn",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "制造商名称（英文）",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "addressCn",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "地址（中文）",
+         "exampleValue": "北京市",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "addressEn",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "制造商名称（英文）",
+         "exampleValue": "beijing",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "phone",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "电话",
+         "exampleValue": "15678987689",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "email",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "邮箱",
+         "exampleValue": "12121212@163.com",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

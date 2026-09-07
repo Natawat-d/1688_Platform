@@ -1,0 +1,3023 @@
+{
+ "apis": [
+  {
+   "categoryFamilyName": "会员",
+   "modules": [
+    {
+     "description": "批量对某个主账号下面的子账号添加授权，前提是主账号已经授权",
+     "displayName": "批量添加子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.add:1",
+     "name": "subaccount.auth.add",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "对子账号的授权批量取消",
+     "displayName": "批量取消子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.cancel:1",
+     "name": "subaccount.auth.cancel",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "批量查询主账号下面子账号的授权情况",
+     "displayName": "批量查询子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.list:1",
+     "name": "subaccount.auth.list",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "注册1688会员",
+     "displayName": "1688会员注册",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.user.register:1",
+     "name": "account.user.register",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "可以查看他人的用户信息，使用在跨境场景",
+     "displayName": "跨境场景获取非授权用户的基本信息",
+     "fullName": "com.alibaba.account:alibaba.account.agent.crossBasic:1",
+     "name": "alibaba.account.agent.crossBasic",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "获取授权用户的基本信息",
+     "displayName": "获取授权用户的基本信息",
+     "fullName": "com.alibaba.account:alibaba.account.basic:1",
+     "name": "alibaba.account.basic",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "查询子账号信息",
+     "displayName": "查询子账号信息",
+     "fullName": "cn.alibaba.open:querySubAccount:1",
+     "name": "querySubAccount",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "批量对某个主账号下面的子账号添加授权，前提是主账号已经授权",
+     "displayName": "批量添加子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.add:1",
+     "name": "subaccount.auth.add",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "对子账号的授权批量取消",
+     "displayName": "批量取消子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.cancel:1",
+     "name": "subaccount.auth.cancel",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "批量查询主账号下面子账号的授权情况",
+     "displayName": "批量查询子账号授权",
+     "fullName": "system.oauth2:subaccount.auth.list:1",
+     "name": "subaccount.auth.list",
+     "namespace": "system.oauth2",
+     "version": "1"
+    },
+    {
+     "description": "注册1688会员",
+     "displayName": "1688会员注册",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.user.register:1",
+     "name": "account.user.register",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "可以查看他人的用户信息，使用在跨境场景",
+     "displayName": "跨境场景获取非授权用户的基本信息",
+     "fullName": "com.alibaba.account:alibaba.account.agent.crossBasic:1",
+     "name": "alibaba.account.agent.crossBasic",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "获取授权用户的基本信息",
+     "displayName": "获取授权用户的基本信息",
+     "fullName": "com.alibaba.account:alibaba.account.basic:1",
+     "name": "alibaba.account.basic",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "查询子账号信息",
+     "displayName": "查询子账号信息",
+     "fullName": "cn.alibaba.open:querySubAccount:1",
+     "name": "querySubAccount",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "工具",
+   "modules": [
+    {
+     "description": "通过商品池ID直接批量拉取池中商品数据",
+     "displayName": "拉取商品池中商品数据",
+     "fullName": "com.alibaba.fenxiao.crossborder:pool.product.pull:1",
+     "name": "pool.product.pull",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询商品池中商品总数",
+     "displayName": "查询商品池中商品总数",
+     "fullName": "com.alibaba.fenxiao.crossborder:pool.product.total:1",
+     "name": "pool.product.total",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "用户loginId加密转换为Openuid接口。该接口进行风控，不允许批量操作，仅允许商家手动触发，比如：搜索用户订单、设置规则等功能",
+     "displayName": "用户loginId加密转换为Openuid接口",
+     "fullName": "com.alibaba.account:loginid.openuid.encrypt:1",
+     "name": "loginid.openuid.encrypt",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "获取唤起旺旺聊天的链接",
+     "displayName": "获取唤起旺旺聊天的链接",
+     "fullName": "com.alibaba.account:account.wangwangUrl.get:1",
+     "name": "account.wangwangUrl.get",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "Openuid转换解密为旺旺昵称接口。该接口进行风控，仅可使用于用户需要唤起旺旺，不允许自动化批量操作，不允许作为解密接口将明文展示给用户。旺旺支持加密后回收，请勿使用于其他场景。",
+     "displayName": "Openuid转换解密为旺旺昵称接口（仅可使用于用户唤起旺旺）",
+     "fullName": "com.alibaba.account:wangwangnick.openuid.decrypt:1",
+     "name": "wangwangnick.openuid.decrypt",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "通过商品id，添加买卖家分销关系",
+     "displayName": "买卖家分销关系添加",
+     "fullName": "com.alibaba.fenxiao:alibaba.fenxiao.relationadd:1",
+     "name": "alibaba.fenxiao.relationadd",
+     "namespace": "com.alibaba.fenxiao",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "通过商品池ID直接批量拉取池中商品数据",
+     "displayName": "拉取商品池中商品数据",
+     "fullName": "com.alibaba.fenxiao.crossborder:pool.product.pull:1",
+     "name": "pool.product.pull",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询商品池中商品总数",
+     "displayName": "查询商品池中商品总数",
+     "fullName": "com.alibaba.fenxiao.crossborder:pool.product.total:1",
+     "name": "pool.product.total",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "用户loginId加密转换为Openuid接口。该接口进行风控，不允许批量操作，仅允许商家手动触发，比如：搜索用户订单、设置规则等功能",
+     "displayName": "用户loginId加密转换为Openuid接口",
+     "fullName": "com.alibaba.account:loginid.openuid.encrypt:1",
+     "name": "loginid.openuid.encrypt",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "获取唤起旺旺聊天的链接",
+     "displayName": "获取唤起旺旺聊天的链接",
+     "fullName": "com.alibaba.account:account.wangwangUrl.get:1",
+     "name": "account.wangwangUrl.get",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "Openuid转换解密为旺旺昵称接口。该接口进行风控，仅可使用于用户需要唤起旺旺，不允许自动化批量操作，不允许作为解密接口将明文展示给用户。旺旺支持加密后回收，请勿使用于其他场景。",
+     "displayName": "Openuid转换解密为旺旺昵称接口（仅可使用于用户唤起旺旺）",
+     "fullName": "com.alibaba.account:wangwangnick.openuid.decrypt:1",
+     "name": "wangwangnick.openuid.decrypt",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "通过商品id，添加买卖家分销关系",
+     "displayName": "买卖家分销关系添加",
+     "fullName": "com.alibaba.fenxiao:alibaba.fenxiao.relationadd:1",
+     "name": "alibaba.fenxiao.relationadd",
+     "namespace": "com.alibaba.fenxiao",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "商机",
+   "modules": [
+    {
+     "description": "商品热搜词",
+     "displayName": "商品热搜词",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.topKeyword:1",
+     "name": "product.search.topKeyword",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询榜单列表",
+     "displayName": "查询榜单列表",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.topList.query:1",
+     "name": "product.topList.query",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品90天每日销售数量趋势（最多查询90天数据），新接口",
+     "displayName": "获取商品每日销售数量趋势（新）",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getPerdaySellQuantityTrendNew:1",
+     "name": "product.analyze.getPerdaySellQuantityTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品30天价格中位数指标趋势-新接口",
+     "displayName": "获取商品30天价格中位数指标趋势（新）",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getThirtyDayMedianPriceTrendNew:1",
+     "name": "product.analyze.getThirtyDayMedianPriceTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品90天复购率指标趋势（最多查询30天）-新接口",
+     "displayName": "获取商品90天复购率指标趋势(新） ",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getRepurchaseRateTrendNew:1",
+     "name": "product.analyze.getRepurchaseRateTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "商品热搜词",
+     "displayName": "商品热搜词",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.topKeyword:1",
+     "name": "product.search.topKeyword",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询榜单列表",
+     "displayName": "查询榜单列表",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.topList.query:1",
+     "name": "product.topList.query",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品90天每日销售数量趋势（最多查询90天数据），新接口",
+     "displayName": "获取商品每日销售数量趋势（新）",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getPerdaySellQuantityTrendNew:1",
+     "name": "product.analyze.getPerdaySellQuantityTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品30天价格中位数指标趋势-新接口",
+     "displayName": "获取商品30天价格中位数指标趋势（新）",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getThirtyDayMedianPriceTrendNew:1",
+     "name": "product.analyze.getThirtyDayMedianPriceTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取商品90天复购率指标趋势（最多查询30天）-新接口",
+     "displayName": "获取商品90天复购率指标趋势(新） ",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.analyze.getRepurchaseRateTrendNew:1",
+     "name": "product.analyze.getRepurchaseRateTrendNew",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "类目",
+   "modules": [
+    {
+     "description": "多语言类目查询接口。根据当前语种和类目ID查询对应语种的类目详情，包含当前类目的下级类目列表数据。",
+     "displayName": "根据类目ID查询多语言类目",
+     "fullName": "com.alibaba.fenxiao.crossborder:category.translation.getById:1",
+     "name": "category.translation.getById",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言类目查询接口。根据当前语种和类目名称查询命中的语种的类目详情列表，不包含下级类目数据。",
+     "displayName": "根据类目名称查询多语言类目",
+     "fullName": "com.alibaba.fenxiao.crossborder:category.translation.getByKeyword:1",
+     "name": "category.translation.getByKeyword",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "根据叶子类目ID获取类目属性",
+     "displayName": "获取叶子类目属性",
+     "fullName": "com.alibaba.product:alibaba.category.attribute.get:1",
+     "name": "alibaba.category.attribute.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "多语言类目查询接口。根据当前语种和类目ID查询对应语种的类目详情，包含当前类目的下级类目列表数据。",
+     "displayName": "根据类目ID查询多语言类目",
+     "fullName": "com.alibaba.fenxiao.crossborder:category.translation.getById:1",
+     "name": "category.translation.getById",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言类目查询接口。根据当前语种和类目名称查询命中的语种的类目详情列表，不包含下级类目数据。",
+     "displayName": "根据类目名称查询多语言类目",
+     "fullName": "com.alibaba.fenxiao.crossborder:category.translation.getByKeyword:1",
+     "name": "category.translation.getByKeyword",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "根据叶子类目ID获取类目属性",
+     "displayName": "获取叶子类目属性",
+     "fullName": "com.alibaba.product:alibaba.category.attribute.get:1",
+     "name": "alibaba.category.attribute.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "商品",
+   "modules": [
+    {
+     "description": "多语言关键词搜索",
+     "displayName": "多语言关键词搜索",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.keywordQuery:1",
+     "name": "product.search.keywordQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言图搜",
+     "displayName": "多语言图搜",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.imageQuery:1",
+     "name": "product.search.imageQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言商品店搜",
+     "displayName": "多语言商品店搜",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.querySellerOfferList:1",
+     "name": "product.search.querySellerOfferList",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言商详",
+     "displayName": "多语言商详",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.queryProductDetail:1",
+     "name": "product.search.queryProductDetail",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "商品千人千面推荐",
+     "displayName": "商品推荐",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.offerRecommend:1",
+     "name": "product.search.offerRecommend",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取多语言关键词搜索导航列表",
+     "displayName": "多语言搜索导航",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.keywordSNQuery:1",
+     "name": "product.search.keywordSNQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "相关性商品推荐",
+     "displayName": "相关性商品推荐",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.related.recommend:1",
+     "name": "product.related.recommend",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "上传图片获取imageId",
+     "displayName": "上传图片获取imageId",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.image.upload:1",
+     "name": "product.image.upload",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "通过商品领取最优化的优惠券，一般在在下单前调用该接口，完成最优化的领取优惠券策略。\n",
+     "displayName": "通过商品领取最优化的优惠券",
+     "fullName": "com.alibaba.marketing:coupon.optimal.claim:1",
+     "name": "coupon.optimal.claim",
+     "namespace": "com.alibaba.marketing",
+     "version": "1"
+    },
+    {
+     "description": "跨境场景根据关键字及类目推荐商品，按销量排序。注意：该API有流量控制，仅适用于手动关联场景",
+     "displayName": "跨境场景根据关键字推荐商品",
+     "fullName": "com.alibaba.product:alibaba.product.suggest.crossBorder:1",
+     "name": "alibaba.product.suggest.crossBorder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "由商品ID获取商品详细信息，接口能获取已购买过商家的商品简单信息。该接口需要付费才能访问。该接口只返回简单信息，主要是用来在ERP系统中做数据关联",
+     "displayName": "获取已购买过商家的商品简单信息",
+     "fullName": "com.alibaba.product:alibaba.product.simple.get:1",
+     "name": "alibaba.product.simple.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "增加跨境关注商品",
+     "displayName": "增加跨境关注商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation:1",
+     "name": "product.kjdistribute.addRelation",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "取消跨境关注商品",
+     "displayName": "取消跨境关注商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.kjdistribute.removeRelation:1",
+     "name": "product.kjdistribute.removeRelation",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "用于铺货场景下，获取铺货需要的卖点信息",
+     "displayName": "获取商品铺货卖点",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.distribute.getDistributeInfo:1",
+     "name": "product.distribute.getDistributeInfo",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "类目映射查询",
+     "displayName": "叶子类目属性属性值映射查询",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.category.getAttrById:1",
+     "name": "product.category.getAttrById",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "多语言关键词搜索",
+     "displayName": "多语言关键词搜索",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.keywordQuery:1",
+     "name": "product.search.keywordQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言图搜",
+     "displayName": "多语言图搜",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.imageQuery:1",
+     "name": "product.search.imageQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言商品店搜",
+     "displayName": "多语言商品店搜",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.querySellerOfferList:1",
+     "name": "product.search.querySellerOfferList",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "多语言商详",
+     "displayName": "多语言商详",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.queryProductDetail:1",
+     "name": "product.search.queryProductDetail",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "商品千人千面推荐",
+     "displayName": "商品推荐",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.offerRecommend:1",
+     "name": "product.search.offerRecommend",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取多语言关键词搜索导航列表",
+     "displayName": "多语言搜索导航",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.search.keywordSNQuery:1",
+     "name": "product.search.keywordSNQuery",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "相关性商品推荐",
+     "displayName": "相关性商品推荐",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.related.recommend:1",
+     "name": "product.related.recommend",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "上传图片获取imageId",
+     "displayName": "上传图片获取imageId",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.image.upload:1",
+     "name": "product.image.upload",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "通过商品领取最优化的优惠券，一般在在下单前调用该接口，完成最优化的领取优惠券策略。\n",
+     "displayName": "通过商品领取最优化的优惠券",
+     "fullName": "com.alibaba.marketing:coupon.optimal.claim:1",
+     "name": "coupon.optimal.claim",
+     "namespace": "com.alibaba.marketing",
+     "version": "1"
+    },
+    {
+     "description": "跨境场景根据关键字及类目推荐商品，按销量排序。注意：该API有流量控制，仅适用于手动关联场景",
+     "displayName": "跨境场景根据关键字推荐商品",
+     "fullName": "com.alibaba.product:alibaba.product.suggest.crossBorder:1",
+     "name": "alibaba.product.suggest.crossBorder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "由商品ID获取商品详细信息，接口能获取已购买过商家的商品简单信息。该接口需要付费才能访问。该接口只返回简单信息，主要是用来在ERP系统中做数据关联",
+     "displayName": "获取已购买过商家的商品简单信息",
+     "fullName": "com.alibaba.product:alibaba.product.simple.get:1",
+     "name": "alibaba.product.simple.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "增加跨境关注商品",
+     "displayName": "增加跨境关注商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation:1",
+     "name": "product.kjdistribute.addRelation",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "取消跨境关注商品",
+     "displayName": "取消跨境关注商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.kjdistribute.removeRelation:1",
+     "name": "product.kjdistribute.removeRelation",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "用于铺货场景下，获取铺货需要的卖点信息",
+     "displayName": "获取商品铺货卖点",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.distribute.getDistributeInfo:1",
+     "name": "product.distribute.getDistributeInfo",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "类目映射查询",
+     "displayName": "叶子类目属性属性值映射查询",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.category.getAttrById:1",
+     "name": "product.category.getAttrById",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "选品铺货",
+   "modules": [
+    {
+     "description": "跨境场景获取商品详情，需要建立跨境铺货关系之后才能获取详情",
+     "displayName": "跨境场景获取商品详情",
+     "fullName": "com.alibaba.product:alibaba.cross.productInfo:1",
+     "name": "alibaba.cross.productInfo",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "跨境场景专用，将商品加入铺货列表（即：新增铺货关系），单次操作上限20条。加入后才可以通过商品详情查询接口查询商品详情。调用前需要联系跨境小二手动配置权限。",
+     "displayName": "跨境场景下将商品加入铺货列表",
+     "fullName": "com.alibaba.product.push:alibaba.cross.syncProductListPushed:1",
+     "name": "alibaba.cross.syncProductListPushed",
+     "namespace": "com.alibaba.product.push",
+     "version": "1"
+    },
+    {
+     "description": "同步铺货结果，在源平台(1688)经过ISV把商品铺货到目标平台(比如TAOBAO)时，ISV需要把铺货结果返回。铺货结果的状态描述必须和源平台(1688)定义的一致，同时该接口也支持下架等操作，这些操作都由铺货状态来表述",
+     "displayName": "同步铺货结果",
+     "fullName": "com.alibaba.product.push:alibaba.product.push.syncPushProductResult:1",
+     "name": "alibaba.product.push.syncPushProductResult",
+     "namespace": "com.alibaba.product.push",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要校验跨境的铺货关系，跨境业务专用。商品模型V2",
+     "displayName": "跨境场景获取商品列表",
+     "fullName": "com.alibaba.product:alibaba.cross.productList:1",
+     "name": "alibaba.cross.productList",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "解除关注商品",
+     "displayName": "解除关注商品",
+     "fullName": "com.alibaba.product:alibaba.product.unfollow.crossborder:1",
+     "name": "alibaba.product.unfollow.crossborder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "类目查询。如果需要获取所有1688类目信息，需要从根类目开始遍历获取整个类目树。即：先传0获取所有一级类目ID，然后在通过获取到的一级类目ID遍历获取所二级类目，最后通过遍历二级类目ID获取三级类目。注意：1688类目仅三级，三级类目即发布商品所需的叶子类目。",
+     "displayName": "根据类目Id查询类目",
+     "fullName": "com.alibaba.product:alibaba.category.get:1",
+     "name": "alibaba.category.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "关注商品",
+     "displayName": "关注商品",
+     "fullName": "com.alibaba.product:alibaba.product.follow.crossborder:1",
+     "name": "alibaba.product.follow.crossborder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "通过分销商 userID 获取 供应商列表",
+     "displayName": "【关系】分销商-查询供应商列表",
+     "fullName": "cn.alibaba.open:alibaba.relation.querySuppliers:1",
+     "name": "alibaba.relation.querySuppliers",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "跨境场景获取商品详情，需要建立跨境铺货关系之后才能获取详情",
+     "displayName": "跨境场景获取商品详情",
+     "fullName": "com.alibaba.product:alibaba.cross.productInfo:1",
+     "name": "alibaba.cross.productInfo",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "跨境场景专用，将商品加入铺货列表（即：新增铺货关系），单次操作上限20条。加入后才可以通过商品详情查询接口查询商品详情。调用前需要联系跨境小二手动配置权限。",
+     "displayName": "跨境场景下将商品加入铺货列表",
+     "fullName": "com.alibaba.product.push:alibaba.cross.syncProductListPushed:1",
+     "name": "alibaba.cross.syncProductListPushed",
+     "namespace": "com.alibaba.product.push",
+     "version": "1"
+    },
+    {
+     "description": "同步铺货结果，在源平台(1688)经过ISV把商品铺货到目标平台(比如TAOBAO)时，ISV需要把铺货结果返回。铺货结果的状态描述必须和源平台(1688)定义的一致，同时该接口也支持下架等操作，这些操作都由铺货状态来表述",
+     "displayName": "同步铺货结果",
+     "fullName": "com.alibaba.product.push:alibaba.product.push.syncPushProductResult:1",
+     "name": "alibaba.product.push.syncPushProductResult",
+     "namespace": "com.alibaba.product.push",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要校验跨境的铺货关系，跨境业务专用。商品模型V2",
+     "displayName": "跨境场景获取商品列表",
+     "fullName": "com.alibaba.product:alibaba.cross.productList:1",
+     "name": "alibaba.cross.productList",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "解除关注商品",
+     "displayName": "解除关注商品",
+     "fullName": "com.alibaba.product:alibaba.product.unfollow.crossborder:1",
+     "name": "alibaba.product.unfollow.crossborder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "类目查询。如果需要获取所有1688类目信息，需要从根类目开始遍历获取整个类目树。即：先传0获取所有一级类目ID，然后在通过获取到的一级类目ID遍历获取所二级类目，最后通过遍历二级类目ID获取三级类目。注意：1688类目仅三级，三级类目即发布商品所需的叶子类目。",
+     "displayName": "根据类目Id查询类目",
+     "fullName": "com.alibaba.product:alibaba.category.get:1",
+     "name": "alibaba.category.get",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "关注商品",
+     "displayName": "关注商品",
+     "fullName": "com.alibaba.product:alibaba.product.follow.crossborder:1",
+     "name": "alibaba.product.follow.crossborder",
+     "namespace": "com.alibaba.product",
+     "version": "1"
+    },
+    {
+     "description": "通过分销商 userID 获取 供应商列表",
+     "displayName": "【关系】分销商-查询供应商列表",
+     "fullName": "cn.alibaba.open:alibaba.relation.querySuppliers:1",
+     "name": "alibaba.relation.querySuppliers",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "订单",
+   "modules": [
+    {
+     "description": "跨境专用订单创建。创建订单最多允许50个SKU，且必须为同一个供应商的商品。多个供应商或多于50个SKU的情况，请自行拆单后提交。一些特殊情况会一次创建多个订单并返回多个订单号。\n支持大市场及分销两个场景。根据当前授权用户,区分主子账号下单",
+     "displayName": "跨境订单创建",
+     "fullName": "com.alibaba.trade:alibaba.trade.createCrossOrder:1",
+     "name": "alibaba.trade.createCrossOrder",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取单个交易明细信息，仅限买家调用。该API需要向阿里巴巴开放平台申请权限才能使用。Get a single transaction detail, only for users to call.",
+     "displayName": "订单详情查看(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.get.buyerView:1",
+     "name": "alibaba.trade.get.buyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要获得订单买家的授权，获取买家的订单的物流详情，在采购或者分销场景中，作为买家也有获取物流详情的需求。该接口能查能根据\b订单号查看物流详情，包括发件人，收件人，所发货物明细等。由于物流单录入的原因，可能跟踪信息的API查询会有延迟。该API需要向开放平台申请权限才能访问。In the procurement or distribution scenario, buyers can ask for obtaining the logistics details. The interface can check the logistics details according to the order ID, including the sender, the recipient, the details of the goods sent, and so on. Depending on the logistics information entry time, there may be a delay in API queries regarding the information tracking.",
+     "displayName": "获取交易订单的物流信息(买家视角)",
+     "fullName": "com.alibaba.logistics:alibaba.trade.getLogisticsInfos.buyerView:1",
+     "name": "alibaba.trade.getLogisticsInfos.buyerView",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要获取订单买家的授权，获取买家的订单的物流跟踪信息，在采购或者分销场景中，作为买家也有获取物流详情的需求。该接口能查能根据物流单号查看物流单跟踪信息。由于物流单录入的原因，可能跟踪信息的API查询会有延迟。该API需要向开放平台申请权限才能访问。In the procurement or distribution scenario, buyers can obtain information on logistics tracking. The interface can view the logistics tracking information according to the logistics tacking number. Depending on the logistics information entry time, there may be a delay in API queries regarding the information tracking.",
+     "displayName": "获取交易订单的物流跟踪信息(买家视角)",
+     "fullName": "com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView:1",
+     "name": "alibaba.trade.getLogisticsTraceInfo.buyerView",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "买家或者卖家取消交易，注意只有特定状态的交易才能取消，1688可用于取消未付款的订单。\n当订单从创建到关闭时间小于10s的时候，会报“CLOSE_ORDER_TOO_FAST”错误。",
+     "displayName": "取消交易",
+     "fullName": "com.alibaba.trade:alibaba.trade.cancel:1",
+     "name": "alibaba.trade.cancel",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取买家的订单列表，也就是用户的memberId必须等于订单里的买家memberId。该接口仅仅返回订单基本信息，不会返回订单的物流信息和发票信息；如果需要获取物流信息，请调用获取订单详情接口；如果需要获取发票信息，请调用获取发票信息的API",
+     "displayName": "订单列表查看(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.getBuyerOrderList:1",
+     "name": "alibaba.trade.getBuyerOrderList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "订单创建只允许购买同一个供应商的商品。本接口返回创建订单相关的优惠等信息。\n1、校验商品数据是否允许订购。\n2、校验代销关系\n3、校验库存、起批量、是否满足混批条件",
+     "displayName": "创建订单前预览数据接口",
+     "fullName": "com.alibaba.trade:alibaba.createOrder.preview:1",
+     "name": "alibaba.createOrder.preview",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "授权用户为卖家修改卖家备忘，授权用户为买家修改买家备忘\n注意：该接口可重复调用，备注内容将覆盖前一次调用",
+     "displayName": "修改订单备忘",
+     "fullName": "com.alibaba.trade:alibaba.order.memoAdd:1",
+     "name": "alibaba.order.memoAdd",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取用户的主账号及子账号信息。\n如果调用API时的授权为子账号，则只返回支持子账号对应的主账号；\n如果调用API时的授权为主账号，则只返回所有子账号列表；",
+     "displayName": "获取子账号列表",
+     "fullName": "com.alibaba.account:alibaba.subAccount.list:1",
+     "name": "alibaba.subAccount.list",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "买家补充订单留言接口，注意留言总长不超500字符",
+     "displayName": "买家补充订单留言接口",
+     "fullName": "com.alibaba.trade:alibaba.trade.addFeedback:1",
+     "name": "alibaba.trade.addFeedback",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家确认收货",
+     "displayName": "买家确认收货",
+     "fullName": "com.alibaba.trade:trade.receivegoods.confirm:1",
+     "name": "trade.receivegoods.confirm",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家删除已关闭的订单",
+     "displayName": "买家删除已关闭的订单",
+     "fullName": "com.alibaba.trade:trade.order.buyerdelete:1",
+     "name": "trade.order.buyerdelete",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家修改收货地址,当修改的地址为偏远地区或者需要重新计算运费时，需要卖家确认，卖家可拒绝修改地址。",
+     "displayName": "买家申请修改收货地址",
+     "fullName": "com.alibaba.trade:order.receiveAddress.buyerUpdate:1",
+     "name": "order.receiveAddress.buyerUpdate",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "跨境专用订单创建。创建订单最多允许50个SKU，且必须为同一个供应商的商品。多个供应商或多于50个SKU的情况，请自行拆单后提交。一些特殊情况会一次创建多个订单并返回多个订单号。\n支持大市场及分销两个场景。根据当前授权用户,区分主子账号下单",
+     "displayName": "跨境订单创建",
+     "fullName": "com.alibaba.trade:alibaba.trade.createCrossOrder:1",
+     "name": "alibaba.trade.createCrossOrder",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取单个交易明细信息，仅限买家调用。该API需要向阿里巴巴开放平台申请权限才能使用。Get a single transaction detail, only for users to call.",
+     "displayName": "订单详情查看(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.get.buyerView:1",
+     "name": "alibaba.trade.get.buyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要获得订单买家的授权，获取买家的订单的物流详情，在采购或者分销场景中，作为买家也有获取物流详情的需求。该接口能查能根据\b订单号查看物流详情，包括发件人，收件人，所发货物明细等。由于物流单录入的原因，可能跟踪信息的API查询会有延迟。该API需要向开放平台申请权限才能访问。In the procurement or distribution scenario, buyers can ask for obtaining the logistics details. The interface can check the logistics details according to the order ID, including the sender, the recipient, the details of the goods sent, and so on. Depending on the logistics information entry time, there may be a delay in API queries regarding the information tracking.",
+     "displayName": "获取交易订单的物流信息(买家视角)",
+     "fullName": "com.alibaba.logistics:alibaba.trade.getLogisticsInfos.buyerView:1",
+     "name": "alibaba.trade.getLogisticsInfos.buyerView",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "该接口需要获取订单买家的授权，获取买家的订单的物流跟踪信息，在采购或者分销场景中，作为买家也有获取物流详情的需求。该接口能查能根据物流单号查看物流单跟踪信息。由于物流单录入的原因，可能跟踪信息的API查询会有延迟。该API需要向开放平台申请权限才能访问。In the procurement or distribution scenario, buyers can obtain information on logistics tracking. The interface can view the logistics tracking information according to the logistics tacking number. Depending on the logistics information entry time, there may be a delay in API queries regarding the information tracking.",
+     "displayName": "获取交易订单的物流跟踪信息(买家视角)",
+     "fullName": "com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView:1",
+     "name": "alibaba.trade.getLogisticsTraceInfo.buyerView",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "买家或者卖家取消交易，注意只有特定状态的交易才能取消，1688可用于取消未付款的订单。\n当订单从创建到关闭时间小于10s的时候，会报“CLOSE_ORDER_TOO_FAST”错误。",
+     "displayName": "取消交易",
+     "fullName": "com.alibaba.trade:alibaba.trade.cancel:1",
+     "name": "alibaba.trade.cancel",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取买家的订单列表，也就是用户的memberId必须等于订单里的买家memberId。该接口仅仅返回订单基本信息，不会返回订单的物流信息和发票信息；如果需要获取物流信息，请调用获取订单详情接口；如果需要获取发票信息，请调用获取发票信息的API",
+     "displayName": "订单列表查看(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.getBuyerOrderList:1",
+     "name": "alibaba.trade.getBuyerOrderList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "订单创建只允许购买同一个供应商的商品。本接口返回创建订单相关的优惠等信息。\n1、校验商品数据是否允许订购。\n2、校验代销关系\n3、校验库存、起批量、是否满足混批条件",
+     "displayName": "创建订单前预览数据接口",
+     "fullName": "com.alibaba.trade:alibaba.createOrder.preview:1",
+     "name": "alibaba.createOrder.preview",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "授权用户为卖家修改卖家备忘，授权用户为买家修改买家备忘\n注意：该接口可重复调用，备注内容将覆盖前一次调用",
+     "displayName": "修改订单备忘",
+     "fullName": "com.alibaba.trade:alibaba.order.memoAdd:1",
+     "name": "alibaba.order.memoAdd",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取用户的主账号及子账号信息。\n如果调用API时的授权为子账号，则只返回支持子账号对应的主账号；\n如果调用API时的授权为主账号，则只返回所有子账号列表；",
+     "displayName": "获取子账号列表",
+     "fullName": "com.alibaba.account:alibaba.subAccount.list:1",
+     "name": "alibaba.subAccount.list",
+     "namespace": "com.alibaba.account",
+     "version": "1"
+    },
+    {
+     "description": "买家补充订单留言接口，注意留言总长不超500字符",
+     "displayName": "买家补充订单留言接口",
+     "fullName": "com.alibaba.trade:alibaba.trade.addFeedback:1",
+     "name": "alibaba.trade.addFeedback",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家确认收货",
+     "displayName": "买家确认收货",
+     "fullName": "com.alibaba.trade:trade.receivegoods.confirm:1",
+     "name": "trade.receivegoods.confirm",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家删除已关闭的订单",
+     "displayName": "买家删除已关闭的订单",
+     "fullName": "com.alibaba.trade:trade.order.buyerdelete:1",
+     "name": "trade.order.buyerdelete",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家修改收货地址,当修改的地址为偏远地区或者需要重新计算运费时，需要卖家确认，卖家可拒绝修改地址。",
+     "displayName": "买家申请修改收货地址",
+     "fullName": "com.alibaba.trade:order.receiveAddress.buyerUpdate:1",
+     "name": "order.receiveAddress.buyerUpdate",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "支付",
+   "modules": [
+    {
+     "description": "通过ERP付款时，可以通过本API获取批量支付的收银台的链接。\n单个订单返回1688收银台地址，多个订单返回支付宝收银台地址。\nERP可以引导用户跳转到收银台链接完成支付动作，支付前会校验用户在1688的登陆状态。\n",
+     "displayName": "批量获取订单的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.alipay.url.get:1",
+     "name": "alibaba.alipay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取使用跨境宝支付的支付链接",
+     "displayName": "获取使用跨境宝支付的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.crossBorderPay.url.get:1",
+     "name": "alibaba.crossBorderPay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取使用诚e赊支付的支付链接",
+     "displayName": "获取使用诚e赊支付的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.creditPay.url.get:1",
+     "name": "alibaba.creditPay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家维度查看所有获得的账期授信。可翻页查询，每次返回不超过10条",
+     "displayName": "买家查看获得的所有账期授信",
+     "fullName": "com.alibaba.trade:alibaba.accountPeriod.list.buyerView:1",
+     "name": "alibaba.accountPeriod.list.buyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询未支付订单可以使用的支付方式或者支付渠道",
+     "displayName": "查询订单可以支持的支付渠道",
+     "fullName": "com.alibaba.trade:alibaba.trade.payWay.query:1",
+     "name": "alibaba.trade.payWay.query",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询是否开通代扣协议",
+     "displayName": "查询是否开通免密支付",
+     "fullName": "com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen:1",
+     "name": "alibaba.trade.pay.protocolPay.isopen",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "发起免密支付，会自动判断是否开通了支付宝或者诚E赊的免密支付，并发起扣款。优先发起诚E赊自动扣款，如果失败，则尝试支付宝自动扣款。该接口目前返回错误码不详，在发起扣款失败后，建议重试3次，不要无限制重试。",
+     "displayName": "发起免密支付",
+     "fullName": "com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay:1",
+     "name": "alibaba.trade.pay.protocolPay.preparePay",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "交易订单支付咨询接口，用于分析订单使用什么支付方式等。",
+     "displayName": "交易订单支付咨询",
+     "fullName": "com.alibaba.trade:trade.orderpay.analysis:1",
+     "name": "trade.orderpay.analysis",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "组合收银台url获取",
+     "displayName": "组合收银台url获取",
+     "fullName": "com.alibaba.trade:alibaba.trade.grouppay.url.get:1",
+     "name": "alibaba.trade.grouppay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "通过ERP付款时，可以通过本API获取批量支付的收银台的链接。\n单个订单返回1688收银台地址，多个订单返回支付宝收银台地址。\nERP可以引导用户跳转到收银台链接完成支付动作，支付前会校验用户在1688的登陆状态。\n",
+     "displayName": "批量获取订单的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.alipay.url.get:1",
+     "name": "alibaba.alipay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取使用跨境宝支付的支付链接",
+     "displayName": "获取使用跨境宝支付的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.crossBorderPay.url.get:1",
+     "name": "alibaba.crossBorderPay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取使用诚e赊支付的支付链接",
+     "displayName": "获取使用诚e赊支付的支付链接",
+     "fullName": "com.alibaba.trade:alibaba.creditPay.url.get:1",
+     "name": "alibaba.creditPay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家维度查看所有获得的账期授信。可翻页查询，每次返回不超过10条",
+     "displayName": "买家查看获得的所有账期授信",
+     "fullName": "com.alibaba.trade:alibaba.accountPeriod.list.buyerView:1",
+     "name": "alibaba.accountPeriod.list.buyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询未支付订单可以使用的支付方式或者支付渠道",
+     "displayName": "查询订单可以支持的支付渠道",
+     "fullName": "com.alibaba.trade:alibaba.trade.payWay.query:1",
+     "name": "alibaba.trade.payWay.query",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询是否开通代扣协议",
+     "displayName": "查询是否开通免密支付",
+     "fullName": "com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen:1",
+     "name": "alibaba.trade.pay.protocolPay.isopen",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "发起免密支付，会自动判断是否开通了支付宝或者诚E赊的免密支付，并发起扣款。优先发起诚E赊自动扣款，如果失败，则尝试支付宝自动扣款。该接口目前返回错误码不详，在发起扣款失败后，建议重试3次，不要无限制重试。",
+     "displayName": "发起免密支付",
+     "fullName": "com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay:1",
+     "name": "alibaba.trade.pay.protocolPay.preparePay",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "交易订单支付咨询接口，用于分析订单使用什么支付方式等。",
+     "displayName": "交易订单支付咨询",
+     "fullName": "com.alibaba.trade:trade.orderpay.analysis:1",
+     "name": "trade.orderpay.analysis",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "组合收银台url获取",
+     "displayName": "组合收银台url获取",
+     "fullName": "com.alibaba.trade:alibaba.trade.grouppay.url.get:1",
+     "name": "alibaba.trade.grouppay.url.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "物流",
+   "modules": [
+    {
+     "description": "根据商品ID、中国国内收货地址的省市区编码，预估商品的运费。",
+     "displayName": "商品中国国内运费预估",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.freight.estimate:1",
+     "name": "product.freight.estimate",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "根据运单号或无主件码查询外部订单ID",
+     "displayName": "根据运单号或无主件码查询外部订单ID",
+     "fullName": "com.alibaba.fenxiao.crossborder:logistics.order.getOutOrderId:1",
+     "name": "logistics.order.getOutOrderId",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "运费险信息查询",
+     "displayName": "运费险信息查询",
+     "fullName": "com.alibaba.trade:shipping.insurance.get:1",
+     "name": "shipping.insurance.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据物流模版ID获取卖家的物流模板。运费模板ID为0表示运费说明，为1表示卖家承担运费",
+     "displayName": "获取物流模板详情",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.myFreightTemplate.list.get:1",
+     "name": "alibaba.logistics.myFreightTemplate.list.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "买家获取保存的收货地址信息列表",
+     "displayName": "买家获取保存的收货地址信息列表",
+     "fullName": "com.alibaba.trade:alibaba.trade.receiveAddress.get:1",
+     "name": "alibaba.trade.receiveAddress.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据地址信息，解析地区码",
+     "displayName": "根据地址解析地区码",
+     "fullName": "com.alibaba.trade:alibaba.trade.addresscode.parse:1",
+     "name": "alibaba.trade.addresscode.parse",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询卖家混批设置。Query seller settings for mixed batch.",
+     "displayName": "查询卖家混批设置",
+     "fullName": "com.alibaba.trade:alibaba.trade.OpQueryMarketingMixConfig:1",
+     "name": "alibaba.trade.OpQueryMarketingMixConfig",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取所有的物流公司名称",
+     "displayName": "物流公司列表-所有的物流公司",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList:1",
+     "name": "alibaba.logistics.OpQueryLogisticCompanyList",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "海外地址解析",
+     "displayName": "海外地址解析",
+     "fullName": "com.alibaba.trade:trade.address.parseText:1",
+     "name": "trade.address.parseText",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "催卖家发货，催发货的订单状态必须为未发货之前。24小时内限制最多一次",
+     "displayName": "催卖家发货",
+     "fullName": "com.alibaba.logistics:logistics.delivery.urge:1",
+     "name": "logistics.delivery.urge",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "接收外部打印UDF链接",
+     "displayName": "接收外部打印UDF链接",
+     "fullName": "com.alibaba.fenxiao.crossborder:label.url.receive:1",
+     "name": "label.url.receive",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取运单号集合",
+     "displayName": "获取运单号集合",
+     "fullName": "com.alibaba.fenxiao.crossborder:bigcustomer.mailNo.query:1",
+     "name": "bigcustomer.mailNo.query",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "根据商品ID、中国国内收货地址的省市区编码，预估商品的运费。",
+     "displayName": "商品中国国内运费预估",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.freight.estimate:1",
+     "name": "product.freight.estimate",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "根据运单号或无主件码查询外部订单ID",
+     "displayName": "根据运单号或无主件码查询外部订单ID",
+     "fullName": "com.alibaba.fenxiao.crossborder:logistics.order.getOutOrderId:1",
+     "name": "logistics.order.getOutOrderId",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "运费险信息查询",
+     "displayName": "运费险信息查询",
+     "fullName": "com.alibaba.trade:shipping.insurance.get:1",
+     "name": "shipping.insurance.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据物流模版ID获取卖家的物流模板。运费模板ID为0表示运费说明，为1表示卖家承担运费",
+     "displayName": "获取物流模板详情",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.myFreightTemplate.list.get:1",
+     "name": "alibaba.logistics.myFreightTemplate.list.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "买家获取保存的收货地址信息列表",
+     "displayName": "买家获取保存的收货地址信息列表",
+     "fullName": "com.alibaba.trade:alibaba.trade.receiveAddress.get:1",
+     "name": "alibaba.trade.receiveAddress.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据地址信息，解析地区码",
+     "displayName": "根据地址解析地区码",
+     "fullName": "com.alibaba.trade:alibaba.trade.addresscode.parse:1",
+     "name": "alibaba.trade.addresscode.parse",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询卖家混批设置。Query seller settings for mixed batch.",
+     "displayName": "查询卖家混批设置",
+     "fullName": "com.alibaba.trade:alibaba.trade.OpQueryMarketingMixConfig:1",
+     "name": "alibaba.trade.OpQueryMarketingMixConfig",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "获取所有的物流公司名称",
+     "displayName": "物流公司列表-所有的物流公司",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList:1",
+     "name": "alibaba.logistics.OpQueryLogisticCompanyList",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "海外地址解析",
+     "displayName": "海外地址解析",
+     "fullName": "com.alibaba.trade:trade.address.parseText:1",
+     "name": "trade.address.parseText",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "催卖家发货，催发货的订单状态必须为未发货之前。24小时内限制最多一次",
+     "displayName": "催卖家发货",
+     "fullName": "com.alibaba.logistics:logistics.delivery.urge:1",
+     "name": "logistics.delivery.urge",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "接收外部打印UDF链接",
+     "displayName": "接收外部打印UDF链接",
+     "fullName": "com.alibaba.fenxiao.crossborder:label.url.receive:1",
+     "name": "label.url.receive",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取运单号集合",
+     "displayName": "获取运单号集合",
+     "fullName": "com.alibaba.fenxiao.crossborder:bigcustomer.mailNo.query:1",
+     "name": "bigcustomer.mailNo.query",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "官方退上门取件",
+   "modules": [
+    {
+     "description": "创建退货官方物流上门揽订单",
+     "displayName": "创建退货官方物流上门揽订单",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.create:1",
+     "name": "refundofficialdelivery.order.create",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "退货官方物流上门揽订单修改",
+     "displayName": "退货官方物流上门揽订单修改",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.modify:1",
+     "name": "refundofficialdelivery.order.modify",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "退货官方物流上门揽订单详情获取",
+     "displayName": "退货官方物流上门揽订单详情获取",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.get:1",
+     "name": "refundofficialdelivery.order.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "取消退货官方物流上门揽订单",
+     "displayName": "取消退货官方物流上门揽订单",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.cancel:1",
+     "name": "refundofficialdelivery.order.cancel",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "官方退货上门揽方案查询",
+     "displayName": "官方退货上门揽方案查询",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.solution.get:1",
+     "name": "refundofficialdelivery.solution.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "创建退货官方物流上门揽订单",
+     "displayName": "创建退货官方物流上门揽订单",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.create:1",
+     "name": "refundofficialdelivery.order.create",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "退货官方物流上门揽订单修改",
+     "displayName": "退货官方物流上门揽订单修改",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.modify:1",
+     "name": "refundofficialdelivery.order.modify",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "退货官方物流上门揽订单详情获取",
+     "displayName": "退货官方物流上门揽订单详情获取",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.get:1",
+     "name": "refundofficialdelivery.order.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "取消退货官方物流上门揽订单",
+     "displayName": "取消退货官方物流上门揽订单",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.order.cancel:1",
+     "name": "refundofficialdelivery.order.cancel",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "官方退货上门揽方案查询",
+     "displayName": "官方退货上门揽方案查询",
+     "fullName": "com.alibaba.logistics:refundofficialdelivery.solution.get:1",
+     "name": "refundofficialdelivery.solution.get",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "回传数据",
+   "modules": [
+    {
+     "description": "将机构真实用户的订单和机构账号产生的1688订单的映射关系回传1688。",
+     "displayName": "回传机构真实用户订单和1688订单的映射关系",
+     "fullName": "com.alibaba.fenxiao.crossborder:order.relation.write:1",
+     "name": "order.relation.write",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "国家站物流单回传",
+     "displayName": "国家站物流单回传",
+     "fullName": "com.alibaba.fenxiao.crossborder:trade.cross.logisticsOrderSync:1",
+     "name": "trade.cross.logisticsOrderSync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "下游销售订单同步",
+     "displayName": "下游销售订单同步",
+     "fullName": "com.alibaba.fenxiao.crossborder:trade.cross.orderSync:1",
+     "name": "trade.cross.orderSync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "保存账号所属业务线",
+     "displayName": "保存账号所属业务线",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.business.save:1",
+     "name": "account.business.save",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "将机构真实用户的订单和机构账号产生的1688订单的映射关系回传1688。",
+     "displayName": "回传机构真实用户订单和1688订单的映射关系",
+     "fullName": "com.alibaba.fenxiao.crossborder:order.relation.write:1",
+     "name": "order.relation.write",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "国家站物流单回传",
+     "displayName": "国家站物流单回传",
+     "fullName": "com.alibaba.fenxiao.crossborder:trade.cross.logisticsOrderSync:1",
+     "name": "trade.cross.logisticsOrderSync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "下游销售订单同步",
+     "displayName": "下游销售订单同步",
+     "fullName": "com.alibaba.fenxiao.crossborder:trade.cross.orderSync:1",
+     "name": "trade.cross.orderSync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "保存账号所属业务线",
+     "displayName": "保存账号所属业务线",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.business.save:1",
+     "name": "account.business.save",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "退货退款",
+   "modules": [
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus.sellerView，根据订单号实时查询退款单列表，目前只能查询到售中的退款单",
+     "displayName": "查询退款单详情-根据订单ID（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus:1",
+     "name": "alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryOrderRefund.sellerView，买方退款操作记录",
+     "displayName": "退款单操作记录列表（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefundOperationList:1",
+     "name": "alibaba.trade.refund.OpQueryOrderRefundOperationList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryOrderRefund.sellerView，查询退款单详情，同时可以查询到退款操作列表。 该API需要向阿里巴巴申请权限才能访问。",
+     "displayName": "查询退款单详情-根据退款单ID（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund:1",
+     "name": "alibaba.trade.refund.OpQueryOrderRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家查看退款单列表，该接口不支持子账号查询，请使用主账号授权后查询",
+     "displayName": "查询退款单列表(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.buyer.queryOrderRefundList:1",
+     "name": "alibaba.trade.refund.buyer.queryOrderRefundList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据理赔单或保险单号查询对应的订单号，查询理赔时type传lp，查询运费险时type传bx",
+     "displayName": "根据理赔单或保险单号查询对应的订单号",
+     "fullName": "com.alibaba.trade:alibaba.trade.queryOrderByInsure:1",
+     "name": "alibaba.trade.queryOrderByInsure",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "创建退款退货申请",
+     "displayName": "创建退款退货申请",
+     "fullName": "com.alibaba.trade:alibaba.trade.createRefund:1",
+     "name": "alibaba.trade.createRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询退款退货原因（用于创建退款退货）",
+     "displayName": "查询退款退货原因（用于创建退款退货）",
+     "fullName": "com.alibaba.trade:alibaba.trade.getRefundReasonList:1",
+     "name": "alibaba.trade.getRefundReasonList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "上传退款退货凭证，用于退款退货申请，文件流转byte数组推荐使用org.apache.commons.io.IOUtils#toByteArray(java.io.InputStream)",
+     "displayName": "上传退款退货凭证",
+     "fullName": "com.alibaba.trade:alibaba.trade.uploadRefundVoucher:1",
+     "name": "alibaba.trade.uploadRefundVoucher",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家申请退货退款时，卖家同意后，买家提交退款货信息使用，需要先调用alibaba.logistics.OpQueryLogisticCompanyList.offline查询物流公司信息，使用接口返回的物流公司编码",
+     "displayName": "买家提交退款货信息",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.returnGoods:1",
+     "name": "alibaba.trade.refund.returnGoods",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "取消退款退货申请 ",
+     "displayName": "取消退款退货申请 ",
+     "fullName": "com.alibaba.trade:alibaba.trade.cancelRefund:1",
+     "name": "alibaba.trade.cancelRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "申请退款时查询最大可退费用",
+     "displayName": "申请退款时查询最大可退费用",
+     "fullName": "com.alibaba.trade:alibaba.trade.getMaxRefundFee:1",
+     "name": "alibaba.trade.getMaxRefundFee",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "交易仲裁申请",
+     "displayName": "申请交易仲裁",
+     "fullName": "com.alibaba.trade:trade.arbitration.apply:1",
+     "name": "trade.arbitration.apply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询退货地址",
+     "displayName": "查询商家退货地址",
+     "fullName": "com.alibaba.fenxiao:refund.address.get:1",
+     "name": "refund.address.get",
+     "namespace": "com.alibaba.fenxiao",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus.sellerView，根据订单号实时查询退款单列表，目前只能查询到售中的退款单",
+     "displayName": "查询退款单详情-根据订单ID（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus:1",
+     "name": "alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryOrderRefund.sellerView，买方退款操作记录",
+     "displayName": "退款单操作记录列表（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefundOperationList:1",
+     "name": "alibaba.trade.refund.OpQueryOrderRefundOperationList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "该API为买家使用，卖家查询请使用alibaba.trade.refund.OpQueryOrderRefund.sellerView，查询退款单详情，同时可以查询到退款操作列表。 该API需要向阿里巴巴申请权限才能访问。",
+     "displayName": "查询退款单详情-根据退款单ID（买家视角）",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund:1",
+     "name": "alibaba.trade.refund.OpQueryOrderRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家查看退款单列表，该接口不支持子账号查询，请使用主账号授权后查询",
+     "displayName": "查询退款单列表(买家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.buyer.queryOrderRefundList:1",
+     "name": "alibaba.trade.refund.buyer.queryOrderRefundList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "根据理赔单或保险单号查询对应的订单号，查询理赔时type传lp，查询运费险时type传bx",
+     "displayName": "根据理赔单或保险单号查询对应的订单号",
+     "fullName": "com.alibaba.trade:alibaba.trade.queryOrderByInsure:1",
+     "name": "alibaba.trade.queryOrderByInsure",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "创建退款退货申请",
+     "displayName": "创建退款退货申请",
+     "fullName": "com.alibaba.trade:alibaba.trade.createRefund:1",
+     "name": "alibaba.trade.createRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询退款退货原因（用于创建退款退货）",
+     "displayName": "查询退款退货原因（用于创建退款退货）",
+     "fullName": "com.alibaba.trade:alibaba.trade.getRefundReasonList:1",
+     "name": "alibaba.trade.getRefundReasonList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "上传退款退货凭证，用于退款退货申请，文件流转byte数组推荐使用org.apache.commons.io.IOUtils#toByteArray(java.io.InputStream)",
+     "displayName": "上传退款退货凭证",
+     "fullName": "com.alibaba.trade:alibaba.trade.uploadRefundVoucher:1",
+     "name": "alibaba.trade.uploadRefundVoucher",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家申请退货退款时，卖家同意后，买家提交退款货信息使用，需要先调用alibaba.logistics.OpQueryLogisticCompanyList.offline查询物流公司信息，使用接口返回的物流公司编码",
+     "displayName": "买家提交退款货信息",
+     "fullName": "com.alibaba.trade:alibaba.trade.refund.returnGoods:1",
+     "name": "alibaba.trade.refund.returnGoods",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "取消退款退货申请 ",
+     "displayName": "取消退款退货申请 ",
+     "fullName": "com.alibaba.trade:alibaba.trade.cancelRefund:1",
+     "name": "alibaba.trade.cancelRefund",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "申请退款时查询最大可退费用",
+     "displayName": "申请退款时查询最大可退费用",
+     "fullName": "com.alibaba.trade:alibaba.trade.getMaxRefundFee:1",
+     "name": "alibaba.trade.getMaxRefundFee",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "交易仲裁申请",
+     "displayName": "申请交易仲裁",
+     "fullName": "com.alibaba.trade:trade.arbitration.apply:1",
+     "name": "trade.arbitration.apply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询退货地址",
+     "displayName": "查询商家退货地址",
+     "fullName": "com.alibaba.fenxiao:refund.address.get:1",
+     "name": "refund.address.get",
+     "namespace": "com.alibaba.fenxiao",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "消息",
+   "modules": [
+    {
+     "description": "手动调用确认api，确认消息已经被消费成功。仅当使用查询式获取失败消息的api时，才需要使用",
+     "displayName": "失败消息批量确认",
+     "fullName": "cn.alibaba.open:push.message.confirm:1",
+     "name": "push.message.confirm",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "查询式获取发送的消息列表，获取的消息不会自动确认，需要调用方手动调用确认api来确认消费状态。需注意，确认后，会影响分页返回的数据",
+     "displayName": "查询式获取失败的消息列表",
+     "fullName": "cn.alibaba.open:push.query.messageList:1",
+     "name": "push.query.messageList",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "游标式获取失败的消息列表，获取的消息会自动消费成功的确认。所以下次以相同条件调用获取的是剩下的数据，直至返回数据为空",
+     "displayName": "游标式获取失败的消息列表",
+     "fullName": "cn.alibaba.open:push.cursor.messageList:1",
+     "name": "push.cursor.messageList",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "获取卖家订单列表，也就是用户的memberId必须等于订单的sellerMemberId。该接口仅仅返回订单基本信息，不会返回订单的物流信息和发票信息；如果需要获取物流信息，请调用获取订单详情接口；如果需要获取发票信息，请调用获取发票信息的API",
+     "displayName": "订单列表查看(卖家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.getSellerOrderList:1",
+     "name": "alibaba.trade.getSellerOrderList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "1688大市场订单，卖家自己联系物流发货，支持合并发货，即：多个订单一次发货；支持子订单(orderEntry)级别的发货，不支持按数量发货。",
+     "displayName": "物流发货-自己联系物流发货",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.offline:1",
+     "name": "alibaba.logistics.OpDeliverySendOrder.offline",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "1688大市场订单，无需物流，支持合并发货，即：多个订单一次发货；支持子订单(orderEntry)级别的发货，不支持按数量发货。",
+     "displayName": "物流发货-无需物流",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.dummy:1",
+     "name": "alibaba.logistics.OpDeliverySendOrder.dummy",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "手动调用确认api，确认消息已经被消费成功。仅当使用查询式获取失败消息的api时，才需要使用",
+     "displayName": "失败消息批量确认",
+     "fullName": "cn.alibaba.open:push.message.confirm:1",
+     "name": "push.message.confirm",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "查询式获取发送的消息列表，获取的消息不会自动确认，需要调用方手动调用确认api来确认消费状态。需注意，确认后，会影响分页返回的数据",
+     "displayName": "查询式获取失败的消息列表",
+     "fullName": "cn.alibaba.open:push.query.messageList:1",
+     "name": "push.query.messageList",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "游标式获取失败的消息列表，获取的消息会自动消费成功的确认。所以下次以相同条件调用获取的是剩下的数据，直至返回数据为空",
+     "displayName": "游标式获取失败的消息列表",
+     "fullName": "cn.alibaba.open:push.cursor.messageList:1",
+     "name": "push.cursor.messageList",
+     "namespace": "cn.alibaba.open",
+     "version": "1"
+    },
+    {
+     "description": "获取卖家订单列表，也就是用户的memberId必须等于订单的sellerMemberId。该接口仅仅返回订单基本信息，不会返回订单的物流信息和发票信息；如果需要获取物流信息，请调用获取订单详情接口；如果需要获取发票信息，请调用获取发票信息的API",
+     "displayName": "订单列表查看(卖家视角)",
+     "fullName": "com.alibaba.trade:alibaba.trade.getSellerOrderList:1",
+     "name": "alibaba.trade.getSellerOrderList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "1688大市场订单，卖家自己联系物流发货，支持合并发货，即：多个订单一次发货；支持子订单(orderEntry)级别的发货，不支持按数量发货。",
+     "displayName": "物流发货-自己联系物流发货",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.offline:1",
+     "name": "alibaba.logistics.OpDeliverySendOrder.offline",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    },
+    {
+     "description": "1688大市场订单，无需物流，支持合并发货，即：多个订单一次发货；支持子订单(orderEntry)级别的发货，不支持按数量发货。",
+     "displayName": "物流发货-无需物流",
+     "fullName": "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.dummy:1",
+     "name": "alibaba.logistics.OpDeliverySendOrder.dummy",
+     "namespace": "com.alibaba.logistics",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "轻定制",
+   "modules": [
+    {
+     "description": "获取加工定制订单稿件信息",
+     "displayName": "获取加工定制订单稿件信息",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.podOrderDesign.get:1",
+     "name": "product.podOrderDesign.get",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "获取加工定制订单稿件信息",
+     "displayName": "获取加工定制订单稿件信息",
+     "fullName": "com.alibaba.fenxiao.crossborder:product.podOrderDesign.get:1",
+     "name": "product.podOrderDesign.get",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "商家",
+   "modules": [
+    {
+     "description": "异步执行AI找商任务",
+     "displayName": "异步执行AI找商任务",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.search.getInfo.async:1",
+     "name": "account.search.getInfo.async",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询AI找商任务执行结果",
+     "displayName": "查询AI找商任务执行结果",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.search.getInfoResult:1",
+     "name": "account.search.getInfoResult",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "异步执行AI找商任务",
+     "displayName": "异步执行AI找商任务",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.search.getInfo.async:1",
+     "name": "account.search.getInfo.async",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询AI找商任务执行结果",
+     "displayName": "查询AI找商任务执行结果",
+     "fullName": "com.alibaba.fenxiao.crossborder:account.search.getInfoResult:1",
+     "name": "account.search.getInfoResult",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "询盘",
+   "modules": [
+    {
+     "description": "创建一个牛顿云长程任务，异步执行，返回 taskId/sessionId/status\n",
+     "displayName": "牛顿云-创建长程任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.create:1",
+     "name": "newtoncloud.task.create",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-查询任务服务",
+     "displayName": "牛顿云-查询任务服务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.get:1",
+     "name": "newtoncloud.task.get",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询当前用户的任务列表，返回每个任务的 taskId/sessionId/status/taskType/创建与完成时间\n",
+     "displayName": "牛顿云-查询任务列表",
+     "fullName": "com.alibaba.agent:newtoncloud.task.list:1",
+     "name": "newtoncloud.task.list",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "终止指定 taskId 的任务，标记 KILL 状态，返回 killed\n",
+     "displayName": "牛顿云-终止任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.kill:1",
+     "name": "newtoncloud.task.kill",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-查询任务表格服务",
+     "displayName": "牛顿云-查询任务表格服务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.fetch:1",
+     "name": "newtoncloud.task.fetch",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-恢复任务",
+     "displayName": "牛顿云-恢复任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.resume:1",
+     "name": "newtoncloud.task.resume",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "根据批量询盘任务ID（wwTaskId）查询询盘结果。ISV 收到 AGENT_NEWTON_CLOUD_TASK_NOTIFY通知（stage=BATCH_INQUIRY，stageDetail.phase=COMPLETE）后，使用通知中 stageDetail.wwTaskId调用本接口，同步返回结构化询盘结果，包含商家回复摘要、报价信息、推荐理由等",
+     "displayName": "牛顿云-查询批量询盘结果",
+     "fullName": "com.alibaba.agent:newtoncloud.batchInquiry.getResult:1",
+     "name": "newtoncloud.batchInquiry.getResult",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "上传本地文件到牛顿云 OSS，返回临时公网下载链接与稳定下载地址，可直接作为newtoncloud.task.create 的 fileUrls 参数使用。文件内容以 Base64 传入，建议单文件 ≤3MB",
+     "displayName": "牛顿云-上传文件",
+     "fullName": "com.alibaba.agent:newtoncloud.file.upload:1",
+     "name": "newtoncloud.file.upload",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询牛顿云当前可用的模型档位列表。返回各档位的档位码（id）、展示名称（displayName）等信息，档位码可作为 newtoncloud.task.create 的 model参数取值。无业务入参，仅需 access_token 与签名。",
+     "displayName": "牛顿云-查询可用模型档位列表",
+     "fullName": "com.alibaba.agent:newtoncloud.model.list:1",
+     "name": "newtoncloud.model.list",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询当前授权账号的云牛顿积分信息，包括积分总额、已使用积分、可用积分、积分来源、积分到期信息及分页使用明细。用户身份由access_token 自动识别，无需传入 userId。",
+     "displayName": "牛顿云-查询积分详情",
+     "fullName": "com.alibaba.agent:newtoncloud.points.query:1",
+     "name": "newtoncloud.points.query",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "创建一个牛顿云长程任务，异步执行，返回 taskId/sessionId/status\n",
+     "displayName": "牛顿云-创建长程任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.create:1",
+     "name": "newtoncloud.task.create",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-查询任务服务",
+     "displayName": "牛顿云-查询任务服务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.get:1",
+     "name": "newtoncloud.task.get",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询当前用户的任务列表，返回每个任务的 taskId/sessionId/status/taskType/创建与完成时间\n",
+     "displayName": "牛顿云-查询任务列表",
+     "fullName": "com.alibaba.agent:newtoncloud.task.list:1",
+     "name": "newtoncloud.task.list",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "终止指定 taskId 的任务，标记 KILL 状态，返回 killed\n",
+     "displayName": "牛顿云-终止任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.kill:1",
+     "name": "newtoncloud.task.kill",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-查询任务表格服务",
+     "displayName": "牛顿云-查询任务表格服务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.fetch:1",
+     "name": "newtoncloud.task.fetch",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "牛顿云-恢复任务",
+     "displayName": "牛顿云-恢复任务",
+     "fullName": "com.alibaba.agent:newtoncloud.task.resume:1",
+     "name": "newtoncloud.task.resume",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "根据批量询盘任务ID（wwTaskId）查询询盘结果。ISV 收到 AGENT_NEWTON_CLOUD_TASK_NOTIFY通知（stage=BATCH_INQUIRY，stageDetail.phase=COMPLETE）后，使用通知中 stageDetail.wwTaskId调用本接口，同步返回结构化询盘结果，包含商家回复摘要、报价信息、推荐理由等",
+     "displayName": "牛顿云-查询批量询盘结果",
+     "fullName": "com.alibaba.agent:newtoncloud.batchInquiry.getResult:1",
+     "name": "newtoncloud.batchInquiry.getResult",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "上传本地文件到牛顿云 OSS，返回临时公网下载链接与稳定下载地址，可直接作为newtoncloud.task.create 的 fileUrls 参数使用。文件内容以 Base64 传入，建议单文件 ≤3MB",
+     "displayName": "牛顿云-上传文件",
+     "fullName": "com.alibaba.agent:newtoncloud.file.upload:1",
+     "name": "newtoncloud.file.upload",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询牛顿云当前可用的模型档位列表。返回各档位的档位码（id）、展示名称（displayName）等信息，档位码可作为 newtoncloud.task.create 的 model参数取值。无业务入参，仅需 access_token 与签名。",
+     "displayName": "牛顿云-查询可用模型档位列表",
+     "fullName": "com.alibaba.agent:newtoncloud.model.list:1",
+     "name": "newtoncloud.model.list",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    },
+    {
+     "description": "查询当前授权账号的云牛顿积分信息，包括积分总额、已使用积分、可用积分、积分来源、积分到期信息及分页使用明细。用户身份由access_token 自动识别，无需传入 userId。",
+     "displayName": "牛顿云-查询积分详情",
+     "fullName": "com.alibaba.agent:newtoncloud.points.query:1",
+     "name": "newtoncloud.points.query",
+     "namespace": "com.alibaba.agent",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "88生意通",
+   "modules": [
+    {
+     "description": "88生意通解决方案\n88生意通买家起草采购单",
+     "displayName": "88生意通买家起草采购单",
+     "fullName": "com.alibaba.syt:syt.buyer.draftPurchaseOrder:2",
+     "name": "syt.buyer.draftPurchaseOrder",
+     "namespace": "com.alibaba.syt",
+     "version": "2"
+    },
+    {
+     "description": "88生意通确认交易完成",
+     "displayName": "88生意通确认交易完成",
+     "fullName": "com.alibaba.syt:syt.contract.confirm:1",
+     "name": "syt.contract.confirm",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通合同作废",
+     "displayName": "88生意通合同作废",
+     "fullName": "com.alibaba.syt:syt.contract.invalid:1",
+     "name": "syt.contract.invalid",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通合同退款申请",
+     "displayName": "88生意通合同退款申请",
+     "fullName": "com.alibaba.syt:syt.contract.refund:1",
+     "name": "syt.contract.refund",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通解决方案",
+     "displayName": " 88生意通 买家支付获取收银台 URL",
+     "fullName": "com.alibaba.syt:syt.contract.pay:1",
+     "name": "syt.contract.pay",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通支付转账接口",
+     "displayName": "88生意通万里汇转账支付-仅支持万里汇B2C账号",
+     "fullName": "com.alibaba.syt:syt.contract.payTransfer:1",
+     "name": "syt.contract.payTransfer",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通买家确认采购单",
+     "displayName": "88生意通买家确认采购单",
+     "fullName": "com.alibaba.syt:syt.buyer.confirmPurchaseOrder:1",
+     "name": "syt.buyer.confirmPurchaseOrder",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通买家查询采购单详情",
+     "displayName": "88生意通买家查询采购单详情",
+     "fullName": "com.alibaba.syt:syt.buyer.queryContractDetail:1",
+     "name": "syt.buyer.queryContractDetail",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通查询客户是否已认证",
+     "displayName": "88生意通查询客户是否已认证",
+     "fullName": "com.alibaba.syt:syt.customer.queryUserAuthStatus:1",
+     "name": "syt.customer.queryUserAuthStatus",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "88生意通解决方案\n88生意通买家起草采购单",
+     "displayName": "88生意通买家起草采购单",
+     "fullName": "com.alibaba.syt:syt.buyer.draftPurchaseOrder:2",
+     "name": "syt.buyer.draftPurchaseOrder",
+     "namespace": "com.alibaba.syt",
+     "version": "2"
+    },
+    {
+     "description": "88生意通确认交易完成",
+     "displayName": "88生意通确认交易完成",
+     "fullName": "com.alibaba.syt:syt.contract.confirm:1",
+     "name": "syt.contract.confirm",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通合同作废",
+     "displayName": "88生意通合同作废",
+     "fullName": "com.alibaba.syt:syt.contract.invalid:1",
+     "name": "syt.contract.invalid",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通合同退款申请",
+     "displayName": "88生意通合同退款申请",
+     "fullName": "com.alibaba.syt:syt.contract.refund:1",
+     "name": "syt.contract.refund",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通解决方案",
+     "displayName": " 88生意通 买家支付获取收银台 URL",
+     "fullName": "com.alibaba.syt:syt.contract.pay:1",
+     "name": "syt.contract.pay",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通支付转账接口",
+     "displayName": "88生意通万里汇转账支付-仅支持万里汇B2C账号",
+     "fullName": "com.alibaba.syt:syt.contract.payTransfer:1",
+     "name": "syt.contract.payTransfer",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通买家确认采购单",
+     "displayName": "88生意通买家确认采购单",
+     "fullName": "com.alibaba.syt:syt.buyer.confirmPurchaseOrder:1",
+     "name": "syt.buyer.confirmPurchaseOrder",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通买家查询采购单详情",
+     "displayName": "88生意通买家查询采购单详情",
+     "fullName": "com.alibaba.syt:syt.buyer.queryContractDetail:1",
+     "name": "syt.buyer.queryContractDetail",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    },
+    {
+     "description": "88生意通查询客户是否已认证",
+     "displayName": "88生意通查询客户是否已认证",
+     "fullName": "com.alibaba.syt:syt.customer.queryUserAuthStatus:1",
+     "name": "syt.customer.queryUserAuthStatus",
+     "namespace": "com.alibaba.syt",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "发票",
+   "modules": [
+    {
+     "description": "分页查询买家抬头列表",
+     "displayName": "分页查询买家抬头列表",
+     "fullName": "com.alibaba.trade:trade.invoiceTitle.getPageList:1",
+     "name": "trade.invoiceTitle.getPageList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询订单可开票金额。\n前置获取可开票订单的方法：\n1. alibaba.trade.getBuyerOrderList-1：入参needInvoicingSetting传true；通过出参invoicingSettingModel.tradeInvoiceStatus判断是否可开票。\n2. alibaba.trade.get.buyerView-1：入参includeFields包含InvoicingSetting",
+     "displayName": "查询订单可开票金额",
+     "fullName": "com.alibaba.trade:trade.invoiceAmount.getList:1",
+     "name": "trade.invoiceAmount.getList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "分页查询发票申请列表（买家视角）",
+     "displayName": "分页查询发票申请列表（买家视角）",
+     "fullName": "com.alibaba.trade:trade.invoiceApply.getPageListBuyerView:1",
+     "name": "trade.invoiceApply.getPageListBuyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询交易单下关联的所有开具的发票信息（买家视角）",
+     "displayName": "查询交易单下关联的所有开具的发票信息（买家视角）",
+     "fullName": "com.alibaba.trade:trade.invoice.getListBuyerView:1",
+     "name": "trade.invoice.getListBuyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家申请开票，支持批量。\n前置操作：\n获取买家抬头；\n获取可开票订单及支持的开票类型；\n获取订单的可开票金额；",
+     "displayName": "买家申请开票",
+     "fullName": "com.alibaba.trade:trade.invoice.apply:1",
+     "name": "trade.invoice.apply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "提交交易单，咨询能否合并开票，以及开票分组",
+     "displayName": "合并开票咨询",
+     "fullName": "com.alibaba.trade:trade.invoice.consult:1",
+     "name": "trade.invoice.consult",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "先调用合并开票咨询trade.invoice.consult，获取分组结果后，调用合并开票",
+     "displayName": "提交合并开票",
+     "fullName": "com.alibaba.trade:trade.invoice.mergeapply:1",
+     "name": "trade.invoice.mergeapply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "卖家基于交易单 orderId或发票申请单outbizid查询合单关联关系；\n如果同时传入，以outbizid为准；\n如果查询出不是合并开票，那么mergeInvoice会返回false",
+     "displayName": "基于交易单或发票申请单查询合单关联关系",
+     "fullName": "com.alibaba.trade:trade.invoice.sellerqueryrelatedorders:1",
+     "name": "trade.invoice.sellerqueryrelatedorders",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "分页查询买家抬头列表",
+     "displayName": "分页查询买家抬头列表",
+     "fullName": "com.alibaba.trade:trade.invoiceTitle.getPageList:1",
+     "name": "trade.invoiceTitle.getPageList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询订单可开票金额。\n前置获取可开票订单的方法：\n1. alibaba.trade.getBuyerOrderList-1：入参needInvoicingSetting传true；通过出参invoicingSettingModel.tradeInvoiceStatus判断是否可开票。\n2. alibaba.trade.get.buyerView-1：入参includeFields包含InvoicingSetting",
+     "displayName": "查询订单可开票金额",
+     "fullName": "com.alibaba.trade:trade.invoiceAmount.getList:1",
+     "name": "trade.invoiceAmount.getList",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "分页查询发票申请列表（买家视角）",
+     "displayName": "分页查询发票申请列表（买家视角）",
+     "fullName": "com.alibaba.trade:trade.invoiceApply.getPageListBuyerView:1",
+     "name": "trade.invoiceApply.getPageListBuyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "查询交易单下关联的所有开具的发票信息（买家视角）",
+     "displayName": "查询交易单下关联的所有开具的发票信息（买家视角）",
+     "fullName": "com.alibaba.trade:trade.invoice.getListBuyerView:1",
+     "name": "trade.invoice.getListBuyerView",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "买家申请开票，支持批量。\n前置操作：\n获取买家抬头；\n获取可开票订单及支持的开票类型；\n获取订单的可开票金额；",
+     "displayName": "买家申请开票",
+     "fullName": "com.alibaba.trade:trade.invoice.apply:1",
+     "name": "trade.invoice.apply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "提交交易单，咨询能否合并开票，以及开票分组",
+     "displayName": "合并开票咨询",
+     "fullName": "com.alibaba.trade:trade.invoice.consult:1",
+     "name": "trade.invoice.consult",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "先调用合并开票咨询trade.invoice.consult，获取分组结果后，调用合并开票",
+     "displayName": "提交合并开票",
+     "fullName": "com.alibaba.trade:trade.invoice.mergeapply:1",
+     "name": "trade.invoice.mergeapply",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    },
+    {
+     "description": "卖家基于交易单 orderId或发票申请单outbizid查询合单关联关系；\n如果同时传入，以outbizid为准；\n如果查询出不是合并开票，那么mergeInvoice会返回false",
+     "displayName": "基于交易单或发票申请单查询合单关联关系",
+     "fullName": "com.alibaba.trade:trade.invoice.sellerqueryrelatedorders:1",
+     "name": "trade.invoice.sellerqueryrelatedorders",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "全托管",
+   "modules": [
+    {
+     "description": "开放给Buffalo使用， Buffalo仓库签收/上架商品同步1688发货单状态",
+     "displayName": "仓库签收/上架商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.co.status.sync:1",
+     "name": "consignment.co.status.sync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "Buffalo仓库创建差异理货单",
+     "displayName": "仓库创建差异理货单",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.tally.create:1",
+     "name": "consignment.tally.create",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "仓库商品库存更新",
+     "displayName": "仓库商品库存更新",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.co.inventory:1",
+     "name": "consignment.co.inventory",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "开放给Buffalo使用， Buffalo仓库签收/上架商品同步1688发货单状态",
+     "displayName": "仓库签收/上架商品",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.co.status.sync:1",
+     "name": "consignment.co.status.sync",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "Buffalo仓库创建差异理货单",
+     "displayName": "仓库创建差异理货单",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.tally.create:1",
+     "name": "consignment.tally.create",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "仓库商品库存更新",
+     "displayName": "仓库商品库存更新",
+     "fullName": "com.alibaba.fenxiao.crossborder:consignment.co.inventory:1",
+     "name": "consignment.co.inventory",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "铺货",
+   "modules": [
+    {
+     "description": "WB-1688 集成 Method 3 发布结果回调接口",
+     "displayName": "发布结果回调",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.result.callback:1",
+     "name": "publish.result.callback",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询可铺货的商品列表，支持按货盘 ID 分页查询商品 ID 集合。",
+     "displayName": "铺货商品列表",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.product.list:1",
+     "name": "publish.product.list",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取单个 1688 商品已转换为 WB 格式的卡片数据。",
+     "displayName": "铺货商品卡片",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.card.get:1",
+     "name": "publish.card.get",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "WB-1688 集成 Method 3 发布结果回调接口",
+     "displayName": "发布结果回调",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.result.callback:1",
+     "name": "publish.result.callback",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "查询可铺货的商品列表，支持按货盘 ID 分页查询商品 ID 集合。",
+     "displayName": "铺货商品列表",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.product.list:1",
+     "name": "publish.product.list",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    },
+    {
+     "description": "获取单个 1688 商品已转换为 WB 格式的卡片数据。",
+     "displayName": "铺货商品卡片",
+     "fullName": "com.alibaba.fenxiao.crossborder:publish.card.get:1",
+     "name": "publish.card.get",
+     "namespace": "com.alibaba.fenxiao.crossborder",
+     "version": "1"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "复购",
+   "modules": [
+    {
+     "description": "查询商品是否支持复购合约，复购合约是买卖家签署的复购优惠合约，卖家会给与复购用户特殊的价格、保障。复购合约需要通过特定的交易flow进行下单。",
+     "displayName": "复购合约查询",
+     "fullName": "com.alibaba.trade:repurchase.contract.get:1",
+     "name": "repurchase.contract.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ],
+   "onlineApiModules": [
+    {
+     "description": "查询商品是否支持复购合约，复购合约是买卖家签署的复购优惠合约，卖家会给与复购用户特殊的价格、保障。复购合约需要通过特定的交易flow进行下单。",
+     "displayName": "复购合约查询",
+     "fullName": "com.alibaba.trade:repurchase.contract.get:1",
+     "name": "repurchase.contract.get",
+     "namespace": "com.alibaba.trade",
+     "version": "1"
+    }
+   ]
+  }
+ ],
+ "description": "[\"root\",{},[\"p\",{},[\"span\",{\"data-type\":\"text\"},[\"span\",{\"data-type\":\"leaf\"},\"API和消息列表\"]]]]",
+ "messages": [
+  {
+   "categoryFamilyName": "交易消息",
+   "modules": [
+    {
+     "description": "1688创建订单（买家视角）/order created (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_BUYER_MAKE_1688创建订单（买家视角）/order created (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_BUYER_MAKE",
+     "typeName": "ORDER_BUYER_VIEW_BUYER_MAKE"
+    },
+    {
+     "description": "1688修改订单价格（买家视角）/order price modification (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY_1688修改订单价格（买家视角）/order price modification (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_PRICE_MODIFY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY"
+    },
+    {
+     "description": "1688交易付款（买家视角）/1688 transaction payment (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_PAY_1688交易付款（买家视角）/1688 transaction payment (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_PAY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_PAY"
+    },
+    {
+     "description": "1688订单发货（买家视角）/1688 order delivery (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS_1688订单发货（买家视角）/1688 order delivery (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ANNOUNCE_SENDGOODS",
+     "typeName": "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS"
+    },
+    {
+     "description": "1688订单部分发货（买家视角）/Partial delivery of 1688 order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_PART_PART_SENDGOODS_1688订单部分发货（买家视角）/Partial delivery of 1688 order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_PART_PART_SENDGOODS",
+     "typeName": "ORDER_BUYER_VIEW_PART_PART_SENDGOODS"
+    },
+    {
+     "description": "1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS_1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS"
+    },
+    {
+     "description": "1688交易成功（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_SUCCESS_1688交易成功（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_SUCCESS",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_SUCCESS"
+    },
+    {
+     "description": "1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE_1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BUYER_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE"
+    },
+    {
+     "description": "1688运营后台关闭订单（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE_1688运营后台关闭订单（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BOPS_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE"
+    },
+    {
+     "description": "1688订单售中退款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES_1688订单售中退款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES"
+    },
+    {
+     "description": "1688订单售后退款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES_1688订单售后退款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES"
+    },
+    {
+     "description": "1688订单阶段付款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_STEP_PAY_1688订单阶段付款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_STEP_PAY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_STEP_PAY"
+    },
+    {
+     "description": "1688订单批量支付状态同步消息",
+     "fullName": "ORDER_BATCH_PAY_1688订单批量支付状态同步消息",
+     "group": "ORDER",
+     "name": "BATCH_PAY",
+     "typeName": "ORDER_BATCH_PAY"
+    },
+    {
+     "description": "1688卖家关闭订单（买家视角）/seller closing order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE_1688卖家关闭订单（买家视角）/seller closing order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_SELLER_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE"
+    },
+    {
+     "description": "1688修改订单价格（卖家视角）",
+     "fullName": "ORDER_ORDER_PRICE_MODIFY_1688修改订单价格（卖家视角）",
+     "group": "ORDER",
+     "name": "ORDER_PRICE_MODIFY",
+     "typeName": "ORDER_ORDER_PRICE_MODIFY"
+    }
+   ],
+   "onlineModules": [
+    {
+     "description": "1688创建订单（买家视角）/order created (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_BUYER_MAKE_1688创建订单（买家视角）/order created (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_BUYER_MAKE",
+     "typeName": "ORDER_BUYER_VIEW_BUYER_MAKE"
+    },
+    {
+     "description": "1688修改订单价格（买家视角）/order price modification (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY_1688修改订单价格（买家视角）/order price modification (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_PRICE_MODIFY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY"
+    },
+    {
+     "description": "1688交易付款（买家视角）/1688 transaction payment (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_PAY_1688交易付款（买家视角）/1688 transaction payment (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_PAY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_PAY"
+    },
+    {
+     "description": "1688订单发货（买家视角）/1688 order delivery (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS_1688订单发货（买家视角）/1688 order delivery (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ANNOUNCE_SENDGOODS",
+     "typeName": "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS"
+    },
+    {
+     "description": "1688订单部分发货（买家视角）/Partial delivery of 1688 order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_PART_PART_SENDGOODS_1688订单部分发货（买家视角）/Partial delivery of 1688 order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_PART_PART_SENDGOODS",
+     "typeName": "ORDER_BUYER_VIEW_PART_PART_SENDGOODS"
+    },
+    {
+     "description": "1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS_1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS"
+    },
+    {
+     "description": "1688交易成功（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_SUCCESS_1688交易成功（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_SUCCESS",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_SUCCESS"
+    },
+    {
+     "description": "1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE_1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BUYER_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE"
+    },
+    {
+     "description": "1688运营后台关闭订单（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE_1688运营后台关闭订单（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BOPS_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE"
+    },
+    {
+     "description": "1688订单售中退款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES_1688订单售中退款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES"
+    },
+    {
+     "description": "1688订单售后退款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES_1688订单售后退款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES"
+    },
+    {
+     "description": "1688订单阶段付款（买家视角）",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_STEP_PAY_1688订单阶段付款（买家视角）",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_STEP_PAY",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_STEP_PAY"
+    },
+    {
+     "description": "1688订单批量支付状态同步消息",
+     "fullName": "ORDER_BATCH_PAY_1688订单批量支付状态同步消息",
+     "group": "ORDER",
+     "name": "BATCH_PAY",
+     "typeName": "ORDER_BATCH_PAY"
+    },
+    {
+     "description": "1688卖家关闭订单（买家视角）/seller closing order (buyer view)",
+     "fullName": "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE_1688卖家关闭订单（买家视角）/seller closing order (buyer view)",
+     "group": "ORDER",
+     "name": "BUYER_VIEW_ORDER_SELLER_CLOSE",
+     "typeName": "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE"
+    },
+    {
+     "description": "1688修改订单价格（卖家视角）",
+     "fullName": "ORDER_ORDER_PRICE_MODIFY_1688修改订单价格（卖家视角）",
+     "group": "ORDER",
+     "name": "ORDER_PRICE_MODIFY",
+     "typeName": "ORDER_ORDER_PRICE_MODIFY"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "物流消息",
+   "modules": [
+    {
+     "description": "物流单状态变更（买家视角）",
+     "fullName": "LOGISTICS_BUYER_VIEW_TRACE_物流单状态变更（买家视角）",
+     "group": "LOGISTICS",
+     "name": "BUYER_VIEW_TRACE",
+     "typeName": "LOGISTICS_BUYER_VIEW_TRACE"
+    },
+    {
+     "description": "物流单号修改消息",
+     "fullName": "LOGISTICS_MAIL_NO_CHANGE_物流单号修改消息",
+     "group": "LOGISTICS",
+     "name": "MAIL_NO_CHANGE",
+     "typeName": "LOGISTICS_MAIL_NO_CHANGE"
+    },
+    {
+     "description": "1688跨境物流包裹消息",
+     "fullName": "LOGISTICS_GLOBAL_1688_PACKAGE_CHANGE_1688跨境物流包裹消息",
+     "group": "LOGISTICS",
+     "name": "GLOBAL_1688_PACKAGE_CHANGE",
+     "typeName": "LOGISTICS_GLOBAL_1688_PACKAGE_CHANGE"
+    }
+   ],
+   "onlineModules": [
+    {
+     "description": "物流单状态变更（买家视角）",
+     "fullName": "LOGISTICS_BUYER_VIEW_TRACE_物流单状态变更（买家视角）",
+     "group": "LOGISTICS",
+     "name": "BUYER_VIEW_TRACE",
+     "typeName": "LOGISTICS_BUYER_VIEW_TRACE"
+    },
+    {
+     "description": "物流单号修改消息",
+     "fullName": "LOGISTICS_MAIL_NO_CHANGE_物流单号修改消息",
+     "group": "LOGISTICS",
+     "name": "MAIL_NO_CHANGE",
+     "typeName": "LOGISTICS_MAIL_NO_CHANGE"
+    },
+    {
+     "description": "1688跨境物流包裹消息",
+     "fullName": "LOGISTICS_GLOBAL_1688_PACKAGE_CHANGE_1688跨境物流包裹消息",
+     "group": "LOGISTICS",
+     "name": "GLOBAL_1688_PACKAGE_CHANGE",
+     "typeName": "LOGISTICS_GLOBAL_1688_PACKAGE_CHANGE"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "商品消息",
+   "modules": [
+    {
+     "description": "1688产品下架（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE_1688产品下架（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_EXPIRE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE"
+    },
+    {
+     "description": "1688产品新增或修改（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY_1688产品新增或修改（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY"
+    },
+    {
+     "description": "1688产品删除（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_DELETE_1688产品删除（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_DELETE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_DELETE"
+    },
+    {
+     "description": "1688产品上架（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST_1688产品上架（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_REPOST",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST"
+    },
+    {
+     "description": "1688商品库存变更消息（关系用户视角）",
+     "fullName": "PRODUCT_PRODUCT_INVENTORY_CHANGE_1688商品库存变更消息（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "PRODUCT_INVENTORY_CHANGE",
+     "typeName": "PRODUCT_PRODUCT_INVENTORY_CHANGE"
+    },
+    {
+     "description": "1688产品审核（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT_1688产品审核（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_AUDIT",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT"
+    },
+    {
+     "description": "精选货源商品下架消息",
+     "fullName": "PRODUCT_PFT_OFFER_QUIT_精选货源商品下架消息",
+     "group": "PRODUCT",
+     "name": "PFT_OFFER_QUIT",
+     "typeName": "PRODUCT_PFT_OFFER_QUIT"
+    },
+    {
+     "description": "精选货源商品价格变动消息",
+     "fullName": "PRODUCT_PFT_OFFER_PRICE_MODIFY_精选货源商品价格变动消息",
+     "group": "PRODUCT",
+     "name": "PFT_OFFER_PRICE_MODIFY",
+     "typeName": "PRODUCT_PFT_OFFER_PRICE_MODIFY"
+    },
+    {
+     "description": "一键铺货消息",
+     "fullName": "PRODUCT_PRODUCT_CROSSBOARD_INFORM_一键铺货消息",
+     "group": "PRODUCT",
+     "name": "PRODUCT_CROSSBOARD_INFORM",
+     "typeName": "PRODUCT_PRODUCT_CROSSBOARD_INFORM"
+    },
+    {
+     "description": "商品变更消息(关系用户视角、包含所有商品变更动作)",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_CHANGE_商品变更消息(关系用户视角、包含所有商品变更动作)",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_CHANGE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_CHANGE"
+    },
+    {
+     "description": "分销价格变更",
+     "fullName": "FENXIAO_PRICE_CHANGE_分销价格变更",
+     "group": "FENXIAO",
+     "name": "PRICE_CHANGE",
+     "typeName": "FENXIAO_PRICE_CHANGE"
+    },
+    {
+     "description": "跨境设为货源",
+     "fullName": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY_跨境设为货源",
+     "group": "CROSSBOARD",
+     "name": "CROSSBOARD_ADD_SUPPLY",
+     "typeName": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY"
+    },
+    {
+     "description": "寻源通工作台商品变更信息",
+     "fullName": "CROSSBOARD_XYT_PLATFORM_OFFER_CHANGE_寻源通工作台商品变更信息",
+     "group": "CROSSBOARD",
+     "name": "XYT_PLATFORM_OFFER_CHANGE",
+     "typeName": "CROSSBOARD_XYT_PLATFORM_OFFER_CHANGE"
+    },
+    {
+     "description": "跨境采购助手一键铺货消息",
+     "fullName": "CROSSBOARD_LP_DISTRIBUTION_跨境采购助手一键铺货消息",
+     "group": "CROSSBOARD",
+     "name": "LP_DISTRIBUTION",
+     "typeName": "CROSSBOARD_LP_DISTRIBUTION"
+    }
+   ],
+   "onlineModules": [
+    {
+     "description": "1688产品下架（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE_1688产品下架（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_EXPIRE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE"
+    },
+    {
+     "description": "1688产品新增或修改（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY_1688产品新增或修改（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY"
+    },
+    {
+     "description": "1688产品删除（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_DELETE_1688产品删除（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_DELETE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_DELETE"
+    },
+    {
+     "description": "1688产品上架（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST_1688产品上架（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_REPOST",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST"
+    },
+    {
+     "description": "1688商品库存变更消息（关系用户视角）",
+     "fullName": "PRODUCT_PRODUCT_INVENTORY_CHANGE_1688商品库存变更消息（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "PRODUCT_INVENTORY_CHANGE",
+     "typeName": "PRODUCT_PRODUCT_INVENTORY_CHANGE"
+    },
+    {
+     "description": "1688产品审核（关系用户视角）",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT_1688产品审核（关系用户视角）",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_AUDIT",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT"
+    },
+    {
+     "description": "精选货源商品下架消息",
+     "fullName": "PRODUCT_PFT_OFFER_QUIT_精选货源商品下架消息",
+     "group": "PRODUCT",
+     "name": "PFT_OFFER_QUIT",
+     "typeName": "PRODUCT_PFT_OFFER_QUIT"
+    },
+    {
+     "description": "精选货源商品价格变动消息",
+     "fullName": "PRODUCT_PFT_OFFER_PRICE_MODIFY_精选货源商品价格变动消息",
+     "group": "PRODUCT",
+     "name": "PFT_OFFER_PRICE_MODIFY",
+     "typeName": "PRODUCT_PFT_OFFER_PRICE_MODIFY"
+    },
+    {
+     "description": "一键铺货消息",
+     "fullName": "PRODUCT_PRODUCT_CROSSBOARD_INFORM_一键铺货消息",
+     "group": "PRODUCT",
+     "name": "PRODUCT_CROSSBOARD_INFORM",
+     "typeName": "PRODUCT_PRODUCT_CROSSBOARD_INFORM"
+    },
+    {
+     "description": "商品变更消息(关系用户视角、包含所有商品变更动作)",
+     "fullName": "PRODUCT_RELATION_VIEW_PRODUCT_CHANGE_商品变更消息(关系用户视角、包含所有商品变更动作)",
+     "group": "PRODUCT",
+     "name": "RELATION_VIEW_PRODUCT_CHANGE",
+     "typeName": "PRODUCT_RELATION_VIEW_PRODUCT_CHANGE"
+    },
+    {
+     "description": "分销价格变更",
+     "fullName": "FENXIAO_PRICE_CHANGE_分销价格变更",
+     "group": "FENXIAO",
+     "name": "PRICE_CHANGE",
+     "typeName": "FENXIAO_PRICE_CHANGE"
+    },
+    {
+     "description": "跨境设为货源",
+     "fullName": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY_跨境设为货源",
+     "group": "CROSSBOARD",
+     "name": "CROSSBOARD_ADD_SUPPLY",
+     "typeName": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY"
+    },
+    {
+     "description": "寻源通工作台商品变更信息",
+     "fullName": "CROSSBOARD_XYT_PLATFORM_OFFER_CHANGE_寻源通工作台商品变更信息",
+     "group": "CROSSBOARD",
+     "name": "XYT_PLATFORM_OFFER_CHANGE",
+     "typeName": "CROSSBOARD_XYT_PLATFORM_OFFER_CHANGE"
+    },
+    {
+     "description": "跨境采购助手一键铺货消息",
+     "fullName": "CROSSBOARD_LP_DISTRIBUTION_跨境采购助手一键铺货消息",
+     "group": "CROSSBOARD",
+     "name": "LP_DISTRIBUTION",
+     "typeName": "CROSSBOARD_LP_DISTRIBUTION"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "88生意通",
+   "modules": [
+    {
+     "description": "采购单/合同拒绝消息通知",
+     "fullName": "SYT_CONTRACT_REJECT_采购单/合同拒绝消息通知",
+     "group": "SYT",
+     "name": "CONTRACT_REJECT",
+     "typeName": "SYT_CONTRACT_REJECT"
+    },
+    {
+     "description": "合同/采购单双方支付成功消息通知",
+     "fullName": "SYT_CONTRACT_PAY_SUCCESS_合同/采购单双方支付成功消息通知",
+     "group": "SYT",
+     "name": "CONTRACT_PAY_SUCCESS",
+     "typeName": "SYT_CONTRACT_PAY_SUCCESS"
+    },
+    {
+     "description": "合同或采购单待签署消息",
+     "fullName": "SYT_CONTRACT_WAIT_SIGN_合同或采购单待签署消息",
+     "group": "SYT",
+     "name": "CONTRACT_WAIT_SIGN",
+     "typeName": "SYT_CONTRACT_WAIT_SIGN"
+    },
+    {
+     "description": "合同/采购单双方签署成功通知",
+     "fullName": "SYT_CONTRACT_SIGN_SUCCESS_合同/采购单双方签署成功通知",
+     "group": "SYT",
+     "name": "CONTRACT_SIGN_SUCCESS",
+     "typeName": "SYT_CONTRACT_SIGN_SUCCESS"
+    },
+    {
+     "description": "新增交易存证通知消息",
+     "fullName": "SYT_ADD_CONTRACT_CONTENT_新增交易存证通知消息",
+     "group": "SYT",
+     "name": "ADD_CONTRACT_CONTENT",
+     "typeName": "SYT_ADD_CONTRACT_CONTENT"
+    },
+    {
+     "description": "合同或采购单退款结果消息",
+     "fullName": "SYT_REFUND_FINISH_NOTICE_合同或采购单退款结果消息",
+     "group": "SYT",
+     "name": "REFUND_FINISH_NOTICE",
+     "typeName": "SYT_REFUND_FINISH_NOTICE"
+    }
+   ],
+   "onlineModules": [
+    {
+     "description": "采购单/合同拒绝消息通知",
+     "fullName": "SYT_CONTRACT_REJECT_采购单/合同拒绝消息通知",
+     "group": "SYT",
+     "name": "CONTRACT_REJECT",
+     "typeName": "SYT_CONTRACT_REJECT"
+    },
+    {
+     "description": "合同/采购单双方支付成功消息通知",
+     "fullName": "SYT_CONTRACT_PAY_SUCCESS_合同/采购单双方支付成功消息通知",
+     "group": "SYT",
+     "name": "CONTRACT_PAY_SUCCESS",
+     "typeName": "SYT_CONTRACT_PAY_SUCCESS"
+    },
+    {
+     "description": "合同或采购单待签署消息",
+     "fullName": "SYT_CONTRACT_WAIT_SIGN_合同或采购单待签署消息",
+     "group": "SYT",
+     "name": "CONTRACT_WAIT_SIGN",
+     "typeName": "SYT_CONTRACT_WAIT_SIGN"
+    },
+    {
+     "description": "合同/采购单双方签署成功通知",
+     "fullName": "SYT_CONTRACT_SIGN_SUCCESS_合同/采购单双方签署成功通知",
+     "group": "SYT",
+     "name": "CONTRACT_SIGN_SUCCESS",
+     "typeName": "SYT_CONTRACT_SIGN_SUCCESS"
+    },
+    {
+     "description": "新增交易存证通知消息",
+     "fullName": "SYT_ADD_CONTRACT_CONTENT_新增交易存证通知消息",
+     "group": "SYT",
+     "name": "ADD_CONTRACT_CONTENT",
+     "typeName": "SYT_ADD_CONTRACT_CONTENT"
+    },
+    {
+     "description": "合同或采购单退款结果消息",
+     "fullName": "SYT_REFUND_FINISH_NOTICE_合同或采购单退款结果消息",
+     "group": "SYT",
+     "name": "REFUND_FINISH_NOTICE",
+     "typeName": "SYT_REFUND_FINISH_NOTICE"
+    }
+   ]
+  },
+  {
+   "categoryFamilyName": "询盘",
+   "modules": [
+    {
+     "description": "牛顿云任务执行通知队列",
+     "fullName": "AGENT_NEWTON_CLOUD_TASK_NOTIFY_牛顿云任务执行通知队列",
+     "group": "AGENT",
+     "name": "NEWTON_CLOUD_TASK_NOTIFY",
+     "typeName": "AGENT_NEWTON_CLOUD_TASK_NOTIFY"
+    }
+   ],
+   "onlineModules": [
+    {
+     "description": "牛顿云任务执行通知队列",
+     "fullName": "AGENT_NEWTON_CLOUD_TASK_NOTIFY_牛顿云任务执行通知队列",
+     "group": "AGENT",
+     "name": "NEWTON_CLOUD_TASK_NOTIFY",
+     "typeName": "AGENT_NEWTON_CLOUD_TASK_NOTIFY"
+    }
+   ]
+  }
+ ]
+}

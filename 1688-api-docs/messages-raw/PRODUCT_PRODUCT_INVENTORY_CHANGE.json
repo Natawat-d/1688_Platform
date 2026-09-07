@@ -1,0 +1,85 @@
+{
+ "topicId": "PRODUCT_PRODUCT_INVENTORY_CHANGE",
+ "topicName": "PRODUCT_INVENTORY_CHANGE",
+ "topicDisplayName": "1688商品库存变更消息（关系用户视角）",
+ "topicGroupName": "PRODUCT",
+ "topicGroupDisplayName": "商品消息",
+ "desc": "商品库存变更消息，如下情况会导致触发商品库存变更：商家编辑商品、交易下单、订单关闭，回补库存、小二修改库存、API修改库存。接收某商品库存变更的前提，需先调用关注商品API关注某个商品，然后才能接收该商品库存变更的消息。",
+ "messageDocs": [
+  {
+   "name": "OfferInventoryChangeList",
+   "desc": "库存变更列表",
+   "type": "Object[]",
+   "sample": "",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": [
+    {
+     "name": "offerId",
+     "desc": "1688商品id",
+     "type": "Number",
+     "sample": "1234567890",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "offerOnSale",
+     "desc": "在线可售offer数量",
+     "type": "Number",
+     "sample": "100",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "skuId",
+     "desc": "商品skuId",
+     "type": "Number",
+     "sample": "1234567890",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "skuOnSale",
+     "desc": "在线可售sku数量",
+     "type": "Number",
+     "sample": "20",
+     "required": false,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "quantity",
+     "desc": "该offer整体库存变化数",
+     "type": "Number",
+     "sample": "-10",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    },
+    {
+     "name": "bizTime",
+     "desc": "库存变更时间",
+     "type": "Date",
+     "sample": "1564984329147",
+     "required": true,
+     "privacyLevel": null,
+     "sensitiveLabel": null,
+     "children": null
+    }
+   ]
+  }
+ ],
+ "gmtModify": 1590548688000,
+ "sample": "{&quot;OfferInventoryChangeList&quot;:[{&quot;offerId&quot;:1234567890,&quot;offerOnSale&quot;:100,&quot;skuId&quot;:1234567890,&quot;skuOnSale&quot;:20,&quot;quantity&quot;:-10,&quot;bizTime&quot;:&quot;1564984329147&quot;}]}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

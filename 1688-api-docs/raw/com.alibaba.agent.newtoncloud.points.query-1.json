@@ -1,0 +1,237 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.points.query",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.points.query-1",
+ "displayName": "牛顿云-查询积分详情",
+ "billType": null,
+ "description": "查询当前授权账号的云牛顿积分信息，包括积分总额、已使用积分、可用积分、积分来源、积分到期信息及分页使用明细。用户身份由access_token 自动识别，无需传入 userId。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "pageNo",
+   "type": "Integer",
+   "required": false,
+   "description": "积分消耗明细页码，从 1 开始",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageSize",
+   "type": "Integer",
+   "required": false,
+   "description": "每页记录数量，最大 100",
+   "exampleValue": "20",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "startTime",
+   "type": "String",
+   "required": false,
+   "description": "查询开始时间，格式 yyyy-MM-dd HH:mm:ss",
+   "exampleValue": "2026-08-01 00:00:00",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "endTime",
+   "type": "String",
+   "required": false,
+   "description": "查询结束时间，格式 yyyy-MM-dd HH:mm:ss",
+   "exampleValue": "2026-08-12 23:59:59",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:pointsQueryResponse",
+   "required": true,
+   "description": "牛顿积分查询结果",
+   "exampleValue": "-",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "pointsQueryResponse",
+   "fields": [
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "查询是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "availableCredits",
+     "type": "BigDecimal",
+     "required": true,
+     "description": "当前账户剩余积分",
+     "exampleValue": "12230",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageNo",
+     "type": "Integer",
+     "required": true,
+     "description": "当前页码",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "Integer",
+     "required": true,
+     "description": "每页记录数",
+     "exampleValue": "20",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "total",
+     "type": "Integer",
+     "required": true,
+     "description": "会话总数",
+     "exampleValue": "223",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "records",
+     "type": "message:pointsSessionUsage[]",
+     "required": true,
+     "description": "会话积分消耗记录",
+     "exampleValue": "-",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "pointsSessionUsage[]",
+     "fields": [
+      {
+       "name": "sessionId",
+       "type": "String",
+       "required": true,
+       "description": "牛顿会话 ID",
+       "exampleValue": "session-1234",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sessionName",
+       "type": "String",
+       "required": true,
+       "description": "牛顿会话名称",
+       "exampleValue": "查询商品服务",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "creditsConsumed",
+       "type": "BigDecimal",
+       "required": true,
+       "description": "会话累计消耗积分",
+       "exampleValue": "37.5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "totalTokens",
+       "type": "Long",
+       "required": true,
+       "description": "会话累计消耗 Token 数",
+       "exampleValue": "37500",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "msgInfo",
+     "type": "String",
+     "required": true,
+     "description": "查询失败时的错误说明",
+     "exampleValue": "查询异常！",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "eagleTraceId",
+     "type": "String",
+     "required": true,
+     "description": "请求链路 ID",
+     "exampleValue": "eagletrace1213",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;pageNo&quot;: 1,\n  &quot;pageSize&quot;: 20,\n  &quot;startTime&quot;: &quot;2026-08-01 00:00:00&quot;,\n  &quot;endTime&quot;: &quot;2026-08-12 23:59:59&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;availableCredits&quot;: &quot;12230&quot;,\n    &quot;pageNo&quot;: 1,\n    &quot;pageSize&quot;: 20,\n    &quot;total&quot;: 223,\n    &quot;records&quot;: [\n      {\n        &quot;sessionId&quot;: &quot;session-1234&quot;,\n        &quot;sessionName&quot;: &quot;查询商品服务&quot;,\n        &quot;creditsConsumed&quot;: &quot;37.5&quot;,\n        &quot;totalTokens&quot;: 37500\n      }\n    ],\n    &quot;msgInfo&quot;: &quot;查询异常！&quot;,\n    &quot;eagleTraceId&quot;: &quot;eagletrace1213&quot;\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

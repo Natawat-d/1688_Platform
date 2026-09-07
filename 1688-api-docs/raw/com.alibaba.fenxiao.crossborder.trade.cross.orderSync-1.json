@@ -1,0 +1,328 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "trade.cross.orderSync",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:trade.cross.orderSync-1",
+ "displayName": "下游销售订单同步",
+ "billType": null,
+ "description": "下游销售订单同步",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderParam",
+   "type": "message:com.alibaba.cbu.order.param.OrderParamV",
+   "required": true,
+   "description": "订单详情",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.cbu.order.param.OrderParamV",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "String",
+     "required": true,
+     "description": "订单id",
+     "exampleValue": "1234",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productId",
+     "type": "String",
+     "required": false,
+     "description": "商品id，子单或主子和一订单必填",
+     "exampleValue": "12",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productName",
+     "type": "String",
+     "required": false,
+     "description": "商品名称，子单或主子和一订单必填",
+     "exampleValue": "手套",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "skuId",
+     "type": "String",
+     "required": false,
+     "description": "skuId，子单或主子和一订单必填",
+     "exampleValue": "adsds1213",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "skuName",
+     "type": "String",
+     "required": false,
+     "description": "sku名称，子单或主子和一订单必填",
+     "exampleValue": "绿色",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "buyAmount",
+     "type": "Long",
+     "required": false,
+     "description": "购买数量",
+     "exampleValue": "2",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "createTime",
+     "type": "String",
+     "required": true,
+     "description": "创建时间",
+     "exampleValue": "2023-10-01 10:10:10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outMemberId",
+     "type": "String",
+     "required": true,
+     "description": "下游用户id",
+     "exampleValue": "1212113",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payTime",
+     "type": "String",
+     "required": true,
+     "description": "支付时间",
+     "exampleValue": "2023-10-01 10:10:10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "endTime",
+     "type": "String",
+     "required": false,
+     "description": "完成时间",
+     "exampleValue": "2023-10-01 10:10:10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "paidFee",
+     "type": "Long",
+     "required": true,
+     "description": "实付金额 分",
+     "exampleValue": "200",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundStatus",
+     "type": "String",
+     "required": false,
+     "description": "退款状态 0-未退款（退款关闭，未申请） 1-退款",
+     "exampleValue": "0",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "payed-已支付  success-交易成功 close-交易关闭",
+     "exampleValue": "success",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subOrderParamList",
+     "type": "message:com.alibaba.cbu.order.param.SubOrderParam[]",
+     "required": false,
+     "description": "一主多子需传子单信息",
+     "exampleValue": "子单信息",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.cbu.order.param.SubOrderParam[]",
+     "fields": [
+      {
+       "name": "orderId",
+       "type": "String",
+       "required": true,
+       "description": "子单id",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "productId",
+       "type": "String",
+       "required": true,
+       "description": "1688商品id需明文",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "productName",
+       "type": "String",
+       "required": true,
+       "description": "1688商品名称需明文",
+       "exampleValue": "袜子",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuId",
+       "type": "String",
+       "required": true,
+       "description": "1688skuId需明文",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuName",
+       "type": "String",
+       "required": true,
+       "description": "1688sku名称需明文",
+       "exampleValue": "绿色",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "buyAmount",
+       "type": "Long",
+       "required": true,
+       "description": "子单购买数量",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "paidFee",
+       "type": "Long",
+       "required": true,
+       "description": "实付金额 单位分",
+       "exampleValue": "100",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "refundStatus",
+       "type": "String",
+       "required": true,
+       "description": "退款状态 0-未退款或退款关闭 1-退款",
+       "exampleValue": "0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.out.common.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.out.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "回传数据"
+}

@@ -1,0 +1,153 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.model.list",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.model.list-1",
+ "displayName": "牛顿云-查询可用模型档位列表",
+ "billType": null,
+ "description": "查询牛顿云当前可用的模型档位列表。返回各档位的档位码（id）、展示名称（displayName）等信息，档位码可作为 newtoncloud.task.create 的 model参数取值。无业务入参，仅需 access_token 与签名。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "请求是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "失败时的错误描述",
+   "exampleValue": "查询模型档位列表时发生内部错误，请稍后重试",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "models",
+   "type": "message:model[]",
+   "required": true,
+   "description": "可用模型档位列表。返回内容由平台配置驱动，仅包含对外开放的档位",
+   "exampleValue": "[{&quot;id&quot;:&quot;flagship&quot;,&quot;displayName&quot;:&quot;旗舰&quot;,&quot;isDefault&quot;:false}]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "model[]",
+   "fields": [
+    {
+     "name": "id",
+     "type": "String",
+     "required": true,
+     "description": "档位码，即创建任务（newtoncloud.task.create）时 model 参数的取值",
+     "exampleValue": "flagship",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "displayName",
+     "type": "String",
+     "required": true,
+     "description": "档位展示名称",
+     "exampleValue": "旗舰",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "description",
+     "type": "String",
+     "required": true,
+     "description": "档位描述",
+     "exampleValue": "能力最强",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "recommended",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否推荐档位",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "iconUrl",
+     "type": "String",
+     "required": true,
+     "description": "档位图标地址",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isDefault",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否默认档位",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sortOrder",
+     "type": "Integer",
+     "required": true,
+     "description": "排序权重（升序）",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

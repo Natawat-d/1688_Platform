@@ -1,0 +1,176 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.arbitration.apply",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.arbitration.apply-1",
+ "displayName": "申请交易仲裁",
+ "billType": null,
+ "description": "交易仲裁申请",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.TradeArbitrateApplyParam",
+   "required": true,
+   "description": "申诉参数模型",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.TradeArbitrateApplyParam",
+   "fields": [
+    {
+     "name": "type",
+     "type": "String",
+     "required": true,
+     "description": "投诉类型 RefundComplaint(退款投诉),SafeRefundComplaint（安全退款投诉）,AfterSalesComplaint（售后单投诉）,TradeComplaint(售后订单投诉)",
+     "exampleValue": "RefundComplaint",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "refundId",
+     "type": "String",
+     "required": false,
+     "description": "退货退款单ID，退款投诉时，refundId必填",
+     "exampleValue": "TQ129988192325",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "Long",
+     "required": true,
+     "description": "订单ID",
+     "exampleValue": "3356489569898",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "reasonText",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "申请原因",
+     "exampleValue": "货没收到",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "reasonId",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "申请原因id",
+     "exampleValue": "12",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "picUrlEvidence",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "证据图",
+     "exampleValue": "https://cnd01.1688.com/evidence.png",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.tradearbitrationapplyResultModel",
+   "required": true,
+   "description": "申诉返回模型",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.tradearbitrationapplyResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "申诉单ID",
+     "exampleValue": "3655462545",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

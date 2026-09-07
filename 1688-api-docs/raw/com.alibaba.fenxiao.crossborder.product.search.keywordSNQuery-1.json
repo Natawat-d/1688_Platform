@@ -1,0 +1,230 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.search.keywordSNQuery",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.search.keywordSNQuery-1",
+ "displayName": "多语言搜索导航",
+ "billType": null,
+ "description": "获取多语言关键词搜索导航列表",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "snParams",
+   "type": "message:product.search.keywordSNQuery.KeywordSNQueryParams",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.keywordSNQuery.KeywordSNQueryParams",
+   "fields": [
+    {
+     "name": "keyword",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "搜索关键词",
+     "exampleValue": "skirt",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "语言，如英语en_US，参考【开发人员参考】",
+     "exampleValue": "en_US",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "region",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "地区，如美国US，参考【开发人员参考】",
+     "exampleValue": "US",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "currency",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "币种，如美元USD，参考【开发人员参考】",
+     "exampleValue": "USD",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:product.search.keywordSNQuery.CommonResult",
+   "required": true,
+   "description": "结果",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "product.search.keywordSNQuery.CommonResult",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "调用结果",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "retCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "retMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:product.search.keywordSNQuery.KeywordSNModel[]",
+     "required": true,
+     "description": "实际结果",
+     "exampleValue": "如下",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "product.search.keywordSNQuery.KeywordSNModel[]",
+     "fields": [
+      {
+       "name": "id",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "搜索主导航ID",
+       "exampleValue": "973",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "搜索主导航中文名称",
+       "exampleValue": "风格",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "translateName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "搜索主导航中文名称",
+       "exampleValue": "Style",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "children",
+       "type": "message:product.search.keywordSNQuery.KeywordSubSNModel[]",
+       "required": true,
+       "description": "搜索子导航列表",
+       "exampleValue": "如下",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "product.search.keywordSNQuery.KeywordSubSNModel[]",
+       "fields": [
+        {
+         "name": "id",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "搜索子导航ID",
+         "exampleValue": "973:28105",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "搜索子导航中文名称",
+         "exampleValue": "韩版",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "translateName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "搜索子导航译文名称",
+         "exampleValue": "Korean version",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商品"
+}

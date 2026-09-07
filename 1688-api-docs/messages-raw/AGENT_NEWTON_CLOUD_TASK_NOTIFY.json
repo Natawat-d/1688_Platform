@@ -1,0 +1,104 @@
+{
+ "topicId": "AGENT_NEWTON_CLOUD_TASK_NOTIFY",
+ "topicName": "NEWTON_CLOUD_TASK_NOTIFY",
+ "topicDisplayName": "牛顿云任务执行通知队列",
+ "topicGroupName": "AGENT",
+ "topicGroupDisplayName": "智能体",
+ "desc": "牛顿云任务执行通知队列，用户开启的长程任务状态发生改变后，会往该队列投递消息",
+ "messageDocs": [
+  {
+   "name": "taskId",
+   "desc": "唯一标识任务的UUID",
+   "type": "String",
+   "sample": "0cabd613-7c43-4259-8230-834d7df7cdbf",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sessionId",
+   "desc": "唯一标识会话的UUID",
+   "type": "String",
+   "sample": "f84b407a-c495-49a0-942b-a24c3985ca3f",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "status",
+   "desc": "任务当前状态，例如 END 表示结束",
+   "type": "String",
+   "sample": "END",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "createdAt",
+   "desc": "任务创建的时间戳（ISO 8601格式）",
+   "type": "String",
+   "sample": "2026-06-02T13:17:34.000Z",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "finishedAt",
+   "desc": "任务完成的时间戳（ISO 8601格式）",
+   "type": "String",
+   "sample": "2026-06-02T13:17:38.000Z",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "errorMessage",
+   "desc": "如果任务失败，包含具体的错误描述；成功时为 null",
+   "type": "String",
+   "sample": "用户手动中断",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "stage",
+   "desc": "中间态事件标识，如 WAIT_USER / TOOL_PROGRESS / COMPLEX_TABLE_READY / ERROR；终态通知无此字段\t",
+   "type": "String",
+   "sample": "WAIT_USER",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "stageDetail",
+   "desc": "中间态详情，JSON格式扁平kv（≤256字节）；终态通知无此字段\t",
+   "type": "String",
+   "sample": "{&quot;reason&quot;:&quot;show_interaction&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;}",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "payload",
+   "desc": "中间态负载，JSON 对象序列化（≤1024字节）；终态通知无此字段",
+   "type": "String",
+   "sample": "{&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;,&quot;message&quot;:&quot;请提供搜索关键词&quot;}",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1784103489000,
+ "sample": "{&quot;taskId&quot;:&quot;0cabd613-7c43-4259-8230-834d7df7cdbf&quot;,&quot;sessionId&quot;:&quot;f84b407a-c495-49a0-942b-a24c3985ca3f&quot;,&quot;status&quot;:&quot;END&quot;,&quot;createdAt&quot;:&quot;2026-06-02T13:17:34.000Z&quot;,&quot;finishedAt&quot;:&quot;2026-06-02T13:17:38.000Z&quot;,&quot;errorMessage&quot;:&quot;用户手动中断&quot;,&quot;stage&quot;:&quot;WAIT_USER&quot;,&quot;stageDetail&quot;:&quot;{&quot;reason&quot;:&quot;show_interaction&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;}&quot;,&quot;payload&quot;:&quot;{&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;,&quot;message&quot;:&quot;请提供搜索关键词&quot;}&quot;}",
+ "subscribed": false,
+ "_group": "询盘"
+}

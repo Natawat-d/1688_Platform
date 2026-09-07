@@ -1,0 +1,189 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.invoice.sellerqueryrelatedorders",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.invoice.sellerqueryrelatedorders-1",
+ "displayName": "基于交易单或发票申请单查询合单关联关系",
+ "billType": null,
+ "description": "卖家基于交易单 orderId或发票申请单outbizid查询合单关联关系；\n如果同时传入，以outbizid为准；\n如果查询出不是合并开票，那么mergeInvoice会返回false",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "reqDTO",
+   "type": "message:alibaba.china.app.invoice.common.model.req.QueryMergeInvoiceRelatedOrdersOpenReqDTO",
+   "required": true,
+   "description": "入参",
+   "exampleValue": "入参对象",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.app.invoice.common.model.req.QueryMergeInvoiceRelatedOrdersOpenReqDTO",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "交易单",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "outBizId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "发票申请单唯一键outbizid",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.app.invoice.common.model.SingleResultDTO",
+   "required": true,
+   "description": "出参",
+   "exampleValue": "出参对象",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.app.invoice.common.model.SingleResultDTO",
+   "fields": [
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "大写字母下划线分割",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorDesc",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误原因",
+     "exampleValue": "中文描述",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isRetry",
+     "type": "boolean",
+     "required": true,
+     "description": "是否支持重试",
+     "exampleValue": "false/true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.china.app.invoice.common.model.res.QueryMergeInvoiceRelatedOrdersOpenResDTO",
+     "required": true,
+     "description": "出参",
+     "exampleValue": "出参",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.china.app.invoice.common.model.res.QueryMergeInvoiceRelatedOrdersOpenResDTO",
+     "fields": [
+      {
+       "name": "mergeInvoice",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否是发生了合并开票",
+       "exampleValue": "false/true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderIds",
+       "type": "java.lang.String[]",
+       "required": true,
+       "description": "合并开票关联的所有交易单列表",
+       "exampleValue": "[&quot;xxx&quot;,&quot;xxx&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "outBizId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发票申请单唯一键outbizid",
+       "exampleValue": "xxx",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "服务是否成功",
+     "exampleValue": "false/true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;reqDTO&quot;: {\n    &quot;orderId&quot;: &quot;xxx&quot;,\n    &quot;outBizId&quot;: &quot;xxx&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;errorCode&quot;: &quot;大写字母下划线分割&quot;,\n    &quot;errorDesc&quot;: &quot;中文描述&quot;,\n    &quot;isRetry&quot;: true,\n    &quot;result&quot;: {\n      &quot;mergeInvoice&quot;: true,\n      &quot;orderIds&quot;: [\n        &quot;[\\&quot;xxx\\&quot;,\\&quot;xxx\\&quot;]&quot;\n      ],\n      &quot;outBizId&quot;: &quot;xxx&quot;\n    },\n    &quot;success&quot;: true\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "发票"
+}

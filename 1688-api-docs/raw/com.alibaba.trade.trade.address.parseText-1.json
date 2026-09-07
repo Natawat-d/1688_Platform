@@ -1,0 +1,219 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.address.parseText",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.address.parseText-1",
+ "displayName": "海外地址解析",
+ "billType": null,
+ "description": "海外地址解析",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.global.trade.api.open.order.param.OrderAddressParseParam",
+   "required": true,
+   "description": "入参",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global.trade.api.open.order.param.OrderAddressParseParam",
+   "fields": [
+    {
+     "name": "area",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "区",
+     "exampleValue": "Кокшетау",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "city",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "市",
+     "exampleValue": "Г.Кокшетау",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "国家",
+     "exampleValue": "Казахстан",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "province",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "省",
+     "exampleValue": "Акмолинская область",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.global.trade.api.common.model.ResultModel",
+   "required": true,
+   "description": "结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global.trade.api.common.model.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "返回码",
+     "exampleValue": "PARAM_CAN_NOT_BE_NULL",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "附带信息",
+     "exampleValue": "PARAM_CAN_NOT_BE_NULL",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "data",
+     "type": "message:alibaba.global.trade.api.open.order.model.OrderAddressParseModel",
+     "required": true,
+     "description": "数据",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.global.trade.api.open.order.model.OrderAddressParseModel",
+     "fields": [
+      {
+       "name": "addressCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "末级地址code",
+       "exampleValue": "910800030036000000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "area",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "区",
+       "exampleValue": "Кокшетау",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "city",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "市",
+       "exampleValue": "Г.Кокшетау",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "country",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "国家",
+       "exampleValue": "Казахстан",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "province",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "省",
+       "exampleValue": "Акмолинская область",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;param&quot;: {\n    &quot;area&quot;: &quot;Кокшетау&quot;,\n    &quot;city&quot;: &quot;Г.Кокшетау&quot;,\n    &quot;country&quot;: &quot;Казахстан&quot;,\n    &quot;province&quot;: &quot;Акмолинская область&quot;\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;PARAM_CAN_NOT_BE_NULL&quot;,\n    &quot;message&quot;: &quot;PARAM_CAN_NOT_BE_NULL&quot;,\n    &quot;data&quot;: {\n      &quot;addressCode&quot;: &quot;910800030036000000&quot;,\n      &quot;area&quot;: &quot;Кокшетау&quot;,\n      &quot;city&quot;: &quot;Г.Кокшетау&quot;,\n      &quot;country&quot;: &quot;Казахстан&quot;,\n      &quot;province&quot;: &quot;Акмолинская область&quot;\n    }\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

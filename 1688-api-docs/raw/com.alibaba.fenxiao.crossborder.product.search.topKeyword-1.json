@@ -1,0 +1,168 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "product.search.topKeyword",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:product.search.topKeyword-1",
+ "displayName": "商品热搜词",
+ "billType": null,
+ "description": "商品热搜词",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "topSeKeywordParam",
+   "type": "message:alibaba.cbu.offer.param.TopSeKeywordParam",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.offer.param.TopSeKeywordParam",
+   "fields": [
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "语言，参考开发参考枚举",
+     "exampleValue": "en-英语",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sourceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "查询id，如类目id",
+     "exampleValue": "1-类目id",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "hotKeywordType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "热搜类型，目前只提供类目纬度，此固定传cate",
+     "exampleValue": "cate-类目",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.cbu.offer.model.TopSeKeywordModel[]",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.cbu.offer.model.TopSeKeywordModel[]",
+     "fields": [
+      {
+       "name": "seKeyword",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "中文热词，请用词进行词搜",
+       "exampleValue": "大型宠物犬",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "seKeywordTranslation",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "译文热词，展示使用",
+       "exampleValue": "Large Pet Dog",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "商机"
+}

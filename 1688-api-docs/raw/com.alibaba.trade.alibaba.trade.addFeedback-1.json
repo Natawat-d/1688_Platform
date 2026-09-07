@@ -1,0 +1,203 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.addFeedback",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.addFeedback-1",
+ "displayName": "买家补充订单留言接口",
+ "billType": null,
+ "description": "买家补充订单留言接口，注意留言总长不超500字符",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "tradeFeedbackParam",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.TradeFeedbackParam",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{&quot;feedback&quot;:&quot;test&quot;,&quot;orderId&quot;:&quot;123123213&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.TradeFeedbackParam",
+   "fields": [
+    {
+     "name": "feedback",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "留言",
+     "exampleValue": "留言",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "订单ID",
+     "exampleValue": "12344444555545",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradeFeedbackResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradeFeedbackResult",
+   "fields": [
+    {
+     "name": "errorInfo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "错误描述",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "400_1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "code",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500_2",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": "remote service error",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "false",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "400_1",
+   "desc": "parameter invalid",
+   "howToFix": "检查参数是否有传及参数类型是否符合要求"
+  },
+  {
+   "code": "400_2",
+   "desc": "need authorization",
+   "howToFix": "需要授权登录"
+  },
+  {
+   "code": "500_1",
+   "desc": "invoke remote service error",
+   "howToFix": "调用远程服务异常，请在ISV交流群里咨询技术支持或帮助中心提单"
+  },
+  {
+   "code": "500_2",
+   "desc": "remote service error",
+   "howToFix": "服务异常，请稍后再试，或在ISV交流群里咨询技术支持或帮助中心提单"
+  },
+  {
+   "code": "500_2",
+   "desc": "invalid parameter error",
+   "howToFix": "请求参数无效，请在ISV交流群里咨询技术支持或帮助中心提单"
+  },
+  {
+   "code": "500_2",
+   "desc": "user order not exist error",
+   "howToFix": "订单号对应的订单不是当前授权用户的订单，无权操作"
+  },
+  {
+   "code": "500_2",
+   "desc": "order not exist error",
+   "howToFix": "订单号不存在对应订单，请检查订单号是否正确"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "请求示例",
+   "sample": "{&quot;feedback&quot;:&quot;test&quot;,&quot;orderId&quot;:&quot;159095856057498520&quot;}",
+   "type": "JSON"
+  },
+  {
+   "name": "返回示例",
+   "sample": "{&quot;result&quot;:{&quot;success&quot;:true},&quot;success&quot;:true}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

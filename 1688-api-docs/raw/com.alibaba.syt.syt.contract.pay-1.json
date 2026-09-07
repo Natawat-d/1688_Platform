@@ -1,0 +1,136 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.contract.pay",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.contract.pay-1",
+ "displayName": " 88生意通 买家支付获取收银台 URL",
+ "billType": null,
+ "description": "88生意通解决方案",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractPayApiRequest",
+   "required": true,
+   "description": "支付请求参数",
+   "exampleValue": "{   &quot;draftNo&quot;: &quot;DRAFT20251230001&quot;,   &quot;userId&quot;: &quot;user123456&quot;,   &quot;payChannel&quot;: &quot;ALIPAY&quot;,   &quot;amount&quot;: 100000 }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractPayApiRequest",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合同草稿",
+     "exampleValue": "88SYT20251204069031",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "amount",
+     "type": "BigDecimal",
+     "required": true,
+     "description": "支付金额，单位元，币种人民币 CNY",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractPayApiResponse",
+   "required": true,
+   "description": "响应",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;code&quot;: &quot;200&quot;,   &quot;message&quot;: &quot;获取支付托管账号成功&quot;,   &quot;escrowAccount&quot;: {     &quot;accountNumber&quot;: &quot;6222021234567890123&quot;,     &quot;bankName&quot;: &quot;中国工商银行&quot;,     &quot;bankBranchCode&quot;: &quot;102290000123&quot;   },   &quot;validPayTime&quot;: &quot;2026-01-30 16:49:00&quot;,   &quot;payOrderNo&quot;: &quot;PAY20251230001&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractPayApiResponse",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cashierUrl",
+     "type": "String",
+     "required": true,
+     "description": "收银台 url",
+     "exampleValue": "https://syt.1688.com/page/SYT/buyer-cashier?draftNo=88SYT20260x",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

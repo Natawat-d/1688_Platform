@@ -1,0 +1,174 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "consignment.tally.create",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:consignment.tally.create-1",
+ "displayName": "仓库创建差异理货单",
+ "billType": null,
+ "description": "Buffalo仓库创建差异理货单",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "bizInboundOrderId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "入库单id",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "status",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "tallysheet",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "processTime",
+   "type": "java.lang.Long",
+   "required": true,
+   "description": "时间戳",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "tallySheetId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "仓库差异单id",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "tallySheetReason",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "理货差异原因",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "inboundCount",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "入库数量",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "varianceCount",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "差异数量",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.national.common.result.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.national.common.result.ResultModel",
+   "fields": [
+    {
+     "name": "msg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "参数为空",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "traceId",
+     "exampleValue": "111111",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "true/false",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "model",
+     "type": "java.lang.Object",
+     "required": true,
+     "description": "null",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "全托管"
+}

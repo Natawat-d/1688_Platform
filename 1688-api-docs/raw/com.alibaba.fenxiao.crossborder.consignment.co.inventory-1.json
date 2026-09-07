@@ -1,0 +1,144 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "consignment.co.inventory",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:consignment.co.inventory-1",
+ "displayName": "仓库商品库存更新",
+ "billType": null,
+ "description": "仓库商品库存更新",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "bizSkuId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "外部skuId",
+   "exampleValue": "12212122",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sourceItemId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "仓库货品id",
+   "exampleValue": "12312323123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "outboundQuantity",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "出库数量",
+   "exampleValue": "12",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "bizId",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "业务id，用来保证库存扣减幂等",
+   "exampleValue": "12321312",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.national.common.result.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.national.common.result.ResultModel",
+   "fields": [
+    {
+     "name": "msg",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "信息",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "链路id",
+     "exampleValue": "12312312313",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "成功/失败",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "model",
+     "type": "java.lang.Object",
+     "required": true,
+     "description": "返回结果",
+     "exampleValue": "null",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "全托管"
+}

@@ -1,0 +1,149 @@
+.group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.seller {
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.sellerMeta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.issues {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4) 0;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-bottom: 1px solid var(--border);
+}
+.line:last-child {
+  border-bottom: 0;
+}
+
+.thumbLink {
+  flex: 0 0 auto;
+}
+
+.thumb,
+.thumbPlaceholder {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--r);
+  object-fit: cover;
+  background: var(--surface-2);
+  display: block;
+}
+
+.lineBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lineTitle {
+  font-size: var(--fs-sm);
+  color: var(--text);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lineTitle:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.skuLabel {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.lineIssue {
+  font-size: var(--fs-xs);
+  color: var(--danger);
+}
+
+.breakdownSlot {
+  margin-top: var(--s2);
+  max-width: 460px;
+}
+
+.lineMoney {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .line {
+    padding: var(--s3);
+    flex-wrap: wrap;
+  }
+  .thumb,
+  .thumbPlaceholder {
+    width: 60px;
+    height: 60px;
+  }
+  .lineMoney {
+    width: 100%;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px dashed var(--border);
+    padding-top: var(--s2);
+  }
+  .breakdownSlot {
+    max-width: none;
+  }
+}

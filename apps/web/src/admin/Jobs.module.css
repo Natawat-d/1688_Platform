@@ -1,0 +1,31 @@
+.switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  align-self: flex-start;
+}
+
+.switchTab {
+  padding: 5px 12px;
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.switchTab:hover {
+  color: var(--text);
+}
+
+.switchActive {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}

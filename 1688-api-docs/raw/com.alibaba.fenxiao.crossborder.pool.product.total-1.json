@@ -1,0 +1,144 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "pool.product.total",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:pool.product.total-1",
+ "displayName": "查询商品池中商品总数",
+ "billType": null,
+ "description": "查询商品池中商品总数",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "appKey",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "appKey",
+   "exampleValue": "123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "palletId",
+   "type": "java.lang.Long",
+   "required": true,
+   "description": "palletId",
+   "exampleValue": "123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "categoryId",
+   "type": "java.lang.String",
+   "required": false,
+   "description": "categoryId",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.national.pool.product.total.new.ResultModel",
+   "required": true,
+   "description": "结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.national.pool.product.total.new.ResultModel",
+   "fields": [
+    {
+     "name": "msg",
+     "type": "String",
+     "required": true,
+     "description": "msg",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "String",
+     "required": true,
+     "description": "code",
+     "exampleValue": "001",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "traceId",
+     "exampleValue": "12121212333443212sada",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "String",
+     "required": true,
+     "description": "请求是否成功标志",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "model",
+     "type": "Long",
+     "required": true,
+     "description": "总数",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "工具"
+}

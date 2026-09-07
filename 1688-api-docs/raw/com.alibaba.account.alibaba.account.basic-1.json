@@ -1,0 +1,549 @@
+{
+ "namespace": "com.alibaba.account",
+ "name": "alibaba.account.basic",
+ "version": 1,
+ "oceanApiId": "com.alibaba.account:alibaba.account.basic-1",
+ "displayName": "获取授权用户的基本信息",
+ "billType": null,
+ "description": "获取授权用户的基本信息",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.account.simpleAccountInfo",
+   "required": true,
+   "description": "会员信息",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.account.simpleAccountInfo",
+   "fields": [
+    {
+     "name": "loginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "登录名",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "saleRate",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "卖家等级",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "maturity",
+     "type": "int",
+     "required": true,
+     "description": "会员成熟度",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "备注",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "modifyDate",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "修改日期",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "主营行业的类目名称",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "trustScore",
+     "type": "int",
+     "required": true,
+     "description": "诚信通指数",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "userId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "用户ID",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "enterpriseAccount",
+     "type": "boolean",
+     "required": true,
+     "description": "是否是公司会员",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "createDate",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "创建时间",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "communityLevel",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "贸易通用户标识",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "joinFrom",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "注册来源",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "rateNum",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "买家的信用分值(淘宝)",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "gmtPaidJoin",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "诚信通加入时间",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "buyRate",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "买家等级",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryId",
+     "type": "int",
+     "required": true,
+     "description": "主营行业的类目id",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "公司名",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "personAccount",
+     "type": "boolean",
+     "required": true,
+     "description": "是否是个人账号",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "homepageUrl",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "公司主页",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "saleKeywords",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "出售关键字",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "tpYear",
+     "type": "int",
+     "required": true,
+     "description": "诚信通年限",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "buyKeywords",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "求购关键字",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memberBizType",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "业务类型\n 企业单位 ENTERPRISE(&quot;5&quot;),\n个体经营 SELF_EMPLOYED(&quot;6&quot;),\n 事业单位或社会团体 ORGANIZATION(&quot;7&quot;),\n 个人 PERSONAL(&quot;8&quot;);",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "rateSum",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "卖家的信用分值(淘宝)",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "domainInPlatforms",
+     "type": "String[]",
+     "required": true,
+     "description": "1688上店铺地址",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "memberId",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "shopUrl",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "旺铺首页地址",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "supplierName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "供应商名称",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "icon",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "用户头像",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "phoneNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "固定电话",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "industry",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "主营行业",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "product",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "主营产品",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "department",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "部门",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobileNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "业务联系手机（会员基本信息中编辑）\t\n业务联系手机",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "addressLocation",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "联系地址",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "email",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "业务联系邮箱",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sellerName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "卖家名称",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "kuaJingBao",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否跨境宝",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "crossBorder",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否跨境宝",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isPm",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否实商",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pm",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否实商",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fm",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否找工厂商家",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isOfficalLogistics",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否支持官方物流",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "子账号状态",
+     "exampleValue": "enabled",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "openUid",
+     "type": "String",
+     "required": true,
+     "description": "开放平台加密用户Id",
+     "exampleValue": "sE542234KSls4KSfsthjST",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;loginId&quot;: &quot;alitestforisv01&quot;,\n    &quot;maturity&quot;: 0,\n    &quot;categoryName&quot;: &quot;女装&quot;,\n    &quot;trustScore&quot;: 0,\n    &quot;userId&quot;: 1623492085,\n    &quot;enterpriseAccount&quot;: true,\n    &quot;createDate&quot;: &quot;20130312160828000+0800&quot;,\n    &quot;joinFrom&quot;: &quot;CJ_COMMON_JOIN_M&quot;,\n    &quot;rateNum&quot;: 0,\n    &quot;gmtPaidJoin&quot;: &quot;20170502000942000+0800&quot;,\n    &quot;buyRate&quot;: 3,\n    &quot;categoryId&quot;: 10166,\n    &quot;companyName&quot;: &quot;AOP对外测试账号01&quot;,\n    &quot;personAccount&quot;: false,\n    &quot;saleKeywords&quot;: &quot;女装,男装,女鞋,衬衫&quot;,\n    &quot;tpYear&quot;: 0,\n    &quot;buyKeywords&quot;: &quot;男装,女装,女鞋&quot;,\n    &quot;memberBizType&quot;: &quot;PERSONAL&quot;,\n    &quot;rateSum&quot;: 0,\n    &quot;memberId&quot;: &quot;b2b-1623492085&quot;,\n    &quot;supplierName&quot;: &quot;AOP对外测试账号01&quot;,\n    &quot;icon&quot;: &quot;/cms/upload/2011/116/401/104611_1301427272.png&quot;,\n    &quot;fm&quot;: false\n  }\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "会员"
+}

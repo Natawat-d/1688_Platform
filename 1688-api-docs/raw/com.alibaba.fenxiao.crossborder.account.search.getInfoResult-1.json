@@ -1,0 +1,333 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "account.search.getInfoResult",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:account.search.getInfoResult-1",
+ "displayName": "查询AI找商任务执行结果",
+ "billType": null,
+ "description": "查询AI找商任务执行结果",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.global1688.common.request.SpApiExecuteStatusRequest",
+   "required": true,
+   "description": "请求参数",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global1688.common.request.SpApiExecuteStatusRequest",
+   "fields": [
+    {
+     "name": "taskId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "任务ID, 通过任务执行 API 返回值获取",
+     "exampleValue": "taskIdxxxxxxxxxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.global1688.common.response.ApiSpExecuteTaskResult",
+   "required": true,
+   "description": "返回值",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global1688.common.response.ApiSpExecuteTaskResult",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否执行成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.global1688.common.response.SpExecuteTask",
+     "required": true,
+     "description": "AI找商任务运行情况",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.global1688.common.response.SpExecuteTask",
+     "fields": [
+      {
+       "name": "status",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "任务执行状态, 返回值有两种状态, 分别是 RUNNING - 运行中 和 FINISHED - 已完成",
+       "exampleValue": "RUNNING",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "providerList",
+       "type": "message:alibaba.global1688.common.response.ProviderApiResult[]",
+       "required": true,
+       "description": "AI找商结果",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.common.response.ProviderApiResult[]",
+       "fields": [
+        {
+         "name": "companyName",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "公司名称",
+         "exampleValue": "xxxxx工厂",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "factoryUrl",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "工厂 1688 链接",
+         "exampleValue": "https://xxxx",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "businessModel",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "经营模式, 返回有 factory - 源头工厂 和 trading - 贸易商",
+         "exampleValue": "factory",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "establishedYears",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "公司成立年限",
+         "exampleValue": "8",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "repeatPurchaseRate",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "近 90 天回头率, 返回 [0, 100]",
+         "exampleValue": "90",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "supportCustomization",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "是否支持加工定制",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "afterSalesScore",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "售后体验分",
+         "exampleValue": "4.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "productQualityScore",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "商品体验分",
+         "exampleValue": "4.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "consultationResponseScore",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "咨询体验分",
+         "exampleValue": "4.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "logisticsTimelinessScore",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "物流体验分",
+         "exampleValue": "4.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "itemList",
+         "type": "message:alibaba.global1688.common.response.ItemApiInfo[]",
+         "required": true,
+         "description": "推荐商品",
+         "exampleValue": "[]",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.global1688.common.response.ItemApiInfo[]",
+         "fields": [
+          {
+           "name": "title",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "商品标题",
+           "exampleValue": "毛巾",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "itemId",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "商品ID",
+           "exampleValue": "11111111",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "itemPrice",
+           "type": "java.lang.Double",
+           "required": true,
+           "description": "商品价格",
+           "exampleValue": "10.5",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "imageUrl",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "商品图片链接",
+           "exampleValue": "https://xxxxxx",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "totalOnlineSales1y",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "近一年全网销量",
+           "exampleValue": "600",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "itemSales1y",
+           "type": "java.lang.Long",
+           "required": true,
+           "description": "当前商品近一年销量",
+           "exampleValue": "50",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "状态码",
+     "exampleValue": "SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "error_msg_xxxxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n    &quot;taskId&quot;: &quot;52aa3fb35b494e15a93086f981968907&quot;\n}",
+   "type": "TEXT"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n    &quot;result&quot;: {\n        &quot;status&quot;: &quot;FINISHED&quot;,\n        &quot;providerList&quot;: [\n            {\n                &quot;factoryUrl&quot;: &quot;https://xxxxxxx&quot;,\n                &quot;businessModel&quot;: &quot;factory&quot;,\n                &quot;productQualityScore&quot;: 5,\n                &quot;companyName&quot;: &quot;xxxxxxx服饰有限公司&quot;,\n                &quot;repeatPurchaseRate&quot;: 100,\n                &quot;itemList&quot;: [\n                    {\n                        &quot;itemSales1y&quot;: 100,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxxxx连衣裙&quot;\n                    },\n                    {\n                        &quot;itemSales1y&quot;: 10,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxxx连衣裙&quot;\n                    },\n                    {\n                        &quot;itemSales1y&quot;: 9,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 9999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxxxx连体裤&quot;\n                    }\n                ],\n                &quot;establishedYears&quot;: 17,\n                &quot;supportCustomization&quot;: true,\n                &quot;consultationResponseScore&quot;: 4,\n                &quot;afterSalesScore&quot;: 5,\n                &quot;logisticsTimelinessScore&quot;: 5\n            },\n            {\n                &quot;factoryUrl&quot;: &quot;https://xxxxxxx&quot;,\n                &quot;businessModel&quot;: &quot;trading&quot;,\n                &quot;productQualityScore&quot;: 4.33,\n                &quot;companyName&quot;: &quot;xxxxxxx经贸有限公司&quot;,\n                &quot;repeatPurchaseRate&quot;: 100,\n                &quot;itemList&quot;: [\n                    {\n                        &quot;itemSales1y&quot;: 888,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 9999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxx连衣裙&quot;\n                    },\n                    {\n                        &quot;itemSales1y&quot;: 888,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 9999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxxxx连衣裙&quot;\n                    },\n                    {\n                        &quot;itemSales1y&quot;: 888,\n                        &quot;itemId&quot;: 100000,\n                        &quot;totalOnlineSales1y&quot;: 9999,\n                        &quot;imageUrl&quot;: &quot;https://xxxxxxx&quot;,\n                        &quot;title&quot;: &quot;xxxxxxx连衣裙&quot;\n                    }\n                ],\n                &quot;establishedYears&quot;: 15,\n                &quot;supportCustomization&quot;: false,\n                &quot;consultationResponseScore&quot;: 4,\n                &quot;afterSalesScore&quot;: 4.67,\n                &quot;logisticsTimelinessScore&quot;: 3.86\n            }\n        ]\n    },\n    &quot;code&quot;: &quot;SUCCESS&quot;,\n    &quot;success&quot;: true\n}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商家"
+}

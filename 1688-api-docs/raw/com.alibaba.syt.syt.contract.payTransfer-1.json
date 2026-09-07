@@ -1,0 +1,372 @@
+{
+ "namespace": "com.alibaba.syt",
+ "name": "syt.contract.payTransfer",
+ "version": 1,
+ "oceanApiId": "com.alibaba.syt:syt.contract.payTransfer-1",
+ "displayName": "88生意通万里汇转账支付-仅支持万里汇B2C账号",
+ "billType": null,
+ "description": "88生意通支付转账接口",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "request",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.request.ContractPayTransferApiRequest",
+   "required": true,
+   "description": "请求入参",
+   "exampleValue": "{   &quot;draftNo&quot;: &quot;DRAFT20251230001&quot;,   &quot;userId&quot;: &quot;user123456&quot;,   &quot;payOrderNo&quot;: &quot;PAY20251230001&quot;,   &quot;escrowAccount&quot;: {     &quot;accountNumber&quot;: &quot;6222021234567890123&quot;,     &quot;bankName&quot;: &quot;中国工商银行&quot;,     &quot;bankBranchCode&quot;: &quot;102290000123&quot;   },   &quot;transferToAmount&quot;: 100000,   &quot;transferFromCurrency&quot;: &quot;USD&quot;,   &quot;transferFundChannel&quot;: &quot;WORLDFIRST&quot;,   &quot;transferFundChannelConfig&quot;: {     &quot;channelCode&quot;: &quot;WF_USD&quot;,     &quot;accountType&quot;: &quot;BUSINESS&quot;   } }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.request.ContractPayTransferApiRequest",
+   "fields": [
+    {
+     "name": "draftNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "合同起草号",
+     "exampleValue": "88SYT20251204069031",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payOrderNo",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "支付单号",
+     "exampleValue": "88999xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "escrowAccount",
+     "type": "message:alibaba.cbu.institution.platform.api.common.dto.account.BankAccount",
+     "required": true,
+     "description": "转入的资金托管账户",
+     "exampleValue": "{   &quot;accountName&quot;: &quot;张三&quot;,   &quot;accountNo&quot;: &quot;6228765030160001109&quot;,   &quot;bankName&quot;: &quot;江苏银行股份有限公司&quot; }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.cbu.institution.platform.api.common.dto.account.BankAccount",
+     "fields": [
+      {
+       "name": "cardHolderType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人类型，企业 COMPANY 还是个人 PERSON",
+       "exampleValue": "COMPANY",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "accountNumber",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人账号",
+       "exampleValue": "6228765030160001109",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "holder",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人姓名",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "transferToAmount",
+     "type": "BigDecimal",
+     "required": true,
+     "description": "转入资金金额，等于合同金额，单位元，币种人民币 CNY",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferFromCurrency",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "转出币种，美元 USD",
+     "exampleValue": "USD",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferFundChannel",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "资金渠道，规定值",
+     "exampleValue": "WORLD_FIRST",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferFundChannelConfig",
+     "type": "message:com.alibaba.china.share.creditpay.gateway.api.dto.ApiWfTransferFundChannelConfig",
+     "required": true,
+     "description": "万里汇客户配置",
+     "exampleValue": "{&quot;clientId&quot;:&quot;xxx&quot;,&quot;customerId&quot;:&quot;万里汇客户 ID&quot;}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.china.share.creditpay.gateway.api.dto.ApiWfTransferFundChannelConfig",
+     "fields": [
+      {
+       "name": "clientId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "万里汇客户 ID",
+       "exampleValue": "11",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "customerId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "万里汇客户 ID",
+       "exampleValue": "11",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "privateKeyCiphertext",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "万里汇客户 密钥密文",
+       "exampleValue": "11",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "privateKeyVersion",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "万里汇客户 密钥版本",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.china.share.creditpay.gateway.api.response.ContractPayTransferApiResponse",
+   "required": true,
+   "description": "响应结果",
+   "exampleValue": "{   &quot;success&quot;: true,   &quot;code&quot;: &quot;200&quot;,   &quot;message&quot;: &quot;转账成功&quot;,   &quot;escrowAccount&quot;: {     &quot;accountNumber&quot;: &quot;6222021234567890123&quot;,     &quot;bankName&quot;: &quot;中国工商银行&quot;,     &quot;bankBranchCode&quot;: &quot;102290000123&quot;   },   &quot;transferToCurrency&quot;: &quot;CNY&quot;,   &quot;transferToAmount&quot;: 100000,   &quot;transferFromAmount&quot;: 13850,   &quot;transferFromCurrency&quot;: &quot;USD&quot;,   &quot;quotePrice&quot;: 7.22,   &quot;feeAmount&quot;: 50,   &quot;feeCurrency&quot;: &quot;USD&quot; }",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.china.share.creditpay.gateway.api.response.ContractPayTransferApiResponse",
+   "fields": [
+    {
+     "name": "escrowAccount",
+     "type": "message:alibaba.cbu.institution.platform.api.common.dto.account.BankAccount",
+     "required": true,
+     "description": "资金转入账户信息",
+     "exampleValue": "{   &quot;accountName&quot;: &quot;张三&quot;,   &quot;accountNo&quot;: &quot;6228765030160001109&quot;,   &quot;bankName&quot;: &quot;江苏银行股份有限公司&quot; }",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.cbu.institution.platform.api.common.dto.account.BankAccount",
+     "fields": [
+      {
+       "name": "cardHolderType",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人类型，企业 COMPANY 还是个人 PERSON",
+       "exampleValue": "COMPANY",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "accountNumber",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人账号",
+       "exampleValue": "6228765030160001109",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "holder",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收款人姓名",
+       "exampleValue": "张三",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "transferToCurrency",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "目标币种",
+     "exampleValue": "CNY",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferToAmount",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "目标金额，合同金额，单位分",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferFromAmount",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "转出金额，单位美分，USD",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "transferFromCurrency",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "支付币种",
+     "exampleValue": "USD",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "quotePrice",
+     "type": "java.math.BigDecimal",
+     "required": true,
+     "description": " 汇率",
+     "exampleValue": "6.89",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "feeAmount",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "费用金额，单位美分",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "feeCurrency",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "费用币种",
+     "exampleValue": "USD",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "String",
+     "required": true,
+     "description": "调用是否成功，true 成功，false 失败",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorCode",
+     "type": "String",
+     "required": true,
+     "description": "调用 code",
+     "exampleValue": " SUCCESS",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorMsg",
+     "type": "String",
+     "required": true,
+     "description": " 调用结果描述",
+     "exampleValue": "调用成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "traceId",
+     "type": "String",
+     "required": true,
+     "description": "traceId，排查问题",
+     "exampleValue": "1122",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "88生意通"
+}

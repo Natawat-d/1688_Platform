@@ -1,0 +1,132 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.task.kill",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.task.kill-1",
+ "displayName": "牛顿云-终止任务",
+ "billType": null,
+ "description": "终止指定 taskId 的任务，标记 KILL 状态，返回 killed\n",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "业务侧生成的任务维度id，一个任务id一定归属于一个对话id",
+   "exampleValue": "009e1847-d652-4fa1-be5e-346b9b09ac3",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "reason",
+   "type": "String",
+   "required": true,
+   "description": "终止任务原因，仅作数据记录",
+   "exampleValue": "测试收集样例，主动终止",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "接口是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": true,
+   "description": "业务侧生成的任务维度id，一个任务id一定归属于一个对话id",
+   "exampleValue": "009e1847-d652-4fa1-be5e-346b9b09ac38",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "killed",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否终止成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "任务失败描述",
+   "exampleValue": "系统内部异常",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eagleTraceId",
+   "type": "String",
+   "required": true,
+   "description": "请求唯一ID ，eagleTraceId用于链路排查",
+   "exampleValue": "2146a21517799488479778174e1539",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "终止结果说明。排队中任务被取消时返回「排队中的任务已取消」，运行中任务被中断时返回「任务已终止」，失败时返回原因\t",
+   "exampleValue": "排队中的任务已取消\t",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

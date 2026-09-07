@@ -1,0 +1,54 @@
+{
+ "topicId": "SYT_CONTRACT_PAY_SUCCESS",
+ "topicName": "CONTRACT_PAY_SUCCESS",
+ "topicDisplayName": "合同/采购单双方支付成功消息通知",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "合同/采购单双方支付成功消息通知",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号或采购单号",
+   "type": "String",
+   "sample": "88SYT20230113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "contractCurrentStatus",
+   "desc": "合同或采购单当前状态",
+   "type": "String",
+   "sample": "PAID",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_PAY_SUCCESS_EVENT",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "payChannel",
+   "desc": "买家支付渠道",
+   "type": "String",
+   "sample": "BANK_TRANSFER",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1778638271000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;PAID&quot;,&quot;eventType&quot;:&quot;CONTRACT_PAY_SUCCESS_EVENT&quot;,&quot;payChannel&quot;:&quot;BANK_TRANSFER&quot;}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

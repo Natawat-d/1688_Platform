@@ -1,0 +1,113 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.imageBox {
+  aspect-ratio: 1 / 1;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--s3);
+  flex: 1;
+}
+
+.title {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.link {
+  color: var(--text);
+}
+.link:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+/* Full-card hit target. */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Clamp to two lines so every card in a row is the same height. */
+.title .link {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: var(--s2);
+}
+
+.per {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.meta {
+  display: flex;
+  gap: var(--s3);
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.meta > div {
+  display: flex;
+  gap: 4px;
+}
+.meta dt {
+  color: var(--text-faint);
+}
+.meta dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.seller {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
+  margin-top: 2px;
+}

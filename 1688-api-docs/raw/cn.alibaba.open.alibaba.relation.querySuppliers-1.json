@@ -1,0 +1,222 @@
+{
+ "namespace": "cn.alibaba.open",
+ "name": "alibaba.relation.querySuppliers",
+ "version": 1,
+ "oceanApiId": "cn.alibaba.open:alibaba.relation.querySuppliers-1",
+ "displayName": "【关系】分销商-查询供应商列表",
+ "billType": null,
+ "description": "通过分销商 userID 获取 供应商列表",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "supplierLoginId",
+   "type": "String",
+   "required": false,
+   "description": "供应商登录ID，指定该参数可以查询授权用户与指定供应商的分销关系",
+   "exampleValue": "李定国",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "currentPage",
+   "type": "Integer",
+   "required": false,
+   "description": "当前页码",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageSize",
+   "type": "Integer",
+   "required": false,
+   "description": "每页多少个",
+   "exampleValue": "10",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.relation.suppliers-result",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.relation.suppliers-result",
+   "fields": [
+    {
+     "name": "count",
+     "type": "Integer",
+     "required": true,
+     "description": "总共项数",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "currentPage",
+     "type": "Integer",
+     "required": true,
+     "description": "当前页码",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "Integer",
+     "required": true,
+     "description": "每页多少个",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "relationModels",
+     "type": "message:alibaba.relation.supplierModel[]",
+     "required": true,
+     "description": "结果集合",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.relation.supplierModel[]",
+     "fields": [
+      {
+       "name": "consignStatus",
+       "type": "String",
+       "required": true,
+       "description": "合作状态",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "consignCreateTime",
+       "type": "Long",
+       "required": true,
+       "description": "代销合作创建时间",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplierLoginId",
+       "type": "String",
+       "required": true,
+       "description": "供应商登录Id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplierCompany",
+       "type": "String",
+       "required": true,
+       "description": "供应商公司名称",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "lastOrder",
+       "type": "Long",
+       "required": true,
+       "description": "近180交易订单",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "lastAmount",
+       "type": "Long",
+       "required": true,
+       "description": "近180交易金额（分）",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "distributionNum",
+       "type": "Integer",
+       "required": true,
+       "description": "已铺货数量",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "memberId",
+       "type": "String",
+       "required": true,
+       "description": "会员memberId",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "正确访问输出示例",
+   "sample": "{\n  &quot;relationModels&quot;: [\n    {\n      &quot;supplierLoginId&quot;: &quot;yqq001&quot;,\n      &quot;supplierId&quot;: 3636630767,\n      &quot;lastOrder&quot;: 0,\n      &quot;supplierCompany&quot;: &quot;中国A&V有限公司&quot;,\n      &quot;distributionNum&quot;: 56,\n      &quot;consignCreateTime&quot;: &quot;2016-04-07 11:48:15&quot;,\n      &quot;lastAmount&quot;: 0,\n      &quot;consignStatus&quot;: &quot;aborting&quot;\n    },\n    {\n      &quot;supplierLoginId&quot;: &quot;panzeyitest18&quot;,\n      &quot;supplierId&quot;: 3687900876,\n      &quot;lastOrder&quot;: 0,\n      &quot;supplierCompany&quot;: &quot;上海大凤姐有限公司&quot;,\n      &quot;distributionNum&quot;: 47,\n      &quot;consignCreateTime&quot;: &quot;2015-12-02 17:42:47&quot;,\n      &quot;lastAmount&quot;: 0,\n      &quot;consignStatus&quot;: &quot;normal&quot;\n    },\n    {\n      &quot;supplierLoginId&quot;: &quot;chaoqiang002&quot;,\n      &quot;supplierId&quot;: 3680118905,\n      &quot;lastOrder&quot;: 0,\n      &quot;supplierCompany&quot;: &quot;上海大凤姐有限公司&quot;,\n      &quot;distributionNum&quot;: 2,\n      &quot;consignCreateTime&quot;: &quot;2015-08-26 16:18:45&quot;,\n      &quot;lastAmount&quot;: 0,\n      &quot;consignStatus&quot;: &quot;normal&quot;\n    },\n    {\n      &quot;supplierLoginId&quot;: &quot;鹿丹企业账户03&quot;,\n      &quot;supplierId&quot;: 3611768146,\n      &quot;lastOrder&quot;: 0,\n      &quot;supplierCompany&quot;: &quot;中国A&V有限公司&quot;,\n      &quot;distributionNum&quot;: 0,\n      &quot;consignCreateTime&quot;: &quot;2014-08-13 21:02:41&quot;,\n      &quot;lastAmount&quot;: 0,\n      &quot;consignStatus&quot;: &quot;normal&quot;\n    }\n  ],\n  &quot;count&quot;: 4,\n  &quot;pageSize&quot;: 10,\n  &quot;currentPage&quot;: 1\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

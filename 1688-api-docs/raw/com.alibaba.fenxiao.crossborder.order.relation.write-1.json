@@ -1,0 +1,157 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "order.relation.write",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:order.relation.write-1",
+ "displayName": "回传机构真实用户订单和1688订单的映射关系",
+ "billType": null,
+ "description": "将机构真实用户的订单和机构账号产生的1688订单的映射关系回传1688。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderRelationParam",
+   "type": "message:alibaba.cbu.order.param.OrderRelationParam",
+   "required": true,
+   "description": "订单关系参数",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.order.param.OrderRelationParam",
+   "fields": [
+    {
+     "name": "orderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "外部机构子订单ID",
+     "exampleValue": "4590347523948375",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "parentOrderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "外部机构主订单ID",
+     "exampleValue": "4590347523948370",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "purchaseOrderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "1688采购子订单ID",
+     "exampleValue": "3209572465452734",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "purchaseParentOrderId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "1688采购子订单ID",
+     "exampleValue": "3209572465452730",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openapi.shared.common.ResultModel",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "如下",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openapi.shared.common.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "0",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "无",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参",
+   "sample": "{\n    &quot;orderId&quot;: &quot;234325234234542324&quot;,\n    &quot;parentOrderId&quot;: &quot;234325234234542320&quot;,\n    &quot;purchaseOrderId&quot;: &quot;2352424230582342934&quot;,\n    &quot;purchaseParentOrderId&quot;: &quot;2352424230582342930&quot;\n}",
+   "type": "TEXT"
+  },
+  {
+   "name": "结果",
+   "sample": "{\n    &quot;success&quot;: true,\n    &quot;code&quot;: &quot;0&quot;,\n    &quot;message&quot;: &quot;&quot;\n}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "回传数据"
+}

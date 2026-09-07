@@ -1,0 +1,44 @@
+{
+ "topicId": "PRODUCT_PFT_OFFER_QUIT",
+ "topicName": "PFT_OFFER_QUIT",
+ "topicDisplayName": "精选货源商品下架消息",
+ "topicGroupName": "PRODUCT",
+ "topicGroupDisplayName": "商品消息",
+ "desc": "精选货源商品下架消息",
+ "messageDocs": [
+  {
+   "name": "offerId",
+   "desc": "产品id",
+   "type": "Number",
+   "sample": "662112483578",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "type",
+   "desc": "团类型",
+   "type": "String",
+   "sample": "single_direct",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "openUid",
+   "desc": "offer所属商家openUid",
+   "type": "String",
+   "sample": "1117283046",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1687339939000,
+ "sample": "{&quot;offerId&quot;:662112483578,&quot;type&quot;:&quot;single_direct&quot;,&quot;openUid&quot;:&quot;1117283046&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

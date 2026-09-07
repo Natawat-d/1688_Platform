@@ -1,0 +1,196 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.OpQueryMarketingMixConfig",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.OpQueryMarketingMixConfig-1",
+ "displayName": "查询卖家混批设置",
+ "billType": null,
+ "description": "查询卖家混批设置。Query seller settings for mixed batch.",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "sellerMemberId",
+   "type": "String",
+   "required": false,
+   "description": "卖家memberId",
+   "exampleValue": "b2b-1623492085",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "sellerLoginId",
+   "type": "String",
+   "required": false,
+   "description": "卖家LoginId，sellerMemberId为空时，以loginId为准",
+   "exampleValue": "alitestforisv01",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.openplatform.trade.result.OpMarketingMixConfigModel",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.openplatform.trade.result.OpMarketingMixConfigModel",
+   "fields": [
+    {
+     "name": "generalHunpi",
+     "type": "boolean",
+     "required": true,
+     "description": "是否普通混批",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "gmtCreate",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "创建时间",
+     "exampleValue": "20130522193706000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "gmtModified",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "修改时间",
+     "exampleValue": "20180710083636000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "memberId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "卖家memberID",
+     "exampleValue": "b2b-1623492085",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mixAmount",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "混批金额",
+     "exampleValue": "99",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mixNumber",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "混批数量",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "错误码",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息",
+   "exampleValue": " 错误信息",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extErrorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误信息扩展",
+   "exampleValue": " 错误信息",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "500_1",
+   "desc": "卖家信息不得为空。",
+   "howToFix": "检查sllerMemberId和sellerLoginId，这两个不能同时为空"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回参数示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;generalHunpi&quot;: true,\n    &quot;gmtCreate&quot;: &quot;20171127164631000+0800&quot;,\n    &quot;gmtModified&quot;: &quot;20171127164631000+0800&quot;,\n    &quot;memberId&quot;: &quot;b2b-1624786331&quot;,\n    &quot;mixAmount&quot;: 10,\n    &quot;mixNumber&quot;: 1\n  },\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

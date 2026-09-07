@@ -1,0 +1,169 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "alibaba.logistics.OpQueryLogisticCompanyList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList-1",
+ "displayName": "物流公司列表-所有的物流公司",
+ "billType": null,
+ "description": "获取所有的物流公司名称",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.logistics.OpLogisticsCompanyModel[]",
+   "required": true,
+   "description": "物流公司列表",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistics.OpLogisticsCompanyModel[]",
+   "fields": [
+    {
+     "name": "id",
+     "type": "Long",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyName",
+     "type": "String",
+     "required": true,
+     "description": "物流公司名称",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyNo",
+     "type": "String",
+     "required": true,
+     "description": "物流公司编号",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "companyPhone",
+     "type": "String",
+     "required": true,
+     "description": "物流公司服务电话",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "supportPrint",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否支持打印",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "spelling",
+     "type": "String",
+     "required": true,
+     "description": "全拼",
+     "exampleValue": "xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误码描述",
+   "exampleValue": "错误码描述",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extErrorMessage",
+   "type": "String",
+   "required": true,
+   "description": "扩展错误码描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "物流"
+}

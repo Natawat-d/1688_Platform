@@ -1,0 +1,552 @@
+{
+ "namespace": "com.alibaba.product.push",
+ "name": "alibaba.product.push.syncPushProductResult",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product.push:alibaba.product.push.syncPushProductResult-1",
+ "displayName": "同步铺货结果",
+ "billType": 0,
+ "description": "同步铺货结果，在源平台(1688)经过ISV把商品铺货到目标平台(比如TAOBAO)时，ISV需要把铺货结果返回。铺货结果的状态描述必须和源平台(1688)定义的一致，同时该接口也支持下架等操作，这些操作都由铺货状态来表述",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "platformDefinition",
+   "type": "message:alibaba.product.push.PlatformDefinition",
+   "required": true,
+   "description": "目标平台的定义",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.push.PlatformDefinition",
+   "fields": [
+    {
+     "name": "definitionId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "平台ID，由alibaba定义。比如淘宝为www.taobao.com。枚举值：亚马逊Amazon:AMAZON,速卖通:AE,Wish:WISH,Ebay易贝:EBAY,Lazada来赞达:LAZADA,淘宝Taobao:TAOBAO",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "pushRecordIdentity",
+   "type": "message:alibaba.product.push.Identity",
+   "required": false,
+   "description": "在批量铺货时，源平台可能会为每次铺货产生一个批次传递给ISV，ISV可以在同步通知时返回该字段。该字段由平台传递给ISV，该字段不是必须。",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.push.Identity",
+   "fields": [
+    {
+     "name": "content",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "pushProductResults",
+   "type": "message:alibaba.product.push.PushProductResult",
+   "required": true,
+   "description": "商品级别的铺货结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.push.PushProductResult",
+   "fields": [
+    {
+     "name": "productIdInTargetPlatform",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "在目标平台的商品ID，纯数字字符串",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productIdInPartner",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "在第三方平台的商品ID",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productIdInSource",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "在源平台的商品ID，纯数字字符串",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productPushStatus",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "铺货状态，0：未成功，1：已成功",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productInfoInTargetPlatform",
+     "type": "message:alibaba.product.push.SimpleItemDesc",
+     "required": true,
+     "description": "商品级别的铺货结果",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.push.SimpleItemDesc",
+     "fields": [
+      {
+       "name": "id",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "唯一标识",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "price",
+       "type": "java.lang.Double",
+       "required": true,
+       "description": "价格",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "subject",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "商品名称",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "description",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "描述",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "url",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "商品的URL",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceRanges",
+       "type": "message:alibaba.product.push.priceRanges[]",
+       "required": true,
+       "description": "价格区间",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.push.priceRanges[]",
+       "fields": [
+        {
+         "name": "price",
+         "type": "double",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "startQuantity",
+         "type": "Integer",
+         "required": true,
+         "description": "",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "skus",
+     "type": "message:alibaba.product.push.PushProductSKUResult[]",
+     "required": true,
+     "description": "SKU数组",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.push.PushProductSKUResult[]",
+     "fields": [
+      {
+       "name": "skuIdInSource",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "在源平台的SKU标志",
+       "exampleValue": "312312312312",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuIdInPartner",
+       "type": "java.lang.String",
+       "required": false,
+       "description": "在第三方平台的SKU标志",
+       "exampleValue": "101123123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuPushStatus",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "铺货状态",
+       "exampleValue": "success",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuIdInTargetPlatform",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "在目标平台的SKU标志",
+       "exampleValue": "10111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuInfoInTargetPlatform",
+       "type": "message:alibaba.product.push.SimpleItemDesc",
+       "required": false,
+       "description": "SKU铺货结果",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.push.SimpleItemDesc",
+       "fields": [
+        {
+         "name": "id",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "唯一标识",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "price",
+         "type": "java.lang.Double",
+         "required": true,
+         "description": "价格",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "subject",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "商品名称",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "description",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "描述",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "url",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "商品的URL",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "priceRanges",
+         "type": "message:alibaba.product.push.priceRanges[]",
+         "required": true,
+         "description": "价格区间",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.product.push.priceRanges[]",
+         "fields": [
+          {
+           "name": "price",
+           "type": "double",
+           "required": true,
+           "description": "",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "startQuantity",
+           "type": "Integer",
+           "required": true,
+           "description": "",
+           "exampleValue": "",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "name": "mappingInfo",
+       "type": "message:alibaba.product.push.attributeRelationMapping[]",
+       "required": false,
+       "description": "属性映射关系",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.push.attributeRelationMapping[]",
+       "fields": [
+        {
+         "name": "propertyIdInSource",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在源平台(1688)的属性ID",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "propertyTextInSource",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在源平台(1688)的属性ID文本",
+         "exampleValue": "颜色",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "valueIdInSource",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在源平台(1688)的属性值ID",
+         "exampleValue": "1233",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "valueTextInSource",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在源平台(1688)的属性值文本",
+         "exampleValue": "红色",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "propertyIdInTarget",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在目标平台(比如TAOBAO)的属性ID",
+         "exampleValue": "234",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "propertyTextInTarget",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在目标平台(比如TAOBAO)的属性ID文本",
+         "exampleValue": "颜色",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "valueIdInTarget",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在目标平台(比如TAOBAO)的属性值的ID",
+         "exampleValue": "2341",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "valueTextInTarget",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "在目标平台(比如TAOBAO)的属性值的文本",
+         "exampleValue": "橙红色",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "userShopIdInTargetPlatform",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "用户在目标平台的店铺标志，纯数字字符串，对应后台的targetUserId。比如目标平台为淘宝，则需要传递客户在淘宝的用户Id",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "APPKEY_ISV_CONFIG_IS_NOT_EXIST",
+   "desc": "当前isv未在巴拿马平台注册",
+   "howToFix": "找负责的小二在巴拿马平台添加。"
+  },
+  {
+   "code": "getProductIdInSource_IS_EMPTY",
+   "desc": "入参的源ProductId为空",
+   "howToFix": "检查入参的源productId是否正确"
+  },
+  {
+   "code": "getPlatformDefId_IS_EMPTY",
+   "desc": "入参的PlatformDefId为空",
+   "howToFix": "检查PlatformDefId是否正确"
+  },
+  {
+   "code": "getProductIdInTargetPlatform_IS_EMPTY",
+   "desc": "入参的目的ProductId为空",
+   "howToFix": "入参的目的ProductId是否正确"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "pushProductResults入参示例",
+   "sample": "{&quot;productIdInTargetPlatform&quot;:&quot;565847490150&quot;,&quot;productIdInSource&quot;:&quot;565831341592&quot;,&quot;productPushStatus&quot;:&quot;1&quot;,&quot;userShopIdInTargetPlatform&quot;:&quot;356038588&quot;}",
+   "type": null
+  },
+  {
+   "name": "platformDefinition入参示例",
+   "sample": "{&quot;definitionId&quot;:&quot;TAOBAO&quot;}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

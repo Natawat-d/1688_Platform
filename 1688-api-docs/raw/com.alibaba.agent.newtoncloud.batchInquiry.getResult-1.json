@@ -1,0 +1,133 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.batchInquiry.getResult",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.batchInquiry.getResult-1",
+ "displayName": "牛顿云-查询批量询盘结果",
+ "billType": null,
+ "description": "根据批量询盘任务ID（wwTaskId）查询询盘结果。ISV 收到 AGENT_NEWTON_CLOUD_TASK_NOTIFY通知（stage=BATCH_INQUIRY，stageDetail.phase=COMPLETE）后，使用通知中 stageDetail.wwTaskId调用本接口，同步返回结构化询盘结果，包含商家回复摘要、报价信息、推荐理由等",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "wwTaskId",
+   "type": "String",
+   "required": false,
+   "description": "批量询盘任务ID",
+   "exampleValue": "1784790418611",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "taskId",
+   "type": "String",
+   "required": false,
+   "description": "牛顿云任务ID，没有wwTaskId时传入，API根据牛顿云任务ID自动查询询盘结果",
+   "exampleValue": "e0e5e0c0-6911-4b5a-9082-140474666exxx",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "请求是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "data",
+   "type": "String",
+   "required": true,
+   "description": "询盘结果JSON字符串",
+   "exampleValue": "{&quot;taskId&quot;:&quot;1784790418611&quot;,&quot;:&quot;订单咨询&quot;,&quot;status&quot;:&quot;SUCCESS&quot;,&quot;result&quot;:{&quot;summary&quot;:[{&quot;question&quot;:&quot;是否支持一件代发&quot;,&quot;answer&quot;:&quot;支持&quot;}]}}]}]}status&quot;:&quot;SUCCESS&quot;,&quot;questions&quot;:[&quot;是否支持一件代发&quot;],&quot;subTasks&quot;:[{&quot;topics&quot;:[{&quot;topicName&quot;",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "eagleTraceId",
+   "type": "String",
+   "required": true,
+   "description": "请求唯一ID，eagleTraceId用于链路排查",
+   "exampleValue": "21089b3017847890685524618e1299",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "error",
+   "type": "String",
+   "required": true,
+   "description": "查询失败描述",
+   "exampleValue": "request.wwTaskId required",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "inquiryStatus",
+   "type": "String",
+   "required": true,
+   "description": "批量询盘任务状态",
+   "exampleValue": "success",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;wwTaskId&quot;: &quot;1784790418611&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;success&quot;: true,\n  &quot;data&quot;: &quot;{\\&quot;taskId\\&quot;:\\&quot;1784790418611\\&quot;,\\&quot;:\\&quot;订单咨询\\&quot;,\\&quot;status\\&quot;:\\&quot;SUCCESS\\&quot;,\\&quot;result\\&quot;:{\\&quot;summary\\&quot;:[{\\&quot;question\\&quot;:\\&quot;是否支持一件代发\\&quot;,\\&quot;answer\\&quot;:\\&quot;支持\\&quot;}]}}]}]}status\\&quot;:\\&quot;SUCCESS\\&quot;,\\&quot;questions\\&quot;:[\\&quot;是否支持一件代发\\&quot;],\\&quot;subTasks\\&quot;:[{\\&quot;topics\\&quot;:[{\\&quot;topicName\\&quot;&quot;,\n  &quot;eagleTraceId&quot;: &quot;21089b3017847890685524618e1299&quot;,\n  &quot;error&quot;: &quot;request.wwTaskId required&quot;\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

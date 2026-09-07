@@ -1,0 +1,188 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.orderpay.analysis",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.orderpay.analysis-1",
+ "displayName": "交易订单支付咨询",
+ "billType": null,
+ "description": "交易订单支付咨询接口，用于分析订单使用什么支付方式等。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderIds",
+   "type": "java.lang.Long[]",
+   "required": true,
+   "description": "订单列表",
+   "exampleValue": "[3535260697417660107]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "payChannel",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "支付渠道  alipay(支付宝),shegou(诚e赊),kjpayV2(跨境宝)",
+   "exampleValue": "kjpayV2",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.tradeorderpayanalysis.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.tradeorderpayanalysis.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.PayAnalysisResult",
+     "required": true,
+     "description": "",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.PayAnalysisResult",
+     "fields": [
+      {
+       "name": "orderTotalCount",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "总订单数量",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "totalPayFee",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "总付款金额",
+       "exampleValue": "150000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "orderIds",
+       "type": "java.lang.Long[]",
+       "required": true,
+       "description": "订单列表",
+       "exampleValue": "[265354896466,854635455]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "payChannel",
+       "type": "message:com.alibaba.ocean.openplatform.biz.trade.result.PayChannel",
+       "required": true,
+       "description": "支付渠道",
+       "exampleValue": "{&quot;channel&quot;:&quot;alipay&quot;,&quot;avaliable&quot;:true}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.trade.result.PayChannel",
+       "fields": [
+        {
+         "name": "channel",
+         "type": "String",
+         "required": true,
+         "description": "支付渠道",
+         "exampleValue": "alipay",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "avaliable",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否支持",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "支付"
+}

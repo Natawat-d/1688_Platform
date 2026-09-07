@@ -1,0 +1,88 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.product.follow.crossborder",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.product.follow.crossborder-1",
+ "displayName": "关注商品",
+ "billType": null,
+ "description": "关注商品",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "productId",
+   "type": "Long",
+   "required": true,
+   "description": "商品id",
+   "exampleValue": "52312121144",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "code",
+   "type": "int",
+   "required": true,
+   "description": "code,0表示成功",
+   "exampleValue": "0",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "message",
+   "type": "String",
+   "required": true,
+   "description": "结果的描述",
+   "exampleValue": "成功",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例文档",
+   "sample": "{\n  &quot;code&quot;: 0,\n  &quot;message&quot;: &quot;success&quot;\n}",
+   "type": "CODE"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "选品铺货"
+}

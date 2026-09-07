@@ -1,0 +1,190 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "trade.invoiceAmount.getList",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:trade.invoiceAmount.getList-1",
+ "displayName": "查询订单可开票金额",
+ "billType": null,
+ "description": "查询订单可开票金额。\n前置获取可开票订单的方法：\n1. alibaba.trade.getBuyerOrderList-1：入参needInvoicingSetting传true；通过出参invoicingSettingModel.tradeInvoiceStatus判断是否可开票。\n2. alibaba.trade.get.buyerView-1：入参includeFields包含InvoicingSetting",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "input",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.param.OpOrderInvoiceAmountQueryParam",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.param.OpOrderInvoiceAmountQueryParam",
+   "fields": [
+    {
+     "name": "orderIds",
+     "type": "java.lang.Long[]",
+     "required": true,
+     "description": "订单ID列表",
+     "exampleValue": "[123, 456]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.ocean.openplatform.common.OpOrderInvoiceAmountResultModel",
+   "required": true,
+   "description": " ",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.common.OpOrderInvoiceAmountResultModel",
+   "fields": [
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.OpOrderInvoiceAmountQueryResult",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.OpOrderInvoiceAmountQueryResult",
+     "fields": [
+      {
+       "name": "orderInvoiceAmountModelList",
+       "type": "message:alibaba.ocean.openplatform.biz.trade.common.model.OrderInvoiceAmountModel[]",
+       "required": true,
+       "description": "订单可开票金额模型列表",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.ocean.openplatform.biz.trade.common.model.OrderInvoiceAmountModel[]",
+       "fields": [
+        {
+         "name": "amount",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "可开票金额，单位：分",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "orderId",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "订单ID",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "retCodes",
+     "type": "java.lang.String[]",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subCode",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subMessage",
+     "type": "java.lang.String",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "boolean",
+     "required": true,
+     "description": " ",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "发票"
+}

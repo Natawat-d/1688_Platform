@@ -1,0 +1,64 @@
+{
+ "topicId": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY",
+ "topicName": "BUYER_VIEW_ORDER_PRICE_MODIFY",
+ "topicDisplayName": "1688修改订单价格（买家视角）/order price modification (buyer view)",
+ "topicGroupName": "ORDER",
+ "topicGroupDisplayName": "订单消息",
+ "desc": "1688修改订单价格（买家视角），包括关闭子订单。订单价格修改成功后会发送该消息，用户可以根据该消息调用API查询最新的订单价格/1688 order price modification (buyer view)",
+ "messageDocs": [
+  {
+   "name": "orderId",
+   "desc": "订单ID",
+   "type": "Number",
+   "sample": "167539019420540000",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "currentStatus",
+   "desc": "当前订单状态，状态值为waitbuyerpay",
+   "type": "String",
+   "sample": "waitbuyerpay",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2018-05-30 19:34:27",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "buyerMemberId",
+   "desc": "买家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-665170100",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "sellerMemberId",
+   "desc": "卖家中文站会员ID",
+   "type": "String",
+   "sample": "b2b-1676547900b7bb3",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1553844495000,
+ "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitbuyerpay&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+ "subscribed": false,
+ "_group": "交易消息"
+}

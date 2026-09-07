@@ -1,0 +1,44 @@
+{
+ "topicId": "PRODUCT_PRODUCT_CROSSBOARD_INFORM",
+ "topicName": "PRODUCT_CROSSBOARD_INFORM",
+ "topicDisplayName": "一键铺货消息",
+ "topicGroupName": "PRODUCT",
+ "topicGroupDisplayName": "商品消息",
+ "desc": "用户触发一键铺货",
+ "messageDocs": [
+  {
+   "name": "offerId",
+   "desc": "商品ID",
+   "type": "String",
+   "sample": "570046582711",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "userInfo",
+   "desc": "分销商CBU的会员ID",
+   "type": "String",
+   "sample": "2804951212",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "action",
+   "desc": "执行动作，值为distribution",
+   "type": "String",
+   "sample": "distribution",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1530172258000,
+ "sample": "{&quot;offerId&quot;:&quot;570046582711&quot;,&quot;userInfo&quot;:&quot;2804951212&quot;,&quot;action&quot;:&quot;distribution&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

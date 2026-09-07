@@ -1,0 +1,54 @@
+{
+ "topicId": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY",
+ "topicName": "CROSSBOARD_ADD_SUPPLY",
+ "topicDisplayName": "跨境设为货源",
+ "topicGroupName": "CROSSBOARD",
+ "topicGroupDisplayName": "跨境消息",
+ "desc": "当用户在 ISV 中访问产品开发工具同款页面并将 1688 商品设为货源时，系统将生成一条关于货源的记录，并通过消息通知到开放平台，由开放平台将此消息推送至下游 ISV；ISV 接受到此消息时，将产品和 1688 货源进行关联。",
+ "messageDocs": [
+  {
+   "name": "offerId",
+   "desc": "1688商品ID",
+   "type": "String",
+   "sample": "537321696540",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "clientId",
+   "desc": "ISV中的用户ID",
+   "type": "String",
+   "sample": "b2b-26800439112ddd0",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "productId",
+   "desc": "ISV中的商品ID",
+   "type": "String",
+   "sample": "560604911564",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "productUri",
+   "desc": "ISV中的商品URL",
+   "type": "String",
+   "sample": "http:123test.com",
+   "required": false,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1530172131000,
+ "sample": "{&quot;offerId&quot;:&quot;537321696540&quot;,&quot;clientId&quot;:&quot;b2b-26800439112ddd0&quot;,&quot;productId&quot;:&quot;560604911564&quot;,&quot;productUri&quot;:&quot;http:123test.com&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

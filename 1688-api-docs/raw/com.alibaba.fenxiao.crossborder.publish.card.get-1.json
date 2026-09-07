@@ -1,0 +1,543 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "publish.card.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:publish.card.get-1",
+ "displayName": "铺货商品卡片",
+ "billType": null,
+ "description": "获取单个 1688 商品已转换为 WB 格式的卡片数据。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "param",
+   "type": "message:alibaba.global1688.silicon.user.api.param.WbProductCardQueryParam",
+   "required": true,
+   "description": "查询商品卡片的参数",
+   "exampleValue": "{&quot;offerId&quot;:1234567890,&quot;country&quot;:&quot;ru&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global1688.silicon.user.api.param.WbProductCardQueryParam",
+   "fields": [
+    {
+     "name": "country",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "country 字段",
+     "exampleValue": "country_example",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "offerId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "offerId 字段",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardResponseDTO",
+   "required": true,
+   "description": "商品卡片数据返回结果",
+   "exampleValue": "{&quot;success&quot;:true,&quot;result&quot;:{&quot;offerId&quot;:1234567890,&quot;subjectID&quot;:12345,&quot;subject&quot;:&quot;4#131&quot;,&quot;status&quot;:&quot;published&quot;,&quot;productRating&quot;:4.6,&quot;images&quot;:[&quot;https://example.com/img1.jpg&quot;],&quot;videos&quot;:[],&quot;cards&quot;:[{&quot;offerId&quot;:577263837457,&quot;colorName&quot;:&quot;红色&quot;,&quot;sizes&quot;:[{&quot;wbSize&quot;:&quot;48&quot;,&quot;techSize&quot;:&quot;XL&quot;,&quot;skuID&quot;:123456,&quot;amount&quot;:100,&quot;priceRanges&quot;:[{&quot;startQuantity&quot;:1,&quot;price&quot;:&quot;10.5&quot;}]}]}]},&quot;code&quot;:&quot;200&quot;,&quot;permissionName&quot;:&quot;&quot;,&quot;message&quot;:&quot;success&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardResponseDTO",
+   "fields": [
+    {
+     "name": "offerId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "1688商品ID",
+     "exampleValue": "577263837457",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subjectID",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "WB商品类目ID",
+     "exampleValue": "6352",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subject",
+     "type": "String",
+     "required": true,
+     "description": "WB类目externalCategoryId，格式为parentID#subjectID，顶级或未知类目退化为纯subjectID",
+     "exampleValue": "239#2499",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "商品卡片状态",
+     "exampleValue": "published",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productRating",
+     "type": "java.lang.Float",
+     "required": true,
+     "description": "商品评分(0-5)",
+     "exampleValue": "4.8",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "images",
+     "type": "java.util.List",
+     "required": true,
+     "description": "商品图片列表",
+     "exampleValue": "[&quot;https://example.com/img1.jpg&quot;]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "videos",
+     "type": "java.util.List",
+     "required": true,
+     "description": "商品视频列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cards",
+     "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO[]",
+     "required": true,
+     "description": "商品卡片列表(按颜色变体拆分)",
+     "exampleValue": "[{&quot;offerId&quot;:577263837457,&quot;colorName&quot;:&quot;红色&quot;,&quot;colorCode&quot;:&quot;RED&quot;}]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO[]",
+     "fields": [
+      {
+       "name": "brandName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "brandName 字段",
+       "exampleValue": "brandName_example",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "characteristics",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Characteristic[]",
+       "required": true,
+       "description": "characteristics 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Characteristic[]",
+       "fields": [
+        {
+         "name": "id",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "id 字段",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "values",
+         "type": "java.lang.String[]",
+         "required": true,
+         "description": "values 字段",
+         "exampleValue": "values_example",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "description",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "description 字段",
+       "exampleValue": "description_example",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "dimensions",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Dimensions",
+       "required": true,
+       "description": "dimensions 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Dimensions",
+       "fields": [
+        {
+         "name": "height",
+         "type": "java.math.BigDecimal",
+         "required": true,
+         "description": "height 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "length",
+         "type": "java.math.BigDecimal",
+         "required": true,
+         "description": "length 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "unit",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "unit 字段",
+         "exampleValue": "unit_example",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "width",
+         "type": "java.math.BigDecimal",
+         "required": true,
+         "description": "width 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "isAdult",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "isAdult 字段",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "images",
+       "type": "java.lang.String[]",
+       "required": false,
+       "description": "商品主图列表",
+       "exampleValue": "[&quot;https://img.1688.com/1.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "videos",
+       "type": "java.lang.String[]",
+       "required": false,
+       "description": "商品视频列表",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellerInfo",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.SellerInfo",
+       "required": true,
+       "description": "sellerInfo 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.SellerInfo",
+       "fields": [
+        {
+         "name": "name",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "name 字段",
+         "exampleValue": "name_example",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "onTimeShipmentRate",
+         "type": "java.lang.Float",
+         "required": true,
+         "description": "onTimeShipmentRate 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "repeatPurchaseRate",
+         "type": "java.lang.Float",
+         "required": true,
+         "description": "repeatPurchaseRate 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "serviceRating",
+         "type": "java.lang.Float",
+         "required": true,
+         "description": "serviceRating 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sizes",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Size[]",
+       "required": true,
+       "description": "sizes 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Size[]",
+       "fields": [
+        {
+         "name": "amount",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "amount 字段",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isDeleted",
+         "type": "java.lang.Boolean",
+         "required": true,
+         "description": "isDeleted 字段",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "priceRanges",
+         "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.PriceRange[]",
+         "required": true,
+         "description": "priceRanges 字段",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.PriceRange[]",
+         "fields": [
+          {
+           "name": "price",
+           "type": "java.lang.String",
+           "required": true,
+           "description": "price 字段",
+           "exampleValue": "price_example",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          },
+          {
+           "name": "startQuantity",
+           "type": "java.lang.Integer",
+           "required": true,
+           "description": "startQuantity 字段",
+           "exampleValue": "1",
+           "defaultValue": null,
+           "complexTypeFlag": false,
+           "typeName": null
+          }
+         ]
+        },
+        {
+         "name": "skuID",
+         "type": "java.lang.Long",
+         "required": true,
+         "description": "skuID 字段",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "techSize",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "techSize 字段",
+         "exampleValue": "techSize_example",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "wbSize",
+         "type": "String",
+         "required": true,
+         "description": "WB 尺码标记，字符串；无尺码（dimensionless）类目为 null",
+         "exampleValue": "48",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "title",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "title 字段",
+       "exampleValue": "title_example",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "weight",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Weight",
+       "required": true,
+       "description": "weight 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Weight",
+       "fields": [
+        {
+         "name": "gross",
+         "type": "java.math.BigDecimal",
+         "required": true,
+         "description": "gross 字段",
+         "exampleValue": "1.0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "unit",
+         "type": "java.lang.String",
+         "required": true,
+         "description": "unit 字段",
+         "exampleValue": "unit_example",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "wholesale",
+       "type": "message:alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Wholesale",
+       "required": true,
+       "description": "wholesale 字段",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.global1688.silicon.user.api.result.WbProductCardDTO.Wholesale",
+       "fields": [
+        {
+         "name": "minOrderQuantity",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "minOrderQuantity 字段",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "quantum",
+         "type": "java.lang.Integer",
+         "required": true,
+         "description": "quantum 字段",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;param&quot;: {\n    &quot;country&quot;: &quot;country_example&quot;,\n    &quot;offerId&quot;: 1\n  }\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;code&quot;: &quot;code_example&quot;,\n    &quot;message&quot;: &quot;message_example&quot;,\n    &quot;permissionName&quot;: &quot;permissionName_example&quot;,\n    &quot;result&quot;: {\n      &quot;brandName&quot;: &quot;brandName_example&quot;,\n      &quot;characteristics&quot;: [\n        {\n          &quot;id&quot;: 1,\n          &quot;images&quot;: [\n            &quot;images_example&quot;\n          ],\n          &quot;values&quot;: [\n            &quot;values_example&quot;\n          ]\n        }\n      ],\n      &quot;description&quot;: &quot;description_example&quot;,\n      &quot;dimensions&quot;: {\n        &quot;height&quot;: &quot;1.0&quot;,\n        &quot;length&quot;: &quot;1.0&quot;,\n        &quot;unit&quot;: &quot;unit_example&quot;,\n        &quot;width&quot;: &quot;1.0&quot;\n      },\n      &quot;images&quot;: [\n        &quot;images_example&quot;\n      ],\n      &quot;isAdult&quot;: true,\n      &quot;offerId&quot;: 1,\n      &quot;productRating&quot;: 1.0,\n      &quot;sellerInfo&quot;: [\n        {\n          &quot;name&quot;: &quot;name_example&quot;,\n          &quot;onTimeShipmentRate&quot;: 1.0,\n          &quot;positiveReviewRate&quot;: 1.0,\n          &quot;regPeriod&quot;: 1.0,\n          &quot;repeatPurchaseRate&quot;: 1.0,\n          &quot;serviceRating&quot;: 1.0,\n          &quot;verificationStatus&quot;: &quot;verificationStatus_example&quot;\n        }\n      ],\n      &quot;sizes&quot;: [\n        {\n          &quot;amount&quot;: 1,\n          &quot;isDeleted&quot;: true,\n          &quot;priceRanges&quot;: [\n            {\n              &quot;price&quot;: &quot;price_example&quot;,\n              &quot;startQuantity&quot;: 1\n            }\n          ],\n          &quot;skuID&quot;: 1,\n          &quot;techSize&quot;: &quot;techSize_example&quot;,\n          &quot;wbSize&quot;: 1\n        }\n      ],\n      &quot;status&quot;: &quot;status_example&quot;,\n      &quot;subjectID&quot;: 1,\n      &quot;title&quot;: &quot;title_example&quot;,\n      &quot;videos&quot;: [\n        &quot;videos_example&quot;\n      ],\n      &quot;weight&quot;: {\n        &quot;gross&quot;: &quot;1.0&quot;,\n        &quot;unit&quot;: &quot;unit_example&quot;\n      },\n      &quot;wholesale&quot;: {\n        &quot;minOrderQuantity&quot;: 1,\n        &quot;quantum&quot;: 1\n      }\n    },\n    &quot;success&quot;: true\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "铺货"
+}

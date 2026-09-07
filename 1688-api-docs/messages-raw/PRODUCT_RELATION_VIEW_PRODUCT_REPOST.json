@@ -1,0 +1,54 @@
+{
+ "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST",
+ "topicName": "RELATION_VIEW_PRODUCT_REPOST",
+ "topicDisplayName": "1688产品上架（关系用户视角）",
+ "topicGroupName": "PRODUCT",
+ "topicGroupDisplayName": "商品消息",
+ "desc": "1688产品上架，仅关系用户（包含跨境、分销等关系）可见",
+ "messageDocs": [
+  {
+   "name": "productIds",
+   "desc": "商品ID集合，至少有一个，用逗号分割",
+   "type": "String",
+   "sample": "107680826",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "memberId",
+   "desc": "1688会员ID",
+   "type": "String",
+   "sample": "shyxsscl",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "status",
+   "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+   "type": "String",
+   "sample": "RELATION_VIEW_PRODUCT_REPOST",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "msgSendTime",
+   "desc": "消息发送时间",
+   "type": "String",
+   "sample": "2018-05-30 20:29:37",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1550736252000,
+ "sample": "{&quot;productIds&quot;:&quot;107680826&quot;,&quot;memberId&quot;:&quot;shyxsscl&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_REPOST&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:29:37&quot;}",
+ "subscribed": false,
+ "_group": "商品消息"
+}

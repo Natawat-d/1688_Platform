@@ -1,0 +1,396 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "alibaba.trade.getLogisticsTraceInfo.buyerView",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView-1",
+ "displayName": "获取交易订单的物流跟踪信息(买家视角)",
+ "billType": null,
+ "description": "该接口需要获取订单买家的授权，获取买家的订单的物流跟踪信息，在采购或者分销场景中，作为买家也有获取物流详情的需求。该接口能查能根据物流单号查看物流单跟踪信息。由于物流单录入的原因，可能跟踪信息的API查询会有延迟。该API需要向开放平台申请权限才能访问。In the procurement or distribution scenario, buyers can obtain information on logistics tracking. The interface can view the logistics tracking information according to the logistics tacking number. Depending on the logistics information entry time, there may be a delay in API queries regarding the information tracking.",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "logisticsId",
+   "type": "String",
+   "required": false,
+   "description": "该订单下的物流编号",
+   "exampleValue": "AL8234243",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "orderId",
+   "type": "Long",
+   "required": true,
+   "description": "订单号",
+   "exampleValue": "13342343",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "webSite",
+   "type": "String",
+   "required": true,
+   "description": "是1688业务还是icbu业务",
+   "exampleValue": "1688或者alibaba",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "logisticsTrace",
+   "type": "message:alibaba.logistics.OpenPlatformLogisticsTrace[]",
+   "required": true,
+   "description": "跟踪单详情",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistics.OpenPlatformLogisticsTrace[]",
+   "fields": [
+    {
+     "name": "logisticsId",
+     "type": "String",
+     "required": true,
+     "description": "物流编号，如BX110096003841234",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "Long",
+     "required": true,
+     "description": "订单编号",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "logisticsBillNo",
+     "type": "String",
+     "required": true,
+     "description": "物流单编号，如480330616596",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "logisticsSteps",
+     "type": "message:alibaba.logistics.OpenPlatformLogisticsStep[]",
+     "required": true,
+     "description": "物流跟踪步骤",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.logistics.OpenPlatformLogisticsStep[]",
+     "fields": [
+      {
+       "name": "acceptTime",
+       "type": "String",
+       "required": true,
+       "description": "物流跟踪单该步骤的时间",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "remark",
+       "type": "String",
+       "required": true,
+       "description": "备注，如：“在浙江浦江县公司进行下级地点扫描，即将发往：广东深圳公司”",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "crossPackageFulfillmentDTO",
+   "type": "message:com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageFulfillmentDTO[]",
+   "required": true,
+   "description": "跨境海外运踪",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageFulfillmentDTO[]",
+   "fields": [
+    {
+     "name": "crossMailNo",
+     "type": "String",
+     "required": true,
+     "description": "单号",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "orderId",
+     "type": "String",
+     "required": true,
+     "description": "订单id",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "crossPackageTraceDTOList",
+     "type": "message:com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO[]",
+     "required": true,
+     "description": "运踪极点list",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO[]",
+     "fields": [
+      {
+       "name": "buyerUserId",
+       "type": "String",
+       "required": true,
+       "description": "买家id",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "carrierPartnerCode",
+       "type": "String",
+       "required": true,
+       "description": "物流公司CODE",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "outTraceNodeCode",
+       "type": "String",
+       "required": true,
+       "description": "外部运踪Code",
+       "exampleValue": "23",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "opCode",
+       "type": "String",
+       "required": true,
+       "description": "操作code，异常节点的opCode",
+       "exampleValue": "123",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "nodeActionTime",
+       "type": "String",
+       "required": true,
+       "description": "nodeActionTime",
+       "exampleValue": "12",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "nodeDetail",
+       "type": "String",
+       "required": true,
+       "description": "nodeDetail",
+       "exampleValue": "23",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "stageType",
+       "type": "String",
+       "required": true,
+       "description": "stageType",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "traceNode",
+       "type": "message:com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO.TraceNode",
+       "required": true,
+       "description": "运踪节点",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO.TraceNode",
+       "fields": [
+        {
+         "name": "traceNodeName",
+         "type": "String",
+         "required": true,
+         "description": "节点名称",
+         "exampleValue": "仓库",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "traceNodeCode",
+         "type": "String",
+         "required": true,
+         "description": "节点",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "traceException",
+       "type": "message:com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO.ErrorTraceInfo",
+       "required": true,
+       "description": "异常节点",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.cross.model.CrossPackageTraceDTO.ErrorTraceInfo",
+       "fields": [
+        {
+         "name": "exceptionCode",
+         "type": "String",
+         "required": true,
+         "description": "异常code",
+         "exampleValue": "123",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "traceNodeCode",
+         "type": "String",
+         "required": true,
+         "description": "异常节点",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "exceptionDesc",
+         "type": "String",
+         "required": true,
+         "description": "异常",
+         "exampleValue": "12",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "404",
+   "desc": "无法找到相对应的物流单跟踪信息。\t",
+   "howToFix": "无法找到相对应的物流单跟踪信息。\t\n"
+  },
+  {
+   "code": "order.nopermission.buyer\t",
+   "desc": "你没有权限获取该订单详情(买家端)\t",
+   "howToFix": "不是该授权用户的订单\n"
+  },
+  {
+   "code": "order.createtime.history\t",
+   "desc": "不支持查询一年前的物流轨迹信息\t",
+   "howToFix": "不支持查询一年前的物流轨迹信息\t\n"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "{\n    &quot;logisticsTrace&quot;:[\n        {\n            &quot;logisticsId&quot;:&quot;LP00106397027178&quot;,\n            &quot;logisticsBillNo&quot;:&quot;3832890717253&quot;,\n            &quot;orderId&quot;:188983797838441800,\n            &quot;logisticsSteps&quot;:[\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-24 21:55:33&quot;,\n                    &quot;remark&quot;:&quot;在广东广州天河区天平架一公司进行揽件扫描&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-24 22:10:50&quot;,\n                    &quot;remark&quot;:&quot;在广东广州天河区天平架一公司进行下级地点扫描，即将发往：浙江宁波分拨中心&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-25 01:45:05&quot;,\n                    &quot;remark&quot;:&quot;在分拨中心广东广州分拨中心进行称重扫描&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-25 01:47:42&quot;,\n                    &quot;remark&quot;:&quot;在广东广州分拨中心进行装车扫描，即将发往：浙江宁波分拨中心&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-26 03:01:41&quot;,\n                    &quot;remark&quot;:&quot;在分拨中心浙江宁波分拨中心进行卸车扫描&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-26 03:21:34&quot;,\n                    &quot;remark&quot;:&quot;从浙江宁波分拨中心发出，本次转运目的地：浙江宁波鄞州区邱隘公司&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-26 07:06:21&quot;,\n                    &quot;remark&quot;:&quot;到达目的地网点浙江宁波鄞州区邱隘公司，快件将很快进行派送&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-26 08:54:15&quot;,\n                    &quot;remark&quot;:&quot;在浙江宁波鄞州区邱隘公司进行派件扫描；派送业务员：徐洲；联系电话：xxxxx&quot;\n                },\n                {\n                    &quot;acceptTime&quot;:&quot;2018-07-26 13:33:11&quot;,\n                    &quot;remark&quot;:&quot;快件已被 已签收 签收&quot;\n                }\n            ]\n        }\n    ]\n}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "订单"
+}

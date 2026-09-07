@@ -1,0 +1,99 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  gap: var(--s3);
+  padding: 0 0 var(--s4) 0;
+}
+
+/* The connector line, drawn from each marker down to the next. */
+.step::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 16px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-strong);
+}
+.step:last-child::before {
+  display: none;
+}
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.marker {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  margin-top: 4px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  background: var(--surface);
+  z-index: 1;
+}
+
+.step[data-state="done"] .marker {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+.step[data-state="done"]::before {
+  background: var(--ok);
+}
+
+.step[data-state="current"] .marker {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.content {
+  min-width: 0;
+  flex: 1;
+}
+
+.headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.step[data-state="done"] .label {
+  color: var(--text);
+}
+
+.step[data-state="current"] .label {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.step[data-state="pending"] .label {
+  color: var(--text-faint);
+}
+
+.at {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.detail {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: 2px;
+}

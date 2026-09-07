@@ -1,0 +1,44 @@
+{
+ "topicId": "SYT_CONTRACT_WAIT_SIGN",
+ "topicName": "CONTRACT_WAIT_SIGN",
+ "topicDisplayName": "合同或采购单待签署消息",
+ "topicGroupName": "SYT",
+ "topicGroupDisplayName": "生意通",
+ "desc": "当合同或采购单需要签署确认时，会做消息通知",
+ "messageDocs": [
+  {
+   "name": "draftNo",
+   "desc": "合同号或采购单号",
+   "type": "String",
+   "sample": "88SYT20230113169004",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "contractCurrentStatus",
+   "desc": "合同或采购单当前状态",
+   "type": "String",
+   "sample": "SIGNING",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  },
+  {
+   "name": "eventType",
+   "desc": "当前事件类型",
+   "type": "String",
+   "sample": "CONTRACT_WAIT_SIGN_EVENT",
+   "required": true,
+   "privacyLevel": null,
+   "sensitiveLabel": null,
+   "children": null
+  }
+ ],
+ "gmtModify": 1778638210000,
+ "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGNING&quot;,&quot;eventType&quot;:&quot;CONTRACT_WAIT_SIGN_EVENT&quot;}",
+ "subscribed": false,
+ "_group": "88生意通"
+}

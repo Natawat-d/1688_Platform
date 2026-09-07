@@ -1,0 +1,470 @@
+{
+ "namespace": "com.alibaba.logistics",
+ "name": "alibaba.logistics.OpDeliverySendOrder.dummy",
+ "version": 1,
+ "oceanApiId": "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.dummy-1",
+ "displayName": "物流发货-无需物流",
+ "billType": null,
+ "description": "1688大市场订单，无需物流，支持合并发货，即：多个订单一次发货；支持子订单(orderEntry)级别的发货，不支持按数量发货。",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "sendGoods",
+   "type": "message:alibaba.logistics.OpSendGood[]",
+   "required": true,
+   "description": "发货对象列表",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistics.OpSendGood[]",
+   "fields": [
+    {
+     "name": "sourceId",
+     "type": "String",
+     "required": true,
+     "description": "发货对象id,一般是订单id",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sendGoodEntries",
+     "type": "message:alibaba.logistics.OpSendGoodEntry[]",
+     "required": true,
+     "description": "发货对象明细列表",
+     "exampleValue": "  ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.logistics.OpSendGoodEntry[]",
+     "fields": [
+      {
+       "name": "sourceEntryId",
+       "type": "String",
+       "required": true,
+       "description": "发货对象明细id，对应子订单Id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "amount",
+       "type": "Long",
+       "required": true,
+       "description": "发货对象实发数量",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "weight",
+       "type": "Double",
+       "required": true,
+       "description": "发货对象实发重量，重量单位默认为千克",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "extBody",
+       "type": "String",
+       "required": false,
+       "description": "多包裹发货时传的JSON数组字符串，cpCode 为物流公司code，对应物流公司信息获取接口的companyNo（非数字Id）; logisticsCpName:物流公司名称，对应物流公司信息获取接口的companyName； mailNo：运单号； 可以通过获取 &quot;物流公司列表-自联物流&quot; 接口查询到数据。quantity：包裹内发货对象数量，必传。",
+       "exampleValue": "[{&quot;cpCode&quot;:&quot;SF&quot;,&quot;logisticsCpName&quot;:&quot;顺丰&quot;,&quot;mailNo&quot;:&quot;a1231&quot;,&quot;quantity&quot;:1},{&quot;cpCode&quot;:&quot;SF&quot;,&quot;logisticsCpName&quot;:&quot;顺丰&quot;,&quot;mailNo&quot;:&quot;a1232&quot;,&quot;quantity&quot;:1}]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "remarks",
+   "type": "String",
+   "required": false,
+   "description": "备注",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "gmtSend",
+   "type": "java.util.Date",
+   "required": false,
+   "description": "发货时间",
+   "exampleValue": "标准时间格式：yyyyMMddHHmmssSSSZ，例如：20120801154220368+0800",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extBody",
+   "type": "String",
+   "required": true,
+   "description": "JSON字符串,extBodyJson中的noLogisticsCondition必填，取值字符串1到5：“1”：其他第三方物流、小型物充商、车队等（noLogisticsName、noLogisticsTel必填）；“2”：补运费、差价（noLogisticsBillNo必填）；“3”：卖家配送（noLogisticsName、noLogisticsTel必填）；“4”：买家自提；“5”：其他原因（remarks必填）。其他字段根据noLogisticsCondition的值不同，必填要求不同。字段说明：无需物流原因:noLogisticsCondition;无需物流名称:noLogisticsName;无需物流电话:noLogisticsTel;无需物流单号，不同的无需物流原因，该字段解释不同:noLogisticsBillNo;发货凭证列表:noLogisticsFiles。",
+   "exampleValue": "{&quot;noLogisticsBillNo&quot;:&quot;111111111111111111&quot;,&quot;noLogisticsCondition&quot;:&quot;3&quot;,&quot;noLogisticsName&quot;:&quot;张三&quot;,&quot;noLogisticsTel&quot;:&quot;13999999999&quot;,&quot;noLogisticsFiles&quot;:[&quot;https://cbu01.alicdn.com/xxx.jpg&quot;]}",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extParam",
+   "type": "String",
+   "required": false,
+   "description": "{}",
+   "exampleValue": "JSON 字符串",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "receiverInfo",
+   "type": "message:alibaba.logistics.OpReceiveContacter",
+   "required": false,
+   "description": "收货地址",
+   "exampleValue": "优先级大于订单收货地址，为空时，使用订单收货地址",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistics.OpReceiveContacter",
+   "fields": [
+    {
+     "name": "provinceCode",
+     "type": "String",
+     "required": true,
+     "description": "省编码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cityCode",
+     "type": "String",
+     "required": true,
+     "description": "市编码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "areaCode",
+     "type": "String",
+     "required": true,
+     "description": "地区编码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "townCode",
+     "type": "String",
+     "required": true,
+     "description": "镇或街道编码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "province",
+     "type": "String",
+     "required": true,
+     "description": "省名称，如果传了code，则可以不传",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "city",
+     "type": "String",
+     "required": true,
+     "description": "市名称，如果传了code，则可以不传",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "area",
+     "type": "String",
+     "required": true,
+     "description": "区名称，如果传了code，则可以不传",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "town",
+     "type": "String",
+     "required": true,
+     "description": "镇或街道名称",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "address",
+     "type": "String",
+     "required": true,
+     "description": "详细地址",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fullName",
+     "type": "String",
+     "required": true,
+     "description": "姓名",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "corpName",
+     "type": "String",
+     "required": true,
+     "description": "公司名称",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "post",
+     "type": "String",
+     "required": true,
+     "description": "邮编",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "phone",
+     "type": "String",
+     "required": true,
+     "description": "固定电话",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mobile",
+     "type": "String",
+     "required": true,
+     "description": "移动电话",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "warehouse",
+     "type": "String",
+     "required": true,
+     "description": "仓库",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "codeType",
+     "type": "String",
+     "required": true,
+     "description": "地址编码类型,默认菜鸟标准编码",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.logistic.result.OpSendOrderModelResult",
+   "required": true,
+   "description": "发货明细",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.logistic.result.OpSendOrderModelResult",
+   "fields": [
+    {
+     "name": "logisticsId",
+     "type": "String",
+     "required": true,
+     "description": "物流编号",
+     "exampleValue": "  ",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sendGoods",
+     "type": "message:alibaba.logistics.OpSendGood[]",
+     "required": true,
+     "description": "发货明细",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.logistics.OpSendGood[]",
+     "fields": [
+      {
+       "name": "sourceId",
+       "type": "Long",
+       "required": true,
+       "description": "发货对象id,一般是订单id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sendGoodEntries",
+       "type": "message:alibaba.logistics.OpSendGoodEntry[]",
+       "required": true,
+       "description": "发货对象明细列表",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.logistics.OpSendGoodEntry[]",
+       "fields": [
+        {
+         "name": "sourceEntryId",
+         "type": "Long",
+         "required": true,
+         "description": "发货对象明细id，对应子订单Id",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "amount",
+         "type": "Long",
+         "required": true,
+         "description": "发货对象实发数量",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "weight",
+         "type": "Double",
+         "required": true,
+         "description": "发货对象实发重量，重量单位默认为千克",
+         "exampleValue": "",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMessage",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "extErrorMessage",
+   "type": "String",
+   "required": true,
+   "description": "扩展错误描述",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "extBodyJson说明",
+   "sample": "注意：JSON字符串,extBodyJson中的noLogisticsCondition必填，取值字符串0到5：“0”：历史无需物流的订单；“1”：其他第三方物流、小型物充商、车队等（noLogisticsName、noLogisticsTel必填）；“2”：补运费、差价（noLogisticsBillNo必填）；“3”：卖家配送（noLogisticsName、noLogisticsTel必填）；“4”：买家自提；“5”：其他原因（remarks必填）。其他字段根据noLogisticsCondition的值不同，必填要求不同。字段说明：无需物流原因:noLogisticsCondition;无需物流名称:noLogisticsName;无需物流电话:noLogisticsTel;无需物流单号，不同的无需物流原因，该字段解释不同:noLogisticsBillNo;发货凭证列表:noLogisticsFiles",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "消息"
+}

@@ -1,0 +1,257 @@
+{
+ "namespace": "com.alibaba.fenxiao",
+ "name": "refund.address.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao:refund.address.get-1",
+ "displayName": "查询商家退货地址",
+ "billType": null,
+ "description": "查询退货地址",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "mainOrderId",
+   "type": "String",
+   "required": true,
+   "description": "主订单id",
+   "exampleValue": "123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:com.alibaba.distributionhub.common.model.RefundAddressResult",
+   "required": true,
+   "description": "结果",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "com.alibaba.distributionhub.common.model.RefundAddressResult",
+   "fields": [
+    {
+     "name": "data",
+     "type": "message:com.alibaba.distributionhub.refund.model.RefundAddressInfoModel[]",
+     "required": true,
+     "description": "退货地址列表",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.distributionhub.refund.model.RefundAddressInfoModel[]",
+     "fields": [
+      {
+       "name": "cityText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "市文本",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "contactPhone",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "联系电话（手机或固话）",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "districtText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "区文本",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mobile",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "手机",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商品id",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "phone",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "固话",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "provinceText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "省份文本",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "receiverName",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "收货人姓名",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "streetAddress",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "街道地址",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "streetAddressCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "街道地址编码",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "镇地址编码",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "townText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "镇文本",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "zipCode",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "邮编",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "errorCode",
+     "type": "String",
+     "required": true,
+     "description": "错误编码",
+     "exampleValue": "101",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "errorInfo",
+     "type": "String",
+     "required": true,
+     "description": "错误信息",
+     "exampleValue": "系统异常",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "success",
+     "type": "Boolean",
+     "required": true,
+     "description": "接口调用结果",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "入参示例",
+   "sample": "{\n  &quot;mainOrderId&quot;: &quot;123&quot;\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;result&quot;: {\n    &quot;data&quot;: [\n      {\n        &quot;cityText&quot;: &quot;1&quot;,\n        &quot;contactPhone&quot;: &quot;1&quot;,\n        &quot;districtText&quot;: &quot;1&quot;,\n        &quot;mobile&quot;: &quot;1&quot;,\n        &quot;offerId&quot;: 1,\n        &quot;phone&quot;: &quot;1&quot;,\n        &quot;provinceText&quot;: &quot;1&quot;,\n        &quot;receiverName&quot;: &quot;1&quot;,\n        &quot;streetAddress&quot;: &quot;1&quot;,\n        &quot;streetAddressCode&quot;: &quot;1&quot;,\n        &quot;townCode&quot;: &quot;1&quot;,\n        &quot;townText&quot;: &quot;1&quot;,\n        &quot;zipCode&quot;: &quot;1&quot;\n      }\n    ],\n    &quot;errorCode&quot;: &quot;101&quot;,\n    &quot;errorInfo&quot;: &quot;系统异常&quot;,\n    &quot;success&quot;: true\n  }\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "退货退款"
+}

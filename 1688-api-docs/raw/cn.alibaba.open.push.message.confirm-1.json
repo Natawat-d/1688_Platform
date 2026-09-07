@@ -1,0 +1,72 @@
+{
+ "namespace": "cn.alibaba.open",
+ "name": "push.message.confirm",
+ "version": 1,
+ "oceanApiId": "cn.alibaba.open:push.message.confirm-1",
+ "displayName": "失败消息批量确认",
+ "billType": 0,
+ "description": "手动调用确认api，确认消息已经被消费成功。仅当使用查询式获取失败消息的api时，才需要使用",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "msgIdList",
+   "type": "java.util.List",
+   "required": false,
+   "description": "待确认的消息id列表",
+   "exampleValue": "[123,456]",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "isSuccess",
+   "type": "boolean",
+   "required": true,
+   "description": "操作是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "消息"
+}

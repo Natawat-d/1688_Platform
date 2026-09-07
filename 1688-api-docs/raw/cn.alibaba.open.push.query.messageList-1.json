@@ -1,0 +1,202 @@
+{
+ "namespace": "cn.alibaba.open",
+ "name": "push.query.messageList",
+ "version": 1,
+ "oceanApiId": "cn.alibaba.open:push.query.messageList-1",
+ "displayName": "查询式获取失败的消息列表",
+ "billType": 0,
+ "description": "查询式获取发送的消息列表，获取的消息不会自动确认，需要调用方手动调用确认api来确认消费状态。需注意，确认后，会影响分页返回的数据",
+ "needAuth": false,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": false,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "createStartTime",
+   "type": "java.util.Date",
+   "required": false,
+   "description": "消息创建时间查找开始范围",
+   "exampleValue": "20130417000000000+0800",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "createEndTime",
+   "type": "java.util.Date",
+   "required": false,
+   "description": "消息创建时间查找结束范围",
+   "exampleValue": "20130417000000000+0800",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "page",
+   "type": "int",
+   "required": false,
+   "description": "当前数据页，默认为1",
+   "exampleValue": "1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "pageSize",
+   "type": "int",
+   "required": false,
+   "description": "每次分页取的数据量，范围20-200，默认20",
+   "exampleValue": "20",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "type",
+   "type": "String",
+   "required": false,
+   "description": "消息类型",
+   "exampleValue": "ORDER_BUYER_MAKER",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "userInfo",
+   "type": "String",
+   "required": false,
+   "description": "用户Id",
+   "exampleValue": "b2b-4137495171f2513",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "pushMessagePage",
+   "type": "message:PushMessagePage",
+   "required": true,
+   "description": "分页数据",
+   "exampleValue": "[&quot;&quot;,&quot;&quot;]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "PushMessagePage",
+   "fields": [
+    {
+     "name": "datas",
+     "type": "message:PushMessage[]",
+     "required": true,
+     "description": "分页的消息数据列表",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "PushMessage[]",
+     "fields": [
+      {
+       "name": "msgId",
+       "type": "long",
+       "required": true,
+       "description": "消息唯一id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "type",
+       "type": "String",
+       "required": true,
+       "description": "消息类型",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "userInfo",
+       "type": "String",
+       "required": true,
+       "description": "消息关联的用户memberId",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "data",
+       "type": "java.util.Map",
+       "required": true,
+       "description": "消息内容",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "gmtBorn",
+       "type": "long",
+       "required": true,
+       "description": "消息创建的时间戳，单位毫秒",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "totalCount",
+     "type": "int",
+     "required": true,
+     "description": "消息总数",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [
+  {
+   "name": "json返回结果",
+   "sample": "{\n    &quot;pushMessagePage&quot;: {\n        &quot;datas&quot;: [\n            {\n                &quot;gmtBorn&quot;: 1399452484000,\n                &quot;topicGroup&quot;: &quot;CAIGOU1&quot;,\n                &quot;data&quot;: {\n                    &quot;quotationId&quot;: 123,\n                    &quot;buyOfferId&quot;: 123,\n                    &quot;supplierMemberId&quot;: &quot;memberId&quot;\n                },\n                &quot;msgId&quot;: 68891027,\n                &quot;type&quot;: &quot;CAIGOU_MSG_BUYER_MARK_QUOTATION&quot;,\n                &quot;userInfo&quot;: &quot;memberId&quot;,\n                &quot;appKey&quot;: &quot;123456&quot;,\n                &quot;topicName&quot;: &quot;MSG_BUYER_MARK_QUOTATION&quot;\n            }                \n        ],\n        &quot;totalCount&quot;: 1\n    }\n}",
+   "type": null
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "消息"
+}

@@ -1,0 +1,2994 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.product.simple.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.product.simple.get-1",
+ "displayName": "获取已购买过商家的商品简单信息",
+ "billType": 2,
+ "description": "由商品ID获取商品详细信息，接口能获取已购买过商家的商品简单信息。该接口需要付费才能访问。该接口只返回简单信息，主要是用来在ERP系统中做数据关联",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "productID",
+   "type": "Long",
+   "required": true,
+   "description": "商品ID",
+   "exampleValue": "565507182121",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "webSite",
+   "type": "String",
+   "required": true,
+   "description": "站点信息，指定调用的API是属于国际站（alibaba）还是1688网站（1688）",
+   "exampleValue": "1688",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "productInfo",
+   "type": "message:alibaba.product.ProductInfo",
+   "required": true,
+   "description": "商品详细信息",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.ProductInfo",
+   "fields": [
+    {
+     "name": "productID",
+     "type": "Long",
+     "required": true,
+     "description": "商品ID",
+     "exampleValue": "584051070147",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productType",
+     "type": "String",
+     "required": true,
+     "description": "商品类型，在线批发商品(wholesale)或者询盘商品(sourcing)，1688网站缺省为wholesale",
+     "exampleValue": "wholesale",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryID",
+     "type": "Long",
+     "required": true,
+     "description": "类目ID，标识商品所属类目",
+     "exampleValue": "1048182",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attributes",
+     "type": "message:alibaba.product.ProductAttribute[]",
+     "required": true,
+     "description": "商品属性和属性值",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductAttribute[]",
+     "fields": [
+      {
+       "name": "attributeID",
+       "type": "Long",
+       "required": true,
+       "description": "属性ID",
+       "exampleValue": "123456",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "attributeName",
+       "type": "String",
+       "required": true,
+       "description": "属性名称",
+       "exampleValue": "color",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "valueID",
+       "type": "Long",
+       "required": true,
+       "description": "属性值ID",
+       "exampleValue": "123456",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "属性值",
+       "exampleValue": "grey",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isCustom",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否为自定义属性，国际站无需关注",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "groupID",
+     "type": "Long[]",
+     "required": true,
+     "description": "分组ID，确定商品所属分组。1688可传入多个分组ID，国际站同一个商品只能属于一个分组，因此默认只取第一个",
+     "exampleValue": "[107331682]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "status",
+     "type": "String",
+     "required": true,
+     "description": "商品状态。published:上网状态;member expired:会员撤销;auto expired:自然过期;expired:过期(包含手动过期与自动过期);member deleted:会员删除;modified:修改;new:新发;deleted:删除;TBD:to be delete;approved:审批通过;auditing:审核中;untread:审核不通过;",
+     "exampleValue": "published",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subject",
+     "type": "String",
+     "required": true,
+     "description": "商品标题，最多128个字符",
+     "exampleValue": "高端气质OL韩版雪纺女装套头半高领长袖修身型蕾丝衫",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "description",
+     "type": "String",
+     "required": true,
+     "description": "商品详情描述，可包含图片中心的图片URL",
+     "exampleValue": "高端气质OL韩版雪纺女装套头半高领长袖修身型蕾丝衫",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "String",
+     "required": true,
+     "description": "语种，参见FAQ 语种枚举值，1688网站默认传入CHINESE",
+     "exampleValue": "ENGLISH",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "periodOfValidity",
+     "type": "Integer",
+     "required": true,
+     "description": "信息有效期，按天计算，国际站无此信息",
+     "exampleValue": "3650",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bizType",
+     "type": "Integer",
+     "required": true,
+     "description": "业务类型。1：商品，2：加工，3：代理，4：合作，5：商务服务。国际站按默认商品。",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pictureAuth",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否图片私密信息，国际站此字段无效",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "image",
+     "type": "message:alibaba.product.ProductImageInfo",
+     "required": true,
+     "description": "商品主图",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductImageInfo",
+     "fields": [
+      {
+       "name": "images",
+       "type": "String[]",
+       "required": true,
+       "description": "主图列表，使用相对路径，需要增加域名：https://cbu01.alicdn.com/",
+       "exampleValue": "[&quot;img/ibank/2014/766/624/1652426667_642119312.jpg&quot;,&quot;img/ibank/2014/656/624/1652426656_642119312.jpg&quot;,&quot;img/ibank/2014/236/624/1652426632_642119312.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "skuInfos",
+     "type": "message:alibaba.product.ProductSKUInfo[]",
+     "required": true,
+     "description": "sku信息",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductSKUInfo[]",
+     "fields": [
+      {
+       "name": "attributes",
+       "type": "message:alibaba.product.SKUAttrInfo[]",
+       "required": true,
+       "description": "SKU属性值，可填多组信息",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.SKUAttrInfo[]",
+       "fields": [
+        {
+         "name": "attributeID",
+         "type": "Long",
+         "required": true,
+         "description": "sku属性ID",
+         "exampleValue": "3216",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "attValueID",
+         "type": "Long",
+         "required": true,
+         "description": "sku值ID，1688不用关注",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "attributeValue",
+         "type": "String",
+         "required": true,
+         "description": "sku值内容，国际站不用关注",
+         "exampleValue": "黑色",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "customValueName",
+         "type": "String",
+         "required": true,
+         "description": "自定义属性值名称，1688无需关注",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "skuImageUrl",
+         "type": "String",
+         "required": true,
+         "description": "sku图片",
+         "exampleValue": "img/ibank/2018/221/909/9143909122_1606139362.jpg",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "attributeDisplayName",
+         "type": "String",
+         "required": true,
+         "description": "sku属性ID所对应的显示名，比如颜色，尺码",
+         "exampleValue": " ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "attrType",
+         "type": "String",
+         "required": true,
+         "description": "属性类型",
+         "exampleValue": "1 规格属性 2规格扩展属性 ，默认规格属性",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "attributeName",
+         "type": "String",
+         "required": true,
+         "description": "sku属性ID所对应的显示名，比如颜色，尺码",
+         "exampleValue": "  ",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "cargoNumber",
+       "type": "String",
+       "required": true,
+       "description": "指定规格的货号，国际站无需关注",
+       "exampleValue": "cy小黄人",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "amountOnSale",
+       "type": "Integer",
+       "required": true,
+       "description": "可销售数量，国际站无需关注",
+       "exampleValue": "1200",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "retailPrice",
+       "type": "double",
+       "required": true,
+       "description": "建议零售价，国际站无需关注",
+       "exampleValue": "40",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "price",
+       "type": "Double",
+       "required": true,
+       "description": "报价时该规格的单价，国际站注意要点：含有SKU属性的在线批发产品设定具体价格时使用此值，若设置阶梯价格则使用priceRange",
+       "exampleValue": "40",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceRange",
+       "type": "message:alibaba.product.ProductPriceRange[]",
+       "required": true,
+       "description": "阶梯报价，1688无需关注",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.ProductPriceRange[]",
+       "fields": [
+        {
+         "name": "startQuantity",
+         "type": "Integer",
+         "required": true,
+         "description": "起批量",
+         "exampleValue": "3",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "price",
+         "type": "Double",
+         "required": true,
+         "description": "价格",
+         "exampleValue": "445",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "skuCode",
+       "type": "String",
+       "required": true,
+       "description": "商品编码，1688无需关注",
+       "exampleValue": "3746778972330",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuId",
+       "type": "Long",
+       "required": true,
+       "description": "skuId, 国际站无需关注",
+       "exampleValue": "3746778972330",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "specId",
+       "type": "String",
+       "required": true,
+       "description": "specId, 国际站无需关注",
+       "exampleValue": "fb82997a5b64af3c729cea89bef44409",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "consignPrice",
+       "type": "Double",
+       "required": true,
+       "description": "分销基准价",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "takeSamplePrice",
+       "type": "Double",
+       "required": true,
+       "description": "SKU 维度拿样价, 国际站无需关注",
+       "exampleValue": "1.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pftPrice",
+       "type": "Double",
+       "required": true,
+       "description": "批发团价格",
+       "exampleValue": "0.1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "jxhyPrice",
+       "type": "Double",
+       "required": true,
+       "description": "精选货源价",
+       "exampleValue": "0.1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "jxhyPfPrice",
+       "type": "Double",
+       "required": true,
+       "description": "精选货源价批发价",
+       "exampleValue": "5.5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "dailySpecialPrice",
+       "type": "Double",
+       "required": true,
+       "description": "天天特卖价",
+       "exampleValue": "5.4",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "eleXdChannelPrice",
+       "type": "Double",
+       "required": true,
+       "description": "饿了么小店专属价",
+       "exampleValue": "5.4",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "saleInfo",
+     "type": "message:alibaba.product.ProductSaleInfo",
+     "required": true,
+     "description": "商品销售信息",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductSaleInfo",
+     "fields": [
+      {
+       "name": "supportOnlineTrade",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否支持网上交易。true：支持 false：不支持，国际站不需关注此字段",
+       "exampleValue": "TRUE",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "mixWholeSale",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否支持混批，国际站无需关注此字段",
+       "exampleValue": "TRUE",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "saleType",
+       "type": "String",
+       "required": true,
+       "description": "销售方式，按件卖(normal)或者按批卖(batch)，1688站点无需关注此字段",
+       "exampleValue": "normal",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceAuth",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否价格私密信息，国际站无需关注此字段",
+       "exampleValue": "TRUE",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "priceRanges",
+       "type": "message:alibaba.product.ProductPriceRange[]",
+       "required": true,
+       "description": "区间价格。按数量范围设定的区间价格",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.ProductPriceRange[]",
+       "fields": [
+        {
+         "name": "startQuantity",
+         "type": "Integer",
+         "required": true,
+         "description": "起批量",
+         "exampleValue": "3",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "price",
+         "type": "Double",
+         "required": true,
+         "description": "价格",
+         "exampleValue": "445",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "amountOnSale",
+       "type": "Double",
+       "required": true,
+       "description": "可售数量，国际站无需关注此字段",
+       "exampleValue": "108",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "unit",
+       "type": "String",
+       "required": true,
+       "description": "计量单位",
+       "exampleValue": "件",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minOrderQuantity",
+       "type": "Integer",
+       "required": true,
+       "description": "最小起订量，范围是1-99999。",
+       "exampleValue": "3",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "batchNumber",
+       "type": "Integer",
+       "required": true,
+       "description": "每批数量，默认为空或者非零值，该属性不为空时sellunit为必填",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "retailprice",
+       "type": "Double",
+       "required": true,
+       "description": "建议零售价，国际站无需关注",
+       "exampleValue": "20600",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "tax",
+       "type": "String",
+       "required": true,
+       "description": "税率相关信息，内容由用户自定，国际站无需关注",
+       "exampleValue": " ",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sellunit",
+       "type": "String",
+       "required": true,
+       "description": "售卖单位，如果为批量售卖，代表售卖的单位，该属性不为空时batchNumber为必填，例如1&quot;手&quot;=12“件&quot;的&quot;手&quot;，国际站无需关注",
+       "exampleValue": "1手等于1件",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "quoteType",
+       "type": "Integer",
+       "required": true,
+       "description": "普通报价-FIXED_PRICE(&quot;0&quot;),SKU规格报价-SKU_PRICE(&quot;1&quot;),SKU区间报价（商品维度）-SKU_PRICE_RANGE_FOR_OFFER(&quot;2&quot;),SKU区间报价（SKU维度）-SKU_PRICE_RANGE(&quot;3&quot;)，国际站无需关注",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "consignPrice",
+       "type": "Double",
+       "required": true,
+       "description": "分销基准价。代销场景均使用该价格。有SKU商品查看skuInfo中的consignPrice",
+       "exampleValue": "20600",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "deliveryLimit",
+       "type": "Integer",
+       "required": true,
+       "description": "发货时间限制（非买保发货周期），按开计算",
+       "exampleValue": "5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "invReduceType",
+       "type": "String",
+       "required": true,
+       "description": "库存扣减方式，1是下单减库存，2是付款减库存",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "pftPrice",
+       "type": "Double",
+       "required": true,
+       "description": "批发团商品价",
+       "exampleValue": "0.1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "jxhyPrice",
+       "type": "Double",
+       "required": true,
+       "description": "精选货源一件包邮价",
+       "exampleValue": "5.0",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "jxhyPfPrice",
+       "type": "Double",
+       "required": true,
+       "description": "精选货源价批发价",
+       "exampleValue": "5.8",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "dailySpecialPrice",
+       "type": "Double",
+       "required": true,
+       "description": "天天特卖价",
+       "exampleValue": "5.5",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "beginAmount",
+       "type": "Integer",
+       "required": true,
+       "description": "批发起批量",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "retailBeginAmount",
+       "type": "Long",
+       "required": true,
+       "description": "零售起售量",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "shippingInfo",
+     "type": "message:alibaba.product.ProductShippingInfo",
+     "required": true,
+     "description": "商品物流信息",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductShippingInfo",
+     "fields": [
+      {
+       "name": "unitWeight",
+       "type": "Double",
+       "required": true,
+       "description": "重量/毛重，单位千克/件",
+       "exampleValue": "121",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "volume",
+       "type": "Integer",
+       "required": true,
+       "description": "体积，单位是立方厘米，范围是1-9999999，1688无需关注此字段",
+       "exampleValue": "500",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "handlingTime",
+       "type": "Integer",
+       "required": true,
+       "description": "备货期，单位是天，范围是1-60。1688无需处理此字段",
+       "exampleValue": "12",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "freightTemplateID",
+       "type": "Long",
+       "required": true,
+       "description": "运费模板ID，0表示运费说明，1表示卖家承担运费，其他值表示使用运费模版。此参数可调用运费模板相关API获取",
+       "exampleValue": "121133",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "suttleWeight",
+       "type": "Double",
+       "required": true,
+       "description": "净重，单位千克/件",
+       "exampleValue": "1001",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sendGoodsAddressText",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "发货地描述",
+       "exampleValue": "asda",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "width",
+       "type": "Double",
+       "required": true,
+       "description": "宽度，单位厘米",
+       "exampleValue": "30",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "height",
+       "type": "Double",
+       "required": true,
+       "description": "高度，单位厘米",
+       "exampleValue": "20",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "length",
+       "type": "Double",
+       "required": true,
+       "description": "长度，单位厘米",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "packageSize",
+       "type": "String",
+       "required": true,
+       "description": "尺寸，单位是厘米，长宽高范围是1-9999999。1688无需关注此字段",
+       "exampleValue": "10x20x50",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "sendGoodsAddressId",
+       "type": "Long",
+       "required": true,
+       "description": "发货地址ID，国际站无需处理此字段",
+       "exampleValue": "124431",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerSuttleWeight",
+       "type": "Double",
+       "required": true,
+       "description": "OFFER净重（kg）",
+       "exampleValue": "2",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerWidth",
+       "type": "Double",
+       "required": true,
+       "description": "OFFER包装宽度（cm）",
+       "exampleValue": "30",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerHeight",
+       "type": "Double",
+       "required": true,
+       "description": "OFFER包装高度（cm）",
+       "exampleValue": "30",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerLength",
+       "type": "Double",
+       "required": true,
+       "description": "OFFER包装长度（cm）",
+       "exampleValue": "30",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "freightTemplate",
+       "type": "message:alibaba.product.FreightTemplate[]",
+       "required": true,
+       "description": "商品运费费率",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.FreightTemplate[]",
+       "fields": [
+        {
+         "name": "addressCodeText",
+         "type": "String",
+         "required": true,
+         "description": "地址区域编码对应的文本（包括省市区，用空格隔开）",
+         "exampleValue": "福建省 福州市 鼓楼区",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "fromAreaCode",
+         "type": "String",
+         "required": true,
+         "description": "发货地址地区码",
+         "exampleValue": "350102",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "id",
+         "type": "Long",
+         "required": true,
+         "description": "地址ID",
+         "exampleValue": "1234",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "String",
+         "required": true,
+         "description": "模板名称",
+         "exampleValue": "2019",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "remark",
+         "type": "String",
+         "required": true,
+         "description": "备注",
+         "exampleValue": "2019",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "status",
+         "type": "Integer",
+         "required": true,
+         "description": "状态：1表示有效，-1表示失效",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "expressSubTemplate",
+         "type": "message:alibaba.product.DeliverySubTemplateDetailDTO",
+         "required": true,
+         "description": "快递子模版",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.product.DeliverySubTemplateDetailDTO",
+         "fields": [
+          {
+           "name": "subTemplateDTO",
+           "type": "message:alibaba.product.DeliverySubTemplateDTO",
+           "required": true,
+           "description": "子模板",
+           "exampleValue": "{}",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliverySubTemplateDTO",
+           "fields": [
+            {
+             "name": "chargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "计件类型。0:重量 1:件数 2:体积",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "isSysTemplate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceChargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "运费承担类型 卖家承担：0；买家承担：1。",
+             "exampleValue": "1",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceType",
+             "type": "Integer",
+             "required": true,
+             "description": "服务类型。0:快递 1:货运 2:货到付款",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "type",
+             "type": "Integer",
+             "required": true,
+             "description": "子模板类型 0基准 1增值。默认0。",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          },
+          {
+           "name": "rateList",
+           "type": "message:alibaba.product.DeliveryRateDetailDTO[]",
+           "required": true,
+           "description": "费率",
+           "exampleValue": "[]",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliveryRateDetailDTO[]",
+           "fields": [
+            {
+             "name": "isSysRate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "toAreaCodeText",
+             "type": "String",
+             "required": true,
+             "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+             "exampleValue": "上海、福建省、广东省",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "rateDTO",
+             "type": "message:alibaba.product.DeliveryRateDTO",
+             "required": true,
+             "description": "普通子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliveryRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重件单位",
+               "exampleValue": "2",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            },
+            {
+             "name": "sysRateDTO",
+             "type": "message:alibaba.product.DeliverySysRateDTO",
+             "required": true,
+             "description": "系统子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliverySysRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重（单位：克）或续件（单位：件）单位",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "name": "logisticsSubTemplate",
+         "type": "message:alibaba.product.DeliverySubTemplateDetailDTO",
+         "required": true,
+         "description": "货运子模版",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.product.DeliverySubTemplateDetailDTO",
+         "fields": [
+          {
+           "name": "subTemplateDTO",
+           "type": "message:alibaba.product.DeliverySubTemplateDTO",
+           "required": true,
+           "description": "子模板",
+           "exampleValue": "{}",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliverySubTemplateDTO",
+           "fields": [
+            {
+             "name": "chargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "计件类型。0:重量 1:件数 2:体积",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "isSysTemplate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceChargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "运费承担类型 卖家承担：0；买家承担：1。",
+             "exampleValue": "1",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceType",
+             "type": "Integer",
+             "required": true,
+             "description": "服务类型。0:快递 1:货运 2:货到付款",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "type",
+             "type": "Integer",
+             "required": true,
+             "description": "子模板类型 0基准 1增值。默认0。",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          },
+          {
+           "name": "rateList",
+           "type": "message:alibaba.product.DeliveryRateDetailDTO[]",
+           "required": true,
+           "description": "费率",
+           "exampleValue": "[]",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliveryRateDetailDTO[]",
+           "fields": [
+            {
+             "name": "isSysRate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "toAreaCodeText",
+             "type": "String",
+             "required": true,
+             "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+             "exampleValue": "上海、福建省、广东省",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "rateDTO",
+             "type": "message:alibaba.product.DeliveryRateDTO",
+             "required": true,
+             "description": "普通子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliveryRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重件单位",
+               "exampleValue": "2",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            },
+            {
+             "name": "sysRateDTO",
+             "type": "message:alibaba.product.DeliverySysRateDTO",
+             "required": true,
+             "description": "系统子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliverySysRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重（单位：克）或续件（单位：件）单位",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "name": "codSubTemplate",
+         "type": "message:alibaba.product.DeliverySubTemplateDetailDTO",
+         "required": true,
+         "description": "货到付款子模版",
+         "exampleValue": "{}",
+         "defaultValue": null,
+         "complexTypeFlag": true,
+         "typeName": "alibaba.product.DeliverySubTemplateDetailDTO",
+         "fields": [
+          {
+           "name": "subTemplateDTO",
+           "type": "message:alibaba.product.DeliverySubTemplateDTO",
+           "required": true,
+           "description": "子模板",
+           "exampleValue": "{}",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliverySubTemplateDTO",
+           "fields": [
+            {
+             "name": "chargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "计件类型。0:重量 1:件数 2:体积",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "isSysTemplate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceChargeType",
+             "type": "Integer",
+             "required": true,
+             "description": "运费承担类型 卖家承担：0；买家承担：1。",
+             "exampleValue": "1",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "serviceType",
+             "type": "Integer",
+             "required": true,
+             "description": "服务类型。0:快递 1:货运 2:货到付款",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "type",
+             "type": "Integer",
+             "required": true,
+             "description": "子模板类型 0基准 1增值。默认0。",
+             "exampleValue": "0",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            }
+           ]
+          },
+          {
+           "name": "rateList",
+           "type": "message:alibaba.product.DeliveryRateDetailDTO[]",
+           "required": true,
+           "description": "费率",
+           "exampleValue": "[]",
+           "defaultValue": null,
+           "complexTypeFlag": true,
+           "typeName": "alibaba.product.DeliveryRateDetailDTO[]",
+           "fields": [
+            {
+             "name": "isSysRate",
+             "type": "Boolean",
+             "required": true,
+             "description": "是否系统模板",
+             "exampleValue": "false",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "toAreaCodeText",
+             "type": "String",
+             "required": true,
+             "description": "地址编码文本，用顿号隔开。例如：上海、福建省、广东省",
+             "exampleValue": "上海、福建省、广东省",
+             "defaultValue": null,
+             "complexTypeFlag": false,
+             "typeName": null
+            },
+            {
+             "name": "rateDTO",
+             "type": "message:alibaba.product.DeliveryRateDTO",
+             "required": true,
+             "description": "普通子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliveryRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重件单位",
+               "exampleValue": "2",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            },
+            {
+             "name": "sysRateDTO",
+             "type": "message:alibaba.product.DeliverySysRateDTO",
+             "required": true,
+             "description": "系统子模板费率",
+             "exampleValue": "{}",
+             "defaultValue": null,
+             "complexTypeFlag": true,
+             "typeName": "alibaba.product.DeliverySysRateDTO",
+             "fields": [
+              {
+               "name": "firstUnit",
+               "type": "Long",
+               "required": true,
+               "description": "首重（单位：克）或首件（单位：件）",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "firstUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "首重或首件的价格（单位：分）",
+               "exampleValue": "600",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "leastExpenses",
+               "type": "Long",
+               "required": true,
+               "description": "最低一票",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnit",
+               "type": "Long",
+               "required": true,
+               "description": "续重（单位：克）或续件（单位：件）单位",
+               "exampleValue": "1",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              },
+              {
+               "name": "nextUnitFee",
+               "type": "Long",
+               "required": true,
+               "description": "续重件价格（单位：分）",
+               "exampleValue": "100",
+               "defaultValue": null,
+               "complexTypeFlag": false,
+               "typeName": null
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "name": "channelPriceFreePostage",
+       "type": "Boolean",
+       "required": true,
+       "description": "厂货通渠道专享价是否包邮，要结合非包邮地址，如果收货地址在非包邮地区则商品为不包邮",
+       "exampleValue": "true",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "channelPriceExcludeAreaCodes",
+       "type": "message:com.alibaba.ocean.openplatform.biz.trade.result.ProductAddressCode[]",
+       "required": true,
+       "description": "厂货通渠道专享价非包邮地区（地址信息列表，省份信息）",
+       "exampleValue": "[{}]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.trade.result.ProductAddressCode[]",
+       "fields": [
+        {
+         "name": "code",
+         "type": "String",
+         "required": true,
+         "description": "地址编码",
+         "exampleValue": "620000",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "name",
+         "type": "String",
+         "required": true,
+         "description": "地址名称",
+         "exampleValue": "甘肃省",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "extendInfos",
+     "type": "message:alibaba.product.ProductExtendInfo[]",
+     "required": true,
+     "description": "商品扩展信息",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductExtendInfo[]",
+     "fields": [
+      {
+       "name": "key",
+       "type": "String",
+       "required": true,
+       "description": "扩展结构的key",
+       "exampleValue": "代销价格,consignPrice;\n买家保障,buyerProtection;",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "value",
+       "type": "String",
+       "required": true,
+       "description": "扩展结构的value",
+       "exampleValue": "代销价格,key为skuId，value为用户设置的代销价，\n示例：31151771910:2088.0;31151771909:2088.0;31151771908:2088.0;31152339121:2088.0;\n买家保障,string数组，value为买保全拼，\n示例：[&quot;psbj&quot;,&quot;swtwlybt&quot;,&quot;swtbh&quot;,&quot;ssbxsfh&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "supplierUserId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "供应商用户ID",
+     "exampleValue": "1234",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "qualityLevel",
+     "type": "Integer",
+     "required": true,
+     "description": "质量星级(1-7)",
+     "exampleValue": "5",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "supplierLoginId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "供应商loginId",
+     "exampleValue": "alitestforisv01",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "categoryName",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "类目名",
+     "exampleValue": "连衣裙",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "mainVedio",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "主图视频播放地址",
+     "exampleValue": "https://cloud.video.taobao.com/play/u/1685/p/1/e/6/t/1/5224**.mp4",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productCargoNumber",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "商品货号，产品属性中的货号",
+     "exampleValue": "666",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "crossBorderOffer",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否海外代发",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "referencePrice",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "参考价格，返回价格区间，可能为空",
+     "exampleValue": "500",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "createTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "创建时间",
+     "exampleValue": "20181213201638000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "lastUpdateTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "最后\b操作时间",
+     "exampleValue": "20181219175505000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "expireTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "过期时间",
+     "exampleValue": "20281216175505000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "modifyTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "修改时间",
+     "exampleValue": "20281216175505000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "approvedTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "审核时间",
+     "exampleValue": "20181219175505000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "lastRepostTime",
+     "type": "java.util.Date",
+     "required": true,
+     "description": "最后重发时间",
+     "exampleValue": "20181217090842000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "bookedCount",
+     "type": "String",
+     "required": true,
+     "description": "成交量",
+     "exampleValue": "1999",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productLine",
+     "type": "String",
+     "required": true,
+     "description": "产品线",
+     "exampleValue": "默认",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "detailVedio",
+     "type": "String",
+     "required": true,
+     "description": "详情视频",
+     "exampleValue": "https://cloud.video.taobao.com/play/u/1685/p/1/e/6/t/1/5224**.mp4",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "internationalTradeInfo",
+     "type": "message:alibaba.product.ProductInternationalTradeInfo",
+     "required": true,
+     "description": "商品国际贸易信息，1688无需处理此字段",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductInternationalTradeInfo",
+     "fields": [
+      {
+       "name": "fobCurrency",
+       "type": "String",
+       "required": true,
+       "description": "FOB价格货币，参见FAQ 货币枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fobMinPrice",
+       "type": "String",
+       "required": true,
+       "description": "FOB最小价格",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fobMaxPrice",
+       "type": "String",
+       "required": true,
+       "description": "FOB最大价格",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "fobUnitType",
+       "type": "String",
+       "required": true,
+       "description": "FOB计量单位，参见FAQ 计量单位枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "paymentMethods",
+       "type": "String[]",
+       "required": true,
+       "description": "付款方式，参见FAQ 付款方式枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minOrderQuantity",
+       "type": "Integer",
+       "required": true,
+       "description": "最小起订量",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minOrderUnitType",
+       "type": "String",
+       "required": true,
+       "description": "最小起订量计量单位，参见FAQ 计量单位枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplyQuantity",
+       "type": "Integer",
+       "required": true,
+       "description": "supplyQuantity",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplyUnitType",
+       "type": "String",
+       "required": true,
+       "description": "供货能力计量单位，参见FAQ 计量单位枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "supplyPeriodType",
+       "type": "String",
+       "required": true,
+       "description": "供货能力周期，参见FAQ 时间周期枚举值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "deliveryPort",
+       "type": "String",
+       "required": true,
+       "description": "发货港口",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "deliveryTime",
+       "type": "String",
+       "required": true,
+       "description": "发货期限",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "consignmentDate",
+       "type": "Integer",
+       "required": true,
+       "description": "新发货期限",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "packagingDesc",
+       "type": "String",
+       "required": true,
+       "description": "常规包装",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "bizGroupInfos",
+     "type": "message:alibaba.product.ProductBizGroupInfo[]",
+     "required": true,
+     "description": "产品业务的支持信息,support为false说明不支持.",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductBizGroupInfo[]",
+     "fields": [
+      {
+       "name": "support",
+       "type": "java.lang.Boolean",
+       "required": true,
+       "description": "是否支持",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "description",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "垂直市场名字，如微供市场、货品市场",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "code",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "垂直市场标记",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "sellerLoginId",
+     "type": "String",
+     "required": true,
+     "description": "卖家旺旺ID",
+     "exampleValue": "卖家旺旺ID",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "intelligentInfo",
+     "type": "message:com.alibaba.ocean.openplatform.biz.product.common.model.ProductIntelligentInfo",
+     "required": true,
+     "description": "商品算法智能改写信息，包含算法优化后的商品标题和图片信息，未改写的则直接返回原标题和原图片",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.product.common.model.ProductIntelligentInfo",
+     "fields": [
+      {
+       "name": "title",
+       "type": "String",
+       "required": true,
+       "description": "算法优化后的商品标题",
+       "exampleValue": "算法优化后的商品标题",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "images",
+       "type": "String[]",
+       "required": true,
+       "description": "算法优化后的商品图片",
+       "exampleValue": "[&quot;https://cbu01.alicdn.com/img/ibank/2020/932/210/13529012239_321095253.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "skuImages",
+       "type": "message:com.alibaba.ocean.openplatform.biz.product.common.model.SkuIntelligentInfo[]",
+       "required": true,
+       "description": "算法优化后的规格图片",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.product.common.model.SkuIntelligentInfo[]",
+       "fields": [
+        {
+         "name": "skuId",
+         "type": "Long",
+         "required": true,
+         "description": "skuId",
+         "exampleValue": "123433333",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "imageUrl",
+         "type": "String",
+         "required": true,
+         "description": "算法处理后的图片地址，未处理则返回原图片地址",
+         "exampleValue": "https://cbu01.alicdn.com/img/ibank/2020/932/210/13529012239_321095253.jpg",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "descriptionImages",
+       "type": "String[]",
+       "required": true,
+       "description": "算法优化后的详情图片",
+       "exampleValue": "[&quot;https://cbu01.alicdn.com/img/ibank/2020/932/210/13529012239_321095253.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "processing",
+     "type": "message:alibaba.product.ProductProcessing",
+     "required": false,
+     "description": "加工定制信息，传入此参数表示是加工定制产品",
+     "exampleValue": "默认",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductProcessing",
+     "fields": [
+      {
+       "name": "images",
+       "type": "String[]",
+       "required": true,
+       "description": "定制商品样图",
+       "exampleValue": "[&quot;https://1.jpg&quot;,&quot;https://1.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "customType",
+       "type": "String[]",
+       "required": true,
+       "description": "定制方式，可选值: processing、sku",
+       "exampleValue": "[&quot;processing&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minPrice",
+       "type": "Double",
+       "required": true,
+       "description": "价格区间的最低价\t",
+       "exampleValue": "10.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxPrice",
+       "type": "Double",
+       "required": true,
+       "description": "价格区间的最高价",
+       "exampleValue": "100.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minOrderQuantity",
+       "type": "Long",
+       "required": true,
+       "description": "最小起订量",
+       "exampleValue": "50",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "stockOfferIds",
+       "type": "Long[]",
+       "required": true,
+       "description": "关联现货商品的id列表",
+       "exampleValue": "[6386,6387]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "reserveRanges",
+       "type": "message:alibaba.product.ReserveRange[]",
+       "required": true,
+       "description": "出货周期\t",
+       "exampleValue": "[{&quot;quantity&quot;:100,&quot;period&quot;:10}]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.ReserveRange[]",
+       "fields": [
+        {
+         "name": "beginAmount",
+         "type": "Long",
+         "required": true,
+         "description": "订货数量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "date",
+         "type": "Integer",
+         "required": true,
+         "description": "预计出货时间（天）",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "endAmount",
+         "type": "Long",
+         "required": true,
+         "description": "订货截止数量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "quantity",
+         "type": "Long",
+         "required": true,
+         "description": "订货起订数量",
+         "exampleValue": "1000",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "period",
+         "type": "Integer",
+         "required": true,
+         "description": "预计出货时间（天）",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sampleInfo",
+       "type": "message:alibaba.product.SampleInfo",
+       "required": true,
+       "description": "打样信息\t",
+       "exampleValue": "\t{&quot;isSupportSample&quot;:true,&quot;price&quot;:10,&quot;period&quot;:2}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.SampleInfo",
+       "fields": [
+        {
+         "name": "price",
+         "type": "Double",
+         "required": true,
+         "description": "打样价格（单位：元）",
+         "exampleValue": "10.00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "period",
+         "type": "Integer",
+         "required": true,
+         "description": "打样周期（单位：天）",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSupportSample",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否支持打样",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "productProcessing",
+     "type": "message:alibaba.product.ProductProcessing",
+     "required": true,
+     "description": "加工定制信息",
+     "exampleValue": "默认",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ProductProcessing",
+     "fields": [
+      {
+       "name": "images",
+       "type": "String[]",
+       "required": true,
+       "description": "定制商品样图",
+       "exampleValue": "[&quot;https://1.jpg&quot;,&quot;https://1.jpg&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "customType",
+       "type": "String[]",
+       "required": true,
+       "description": "定制方式，可选值: processing、sku",
+       "exampleValue": "[&quot;processing&quot;]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minPrice",
+       "type": "Double",
+       "required": true,
+       "description": "价格区间的最低价\t",
+       "exampleValue": "10.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxPrice",
+       "type": "Double",
+       "required": true,
+       "description": "价格区间的最高价",
+       "exampleValue": "100.00",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minOrderQuantity",
+       "type": "Long",
+       "required": true,
+       "description": "最小起订量",
+       "exampleValue": "50",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "stockOfferIds",
+       "type": "Long[]",
+       "required": true,
+       "description": "关联现货商品的id列表",
+       "exampleValue": "[6386,6387]",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "reserveRanges",
+       "type": "message:alibaba.product.ReserveRange[]",
+       "required": true,
+       "description": "出货周期\t",
+       "exampleValue": "[{&quot;quantity&quot;:100,&quot;period&quot;:10}]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.ReserveRange[]",
+       "fields": [
+        {
+         "name": "beginAmount",
+         "type": "Long",
+         "required": true,
+         "description": "订货数量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "date",
+         "type": "Integer",
+         "required": true,
+         "description": "预计出货时间（天）",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "endAmount",
+         "type": "Long",
+         "required": true,
+         "description": "订货截止数量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "quantity",
+         "type": "Long",
+         "required": true,
+         "description": "订货起订数量",
+         "exampleValue": "1000",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "period",
+         "type": "Integer",
+         "required": true,
+         "description": "预计出货时间（天）",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "sampleInfo",
+       "type": "message:alibaba.product.SampleInfo",
+       "required": true,
+       "description": "打样信息\t",
+       "exampleValue": "\t{&quot;isSupportSample&quot;:true,&quot;price&quot;:10,&quot;period&quot;:2}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.SampleInfo",
+       "fields": [
+        {
+         "name": "price",
+         "type": "Double",
+         "required": true,
+         "description": "打样价格（单位：元）",
+         "exampleValue": "10.00",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "period",
+         "type": "Integer",
+         "required": true,
+         "description": "打样周期（单位：天）",
+         "exampleValue": "2",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "isSupportSample",
+         "type": "Boolean",
+         "required": true,
+         "description": "是否支持打样",
+         "exampleValue": "true",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "attributeChanges",
+     "type": "String[]",
+     "required": true,
+     "description": "商品修改的具体属性",
+     "exampleValue": "[image]",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productLineId",
+     "type": "Long",
+     "required": false,
+     "description": "产品线",
+     "exampleValue": "-1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "processingOfferId",
+     "type": "Long",
+     "required": true,
+     "description": "现货商品关联的定制商品id",
+     "exampleValue": "6388",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sevenDaysRefunds",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否支持七天无理由退货",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "privateChannelInfo",
+     "type": "message:com.alibaba.forGetcommon.model.PrivateChannelInfo",
+     "required": true,
+     "description": "商品私密价格信息",
+     "exampleValue": " ",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.forGetcommon.model.PrivateChannelInfo",
+     "fields": [
+      {
+       "name": "offerPrivatePriceInfo",
+       "type": "message:com.alibaba.forGet.common.model.OfferPrivatePriceInfo[]",
+       "required": true,
+       "description": "私密商品私密价格信息",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.forGet.common.model.OfferPrivatePriceInfo[]",
+       "fields": [
+        {
+         "name": "skuId",
+         "type": "Long",
+         "required": true,
+         "description": "skuid，非规格报价为0",
+         "exampleValue": "0",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "privatePriceInfo",
+         "type": "String",
+         "required": true,
+         "description": "具体会员等级价格（普通，高级，vip，至尊vip，初级）注意会员顺序",
+         "exampleValue": "[]",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "reserveInfo",
+     "type": "message:alibaba.product.ReserveInfo",
+     "required": true,
+     "description": "订货数据",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.product.ReserveInfo",
+     "fields": [
+      {
+       "name": "supportReserve",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否支持订货",
+       "exampleValue": "false",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "minQuantity",
+       "type": "Long",
+       "required": true,
+       "description": "最小订货量",
+       "exampleValue": "10",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "maxQuantity",
+       "type": "Long",
+       "required": true,
+       "description": "最大订货量",
+       "exampleValue": "1000",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "reserveRangeInfos",
+       "type": "message:alibaba.product.ReserveRangeInfo[]",
+       "required": true,
+       "description": "订货区间信息",
+       "exampleValue": "[]",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "alibaba.product.ReserveRangeInfo[]",
+       "fields": [
+        {
+         "name": "quantity",
+         "type": "Long",
+         "required": true,
+         "description": "订货数量",
+         "exampleValue": "1000",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "period",
+         "type": "Integer",
+         "required": true,
+         "description": "出货时间(天)",
+         "exampleValue": "10",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "sellStartTime",
+     "type": "Date",
+     "required": true,
+     "description": "预售开售时间",
+     "exampleValue": "20181219175505000+0800",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "productOfficialLogisticsModel",
+     "type": "message:com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsModel",
+     "required": true,
+     "description": "官方物流件重尺模型",
+     "exampleValue": "{}",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsModel",
+     "fields": [
+      {
+       "name": "officialLogisticsInfoModel",
+       "type": "message:com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsInfoModel",
+       "required": true,
+       "description": "无sku时，官方商品物流模型，长宽高等",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsInfoModel",
+       "fields": [
+        {
+         "name": "length",
+         "type": "Double",
+         "required": true,
+         "description": "长",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "width",
+         "type": "Double",
+         "required": true,
+         "description": "宽",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "height",
+         "type": "Double",
+         "required": true,
+         "description": "高",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "weight",
+         "type": "Long",
+         "required": true,
+         "description": "重量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "volume",
+         "type": "Double",
+         "required": true,
+         "description": "体积",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      },
+      {
+       "name": "officialLogisticsSkuInfoModels",
+       "type": "message:com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsSkuInfoModel[]",
+       "required": true,
+       "description": "有sku时，官方商品的sku的物流模型，长宽高等",
+       "exampleValue": "{}",
+       "defaultValue": null,
+       "complexTypeFlag": true,
+       "typeName": "com.alibaba.ocean.openplatform.biz.product.common.model.ProductOfficialLogisticsSkuInfoModel[]",
+       "fields": [
+        {
+         "name": "skuId",
+         "type": "Long",
+         "required": true,
+         "description": "skuid",
+         "exampleValue": "121315446134",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "specId",
+         "type": "String",
+         "required": true,
+         "description": "specid",
+         "exampleValue": "1o9KdfOwelir12934kDKFuikA87LIk",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "length",
+         "type": "Double",
+         "required": true,
+         "description": "长",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "width",
+         "type": "Double",
+         "required": true,
+         "description": "宽",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "height",
+         "type": "Double",
+         "required": true,
+         "description": "高",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "weight",
+         "type": "Long",
+         "required": true,
+         "description": "重量",
+         "exampleValue": "100",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        },
+        {
+         "name": "volume",
+         "type": "Double",
+         "required": true,
+         "description": "体积",
+         "exampleValue": "1",
+         "defaultValue": null,
+         "complexTypeFlag": false,
+         "typeName": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "bizGroupInfos",
+   "type": "message:alibaba.product.ProductBizGroupInfo[]",
+   "required": true,
+   "description": "产品业务的支持信息,support为false说明不支持.",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.product.ProductBizGroupInfo[]",
+   "fields": [
+    {
+     "name": "support",
+     "type": "java.lang.Boolean",
+     "required": true,
+     "description": "是否支持",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "description",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "垂直市场名字，如微供市场、货品市场",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "垂直市场标记",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "errMsg",
+   "type": "String",
+   "required": true,
+   "description": "返回错误信息",
+   "exampleValue": "商品[57053081292]不存在",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "商品[56550718212]不存在",
+   "desc": "商品[56550718212]不存在",
+   "howToFix": "检查商品ID是否正确"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "出参示例",
+   "sample": "{\n  &quot;productInfo&quot;: {\n    &quot;productID&quot;: 568791940008,\n    &quot;categoryID&quot;: 122204003,\n    &quot;status&quot;: &quot;published&quot;,\n    &quot;subject&quot;: &quot;天天特价pzy测试请不要拍-奶疗素-1对2&quot;,\n    &quot;description&quot;: &quot;&lt;p&gt;的范德萨发生&lt;/p&gt;&quot;,\n    &quot;image&quot;: {\n      &quot;images&quot;: [\n        &quot;img/ibank/2015/027/083/2685380720_409073960.jpg&quot;\n      ]\n    },\n    &quot;skuInfos&quot;: [\n      {\n        &quot;attributes&quot;: [\n          {\n            &quot;attributeID&quot;: 1654,\n            &quot;attributeValue&quot;: &quot;200mL&quot;\n          }\n        ],\n        &quot;cargoNumber&quot;: &quot;&quot;,\n        &quot;amountOnSale&quot;: 6000,\n        &quot;skuCode&quot;: &quot;3810851782509&quot;,\n        &quot;skuId&quot;: 3810851782509,\n        &quot;specId&quot;: &quot;e59a659a891496dc81829ef0e5b34d12&quot;\n      },\n      {\n        &quot;attributes&quot;: [\n          {\n            &quot;attributeID&quot;: 1654,\n            &quot;attributeValue&quot;: &quot;1000mL&quot;\n          }\n        ],\n        &quot;cargoNumber&quot;: &quot;&quot;,\n        &quot;amountOnSale&quot;: 500,\n        &quot;skuCode&quot;: &quot;3810851782510&quot;,\n        &quot;skuId&quot;: 3810851782510,\n        &quot;specId&quot;: &quot;a7776ca120e0ccf6cc14b191b6d68f2e&quot;\n      },\n      {\n        &quot;attributes&quot;: [\n          {\n            &quot;attributeID&quot;: 1654,\n            &quot;attributeValue&quot;: &quot;500ml&quot;\n          }\n        ],\n        &quot;cargoNumber&quot;: &quot;&quot;,\n        &quot;amountOnSale&quot;: 36,\n        &quot;skuCode&quot;: &quot;3810851782511&quot;,\n        &quot;skuId&quot;: 3810851782511,\n        &quot;specId&quot;: &quot;2a8cfead182437b1723d9622e18a98f3&quot;\n      }\n    ],\n    &quot;referencePrice&quot;: &quot;66.0&quot;\n  },\n  &quot;bizGroupInfos&quot;: [\n    {\n      &quot;support&quot;: false,\n      &quot;description&quot;: &quot;零售通&quot;,\n      &quot;code&quot;: &quot;isRetailOffer&quot;\n    },\n    {\n      &quot;support&quot;: false,\n      &quot;description&quot;: &quot;微供商品&quot;,\n      &quot;code&quot;: &quot;isMicroSupply&quot;\n    },\n    {\n      &quot;support&quot;: false,\n      &quot;description&quot;: &quot;1688企业内部商城&quot;,\n      &quot;code&quot;: &quot;isEMallOffer&quot;\n    },\n    {\n      &quot;support&quot;: true,\n      &quot;description&quot;: &quot;1688代销产品&quot;,\n      &quot;code&quot;: &quot;isConsignMarketOffer&quot;\n    },\n    {\n      &quot;support&quot;: false,\n      &quot;description&quot;: &quot;代发业务产品&quot;,\n      &quot;code&quot;: &quot;hasLinkedToSupplier&quot;\n    }\n  ]\n}",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "商品"
+}

@@ -1,0 +1,435 @@
+{
+ "namespace": "com.alibaba.product",
+ "name": "alibaba.category.attribute.get",
+ "version": 1,
+ "oceanApiId": "com.alibaba.product:alibaba.category.attribute.get-1",
+ "displayName": "获取叶子类目属性",
+ "billType": 0,
+ "description": "根据叶子类目ID获取类目属性",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "categoryID",
+   "type": "Long",
+   "required": true,
+   "description": "类目ID",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "webSite",
+   "type": "String",
+   "required": true,
+   "description": "站点信息，指定调用的API是属于国际站（alibaba）还是1688网站（1688）",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "scene",
+   "type": "String",
+   "required": false,
+   "description": "场景值，可选值为 空 和 processing，默认为空",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "attributes",
+   "type": "message:alibaba.category.AttributeInfo[]",
+   "required": true,
+   "description": "类目属性信息",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.category.AttributeInfo[]",
+   "fields": [
+    {
+     "name": "attrID",
+     "type": "Long",
+     "required": true,
+     "description": "属性id",
+     "exampleValue": "123",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "name",
+     "type": "String",
+     "required": true,
+     "description": "名称",
+     "exampleValue": "长度",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "required",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否必填属性",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "units",
+     "type": "String[]",
+     "required": true,
+     "description": "该属性的单位",
+     "exampleValue": "mm",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSKUAttribute",
+     "type": "Boolean",
+     "required": true,
+     "description": "该属性能否当成SKU属性",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attrValues",
+     "type": "message:alibaba.category.AttributeValueInfo[]",
+     "required": true,
+     "description": "属性可选的属性值",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.category.AttributeValueInfo[]",
+     "fields": [
+      {
+       "name": "attrValueID",
+       "type": "Long",
+       "required": true,
+       "description": "属性值id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "String",
+       "required": true,
+       "description": "名称",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "enName",
+       "type": "String",
+       "required": true,
+       "description": "英文名称",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "childAttrs",
+       "type": "Long[]",
+       "required": true,
+       "description": "该属性值的子属性id",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "isSKU",
+       "type": "Boolean",
+       "required": true,
+       "description": "是否SKU属性值",
+       "exampleValue": "",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "inputType",
+     "type": "String",
+     "required": true,
+     "description": "输入类型。\n下拉框:1,\n多选框:2\n单选框:3,\n文本输入框:0,\n数字输入框:-1,\n下拉框列表:4,\n日期：5",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSupportCustomizeValue",
+     "type": "Boolean",
+     "required": true,
+     "description": "用成SKU属性时，是否支持自定义属性值名称，1688不返回该信息",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSupportCustomizeImage",
+     "type": "Boolean",
+     "required": true,
+     "description": "用成SKU属性时，是否支持自定义图片展示，1688不返回该信息",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "enName",
+     "type": "String",
+     "required": true,
+     "description": "英文名称，1688无此属性",
+     "exampleValue": "length",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "parentAttrID",
+     "type": "String",
+     "required": true,
+     "description": "父属性ID，如果此值为空或零，则表示此属性为一级属性",
+     "exampleValue": "287",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "parentAttrValueID",
+     "type": "String",
+     "required": true,
+     "description": "父属性值ID，如果此值为空或零，则表示此属性为一级属性",
+     "exampleValue": "3737061",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "aspect",
+     "type": "String",
+     "required": true,
+     "description": "产品属性:0,\n交易属性:3,\nspu匹配属性:5",
+     "exampleValue": "0",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fieldType",
+     "type": "String",
+     "required": true,
+     "description": "类型，int：数字；string:字符串；enum：枚举",
+     "exampleValue": "enum",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "isSpecPicAttr",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否图片属性",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "firstLevel",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否为一级属性",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attrType",
+     "type": "String",
+     "required": true,
+     "description": "专业化类目，属性类型",
+     "exampleValue": "0：产品属性，1：规格属性，2：规格扩展属性",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sort",
+     "type": "Integer",
+     "required": true,
+     "description": "类目排序",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "recommendAttr",
+     "type": "Boolean",
+     "required": true,
+     "description": "是否推荐属性",
+     "exampleValue": "false",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "levelAttrRelList",
+   "type": "message:alibaba.category.PostLevelAttrRel[]",
+   "required": true,
+   "description": "(废弃)类目属性级联关系，只有1688业务返回返回该字段",
+   "exampleValue": "[]",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.category.PostLevelAttrRel[]",
+   "fields": [
+    {
+     "name": "fid",
+     "type": "int",
+     "required": true,
+     "description": "属性id",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "subFids",
+     "type": "int[]",
+     "required": true,
+     "description": "子关联属性",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "attrType",
+     "type": "int",
+     "required": true,
+     "description": "0和空都为现货属性层级关系，1为加工属性层级关系，后面其它的可加",
+     "exampleValue": "",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  },
+  {
+   "name": "attributeLevelMapStr",
+   "type": "java.util.Map",
+   "required": true,
+   "description": "级联信息字符串，可强转成map",
+   "exampleValue": "{&quot;1811:3289490&quot;:&quot;20602,2917380,7001&quot;,&quot;100000691:46874&gt;7108:21958&quot;:&quot;8243&quot;}",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误描述",
+   "exampleValue": "  ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码",
+   "exampleValue": "500_1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "success",
+   "type": "Boolean",
+   "required": true,
+   "description": "是否成功",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "500_2",
+   "desc": "数据准备中，请稍后重试。",
+   "howToFix": "数据正在后台加载，稍后重试，间隔时间建议1～3s"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回报文示例",
+   "sample": "{\n    &quot;attributeLevelMapStr&quot;:{\n        &quot;2489638:9955810&quot;:&quot;973&quot;\n    },\n    &quot;attributes&quot;:[\n        {\n            &quot;attrID&quot;:2489638,\n            &quot;name&quot;:&quot;风格类型&quot;,\n            &quot;required&quot;:true,\n            &quot;fieldType&quot;:&quot;enum&quot;,\n            &quot;isSKUAttribute&quot;:false,\n            &quot;attrValues&quot;:[\n                {\n                    &quot;attrValueID&quot;:91043051,\n                    &quot;name&quot;:&quot;气质通勤&quot;\n                }\n            ],\n            &quot;inputType&quot;:&quot;1&quot;,\n            &quot;aspect&quot;:&quot;0;&quot;,\n            &quot;isSpecPicAttr&quot;:false\n        }\n    ]\n}",
+   "type": "JSON"
+  },
+  {
+   "name": "关于级联属性map",
+   "sample": "map中保存了该类目所有可能的级联属性，以key-value对形式出现。\n其中，key为级联关系产生的条件。冒号前为属性id，冒号后面为属性值id\n&gt;表示层级关系\nvalue为满足级联条件后下级需要填写的属性。\n\n如：连衣裙类目的属性层级是：货源类别-&gt;是否库存-&gt;库存类型，即当&quot;货源类别&quot;属性为&quot;现货&quot;的时候，需要继续填写&quot;是否库存&quot;属性，当&quot;是否库存&quot;属性选择&quot;是&quot;，则需要继续填写&quot;库存类型&quot;属性。\n该级联属性的key-value对为 &quot;100000691:46874&gt;7108:21958&quot;:&quot;8243&quot;\n100000691（货源类别的属性ID）46874（现货的属性值ID）7108（是否库存的属性ID）21958（是的属性值ID）8243（库存类型的属性ID）",
+   "type": "TEXT"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "类目"
+}

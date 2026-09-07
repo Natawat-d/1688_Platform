@@ -1,0 +1,178 @@
+{
+ "namespace": "com.alibaba.trade",
+ "name": "alibaba.trade.payWay.query",
+ "version": 1,
+ "oceanApiId": "com.alibaba.trade:alibaba.trade.payWay.query-1",
+ "displayName": "查询订单可以支持的支付渠道",
+ "billType": null,
+ "description": "查询未支付订单可以使用的支付方式或者支付渠道",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "orderId",
+   "type": "String",
+   "required": true,
+   "description": "订单号",
+   "exampleValue": "123123",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "success",
+   "type": "String",
+   "required": true,
+   "description": "是否成功\t",
+   "exampleValue": "true",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorCode",
+   "type": "String",
+   "required": true,
+   "description": "错误码\t",
+   "exampleValue": "500_1",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "errorMsg",
+   "type": "String",
+   "required": true,
+   "description": "错误信息\t",
+   "exampleValue": " ",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "resultList",
+   "type": "message:alibaba.ocean.openplatform.biz.trade.result.TradePayTypeResult",
+   "required": true,
+   "description": "返回结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.ocean.openplatform.biz.trade.result.TradePayTypeResult",
+   "fields": [
+    {
+     "name": "channels",
+     "type": "message:alibaba.ocean.openplatform.biz.trade.result.PayTypeInfo[]",
+     "required": true,
+     "description": "可用支付渠道列表",
+     "exampleValue": "[]",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "alibaba.ocean.openplatform.biz.trade.result.PayTypeInfo[]",
+     "fields": [
+      {
+       "name": "code",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "支付渠道编码，1:支付宝 2:网商银行信任付 3:诚e赊 4:对公转账 5:赊销宝 6:电子承兑票据 7:账期支付 8:合并支付渠道 9:无打款 10:零售通赊购 12:声明付款 13:支付平台 14:网商电子银行承兑汇票 15:银行转账 16:跨境宝 17:红包 20:跨境宝 35:网商银行跨境直采",
+       "exampleValue": "1",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "name",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "支付渠道名称，1:支付宝 2:网商银行信任付 3:诚e赊 4:对公转账 5:赊销宝 6:电子承兑票据 7:账期支付 8:合并支付渠道 9:无打款 10:零售通赊购 12:声明付款 13:支付平台 14:网商电子银行承兑汇票 15:银行转账 16:跨境宝 17:红包 20:跨境宝 35:网商银行跨境直采",
+       "exampleValue": "支付宝",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    },
+    {
+     "name": "orderId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "订单号",
+     "exampleValue": "1231231211",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "payFee",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "支付金额，单位分",
+     "exampleValue": "100",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "timeout",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "最晚支付时间",
+     "exampleValue": "2018-10-01 00:00:00",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [
+  {
+   "code": "500_2",
+   "desc": "没有权限获取该订单可支付方式。",
+   "howToFix": "检查授权用户，授权账号为买家，且必须为买家主账号。"
+  }
+ ],
+ "apiDocSampleVOList": [
+  {
+   "name": "返回结果示例",
+   "sample": "{\n  &quot;resultList&quot;: {\n    &quot;channels&quot;: [\n      {\n        &quot;code&quot;: 1,\n        &quot;name&quot;: &quot;支付宝&quot;\n      }\n    ],\n    &quot;orderId&quot;: &quot;239695213738498520&quot;,\n    &quot;payFee&quot;: 32120,\n    &quot;timeout&quot;: &quot;2018-11-04 14:00:45&quot;\n  },\n  &quot;success&quot;: true\n}",
+   "type": "JSON"
+  }
+ ],
+ "returnExample": "[]",
+ "_category": "支付"
+}

@@ -1,0 +1,228 @@
+{
+ "namespace": "com.alibaba.fenxiao.crossborder",
+ "name": "pool.product.pull",
+ "version": 1,
+ "oceanApiId": "com.alibaba.fenxiao.crossborder:pool.product.pull-1",
+ "displayName": "拉取商品池中商品数据",
+ "billType": null,
+ "description": "通过商品池ID直接批量拉取池中商品数据",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "offerPoolQueryParam",
+   "type": "message:pool.product.pull.OfferPoolQueryParam",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "pool.product.pull.OfferPoolQueryParam",
+   "fields": [
+    {
+     "name": "offerPoolId",
+     "type": "java.lang.Long",
+     "required": true,
+     "description": "品池id（业务定制且有权限控制，从对接的业务获取，随便传会报错，寻源通代采建议走词搜接口）",
+     "exampleValue": "111",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "cateId",
+     "type": "java.lang.Long",
+     "required": false,
+     "description": "类目ID",
+     "exampleValue": "11",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "taskId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "查询任务ID，假如货盘有10000商品，每页1000个查询10次将10000商品查走，这10次都需要传同一个taskId，机构需要在分页查询的时候固定一个taskId留存下来，然后每次分页都传同一个taskId来查该接口",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "language",
+     "type": "java.lang.String",
+     "required": false,
+     "description": "语言",
+     "exampleValue": "en",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageNo",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "页码",
+     "exampleValue": "1",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "pageSize",
+     "type": "java.lang.Integer",
+     "required": true,
+     "description": "每页数量",
+     "exampleValue": "10",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sortField",
+     "type": "String",
+     "required": false,
+     "description": "排序字段",
+     "exampleValue": "order1m/buyer1m（order1m：最近1个月销售额排序；buyer1m：最近1个月买家数）",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "sortType",
+     "type": "String",
+     "required": false,
+     "description": "排序规则",
+     "exampleValue": "ASC/DESC",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:pool.product.pull.ResultModel",
+   "required": true,
+   "description": "",
+   "exampleValue": "",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "pool.product.pull.ResultModel",
+   "fields": [
+    {
+     "name": "success",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "是否成功",
+     "exampleValue": "true",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "code",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误码",
+     "exampleValue": "S0000",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "message",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "错误描述",
+     "exampleValue": "成功",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "result",
+     "type": "message:pool.product.pull.ProductPoolModel[]",
+     "required": true,
+     "description": "结果",
+     "exampleValue": "结果",
+     "defaultValue": null,
+     "complexTypeFlag": true,
+     "typeName": "pool.product.pull.ProductPoolModel[]",
+     "fields": [
+      {
+       "name": "offerId",
+       "type": "java.lang.Long",
+       "required": true,
+       "description": "商品ID",
+       "exampleValue": "111111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "bizCategoryId",
+       "type": "java.lang.String",
+       "required": true,
+       "description": "机构的类目ID",
+       "exampleValue": "111111",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      },
+      {
+       "name": "offerPoolTotal",
+       "type": "Integer",
+       "required": true,
+       "description": "商品池总数(每个offer都返回)",
+       "exampleValue": "122211",
+       "defaultValue": null,
+       "complexTypeFlag": false,
+       "typeName": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "工具"
+}

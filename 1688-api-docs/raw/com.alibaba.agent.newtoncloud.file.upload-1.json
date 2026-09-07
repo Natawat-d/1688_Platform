@@ -1,0 +1,134 @@
+{
+ "namespace": "com.alibaba.agent",
+ "name": "newtoncloud.file.upload",
+ "version": 1,
+ "oceanApiId": "com.alibaba.agent:newtoncloud.file.upload-1",
+ "displayName": "牛顿云-上传文件",
+ "billType": null,
+ "description": "上传本地文件到牛顿云 OSS，返回临时公网下载链接与稳定下载地址，可直接作为newtoncloud.task.create 的 fileUrls 参数使用。文件内容以 Base64 传入，建议单文件 ≤3MB",
+ "needAuth": true,
+ "needSignature": true,
+ "needTimestamp": false,
+ "apiSystemParamVOList": [
+  {
+   "name": "_aop_timestamp",
+   "type": "String",
+   "required": false,
+   "description": "请求时间戳",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "_aop_signature",
+   "type": "String",
+   "required": true,
+   "description": "请求签名",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  },
+  {
+   "name": "access_token",
+   "type": "String",
+   "required": true,
+   "description": "用户授权令牌",
+   "exampleValue": null,
+   "defaultValue": null,
+   "complexTypeFlag": null,
+   "typeName": null
+  }
+ ],
+ "apiAppParamVOList": [
+  {
+   "name": "contentBase64",
+   "type": "java.lang.String",
+   "required": true,
+   "description": "文件内容的 Base64 编码字符串，支持标准与 URL-safe 编码、data URI 前缀；建议原文件不超过 3MB",
+   "exampleValue": "iVBORw0KGgoAAAANSUhEUgAA...",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  },
+  {
+   "name": "filename",
+   "type": "String",
+   "required": true,
+   "description": "文件名，需包含扩展名",
+   "exampleValue": "报价单.xlsx",
+   "defaultValue": null,
+   "complexTypeFlag": false,
+   "typeName": null
+  }
+ ],
+ "apiReturnParamVOList": [
+  {
+   "name": "result",
+   "type": "message:alibaba.cbu.selleragent.api.newton.dto.NewtonCloudUploadResult",
+   "required": true,
+   "description": "牛顿云文件上传结果",
+   "exampleValue": "{}",
+   "defaultValue": null,
+   "complexTypeFlag": true,
+   "typeName": "alibaba.cbu.selleragent.api.newton.dto.NewtonCloudUploadResult",
+   "fields": [
+    {
+     "name": "downloadUrl",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "稳定下载地址，长期有效，需登录对应的 1688 账号后访问",
+     "exampleValue": "https://selleragent.1688.com/api/newton/cloud/files/download?relativePath=uploads%2F%E6%8A%A5%E4%BB%B7%E.xlsx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "eagleTraceId",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "链路追踪 ID",
+     "exampleValue": "213e1a2f17220000000001",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "fileSize",
+     "type": "long",
+     "required": true,
+     "description": "文件大小，单位字节",
+     "exampleValue": "102400",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "relativePath",
+     "type": "java.lang.String",
+     "required": true,
+     "description": "文件在牛顿云工作区的相对路径，可用于后续申请下载链接等操作",
+     "exampleValue": "uploads/报价单.xlsx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    },
+    {
+     "name": "agentDownloadUrl",
+     "type": "String",
+     "required": true,
+     "description": "免登录公网下载地址，可直接用于 task.create 的 fileUrls。",
+     "exampleValue": "https://selleragent.1688.com/api/seller/knowledge/file/download/xxx",
+     "defaultValue": null,
+     "complexTypeFlag": false,
+     "typeName": null
+    }
+   ]
+  }
+ ],
+ "apiErrorCodeVOList": [],
+ "apiDocSampleVOList": [],
+ "returnExample": "[]",
+ "_category": "询盘"
+}

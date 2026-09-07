@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: market
+    # 5432 on this machine belongs to another project, so ours is published on 5455.
+    ports: ["5455:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d market"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  stub:
+    build: { context: ., target: stub }
+    environment:
+      STUB_ADDR: ":8788"
+      STUB_BASE: "http://localhost:8788"
+      STUB_ACCESS_TOKEN: devtoken
+      STUB_APP_SECRET: devsecret
+      STUB_PRODUCTS: "300"
+      STUB_STATE_FILE: /state/stub-state.json
+      DOCS_DIR: /docs
+      PUSH_URL: "http://api:8787/api/hooks/1688"
+      STUB_SPEED: "20"
+    ports: ["8788:8788"]
+    volumes:
+      - ./1688-api-docs/ALL-APIS.json:/docs/ALL-APIS.json:ro
+      - stubstate:/state
+
+  api:
+    build: { context: ., target: api }
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      API_ADDR: ":8787"
+      DATABASE_URL: "postgres://app:app@db:5432/market?sslmode=disable"
+      ADMIN_TOKEN: dev
+      ALI_BASE_URL: "http://stub:8788"
+      ALI_APP_KEY: DEVKEY
+      ALI_APP_SECRET: devsecret
+      ALI_ACCESS_TOKEN: devtoken
+      STUB_BASE: "http://stub:8788"
+    ports: ["8787:8787"]
+
+volumes:
+  pgdata:
+  stubstate:

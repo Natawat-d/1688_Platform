@@ -1,0 +1,11 @@
+node_modules
+
+# Ignore the build output but keep the placeholder. A bare `dist` here would
+# exclude the directory itself, and git never descends into an excluded
+# directory, so the root .gitignore's `!/apps/web/dist/.gitkeep` could never
+# apply. That placeholder is what satisfies `//go:embed all:dist` in embed.go,
+# so without it a fresh clone fails to build.
+dist/*
+!dist/.gitkeep
+
+*.local

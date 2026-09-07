@@ -1,0 +1,60 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+
+.button {
+  width: 34px;
+  height: 34px;
+  font: inherit;
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.button:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.input {
+  width: 72px;
+  height: 34px;
+  padding: 0 8px;
+  font: inherit;
+  font-size: var(--fs-sm);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r);
+}
+
+.rule {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.compact .button {
+  width: 28px;
+  height: 28px;
+  font-size: var(--fs-md);
+}
+.compact .input {
+  width: 56px;
+  height: 28px;
+  font-size: var(--fs-xs);
+}
