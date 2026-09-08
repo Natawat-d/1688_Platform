@@ -33,6 +33,8 @@ apps/web  (React, Vite)  ──►  apps/api (Go :8787)  ──►  Postgres 17 
 | `internal/order` | checkout, relay, message handling, polling, timeline |
 | `internal/jobs` | background jobs on a Postgres table (`FOR UPDATE SKIP LOCKED`) |
 | `internal/api` | HTTP handlers and DTOs |
+| `deploy/` | one CloudFormation stack and the script that drives it — see [docs/deployment.md](docs/deployment.md) |
+| `docs/` | deployment guide |
 | `1688-api-docs/` | the archived 1688 documentation (143 APIs, 39 topics), consumed by the stub and by the contract tests |
 | `PLATFORM-PLAN.md` | the architecture plan this implements |
 | `scripts/orderflow.py` | drives one order through the whole pipeline; doubles as an end-to-end check |
@@ -77,34 +79,155 @@ arrays, unknown fields), `STUB_PUSH_JITTER` (reordered and duplicated messages),
 empty turns pushes off entirely; an order must still complete through polling and the
 documented replay APIs, and that is the acceptance test for the recovery path.
 
-## Deploying to AWS
+## The API
 
-```bash
-./deploy/deploy.sh            # build, push, deploy, seed — about fifteen minutes
-./deploy/deploy.sh status     # URLs and the generated tokens
-./deploy/deploy.sh logs       # tail the task
-./deploy/deploy.sh destroy    # remove everything
+One Go binary serves everything on port 8787: the JSON API below, and the React app itself
+from an embedded filesystem. Anything that is not `/api/*` and has no file extension returns
+the app shell, so client-side routes like `/p/900000000175` work on a hard refresh.
+
+Deployment lives in **[docs/deployment.md](docs/deployment.md)**.
+
+### Two conventions that run through every response
+
+**Money is an object, never a number.**
+
+```json
+{ "minor": "176100", "currency": "THB", "text": "฿1,761.00" }
 ```
 
-One CloudFormation stack in `deploy/cloudformation.yml` holds the lot: an ECS Fargate task
-running all three containers as siblings on localhost, exactly as Compose does locally, behind
-an Application Load Balancer and CloudFront. Roughly $40 a month; `aws ecs update-service
---desired-count 0` between demos takes it to about $18.
+`minor` is a string of minor units — satang for THB, fen for CNY — and `text` is preformatted
+for display. The browser renders `text` and never does currency arithmetic. Nothing in the
+system stores money as a float; the pricing engine has a test that fails the build if the word
+`float64` appears in it.
 
-The deploy runs in two passes on purpose. The stub stamps its own public origin into every
-product image URL, and those URLs are written into the database when the catalogue is imported.
-CloudFront's domain does not exist until the stack does, so the stack is created once to learn
-the domain and updated once to hand it back, before anything is imported.
+**Every identifier is a string.** 1688 order ids reach nineteen digits and `JSON.parse` in a
+browser silently corrupts any integer past 2^53. A test marshals every response type and fails
+if a bare integer of sixteen digits or more ever appears.
 
-Credentials are generated on first deploy into one Secrets Manager entry and injected as task
-secrets, never as plain environment values. `ENV=production` makes the backend refuse to start
-if any of them is still a development placeholder.
+### Storefront
 
-The storefront is public. The admin console, the settings API and the stub's cashier are
-restricted to the deploying machine's public address by a CloudFront function, because behind
-CloudFront the load balancer sees only CloudFront addresses and cannot do it. The stub's
-`/_control/*` plane is never routed from the internet at all, and is separately guarded by a
-token.
+No account is needed. A cart cookie identifies the shopper, and an order is addressed by its
+public id plus a URL secret issued at checkout.
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/api/health` | Liveness plus a real database ping. 503 when Postgres is unreachable. |
+| `GET` | `/api/categories` | Top-level categories with product counts. |
+| `GET` | `/api/products` | Search and browse. |
+| `GET` | `/api/products/{offerId}` | One product with SKUs, quantity tiers and shipping. |
+| `GET` | `/api/cart` | The cart, priced and grouped by supplier. |
+| `POST` | `/api/cart/items` | `{offerId, skuId, quantity}`. Returns the whole cart. |
+| `PATCH` | `/api/cart/items/{id}` | `{quantity}`. Zero removes the line. |
+| `DELETE` | `/api/cart/items/{id}` | Remove a line. |
+| `POST` | `/api/checkout` | `{email, name, phone, address}`. Validates against 1688 before creating anything. |
+| `POST` | `/api/orders/{publicId}/pay?t=` | Records payment, which releases the relay. |
+| `GET` | `/api/orders/{publicId}?t=` | Status, timeline, parcels and tracking events. |
+| `POST` | `/api/orders/{publicId}/cancel?t=` | Requests cancellation of every parcel. |
+
+**`GET /api/products`** takes `q`, `cat`, `min`, `max` (whole baht), `moq`, `instock`, `sort`
+(`relevance`, `price_asc`, `price_desc`, `sales`, `newest`), `page` and `size`.
+
+```json
+{ "total": 13, "page": 1, "size": 1, "items": [ {
+    "offerId": "900000000289",
+    "title": "Affordable-luxury PU Leather Shoulder Bag Factory Direct Wholesale",
+    "image": "https://…/img/900000000289/0.svg",
+    "priceFrom": { "minor": "196400", "currency": "THB", "text": "฿1,964.00" },
+    "moq": 5, "unit": "Piece", "monthSold": 10890,
+    "seller": { "openId": "YU4432…", "name": "东莞市长安镇精密五金厂", "score": "4.8" } } ] }
+```
+
+An English query goes through Postgres full-text search; a query containing Chinese takes a
+trigram path instead, because no bundled tokenizer segments Chinese.
+
+**`GET /api/products/{offerId}`** adds `titleZh`, `images`, `skus` (each with `specId`, stock
+and its own price), `tiers`, `mix`, `shipping` in grams and millimetres, `priceRange`,
+`quoteType` and `sellable`. Prices come from the same engine checkout uses, quoted at the
+minimum order quantity, so the shop cannot advertise a price it will not honour.
+
+**`GET /api/cart`** is where the business rules become visible:
+
+```json
+{ "groups": [ { "sellerOpenId": "RT6674…", "sellerName": "温州市瓯海区文具制造厂",
+      "parcels": 1,
+      "lines": [ { "id": "12", "quantity": 5, "stock": 5822,
+          "unit": { "minor": "176100", "currency": "THB", "text": "฿1,761.00" },
+          "breakdown": { "base": {…}, "freight": {…}, "intl": {…}, "fee": {…},
+                         "fxPpm": "4900000", "feeRuleId": "1" } } ],
+      "issues": [ { "code": "500_005", "field": "900000000175",
+                    "message": "Minimum order is 5 pieces for this product" } ],
+      "subtotal": {…} } ],
+  "totals": { "goods": {…}, "chinaFreight": {…}, "intl": {…}, "fee": {…}, "total": {…} },
+  "checkoutable": false, "count": 5 }
+```
+
+Lines group by supplier because each group becomes one 1688 order, split further at fifty
+SKUs, so `parcels` tells the shopper how many deliveries to expect **before** paying. The
+`issues` codes are 1688's own — `500_004` stock, `500_005` minimum order, `500_006` mixed
+batch — so our gate and the gateway's gate speak one vocabulary. `breakdown` is per unit and
+in CNY: it is what the storefront's "how this price is made" panel renders.
+
+**`POST /api/checkout`** calls the gateway's order preview for every supplier group **before**
+anything is created or charged. A supplier that cannot accept API orders, a price that has
+drifted beyond tolerance, or any stock or minimum-order problem comes back as `409` with the
+same `issues` shape. On success:
+
+```json
+{ "orderId": "MK-2026-000001", "token": "46e4a335…", "parcels": 2,
+  "total": {…}, "payUrl": "/order/MK-2026-000001?t=46e4a335…" }
+```
+
+Keep `token`: it is the only thing authorising later access to that order.
+
+**`GET /api/orders/{publicId}?t=`** returns totals, items with their price breakdown, a fixed
+eight-step `timeline` where each step carries `done`, `at` and sometimes `detail`
+("1 of 2 parcels"), and a `parcels` array with the 1688 order id, carrier, tracking number and
+every tracking event with its `source` — `message` when a push arrived, `poll` when the
+periodic sweep found it. Both paths write the same events and converge on a dedupe key, so
+duplicates are impossible and neither is required for correctness.
+
+### Admin
+
+Every route below needs `Authorization: Bearer <ADMIN_TOKEN>`, compared in constant time. On a
+deployment they are additionally restricted by source address.
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` `PUT` | `/api/admin/settings` | FX rate, rounding, international rate, warehouse address, tolerances. A change that moves prices enqueues a reprice. |
+| `GET` `POST` | `/api/admin/fee-rules` | List and create fee rules. |
+| `PUT` `DELETE` | `/api/admin/fee-rules/{id}` | Edit and remove. |
+| `POST` | `/api/admin/fee-rules/preview` | `{offerId, skuId, quantity}` → the full breakdown. The fastest way to see what a rule change does. |
+| `POST` | `/api/admin/import` | `{all}`, `{keyword, pages}` or `{offerIds}`. Queues a catalogue import. |
+| `GET` `PATCH` | `/api/admin/products[/{offerId}]` | Browse everything including hidden items; toggle visibility. |
+| `GET` | `/api/admin/orders[/{id}]` | Orders with their supplier orders and raw gateway payloads. |
+| `POST` | `/api/admin/supplier-orders/{id}/relay` | Retry a stalled relay or payment. |
+| `POST` | `/api/admin/supplier-orders/{id}/cancel` | `{reason, remark}`. Scheduled past the ten-second window 1688 refuses inside. |
+| `GET` `POST` | `/api/admin/jobs[/{id}/retry]` | The background queue, including dead jobs. |
+| `GET` | `/api/admin/api-calls` | Every gateway call with timing and result. |
+| `GET` | `/api/admin/messages` | Every inbound push, whether it applied, and why not. |
+| `ANY` | `/api/admin/stub/*` | Proxied to the stub's control plane. 404s when no stub is configured, which is what happens at go-live. |
+
+A fee rule is scoped `global`, `category`, `supplier` or `product`, carries `feeBps`,
+`feeFixedFen`, `minFeeFen`, a `priority` and an effective window. The winner is chosen by
+priority, then by scope specificity.
+
+### The gateway webhook
+
+`POST /api/hooks/1688` takes push messages. It accepts a bare envelope, a list, or either
+wrapped in `pushMessageList`, as JSON or as a form field, because the documentation defines
+the envelope and says nothing about the delivery.
+
+Authenticity is checked first: the body must carry `X-Aop-Signature`, an HMAC-SHA1 under the
+app secret, or the request is rejected with 401. Then message id, which is the primary key of
+`message_events`, makes replays and duplicates cost one rejected insert. A reply of
+`{"isSuccess":true}` acknowledges.
+
+### Errors
+
+Failures are `{"error": "<kind>", "message": "<something a person can act on>"}`, plus
+`issues` on a 409 from checkout. `400` malformed, `401` bad or missing token, `404` unknown or
+wrong URL secret, `409` the cart or the supplier refused, `500` ours, `503` the database is
+unreachable.
 
 ## Where it is honest about guessing
 
